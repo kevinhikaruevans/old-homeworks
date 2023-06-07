@@ -1,0 +1,82 @@
+\documentclass{homework}
+
+\title{Problem Set 6}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 19, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{tcolorbox}
+\usepackage{mathrsfs}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Given the parameters \begin{align*}
+			\lambda & = \SI{589}{\nm} \\
+			s & = \SI{2.25}{\m} \\
+			\Delta y & = \SI{0.5}{\centi\m}
+			\intertext{The distance between the slits $a$ is found as}
+			\Delta y & \approx \frac{s}{a} \lambda \\
+			a & = \frac{s}{\Delta y} \lambda \\
+				& = \frac{2.25}{\num{0.5e-2}} \num{589e-9} \qquad [\si{\m}] \\
+				& = \SI{265}{\um}
+		\end{align*}
+	
+		\item From the derivation in-class, we can pick a coating with index of refraction 
+		\[ n_2 = \sqrt{1.5} = 1.22 \]
+		The coating thickness can have a thickness \begin{align*}
+			d & = \left(2 m + 1\right) \pi \frac{\lambda_0}{4 \pi n_2}
+			\intertext{For $m=2$,}
+			d_2 & = 5 \pi \frac{\SI{800}{\nm}}{4 \pi 1.22} \\
+				& = \SI{833}{\nm}
+		\end{align*}
+	
+		\item For a reflectance of $R=0.99$, the finesse is \begin{align*}
+			\mathscr{F} & = \frac{\pi}{2} \frac{2 \sqrt{0.99}}{(1-0.99)} \approx 312.6
+			\intertext{Since the finesse is the separation over the width of the fringes,}
+			\mathscr{F}^{-1} & = \abs{\frac{\Delta \delta}{\delta}} = \abs{ \frac{\Delta \lambda}{\lambda} }
+		\end{align*}
+		\begin{enumerate}
+			\item $\Delta \lambda = \SI{633}{\nm} / 312.6 = \SI{2.03}{\nm}$
+			\item $\Delta \nu = \frac{c}{\lambda^2} \Delta \lambda = \SI{1.52}{\kHz}$
+		\end{enumerate}
+	
+		\item Given the parameters, \begin{align*}
+			N & = 92 \text{ fringe pairs} \\
+			\Delta d & = \SI{2.53e-5}{\m}
+			\intertext{The wavelength of the light is determined as}
+			\Delta d & = N \left(\lambda_0 / 2\right) \\
+			\lambda_0 & = \SI{550}{\nm}
+		\end{align*}
+	
+		\item From the intensity $I = 2I_0 (1 + \cos\delta)$, $I_\mathrm{max} = 4 I_0$. Half intensity would then occur at $2I_0$, \begin{align*}
+			2I_0 & = 2I_0 (1 + \cos \delta) \\
+			0 & = \cos \delta
+			\intertext{This occurs at $\delta = \left(n + 1/2\right)\pi$. Between adjacent maxima, there is $\pi / 2$ difference.}
+			\intertext{The finesse is the ratio of separation between peaks relative to the full width, i.e.}
+			\mathscr{F} & = \frac{2 \pi}{\pi / 2} = 4
+		\end{align*}
+	\end{enumerate}
+\end{document}

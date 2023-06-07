@@ -1,0 +1,57 @@
+\documentclass{homework}
+
+\title{Problem Set 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 18, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{tcolorbox}
+\usepackage{mathrsfs}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item The angle between the two stars is \begin{align*}
+			\theta & = \tan[-1](\frac{\SI{50e6}{\km}}{\SI{10}{ly}}) \\
+				& = \SI{5.285e-7}{\radian}
+			\intertext{From the Rayleigh criterion,}
+			\sin(\theta) & = 1.22 \lambda / D \\
+			\sin(\num{5.285e-7}) & = 1.22 \left(\SI{500}{\nm}\right) / (2r) \\
+			r & = \SI{66.1}{\m}
+		\end{align*}
+		\item The forth secondary maxima is given by the grating equation for $N=2$ \begin{align*}
+			\gamma & = \frac{9 \pi}{4}
+			\intertext{For the forth secondary maxima and a zero of the envelope to coincide, $\beta = 1 \pi$, and the ratio is then}
+			\frac{b}{h} & = \frac{\beta}{\gamma} = 4 / 9
+		\end{align*}
+		\item For the sodium doublet, \begin{align*}
+			\Delta \lambda & = \SI{589.592}{\nm} - \SI{588.995}{\nm} \\
+				& = \SI{0.597}{\nm} \\
+			\mathrm{RP} & = nN = \frac{\lambda}{\Delta \lambda} \\
+				N & = \frac{\SI{589.2935}{\nm}}{\SI{0.597}{\nm}} \\
+				& = 987 \text{ lines }
+		\end{align*}
+	\end{enumerate}
+\end{document}

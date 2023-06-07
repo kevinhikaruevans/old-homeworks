@@ -1,0 +1,248 @@
+\documentclass{homework}
+
+\title{Homework 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 4, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Read Chapters 2.2 and 1.6.
+		\item % 3.33
+			\begin{enumerate}
+				\item The system is now in $\psi_1$.
+				
+				\item We'll either measure $b_1$ or $b_2$. As the system was in $\psi_1$, we can just project the $\psi_1$ onto the new eigenstates, i.e. the probabilities of being in $\phi_1$ and $\phi_2$ are respectively \begin{align*}
+					P_1 & = \braket{\phi_1}{\psi_1}^2 = 9/25  \\
+					P_2 & = \braket{\phi_2}{\psi_1}^2 = 16/25.
+				\end{align*}
+				
+				\item Since we have now measured $B$, it's now in a superposition state with the probabilities above. To find the new state, we'll need to rearrange $\phi$ in terms of $\psi$ \begin{align*}
+					5 \psi_1 & = 3 \phi_1 + 4 \phi_2 \\
+					5 \psi_2 & = 4 \phi_1 - 3 \phi_2 \\ \\
+					\implies 20 \psi_1 & = 12 \phi_1 + 16 \phi_2 \\
+					15 \psi_2 & = 12 \phi_1 - 9 \phi_2 \\ \\
+					\implies 25 \phi_2 & = 20 \psi_1 - 15 \psi_2 \\
+					\Aboxed{ \phi_2 & = \left( 4 \psi_1 - 3 \psi_2 \right) / 5 } \\
+					5 \psi_1 & = 3 \phi_1 + (16/5) \psi_1 - (12/5) \psi_2 \\
+					\Aboxed{ \phi_1 & = \left(3 \psi_1 + 4 \psi_2\right) / 5. }
+				\end{align*}
+				So the superposition state looks something like
+				\[\frac{9}{25} \phi_1 + \frac{16}{25} \phi_2.\]
+				This means the probability of getting $a_1$ after measuring $A$ again is \begin{align*}
+					\braket{\psi_1}{\frac{9}{25} \phi_1 + \frac{16}{25} \phi_2}^2 & = \left(
+						\frac{9}{25} \frac{3}{5}
+						+ \frac{16}{25} \frac{4}{5}
+					\right)^2 \\
+						& \approx 0.53.
+				\end{align*}
+			\end{enumerate}
+		
+		\item % 2.4
+			For the $n$th state of an infinite square well, its wavefunction is \begin{align*}
+				\Psi_n(x, t) & = \sqrt{\frac{2}{a}} \sin( \frac{n \pi}{a} x) e^{-i (n^2 \pi^2 \hbar / 2 ma^2) t}.
+			\end{align*}
+			The expectation of the position $\expval{x}$ is \begin{align*}
+				\expval{x} & = \int \Psi^* x \Psi \dd{x} \\
+				\intertext{As the phase is imaginary and also doesn't depend on $x$,}
+				\expval{x} & = \frac{2}{a} \int_0^a x \sin[2](\frac{n\pi}{a} x) \dd{x} \\
+					& = \frac{2}{a} \frac{a^2}{4} \quad \text{ (WolframAlpha)} \\
+					& = \frac{a}{2}.
+				\intertext{This makes sense, as we'd intuitively expect this to be in the middle.}
+			\end{align*}
+			For $\expval{x^2}$, \begin{align*}
+				\expval{x^2} & = \int \Psi^* x^2 \Psi  \dd{x} \\
+					& = \frac{2}{a} \int_0^a x^2 \sin[2](\frac{n \pi}{a} x) \dd{x} \\
+					& = \frac{2}{a} \left[
+						\frac{a^3}{24 \pi^3 n^3} \left(
+							4 \pi^3 n^3
+							- 6 \pi n
+						\right)
+					\right] \quad \text{ (WolframAlpha)}\\
+					& = a^2 \left(\frac{1}{3} - \frac{1}{2\pi^2 n^2} \right).
+			\end{align*}
+		
+			For the momentum $\expval{p}$,  \begin{align*}
+				\expval{p} & = \int \Psi^* i \hbar \dv{x} \Psi \dd{x} \\
+					& = -i \hbar \int_0^a \Psi^* \dv{\Psi}{x} \dd{x} \\
+					& = -\frac{2 i \hbar }{a} \frac{n \pi}{a} \int_0^a \sin(\frac{n \pi}{a} x) \cos(\frac{n \pi}{a} x) \dd{x} \\
+					& = \dots \int_0^a \sin(\frac{2 n \pi}{a} x) \dd{x} \\
+					& = 0, \text{ because it's always over full cycles.}
+			\end{align*}
+		
+			For the momentum squared, $\expval{p^2}$, \begin{align*}
+				\expval{p^2} & = - \hbar^2 \int_0^a \Psi^* \dv[2]{\Psi}{x} \dd{x} \\
+					& = -\frac{2 \hbar^2}{a} \left( -\frac{n^2 \pi^2}{a^2} \right) \int_0^a \sin[2](\frac{n\pi}{a}x) \dd{x} \\
+					& = \frac{\hbar^2 \pi^2 n^2}{a^2}.  \quad \text{ (WolframAlpha)}
+			\end{align*}
+		
+			Now, for the corresponding deviations, \begin{align*}
+				{\sigma_x}^2 & = \expval{x^2} - \expval{x}^2 \\
+					& =  a^2 \left(\frac{1}{3} - \frac{1}{2\pi^2 n^2} \right) - \frac{a^2}{4} \\
+					& = \frac{a^2}{12} \left(1 - \frac{6}{\pi^2 n^2}\right). \\
+				{\sigma_p}^2 & = \expval{p^2} - \expval{p}^2 \\
+					& = \frac{\hbar^2 \pi^2 n^2}{a^2}.
+			\end{align*}
+			
+			Using the uncertainty principle, \begin{align*}
+				\sigma_x(n) \sigma_p(n) & = \sqrt{
+					\frac{\hbar^2 \pi^2 n^2 a^2}{12a^2} \left(1 - \frac{6}{\pi^2 n^2}\right)
+				} \\
+				& = \frac{ \hbar }{2} \pi n \sqrt{\frac{1}{3} \left( 1 - \frac{6}{\pi^2 n^2}\right)}.
+			\intertext{This satisfies the uncertainty principle as it's greater than $\hbar/2$. The closest state to the uncertainty limit is $n=1$,}
+			\eval{ \sigma_x \sigma_p }_{n=1} & = \frac{\hbar}{2} \pi \sqrt{
+					\frac{1}{3} \left(1 - \frac{6}{\pi^2}\right)
+				} \approx \frac{\hbar}{2} \times 1.136.
+			\end{align*}
+		\item % 2.5
+			\begin{enumerate}
+				\item To normalize this, we can use the orthogonality of the eigenstates with\begin{align*}
+					1 & = A^2\int  \left(\psi_1^* + \psi_2^*\right) \left(\psi_1 + \psi_2\right) \dd{x} \\
+						& = A^2 \int \abs{ \psi_1 }^2 + \abs{\psi_2}^2 \dd{x}.
+					\intertext{Assuming the eigenstates are already normalized,}
+					A & = \frac{1}{\sqrt{2}}.
+				\end{align*}
+			
+				\item Using (2.31) and adding in the time dependence, \begin{align*}
+					\Psi(x, t) & = \frac{1}{\sqrt{2}} \left[
+						\psi_1(x) e^{-i (\pi^2 \hbar / 2 ma^2)t}
+						+ \psi_2(x) e^{-i (4 \pi^2 \hbar / 2 ma^2)t}
+					\right] \\
+						& = \frac{1}{\sqrt{2}} \left[
+							\psi_1(x) e^{-i \omega t}
+							+ \psi_2(x) e^{-4i \omega t}
+						\right] \\
+						& = \frac{1}{\sqrt{a}} \left[
+							\sin(\pi x / a)e^{-i \omega t}
+							+ \sin(2 \pi x / a) e^{-4i \omega t}
+						\right].
+				\end{align*}
+				For the probability density, \begin{align*}
+					\abs{ \Psi(x, t) }^2 & = \frac{1}{a} \left(
+						\sin(\pi x / a)e^{i \omega t}
+						+ \sin(2 \pi x / a) e^{4i \omega t}
+					\right)
+					\left(
+					\sin(\pi x / a)e^{-i \omega t}
+					+ \sin(2 \pi x / a) e^{-4i \omega t}
+					\right) \\
+						& = \frac{1}{a} \left[
+							\sin[2](\pi x / a)
+							+ \sin[2](2 \pi x / a)
+							+ \sin(\pi x / a) 
+							\sin(2 \pi x / a)
+							\left( e^{3 i \omega t} + e^{-3i \omega t} \right)
+						\right] \\
+						& = \frac{1}{a} \left[
+						\sin[2](\pi x / a)
+						+ \sin[2](2 \pi x / a)
+						+ 2\sin(\pi x / a) 
+						\sin(2 \pi x / a)
+						\cos(3 \omega t)
+						\right].
+				\end{align*}
+				\item The expectation of $x$ is \begin{align*}
+					\expval{x} & = \frac{1}{a}\int x \left[
+						\sin[2](\pi x / a)
+							+ \sin[2](2 \pi x / a)
+							+ 2\sin(\pi x / a) 
+							\sin(2 \pi x / a)
+							\cos(3 \omega t)
+					\right] \dd{x}
+					\intertext{Using WolframAlpha to evaluate each term,}
+					\expval{x} & = \frac{1}{a} \left[
+						\frac{a^2}{4}
+						+ \frac{a^2}{4}
+						- \frac{8a^2}{9 \pi} \cos(3 \omega t)
+					\right] \\
+						& = a \left(
+							\frac{1}{2}
+							- \frac{8}{9 \pi} \cos(3 \omega t)
+						\right).
+				\end{align*}
+			
+				\item Using the hint and (1.33), \begin{align*}
+					\expval{p} & = m \dv{ \expval{x} }{t} \\ 
+						& = \frac{ 8ma\omega }{3 \pi} \sin(3 \omega t).
+				\end{align*}
+			
+				\item We can only get either eigenvalue $E_1$ or $E_2$ here. The coefficients and probabilities are equal as $1/2$ (as the normalization is $1/\sqrt{2}$). Taking the expectation of the $H$, \begin{align*}
+					\expval{H} & = \frac{1}{2}\int (\psi_1^* + \psi_2^*) \hat{H} (\psi_1 + \psi_2 ) \dd{x} \\
+						& = \frac{E_1 + E_2}{2} = \left(\frac{ \pi^2 \hbar^2}{2 ma^2} + \frac{4 \pi^2 \hbar^2}{2ma^2}\right) \\
+						& = \frac{5 \pi^2 \hbar^2}{2ma^2}.
+				\end{align*}
+			\end{enumerate}
+		\item % 2.6
+			Tacking on the additional phase to $\psi_2$, \begin{align*}
+			\Psi(x, t) & = \frac{1}{\sqrt{2}} \left[
+				\psi_1(x) e^{-i (\pi^2 \hbar / 2 ma^2)t}
+				+ \psi_2(x) e^{i \phi}e^{-i (4 \pi^2 \hbar / 2 ma^2)t}
+				\right] \\
+				& = \frac{1}{\sqrt{2}} \left[
+				\psi_1(x) e^{-i \omega t}
+				+ \psi_2(x) e^{i \phi }e^{-4i \omega t}
+				\right] \\
+				& = \frac{1}{\sqrt{a}} \left[
+				\sin(\pi x / a)e^{-i \omega t}
+				+ \sin(2 \pi x / a) e^{i \phi} e^{-4i \omega t}
+				\right]. \\
+			\abs{ \Psi(x, t) }^2 & = \frac{1}{a} \left(
+				\sin(\pi x / a)e^{i \omega t}
+				+ \sin(2 \pi x / a) e^{4i \omega t} e^{i \phi}
+				\right)
+				\left(
+				\sin(\pi x / a)e^{-i \omega t}
+				+ \sin(2 \pi x / a) e^{-4i \omega t} e^{-i \phi}
+				\right) \\
+				& = \frac{1}{a} \left[
+				\sin[2](\pi x / a)
+				+ \sin[2](2 \pi x / a)
+				+ \sin(\pi x / a) 
+				\sin(2 \pi x / a)
+				\left( e^{3 i \omega t + i \phi} + e^{-3i \omega t - i \phi} \right)
+				\right] \\
+				& = \frac{1}{a} \left[
+				\sin[2](\pi x / a)
+				+ \sin[2](2 \pi x / a)
+				+ 2\sin(\pi x / a) 
+				\sin(2 \pi x / a)
+				\cos(3 \omega t + \phi)
+				\right]. \\
+			\expval{x} & = \frac{1}{a} \left[
+				\frac{a^2}{4}
+				+ \frac{a^2}{4}
+				- \frac{8a^2}{9 \pi} \cos(3 \omega t + \phi)
+				\right] \\
+				& = a \left(
+				\frac{1}{2}
+				- \frac{8}{9 \pi} \cos(3 \omega t + \phi)
+				\right).
+			\end{align*}
+			For $\phi = \pi/2$, we're just shifted a quarter wave and the cosine becomes a sine. For $\phi=\pi$, it's just shifting it a half wave, so the cosine becomes a negative cosine.
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,25 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Three-dimensional plot of the Lorenz system.}}{8}{figure.caption.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Lyapunov exponent graphical approximation of the Lorenz system.}}{8}{figure.caption.7}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces An example of pulling back the perturbed wavefunction.}}{14}{figure.caption.10}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The effect of $g$ on the Lyapunov exponent. Note the cross represents the mean for that sample and the error bars denote the standard deviation from $N=5$ samples.\relax }}{17}{figure.caption.11}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Linear fit on positive coupling constant $g$ versus the Lyapunov exponent.\relax }}{17}{figure.caption.12}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Effect of solver tolerances on the Lyapunov exponent for the non-chaotic Schr\"odinger equation. The Lyapunov exponent is expected to return zero. For higher tolerances ($<\num {1e-10}$), the error is significantly increased indicating poor precision and solver failure.\relax }}{19}{figure.caption.14}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }

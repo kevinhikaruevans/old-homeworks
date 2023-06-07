@@ -1,0 +1,240 @@
+\documentclass{homework}
+
+\title{Homework 12}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{December 6, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\newcommand{\aplus}{\hat{a}_+}
+\newcommand{\aminus}{\hat{a}_-}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Study Chapter 4.4.
+		\item % 4.30
+			\begin{enumerate}
+				\item 			To normalize, we should satisfy \begin{align*}
+					1 & = \chi^\dagger \chi \\
+					& = A^2 \begin{pmatrix}
+						-3i \\ 4
+					\end{pmatrix} \begin{pmatrix}
+						3i & 4
+					\end{pmatrix} \\
+					& = A^2 \left[
+					-3i(3i)
+					+ 4(4)
+					\right] = 25 A^2\\
+					\Aboxed{ A & = 1/5. }
+				\end{align*}
+			
+				\item For $S_x = \frac{\hbar}{2} \sigma_x$, its expectation is \begin{align*}
+					\expval{S_x} & = \chi^\dagger S_x \chi = \frac{\hbar A^2}{2} \begin{pmatrix}
+						-3i & 4
+					\end{pmatrix} \begin{pmatrix}
+					0 & 1 \\
+					1 & 0 
+				\end{pmatrix} \begin{pmatrix}
+				3i \\ 4
+			\end{pmatrix}  \\
+				& = \frac{\hbar}{50} 
+					\begin{pmatrix}
+						-3i & 4
+					\end{pmatrix} \begin{pmatrix}
+					4 \\ 3i
+				\end{pmatrix} = \boxed{0.}
+				\end{align*}
+				Similarly for $S_y = \frac{\hbar}{2} \sigma_y$ and $S_z = \frac{\hbar}{2} \sigma_z$, 
+				\begin{align*}
+					\expval{S_y} & = \frac{\hbar}{50} \begin{pmatrix}
+						-3i & 4
+					\end{pmatrix} \begin{pmatrix}
+					0 & -i \\
+					i & 0
+				\end{pmatrix} \begin{pmatrix}
+					3i \\ 4
+				\end{pmatrix} \\
+				& = \frac{\hbar}{50} \begin{pmatrix}
+					-3i & 4
+				\end{pmatrix} \begin{pmatrix}
+					-4i \\ -3
+				\end{pmatrix} \\
+				& = \frac{\hbar}{50} \left(12i^2 - 12\right) = -\frac{24\hbar}{50} \\
+				& = \boxed{-\frac{12\hbar}{25}.}  \\
+				\expval{S_z} & = \frac{\hbar}{50} \begin{pmatrix}
+						-3i & 4
+					\end{pmatrix}
+					\begin{pmatrix}
+						1 & 0 \\
+						0 & -1
+					\end{pmatrix} \begin{pmatrix}
+					3i \\ 4
+				\end{pmatrix} \\
+				& = \frac{\hbar}{50} \begin{pmatrix}
+					-3i & 4
+				\end{pmatrix} \begin{pmatrix}
+					3i \\ -4
+				\end{pmatrix} \\
+				& = \frac{\hbar}{50} \left(
+					-9i^2 - 16
+				\right) \\
+				& = \boxed{ -\frac{7}{50}\hbar }
+%				& = \frac{\hbar}{50} \begin{pmatrix}
+%					-3i & 4
+%				\end{pmatrix} \begin{pmatrix}
+%					4 \\
+%					3i
+%				\end{pmatrix} \\
+%					\expval{S_z} & = \frac{\hbar}{50} \begin{pmatrix}
+%						-3i & 4
+%					\end{pmatrix} \begin{pmatrix}
+%								1 & 0 \\
+%								0 & -1
+%							\end{pmatrix} \begin{pmatrix}
+%							4 \\ 3i
+%						\end{pmatrix} \\
+%					& = \frac{\hbar}{50} \begin{pmatrix}
+%						-3i & 4 
+%					\end{pmatrix} \begin{pmatrix}
+%					4 \\ -3i
+%				\end{pmatrix} \\
+%					& = \boxed{-\frac{24\hbar}{50} i.}
+				\end{align*}
+			
+			\item To find the uncertainties, we should first find the expectation of the squared operators. Using WolframAlpha, the square of each Pauli matrix is the identity, \begin{align*}
+				{S_x}^2 & = {S_y}^2 = {S_z}^2 = \frac{\hbar}{2} \:\mathbb{I}_2.
+				\intertext{So, the expectations are also all the same,}
+				\expval{{S_x}^2} & = \expval{{S_y}^2} = \expval{{S_z}^2} \\
+					& = \frac{\hbar^2}{4} \quad \text{by normalization}
+				\intertext{The uncertainties are then}
+					\sigma_{S_x} & = \expval{{S_x}^2} - \expval{{S_x}}^2 \\
+						& = \frac{\hbar^2}{4} - 0 = \hbar^2/2. \\
+					\sigma_{S_y} & = \frac{\hbar^2}{4} - \frac{144\hbar^2}{25^2} = \frac{49}{2500} \hbar^2. \\
+					\sigma_{S_z} & = \frac{\hbar^2}{4} - \frac{49}{2500}\hbar^2 = \frac{1201}{2500} \hbar^2.
+				\end{align*}
+			
+			\item For the three permutations, \begin{align*}
+				\sigma_x \sigma_y & = \frac{7 \sqrt{2}}{100}\hbar^2 \ge \frac{7}{50}\hbar / 2 && \checkmark \\
+				\sigma_y \sigma_z & = \frac{58849}{6250000}\hbar^2 \ge  0 && \checkmark \\
+				\sigma_x \sigma_z & = \frac{49}{5000} \hbar^2 \ge 12/25\hbar &&  ?
+			\end{align*}
+			\end{enumerate}
+		\item % 4.31
+			For a generalized spinor $\chi = \begin{pmatrix}
+				a \\ b
+			\end{pmatrix}$, all those expectations are \begin{align*}
+				\expval{S_x} & = \frac{\hbar}{2} \begin{pmatrix}
+					a^* & b^*
+				\end{pmatrix} \begin{pmatrix}
+					0 & 1 \\
+					1 & 0
+				\end{pmatrix} \begin{pmatrix}
+				a \\ b
+			\end{pmatrix} \\
+			& = \frac{\hbar}{2} \left(a^* b + b^* a\right). \\
+			\expval{S_y} & = \frac{\hbar}{2} \begin{pmatrix}
+					a^* & b^*
+				\end{pmatrix} \begin{pmatrix}
+					0 & -i \\
+					i & 0 
+				\end{pmatrix} \begin{pmatrix}
+						a \\ b
+				\end{pmatrix} \\
+			& = \frac{\hbar}{2} \left(-a^* b + b^* a\right). \\
+		\expval{S_z} & = \frac{\hbar}{2} \begin{pmatrix}
+			a^* & b^*
+		\end{pmatrix} \begin{pmatrix}
+				1 & 0 \\
+				0 & -1 
+			\end{pmatrix} \begin{pmatrix}
+			a \\ b
+		\end{pmatrix} \\
+		& = \frac{\hbar}{2} \left(
+			a^*a - b^* b
+		\right).
+		\end{align*}
+			Then as \begin{align*}
+				{S_x}^2 & = {S_y}^2 = {S_z}^2 = \frac{\hbar^2}{4} \mathbb{I}_2, \\
+				\implies \expval{S_x^2} & = \expval{S_y^2} = \expval{S_z^2} \\
+					& = \frac{\hbar^2}{4} \left(a^*a + b^*b\right) = \frac{\hbar}{4}. \quad \text{(normalized)}
+				\intertext{So, the sum of these is}
+				\expval{S_x^2} + \expval{S_y^2} + \expval{S_z^2} & = \frac{3}{4}\hbar. 
+				\intertext{Using the eigenvalue definition of $\expval{S^2}$, these are equal,}
+				\hbar^2 s(s+1) & = \hbar^2 \frac{1}{2} \frac{3}{2} = \frac{3}{4} \hbar.
+			\end{align*}
+		\item % 4.32
+			\begin{enumerate}
+				\item For $S_y$, \begin{align*}
+					S_y & = \frac{\hbar}{2} \begin{pmatrix}
+						0 & -i \\
+						i & 0
+					\end{pmatrix}
+					\intertext{To find the eigenvalues, we need to first find when the determinate is zero,}
+					\begin{vmatrix}
+						-\lambda & -\hbar/2 \\
+						i \hbar/2 & -\lambda
+					\end{vmatrix} & = 0. \\
+					\lambda^2 -\hbar^2/4 & = 0 \\
+					\lambda & = \pm \hbar / 2.
+					\intertext{Plugging this into the eigenvalue problem to find the associated eigenvectors,}
+					\frac{\hbar}{2} \begin{pmatrix}
+						0 & -i \\
+						i & 0
+					\end{pmatrix} \begin{pmatrix}
+						\alpha \\ \beta
+					\end{pmatrix} & = \pm \frac{\hbar}{2} \begin{pmatrix}
+						\alpha \\ \beta
+					\end{pmatrix} \\
+					\begin{pmatrix}
+						-i \beta \\ i\alpha
+					\end{pmatrix} & = \pm \begin{pmatrix}
+							\alpha \\ \beta
+					\end{pmatrix}. \\
+					\implies -i \beta & = \pm \alpha \\
+					i\alpha & = \pm \beta.
+					\intertext{From inspection, the eigenvectors are }
+					\chi_\pm^{(y)} & = \frac{1}{\sqrt{2}}\begin{pmatrix}
+						1 \\
+						\pm i
+					\end{pmatrix}.
+				\end{align*}
+			
+				\item If we measure $S_y$ on a generalized spinor $\chi$, we will get either $\pm \hbar/2$. The corresponding probabilities are \begin{align*}
+					P^\pm & = \braket{\chi^\pm}{\chi}^2 \\
+						& = \frac{1}{2} \abs{ \begin{pmatrix}
+							1 & \mp i
+						\end{pmatrix} \begin{pmatrix}
+							a \\ b
+						\end{pmatrix}}^2 \\
+						& = \frac{1}{2} \abs{ a \mp ib }^2.
+					\intertext{These add up to 1 (on WolframAlpha).}
+				\end{align*}
+			
+				\item By Problem 3, we would get the expectation, $\hbar/4$ always.
+			\end{enumerate}
+	\end{enumerate}
+\end{document}

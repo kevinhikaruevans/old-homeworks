@@ -1,0 +1,118 @@
+\documentclass{homework}
+
+\title{Homework 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{January 27, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item From Gauss's Law, the electric field as a function of $r$ and $Q$ is \begin{align*}
+				\int \bvec{E} \cdot \dd{\bvec{a}} & = \frac{Q}{\epsilon_0} \\
+					\bvec{E}(r, Q) & = \frac{Q}{4 \pi \epsilon_0 r^2} \uvec{r}
+			\end{align*}
+		
+			\item From the definition of the potential, \begin{align*}
+				V & = - \int_b^a \bvec{E} \cdot \dd{\vec{\ell}} \\
+					& = -\frac{Q}{4 \pi \epsilon_0}  \int_b^a  r^{-2} \dd{r} \\
+					& = \frac{Q}{4 \pi \epsilon_0} \eval{ r^{-1} }_b^a \\
+					& = \frac{Q}{4 \pi \epsilon_0} \left(a^{-1} - b^{-1}\right)
+				\intertext{Solving for $Q$,}
+				Q(V) & = 4 \pi \epsilon_0 V \left(a^{-1} - b^{-1}\right)^{-1}
+			\end{align*}
+		
+			\item The current is found using (a) and (b), \begin{align*}
+				I & = \int \bvec{J} \cdot \dd{\bvec{a}} = \sigma \int \bvec{E} \cdot \dd{\bvec{a}} \\
+					& = \iint \left( \frac{\sigma}{4 \pi \epsilon_0} r^{-2} \right) \left[4 \pi \epsilon_0 V \left(a^{-1} - b^{-1}\right)\right] \underbrace{  r^2 \sin \theta \dd{\theta} \dd{\phi}}_{\dd{a}} \\
+					& = \frac{ 4 \pi \sigma V }{a^{-1} - b^{-1}}
+			\end{align*}
+		
+			\item The resistance is given by $V/I$, \begin{align*}
+				R & = \frac{a^{-1} - b^{-1}}{4 \pi \sigma}
+			\end{align*}
+		\end{enumerate}
+	
+		\item From the voltage and as the current is constant, \begin{align*}
+			V & = - \int \bvec{E} \cdot \dd{\bvec{l}} = - \int \frac{\bvec{J}}{\sigma} \cdot \dd{\bvec{l}} \\
+				& = - \int \frac{ \bvec{I} }{\sigma A} \cdot \dd{\bvec{l}} =  - \int_a^b \frac{I s^2}{k (2 \pi s L)} \dd{s} \\
+				& = \frac{I}{4 k \pi L} (a^2 - b^2)
+			\intertext{As the resistance is $V/I$,}
+			R & = \frac{a^2 - b^2}{4 k \pi L}
+		\end{align*}
+	
+		\item Since the power dissipated by the load is given by \begin{align*}
+			P & = I^2 R \\
+				& = \left(\frac{V^2}{(r + R)^2}\right) R
+			\intertext{The power is maximized when its derivative is $0$. Omitting the voltage $V$,}
+			\dv{P}{R} & = \frac{1}{(r + R)^2} - \frac{2R}{(r + R)^3} \\
+				& = \frac{r+R}{(r+R)^3}  - \frac{2R}{(r + R)^3} \\
+			0 & = \frac{r - R}{(r+R)^3}
+			\intertext{This occurs when $R=r$.}
+		\end{align*}
+	
+		\item \begin{enumerate}
+			\item The magnetic field from the wire is found using Ampere's law, \begin{align*}
+				B & = \frac{ \mu_0 I }{2 \pi s}
+				\intertext{Changing $s \to x$, the flux is}
+				\Phi & \equiv \int \bvec{B} \cdot \dd{\bvec{a}} \\
+					& = \frac{\mu_0 I }{2 \pi } \int_0^l \int_d^{d+w} x^{-1} \dd{x} \dd{y} \\
+					& = \frac{\mu_0 I l}{2 \pi} \ln(\frac{ d + w }{d})
+			\end{align*}
+		
+			\item The flux would change with $d = v t$, \begin{align*}
+				\Phi & = \frac{\mu_0 I l}{2 \pi} \ln(1 + \frac{w}{vt})
+				\intertext{The induced emf is}
+				\emf & = - \dv{\Phi}{t} \\
+					& = - \frac{\mu_0 I l}{2 \pi} \left(\frac{v}{vt + w} - \frac{1}{t}\right) \qquad \text{(WolframAlpha)}
+				\intertext{From Lenz's law, the induced current should flow counterclockwise.}
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item From Ampere's law, we can create an Amperian loop of length $L$, \begin{align*}
+				\oint \bvec{B} \cdot \dd{\bvec{l}} & = \mu_0 I_\mathrm{enc} \\
+				B L & = \mu_0 n L I(t) \\
+				B & = \mu_0 n I_0 \cos \omega t
+			\end{align*}
+		
+			\item The flux through the loop of radius $s$ is limited to the radius $a$ of the solenoid, as the magnetic field is zero outside of $a$. The flux is \begin{align*}
+				\Phi & = \int \bvec{B} \cdot \dd{\bvec{a}} \\
+					& = \left( \mu_0 n I_0 \cos \omega t\right) \left(\pi a^2\right)
+			\end{align*}
+			The induced emf is then \begin{align*}
+				\emf & = - \dv{\Phi}{t} \\
+					& = \mu_0 n I_0 \pi a^2 \omega \sin \omega t
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

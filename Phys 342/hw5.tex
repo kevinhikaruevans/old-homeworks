@@ -1,0 +1,119 @@
+\documentclass{homework}
+
+\title{Homework 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 3, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item  By the product rule, \begin{align*}
+				\div{\bvec{E}} & = \underbrace{ \exp(\dots) \div{\bvec{E}_0} }_{0} + \bvec{E}_0 \cdot \left(\grad{\exp[i(\bvec{k} \cdot \bvec{r} - \omega t)]}\right) \\
+				& = \bvec{E}_0 \cdot \left(i\bvec{k} \exp[i(\bvec{k} \cdot \bvec{r} - \omega t)]\right) \\
+				& = i\bvec{k} \cdot \bvec{E}
+			\end{align*}
+		
+			\item From the other product rule, \begin{align*}
+				\curl{\bvec{E}} & = \exp(\dots)(\curl{\bvec{E}_0}) - \bvec{E}_0 \cross \left(\grad{\exp[i(\bvec{k} \cdot \bvec{r} - \omega t)]}\right) \\
+					& = -\bvec{E}_0 \cross \left(i \bvec{k} \exp[i(\bvec{k} \cdot \bvec{r} - \omega t)] \right) \\
+					& = i\bvec{k} \cross \bvec{E}_0 \exp[i(\bvec{k} \cdot \bvec{r} - \omega t)] = i\bvec{k} \cross \bvec{E}
+			\end{align*}
+		\end{enumerate}
+		
+		\item \begin{enumerate}
+			\item From the discussion in-class, the only change would be the condition where \begin{align*}
+				T \left(\eval{ \pdv{f}{z} }_{0^+} - \eval{ \pdv{f}{z} }_{0^-} \right) & = m \pdv[2]{f}{t}
+			\end{align*}
+		
+			\item Using the waveforms of (9.25), \begin{align*}
+				\tilde{f}_z(t) & = \begin{cases} 
+					\tilde{A}_I  e^{i(k_1 z - \omega t)} + \tilde{A}_R e^{i(-k_1 z - \omega t)} & z < 0 \\
+					\tilde{A}_T e^{i(k_2 z - \omega t)} & z > 0
+					\end{cases}
+				\intertext{Then applying the boundary condition from (a) at $z=0^+$ and $z=0^-$,}
+				i T\left(k_2 \tilde{A}_T - \tilde{A}_I k_1 + \tilde{A}_R k_1\right) & = - m \left(\tilde{A}_T \omega^2 \right) = -m\omega^2 \left( \tilde{A}_I + \tilde{A}_R \right)
+				\intertext{And as the wave is continuous, as in (9.26),}
+				\tilde{A}_I + \tilde{A}_R & = \tilde{A}_T \\
+				\implies iT\left[k_2 A_T - A_I k_1 + k_1 (A_T - A_I)\right] & = -m A_T \omega^2 \\
+				\tilde{A}_T \left(i(k_1 + k_2) T + m \omega^2\right) & = 2 i k_1 T \tilde{A}_I \\
+				\tilde{A}_T & = \frac{2ik_1 T}{i(k_1 + k_2) T + m \omega^2} \tilde{A}_I
+				\intertext{For the reflected amplitude, we can just apply the continuous boundary condition,}
+				\tilde{A}_R & = \left( \frac{2ik_1 T}{i(k_1 + k_2) T + m \omega^2}  - 1\right) \tilde{A}_I
+			\end{align*}
+			Using WolframAlpha to simplify, for the magnitude and phase, \begin{align*}
+				A_T & = \sqrt{ A_T^* A_T } = \frac{2k_1 T}{\sqrt{(k_1 + k_2)T + m \omega^2}} A_I \\
+				A_I & = \sqrt{
+					\frac{(2k_1 T)^2}{(k_1 + k_2)T + m \omega^2} + 1
+				} \\
+				\delta_T & = \arctan(\Im{\tilde{A}_T} / \Re{\tilde{A}_T}) \\
+					& = \arctan(\frac{m \omega^2}{(k_1 + k_2)T}) \\
+				\delta_I & = \arctan(\frac{2k_1 T m \omega^2}{T^2(k_1 - k_2)^2 - (m \omega^2)^2})
+			\end{align*}
+		\end{enumerate}
+		
+		\item If the components are unequal in magnitude and phase, then the wave can be described like \begin{align*}
+			\tilde{A} & = \left(\tilde{A}_v \uvec{x} + \tilde{A}_h \uvec{y}\right) e^{i(kz - \omega t)} \\
+				& = \left(\frac{1}{2} A_h \uvec{x} + A_h e^{i \pi / 2} \uvec{y}\right) e^{i (kz - \omega t)}
+			\intertext{Taking the real part of the wave, it reduces to}
+			A(z, t) & = \left[ \left(\frac{A_h}{2}\right)^2 \cos[2](kz - \omega t) \uvec{x} + {A_h}^2 \sin[2](kz - \omega t) \uvec{y} \right]^{1/2}
+		\end{align*}
+		...which is the equation for an ellipse?
+		
+		\item Equating the radiation force to the gravitational force, \begin{align*}
+			F_\mathrm{rad} & = P_\mathrm{rad} A = m g_\mathrm{Mars}  \\
+			A & = \frac{ m c g_\mathrm{Mars} }{2I} \\
+				& = \frac{\left(\SI{1}{\kg} \times \SI{3.7}{\m\per\s\tothe{2}}\right) \times \SI{3e8}{\m\per\s}}{2 \times \SI{590}{\W\per\m\tothe{2}}} \\
+				& = \SI{940678}{\m\tothe{2}}
+		\end{align*}
+	
+		\item The electric and magnetic fields for circularly polarized light are \begin{align*}
+			E_x & = E_0 \cos(kz - \omega t) \\
+			E_y & = E_0 \sin(kz - \omega t) \\
+			\implies E^2 & = {E_0}^2\\
+			B_x & = \frac{E_0}{c} \sin(kz - \omega t) \\
+			B_y & = \frac{E_0}{c} \cos(kz - \omega t) \\
+			\implies B^2 & = \frac{{E_0}^2}{c^2}
+			\intertext{The elements of the Maxwell stress tensor are}
+			T_{xx} & = \epsilon_0 
+				{E_0}^2 \left( \cos[2](\theta) - \frac{1}{2} \right)
+				+ \frac{{E_0}^2}{\mu_0 c^2} \left( \sin[2](\theta) - \frac{1}{2} \right) = 0 \\
+			T_{yy} & = \epsilon_0 {E_0}^2 \left(\sin[2](\theta) - \frac{1}{2}\right) + \frac{{E_0}^2}{\mu_0 c^2} \left(\cos[2](\theta) - \frac{1}{2}\right) = 0\\
+			T_{zz} & = -\frac{\epsilon_0 {E_0}^2}{2} - \frac{{E_0}^2}{2\mu_0 c^2} = -\epsilon_0 {E_0}^2\\
+			T_{xy} & = T_{yx} = \epsilon_0 {E_0}^2  \cos\theta \sin \theta + \frac{{E_0}^2}{\mu_0 c^2} \sin\theta \cos \theta \\ 
+				& = 2 \epsilon_0 {E_0}^2 \sin \theta \cos \theta? \\
+			T_{xz} & = T_{zx} = T_{yz} = T_{zy} = 0 
+		\end{align*}
+		where $\theta = kz - \omega t$. The $T_{xy}$ and $T_{yx}$ should've been zero, probably, since the wave is traveling in the $z$ direction. Assuming those components were actually zero, then it's equal to the energy density, $u=\epsilon_0 E^2$.
+	\end{enumerate}
+\end{document}

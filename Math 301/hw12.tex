@@ -1,0 +1,116 @@
+\documentclass{homework}
+
+\title{Homework 12}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 26, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+\usepackage{amsthm}
+\newtheorem*{prop}{Proposition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item Reflexive: as $x R_1 x$ for all $x \in A$.
+			
+				Symmetric as $a R_1 b \implies b R_1 a$.
+				
+				Transitive as $a R_1 b$  and $b R_1 a$ implies $a R_1 a$.
+				
+			\item Not reflexive $(a, a) \notin R_2$.
+			
+				Not symmetric as $(a, b) \in R_2$, but $(b, a) \notin R_2$.
+				
+				Not transitive as $(a, b), (b, c) \in R_2$, but $(a, c) \notin R_2$.
+				
+			\item Not reflexive, $(a, a) \notin R_3$.
+			
+				Not symmetric as $(a, b) \in R_3$, but $(b, a) \notin R_2$.
+				
+				Transitive as there's no non-transitive pairs.
+		\end{enumerate}
+	
+		\item Not reflexive, as $\exists a \in A$ where $a \notin \varnothing$.
+		
+		Symmetric, as there is not a pair that is non-symmetric in $\varnothing$.
+		
+		Transitive, by the same logic as it being symmetric.
+		
+		\item \textit{Disproof.} There exists a relation that is both symmetric and transitive, but is not reflexive. 
+		
+		For example, a set $A = \{a, b, c\}$ and relation on $A$ as $R = \{(a, a), (b, b), (a, b), (b, a)\}$. The relation $R$ is symmetric and transitive, but is not reflexive as $(c, c) \notin R$.
+		
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				The relation $R = \{ (x, y) \in \mathbb{R} \cross \mathbb{R} : x - y \in \mathbb{Z}\}$ on $\mathbb{R}$ is an equivalence relation. 
+			\end{prop}
+			\begin{proof} \begin{enumerate}
+					\item \underline{Reflexive}. For $(x, x) \in \mathbb{R}^2$, $x-x = 0$ and $0 \in \mathbb{Z}$.
+					
+					\item \underline{Symmetric}. For $(x, y) \in \mathbb{R}^2$, as $x - y \in \mathbb{Z}$, then $y - x = -(x - y) \in \mathbb{Z}$ too.
+					
+					\item \underline{Transitive}. For $(x, y), (y, z) \in \mathbb{R}^2$, subtracting the two relations from another, \begin{align*}
+						x - y & \in \mathbb{Z} \\
+						y - z & \in \mathbb{Z}
+					\end{align*}
+					Then $x - z  \in \mathbb{Z}$ as subtraction is closed for integers, therefore $(x, z) \in R$.
+				\end{enumerate}
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{enumerate}
+			\item $R_1 = \{ (x, y) \in \mathbb{Z}^2 : 2^2 \times 2^{\abs{x-y}} - 1 \text{ is prime} \}$
+			\item $R_2 = \{ (x, y) \in \mathbb{Z}^2, 2^2 \times 2^{x - y} - 1 \text{ is prime} \}$
+			\item $R_3$ can be the not-equal operator on $\mathbb{Z}$, $\ne$.
+		\end{enumerate}
+		
+		\item Two classes, just by listing out the related elements: \begin{tabular}{c|l}
+			$[a]$ & $[d]$ \\ \midrule
+			$[b]$ & $[c]$ $[e]$
+		\end{tabular}
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				If $R$ and $S$ are two equivalence relations on a set $A$, then $R \cap S$ is also an equivalence relation on $A$.
+			\end{prop}
+			\begin{proof} Let $T = R \cap S$ and element $t \in T$.
+				
+				\begin{enumerate}
+					\item As $t$ is also an element of $R$ and $S$, $t R t$ and $t S t$. This implies $t T t$, thus $T$ is reflexive.
+					\item Suppose there exists element $u \in A$ where $(t, u) \in R$ and $(t, u) \in S$. Since $R$ and $S$ are equivalence relations, they are each symmetric and $(u, t) \in R$ and $(u, t) \in S$. Thus both $(t, u), (u, t) \in T$ and $T$ is symmetric.
+					
+					\item Additionally, suppose there exists elements $u, v \in A$ where each ordered pair belongs to $R$ and $S$: $(t, u) \wedge (u, v) \implies (t, v)$. Since this is true for $R$ and $S$, it must also exist within the intersection of $R$ and $S$, $(t, u) \in T \wedge (u, v) \in T \implies (t, v) \in T$; thus $T$ is transitive.
+				\end{enumerate}
+				
+			\end{proof}
+		\end{minipage}
+	
+		\item \textit{Disproof.} Let $A = \{ a, b, c \}$. $R=\{(a, a), (b, b), (c, c), (a, b), (b, a)\}$, $S=\{(a, a), (b, b), (c, c), (b, c), (c, b)\}$, i.e. where each relation has a different symmetric pair. For $R \cup S$ to be an equivalence relation it must be transitive. However, $(a, b), (b, c) \in (R \cup S)$ but $(a, c) \notin (R \cup S)$.
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,111 @@
+\documentclass{homework}
+
+\title{Homework 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{August 28, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+
+\begin{document}
+	\maketitle
+
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item This is a false statement, because all square matrices are not invertible.
+			\item This is a false statement, as the $\det$ is zero.
+			\item This is not a valid statement, since the qualifier of ``happy'' isn't well-defined. Also, ``clap your hands'' is not really a conclusion.
+			\item This is not a valid statement, as ``today'' is ambiguous. 
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item $\begin{aligned}[t]
+				P & : \text{The number $25$ is even} \\
+				Q & : \text{The number $25$ is a power of 3} \\
+				& \boxed{P \wedge Q}
+			\end{aligned}$
+			
+			\item $\begin{aligned}[t]
+			P & : \text{14 is a prime number} \\
+			& \boxed{\neg P}
+			\end{aligned}$
+			
+			\item $\begin{aligned}[t]
+			P & : \text{A number is even} \\
+			Q & : \text{A number is odd} \\
+			& \boxed{P \vee Q}
+			\end{aligned}$
+			
+			\item $\begin{aligned}[t]
+				P & : \text{I am not here} \\
+				Q & : \text{I am probably somewhere else} \\
+				& \boxed{P \implies Q}
+			\end{aligned}$
+		\end{enumerate}
+	
+		\item If $(P \implies Q) = 1$ and $\neg Q = 1$, then $Q=0$ and $P=0$, \begin{enumerate}
+			\item $P$ is false.
+			\item $P \vee Q = \left(0 \vee 0\right)$ is false.
+			\item $P \wedge Q = \left(0 \wedge 0\right)$ is also false.
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item \begin{tabular}[t]{ccc|c|c}
+				$P$ & $Q$ & $R$ & $Q \implies R$ & $P \vee \left(Q \implies R\right)$ \\
+				\midrule
+				$1$ & $1$ & $1$ & $1$ & $1$ \\
+				$1$ & $1$ & $0$ & $0$ & $1$\\
+				$1$ & $0$ & $1$ & $1$ & $1$ \\
+				$1$ & $0$ & $0$ & $1$ & $1$ \\
+				$0$ & $1$ & $1$ & $1$ & $1$\\
+				$0$ & $1$ & $0$ & $0$ & $0$\\
+				$0$ & $0$ & $1$ & $1$ & $1$\\
+				$0$ & $0$ & $0$ & $1$ & $1$\\
+			\end{tabular}
+		
+			\item \begin{tabular}[t]{cc|cc|c}
+				$P$ & $Q$ & $\neg P$ & $\left(P \wedge \neg P\right)$ & $\left(P \wedge \neg P\right) \vee Q$ \\
+				\midrule
+				$1$ & $1$ & $0$ & $0$ & $1$ \\
+				$1$ & $0$ & $0$ & $0$ & $0$\\
+				$0$ & $1$ & $1$ & $0$ & $1$\\
+				$0$ & $0$ & $1$ & $0$ & $0$\\
+			\end{tabular}
+			
+			The statement reduces to $Q$.
+			
+			\item \begin{tabular}[t]{cc|cc|c}
+				$P$ & $Q$ & $\neg P$ & $\left(P \vee \neg P\right)$ & $\left(P \vee \neg P\right) \wedge Q$ \\
+				\midrule
+				$1$ & $1$ & $0$ & $1$ & $1$ \\
+				$1$ & $0$ & $0$ & $1$ & $0$\\
+				$0$ & $1$ & $1$ & $1$ & $1$\\
+				$0$ & $0$ & $1$ & $1$ & $0$\\
+			\end{tabular}
+		
+			The statement reduces to $Q$ again.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

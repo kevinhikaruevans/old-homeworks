@@ -1,0 +1,81 @@
+\documentclass{homework}
+
+\title{Homework 3}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 10, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item[1.] \begin{enumerate}
+			\item All integers are a multiple of 2.
+			\item It's false, since $1 \in \mathbb{Z}$ and $1$ is not a multiple of $2$.
+			\item There is an integer that is not a multiple of 2.
+			\item $\exists \; x \in \mathbb{Z} : (x \text{ is not a multiple of }2)$
+		\end{enumerate}
+	
+		\item[2.] \begin{enumerate}
+			\item $\left(\sqrt{2} < x\right) \wedge \left(x < \sqrt{3}\right)$
+			\item $\begin{aligned}[t]
+				& \neg \left[\exists x \in \mathbb{Q}, \left(\sqrt{2} < x\right) \wedge \left(x < \sqrt{3}\right)\right] \\
+				& = \forall x \in \mathbb{Q}, \left(\sqrt{2} \ge x\right) \vee \left( x \ge \sqrt{3}\right)
+			\end{aligned}$
+			\item All rational numbers are equal to or less than $\sqrt{2}$, or equal to or greater than $\sqrt{3}$.
+		\end{enumerate}
+	
+		\item[3.] \begin{enumerate}
+			\item $\begin{aligned}[t]
+				E(x) & = x \text{ is even.} \\
+				O(x) & = x \text{ is odd.} \\
+				\forall x \in \mathbb{Z}, &  \: E(x) \oplus O(x) \qquad \text{where $\oplus$ is an XOR operator.}
+			\end{aligned}$
+			\item $\begin{aligned}[t]
+				\exists x \in \mathbb{Z}, \left( E(x) \wedge O(x) \right) \vee \left(\neg E(x) \wedge \neg O(x)\right)
+			\end{aligned}$
+			
+			\item There is an integer that is either: both an odd and even integer, or is neither an odd or even integer.
+		\end{enumerate}
+	
+		\item[4.] \begin{enumerate}
+			\item $\forall x \in \mathbb{Z}, E(x) \implies O(x + 1)$
+			\item $\exists x \in \mathbb{Z}, E(x) \wedge E(x+1)$
+			\item There is an integer that even and if you add one to that integer, it's also even.
+		\end{enumerate}
+	
+		\item[5.] \begin{enumerate}
+			\item ...$\forall \: x_1, x_2 \in \mathbb{R}, x_1 \le x_2 \implies f(x_1) \ge f(x_2)$
+			\item ...$\exists \: x_1, x_2 \in \mathbb{R}, x_1 \le x_2 \wedge f(x_1) < f(x_2)$
+		\end{enumerate}
+	
+		\item[6.] I'm going to define $\mathbb{R}^+$ as the set of positive real integers. \begin{enumerate}
+			\item ...$\forall x \in \mathbb{R}, \varepsilon \in \mathbb{R^+}, \exists \delta \in \mathbb{R^+}, \left(\abs{x - a} < \delta\right) \implies \left(\abs{f(x) - f(a)} < \varepsilon \right)$
+			
+			\item ...$\exists x \in \mathbb{R}, \varepsilon \in \mathbb{R}^+, \forall \delta \in \mathbb{R}^+, \left(\abs{x-a} < \delta\right) \wedge \left(\abs{f(x) - f(a)} \ge \varepsilon\right)$
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

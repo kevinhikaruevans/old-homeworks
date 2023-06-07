@@ -1,0 +1,107 @@
+\documentclass{homework}
+
+\title{Homework 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 4, 2021}
+\setclass{CptS}{466}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{itemize}
+				\item Microcomputer: a small computer with a microprocessor and other I/O within it, what you'd typically think of when you say ``computer.''
+				\item Microprocessor: a chip that executes instructions.
+				\item Microcontroller: a chip that contains a microprocessor, memory, I/O ports.
+			\end{itemize}
+		
+		\item An embedded system is a computer with a specific purpose, usually for real-time computing. Typically, the parts are minimized for a specific purpose and extraneous hardware is stripped out. 
+		
+		\item Digital watches, traffic lights, automotive, avionics, industrial (PLCs, etc). 
+		
+		\item Switches, USB, keyboard, touchscreen.
+		
+		\item Displays, USB, audio output.
+		
+		\item Flash ROM has a higher density, since RAM requires refresh lines and ROM does not.
+		
+		\item \begin{enumerate}[label={\arabic*.}]
+			\item C
+			\item D
+			\item A
+			\item B
+			\item E
+		\end{enumerate}
+			
+		\item \begin{itemize}
+			\item Bit: 1
+			
+			\item Nibble: 4
+			
+			\item Byte: 8
+			
+			\item Hword: 16
+			
+			\item Word: 32
+		\end{itemize}
+	
+		\item Unsigned numbers use all the bits for the magnitude of a number. A signed number has a specific bit to represent the sign of the number. In two's complement, for a negative number, the magnitude is inverted and $1$ is added to the number to represent the signed number. 
+		
+		\item \texttt{0100 1110 0001b}
+		
+			\texttt{2341h}
+			
+			\texttt{0x4E1}
+			
+			For a 32-bit sign-extended binary, \texttt{0000 $\dots$ 0100 1110 0001b}
+			
+		\item Inverting $1249$, we get $\texttt{1111 \dots 1011 0001 1110b}$. Then adding one, $\texttt{1111 \dots 1011 0001 1111b}$.
+		
+		\item In sign-magnitude, \texttt{1000 $\dots$ 0100 1110 0001b}.
+		
+		\item \begin{itemize}
+			\item $-10+12$: \begin{align*}
+				-10 & = (\neg\texttt{10b} + 1) = \neg 1111010_2 + 1 \\
+					& = 11110110_2 \\
+				12 & =  00001100_2 \\
+				-10 + 12 & = 0000 0010 = 2?
+			\end{align*}
+			I think this overflowed because it has an extra carry bit.
+		
+			\item $-20+19$: \begin{align*}
+				-20 & = \neg 0001 0100_2 + 1 = 1110 1011_2 + 1 \\
+					& = 1110 1100_2 \\
+				19 & =  0001 0011_2 \\
+				-20 + 19 & = 11111111_2 \\
+					& = -(0000 0000_2 + 1_{10}) = -1
+			\end{align*}
+		
+			\item $10000000_h + 10000000_h$: \begin{align*}
+				0001\dots0000 + 0001\dots0000 & = 0010\dots0000 \\
+					& = 20000000_h
+			\end{align*}
+		\end{itemize}
+	\end{enumerate}
+\end{document}

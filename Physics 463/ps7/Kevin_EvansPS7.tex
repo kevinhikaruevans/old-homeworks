@@ -1,0 +1,129 @@
+\documentclass{homework}
+
+\title{Problem Set 7}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{April 1, 2022}
+\setclass{Physics}{463}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{listings}
+
+
+\newcommand{\fm}{\femto\meter}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item[6.6] % 6.6
+			\textit{\textbf{Frequency dependence of the electrical conductivity.}} Use the equation $m(\dv*{v}{t} + v / \tau) = -eE$ for the electron drift velocity $v$ to show that the conductivity at frequency $\omega$ is 
+			$$\sigma(\omega) = \sigma(0) \left( \frac{1 + i \omega \tau}{1 + (\omega \tau)^2} \right), $$
+			where $\sigma(0) = n e^2 \tau / m$.
+			
+			\solution From the Drude model discussion in class, we can let \begin{align*}
+				E & = E_0 e^{-i \omega t} \\
+				v & = v_D e^{-i \omega t},
+				\intertext{where $v_0 \in \mathbb{C}$ for a phase offset. Then applying the damping equation above, the relation between $v$ and $E$ is }
+				(-i \omega) v_0 e^{-i \omega t} + \frac{1}{\tau} v_0 e^{-i \omega t} & = \frac{e}{m} E_0 e^{-i \omega t} \\
+				v_D & = \frac{eE_0}{m} \frac{1}{1/\tau - i \omega} = \frac{eE_0 \tau}{m} \frac{1}{1 - i \omega \tau} \\
+					& = \frac{eE_0 \tau}{m} \left(\frac{1 + i \omega \tau}{1 + (\omega \tau)^2}\right).
+			\end{align*}
+			Then, by the definition of current density, \begin{align*}
+				J & = - nev_D = \sigma E\\
+					& = \underbrace{ \frac{ne^2 E_0 \tau}{m} }_{\text{dc cond. } \sigma_0} \left(\frac{1 + i \omega \tau}{1 + (\omega \tau)^2}\right) \\
+				\sigma & = \sigma(0)  \left(\frac{1 + i \omega \tau}{1 + (\omega \tau)^2}\right). \qed
+			\end{align*}
+		
+		\pagebreak
+		
+		\item[6.9] % 6.9
+			\textit{\textbf{Static magnetoconductivity tensor.}} For the drift velocity theory of (51), show that the static current density can be written in matrix form as $$\begin{pmatrix}
+				j_x \\ j_y \\ j_z
+			\end{pmatrix} = \frac{\sigma_0}{1 + (\omega_c \tau)^2}
+			\begin{pmatrix}
+				1 & - \omega_c \tau & 0 \\
+				\omega_c \tau & 1 & 0 \\
+				0 & 0 & 1 + (\omega_c \tau)^2
+			\end{pmatrix} \begin{pmatrix}
+			E_x \\ E_y \\ E_z
+		\end{pmatrix}.
+		$$
+		In the high  magnetic field limit of $\omega_c \tau \gg 1$, show that
+		$$\sigma_{yx} = nec / B = -\omega_{xy}.$$
+		In this limit, $\sigma_{xx} = 0$, to order $1/ \omega_c \tau$. The quantity $\sigma_{yx}$ is called the Hall conductivity.
+		
+		\solution From Ohm's law, $\bvec{j} = n q \bvec{v}$ and using (52),
+		\begin{align*}
+			j_x & = n q v_x = n e \left(-\frac{e\tau}{m} E_x - \omega_c \tau v_y\right) ; \\
+			j_y & = n q v_y = n e \left( -\frac{e\tau}{m} E_y + \omega_c \tau v_x\right); \\
+			j_z & = n q v_z = n e \left(-\frac{e\tau}{m} E_z\right).
+			\intertext{Since we're dealing with the static current case where}
+			\bvec{j} & = n e^2 \tau \bvec{E}/m,
+			\intertext{we can make some substitutions,}
+			j_x & = -\frac{ne^2\tau}{m} E_x - \omega_c \tau n e v_y \\
+				& = -\frac{ne^2\tau}{m} E_x - \omega_c \tau j_y \\
+				& = -\frac{ne^2\tau}{m} E_x - \omega_c \tau \left(ne^2 \tau / m\right)E_y ; \\
+			j_y & = \frac{n e^2 \tau}{m} E_y + \omega_c \tau (ne^2 \tau / m) E_x ; \\
+			j_z & = \text{(unchanged)}.
+		\end{align*}
+		Putting this in matrix form, \begin{align*}
+			\begin{pmatrix}
+				j_x \\ j_y \\ j_z
+			\end{pmatrix} & = \frac{ne \tau}{m} \begin{pmatrix}
+				-1 & -\omega_c \tau  & 0 \\
+				\omega_c \tau & 1 & 0 \\
+				0 & 0 & 1
+			\end{pmatrix} \begin{pmatrix}
+				E_x \\ E_y \\ E_z
+			\end{pmatrix}?
+		\end{align*}
+		In the high magnetic field limit of $\omega_c \tau \gg 1$, we can omit the $+1$ terms, and the conductivity looks something like \begin{align*}
+			\sigma & = \frac{\sigma_0}{(\omega_c \tau)^2} \begin{pmatrix}
+				0 & - \omega_c \tau & 0 \\
+				\omega_c \tau & 0 & 0 \\
+				0 & 0 & (\omega_c \tau)^2
+			\end{pmatrix}.
+			\intertext{The $yx$ element is then}
+			\omega_{yx} & = \frac{\sigma_0}{(\omega_c \tau)^2} \omega_c \tau \\
+				& = \sigma_0 / \omega_c \tau \\
+				& = \frac{ne^2}{m \omega_c } = \frac{ne^2 mc}{m e B} \\
+				& = nec / B. \qed
+		\end{align*}
+		\item[6.10] % 6.10
+			\textbf{\textit{Maximum surface resistance.}} Consider a square sheet of side $L$, thickness $d$, and electrical resistivity $\rho$. The resistance measured between opposite edges of the sheet is called the surface resistance: $R_{sq} = \rho L / L d = \rho / d$, which is independent of the area $L^2$ of the sheet. ($R_{sq}$ is called the resistance per square and is expressed in ohms per square, because $\rho / d$ has the dimensions of ohms.) If we express $\rho$ by (44), then $R_{sq} = m / n d e^2 \tau$ .
+			
+			Suppose now that the minimum value of the collision time is determined by scattering from the surface of the sheet, so that $\tau \approx d / v_F$, where $v_F$ is the Fermi velocity. Thus the maximum surface resistivity is $R_{sq} \approx m v_F / n d^2 e^2$.
+			
+			Show for a monatomic metal sheet one atom in thickness that $R_{sq} \approx \hbar / e^2 = \SI{4.1}{\kohm}$.
+			
+			\solution We can assume for a one atom thick sheet, the density is \begin{align*}
+				n & = \frac{N}{V} = \frac{1}{d^3},
+				\intertext{and the maximum surface resistance is}
+				R_{sq} & = \frac{m v_F d}{e^2}.
+				\intertext{If we assume $\lambda \approx d$,}
+				p & = m v_F = \hbar k \approx \hbar / \lambda \\
+				\implies m v_F d & \approx \hbar.
+				\intertext{Then the resistance is}
+				R_{sq} & = \hbar / e^2 \approx \SI{4.1}{\kohm}.
+			\end{align*}
+		
+	\end{enumerate}
+\end{document}

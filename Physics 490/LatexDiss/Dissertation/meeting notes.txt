@@ -1,0 +1,52 @@
+- superfluids and helium, should mention
+- it's not the interaction, just the # of particles
+
+dft kohn & holnberg - replace wavefunction by 
+
+- replacing a wavefunction of n varaibles w/ a single wavefunction
+- gpe is a density functional
+- gpe is an approximation
+- classical limit of many body wavefunciton
+	mean field approximation
+
+
+---
+
+chaos is classical, etc.
+where does it come from in qm, linear
+come earlier
+
+---
+
+an analog to the lyapunov exponent, not a true lyapunov exponent
+it's not a true one, several subtlties
+
+---
+
+expectation values
+
+---
+since the gpe provides a good charactierizaton of cold atom fluiods
+if we see chaos in gpe -> suggests we could see quantum chaos 
+
+---
+
+wavefunction has to have n particles
+add i's to psi
+product on psi
+
+
+---
+
+if we can show the initial time w/o increase
+pull back
+say you can't take the t to inf limit
+
+you get 2.8 if you minimize the phase
+
+---
+add pull backs
+in plot
+----
+
+state hypothesis

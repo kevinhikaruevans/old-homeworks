@@ -1,0 +1,115 @@
+\documentclass{homework}
+
+\title{Homework 6}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 11, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item For the infinite square well, the energies are defined by (2.30). The zero point energy is simply the $n=1$ state, \begin{align*}
+			E_1 & = \frac{\pi^2 \hbar^2}{2ma^2} = \frac{\pi^2 \left(\SI{1.05e-34}{\J\s}\right)^2}{2 \times \SI{1}{\g} \times \left(\SI{1}{\um}\right)^2} = \SI{5.5e-53}{\J}.
+			\intertext{From that, its classical speed is}
+			v & = \sqrt{2E/m} = \SI{3.3e-25}{\m\per\s} \approx 0.
+		\end{align*}
+	
+		\item For a mass of $m_e \approx \SI{1e-30}{\kg}$ and well width \SI{1}{\nm}, \begin{align*}
+			E_1 & \approx \SI{5.5e-20}{\J}. \\
+			v & \approx \SI{3.31e5}{\m\per\s}.
+		\end{align*}
+	
+		\item For the infinite square well in 3D of lengths $L_x$, $L_y$, and $L_z$, we can assume a (spatial) wavefunction of the form \begin{align*}
+			\psi(x, y, z) & = X(x) Y(y) Z(z)
+			\intertext{and potential}
+			V(x, y, z) & = \begin{cases}
+					0 & 0 \le x \le L_x \wedge 0 \le y \le L_y \wedge 0 \le z \le L_z \\
+					\infty & \mathrm{otherwise}
+				\end{cases}.
+		\end{align*}
+		Then, using the Schr\"odinger equation with this ansatz,
+		\begin{align*}
+			-\frac{ \hbar^2 }{2m} \laplacian{\left[ X(x) Y(y) Z(z)\right]} + V(x,y,z) X(x) Y(y) Z(z) & = E X(x) Y(y) Z(z) \\
+			\implies \frac{-\hbar^2}{2m} \left[
+				X''(x)YZ + XY''(y)Z + XYZ''(z)
+			\right] + V(x,y,z)XYZ & = EXYZ \\
+			\implies \frac{-\hbar^2}{2m} \left[
+				\frac{X''(x)}{X(x)}
+				+ \frac{Y''(y)}{Y(y)}
+				+ \frac{Z''(z)}{Z(z)}
+			\right] & = E - V.
+			\intertext{Inside the well, $V=0$,}
+			\frac{-\hbar^2}{2m} \left[
+			\frac{X''(x)}{X(x)}
+			+ \frac{Y''(y)}{Y(y)}
+			+ \frac{Z''(z)}{Z(z)}
+			\right] & = E.
+		\end{align*}
+		As each term only depends on their respective variable, we can split the energies up as well, so
+		\begin{align*}
+			%http://astro.dur.ac.uk/~done/mp1/l19.pdf
+				X''(x) & = -\frac{2mE_x}{\hbar^2} X(x) \\
+				\implies X(x) & = A \sin(k_x x) \\
+				k_x & = \frac{ n \pi^2 \hbar^2}{2mL_x} %= \sqrt{ \frac{ 2mE_x }{\hbar^2} }
+				\intertext{Doing this for the other dimensions $y$ and $z$, the total wavefunction is}
+				\psi(x, y, z) & = A' \sin(\frac{n_x \pi^2 \hbar^2}{2mL_x} x) \sin(\frac{n_y \pi^2 \hbar^2}{2mL_y} y)  \sin(\frac{n_z \pi^2 \hbar^2}{2mL_z}z), \\
+				\text{where } & \text{$A'$ is the normalization constant, and } n_x, n_y, n_z = 1, 2, 3 \dots
+		\end{align*}
+		Following (2.30), the energies are given by \begin{align*}
+			E(n) & = E_x + E_y + E_z \\
+				& = \sum_i \frac{\hbar {k_i}^2}{2m} = \sum_i \frac{ {n_i}^2 \pi^2 \hbar^2 }{2m{L_i}^2} \\
+				& = \frac{\pi^2 \hbar^2}{2m} \left( \frac{{n_x}^2}{{L_x}^2} + \frac{{n_y}^2}{{L_y}^2} + \frac{{n_z}^2}{{L_z}^2} \right).
+		\end{align*}
+		
+		\item \begin{enumerate}
+			\item The energy is $N E_1$, \begin{align*}
+				E_\mathrm{isolated} & = N E_1 = \frac{ N \pi^2 \hbar^2 }{2m_e a^2}.
+			\end{align*}
+		
+			\item Since no two states can be occupied, each higher state will be in the $(n+1)$th state, so \begin{align*}
+				E_\mathrm{metal} & = E_1 + E_2 + \dotsm + E_N \\
+					& = \frac{2 N^3 + 3N^2 +N}{6} \frac{\pi^2 \hbar^2}{2m_e N^2 a^2} \\
+					& = \frac{2N + 3 + 1/N}{6} \frac{\pi^2 \hbar^2}{2m_e a^2}.
+			\end{align*}
+		
+			\item Taking the $N$-th order term only,\begin{align*}
+				\Delta E & = E_\mathrm{isolated} - E_\mathrm{metal} \\
+					& = \frac{4N}{6} \frac{\pi^2 \hbar^2}{2m_e a^2} \\
+					& = \frac{N \pi^2 \hbar^2}{3m_e a^2}.
+				\intertext{Per atom,}
+				\Delta E/N & = \frac{\pi^2 \hbar^2}{3 m_e a^2}.
+			\end{align*}
+		
+			\item For a typical atom separation of $a \approx \SI{4}{\angstrom}$, \begin{align*}
+				\Delta E / N & = \frac{\pi^2 \hbar^2}{3 m_e \times (\SI{4}{\angstrom})^2} \\
+					& \approx \SI{1.56}{\eV}.
+			\end{align*}
+		\end{enumerate}
+		
+		\item Read Chapter 2.6.
+	\end{enumerate}
+\end{document}

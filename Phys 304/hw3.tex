@@ -1,0 +1,151 @@
+\documentclass{homework}
+
+\title{Homework 3}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{February 7, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{venndiagram}
+\usepackage{icomma}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+\begin{document}
+	\maketitle
+	% 1,2,4,5,7,10,11,12,14,20
+	
+	\begin{enumerate}
+		\item[1.] \begin{enumerate}
+			\item (The book has a typo and wrote H, but I'm going to assume it meant \ce{^4_2 He}.)
+				\begin{align*}
+				\text{Radius } \ce{^4_2 He} & = r_0 A^{1/3} = \left( \SI{1.2}{\femto\meter} \right) \left(4\right)^{1/3} \\
+					& = \SI{1.90}{\femto\meter}
+				\end{align*}
+			\item \hfil $\begin{aligned}[t]
+			\text{Radius } \ce{^{238}_{92} U} & = \left(\SI{1.2}{\femto\meter}\right) \left(238\right)^{1/3} \hspace{3.5em} \\
+				& = \SI{7.43}{\femto\meter}
+			\end{aligned}$
+			\item The ratio is given as \begin{align*}
+				k & = \left( \frac{A_2}{A_1} \right)^{1/3} \\
+					& = \left( \frac{238}{4} \right)^{1/3} \\
+					& = 3.90
+			\end{align*}
+		\end{enumerate}
+		\item[2.] For \SI{10}{\centi\meter\cubed} of neutrons of radius $r_0$, \begin{align*}
+			r & = r_0  N^{1/3} \\
+			\frac{4}{3}\pi r^3 & = \frac{4}{3} \pi r_0^3 N = \SI{10}{\centi\meter\cubed} \\
+			N & = \left(
+					\SI{10}{\centi\meter\cubed}
+					\times
+					\frac{\SI{1}{\femto\meter\cubed}}{\SI{1e-39}{\centi\meter\cubed}}
+				\right)
+				\frac{3}{4 \pi r_0^3} \\
+				& = \num{1.38e39} \text{ neutrons} \\
+				& = \SI{2.31e12}{\kg}
+		\end{align*}
+		\item[4.] \begin{enumerate}
+			\item Using Table 13.2, for neutrons in the $B=\SI{1}{\tesla}$ field, 
+			\begin{align*}
+				f & = \frac{2 \mu B}{h} = \frac{-2 (1.9135) \left(\SI{5.05e-27}{\joule\per\tesla} \right) \left(\SI{1}{\tesla}\right)}{\SI{6.626e-34}{\joule\second}} \\
+					& = \SI{29.2}{\MHz}
+			\end{align*}
+			Is it fine to omit the negative sign on a frequency? 
+			\item For protons, it's the same but has a moment $\mu = 2.7928\mu_n$,\begin{align*}
+			f  & = \frac{2 (2.7928) \left(\SI{5.05e-27}{\joule\per\tesla} \right) \left(\SI{1}{\tesla}\right)}{\SI{6.626e-34}{\joule\second}}  \\
+				& = \SI{42.6}{\MHz}
+			\end{align*}
+			
+			\item For $B=\SI{50}{\micro\tesla}$,
+			\begin{align*}
+			f  & = \frac{2 (2.7928) \left(\SI{5.05e-27}{\joule\per\tesla} \right) \left(\SI{50e-6}{\tesla}\right)}{\SI{6.626e-34}{\joule\second}}  \\
+			& = \SI{2.13}{\kHz}
+			\end{align*}
+		\end{enumerate}
+		\item[5.] \begin{enumerate}
+			\item Using the Coulomb potential for the silver atom ($Z=79$, $q_\text{Au}=79e$), \begin{align*}
+				\SI{0.5}{\MeV} & = \frac{q_\alpha q_\text{Au}}{4\pi \epsilon_0 r} \\
+				r & = \frac{q_\alpha q_\text{Au}}{4 \pi \epsilon_0 \left(\SI{0.5}{\MeV}\right)}
+				= \frac{158 \left( \SI{1.602e-19}{\coulomb} \right)^2}{4\pi \left(\SI{8.85	e-12}{\F\per\m}\right) \left(\SI{0.5}{\MeV} \times  \frac{\SI{1.602e-13}{\J}}{\SI{1}{\MeV}}\right)} \\
+				& = \SI{455.2}{\femto\meter}
+			\end{align*}
+			
+			\item From (a) and using classical kinetic energy, \begin{align*}
+				E_\alpha & = \frac{q_\alpha q_\text{Au}}{4\pi \epsilon_0 r} \\
+					& = \frac{158 \left( \SI{1.602e-19}{\coulomb} \right)^2}{4\pi \left(\SI{8.85	e-12}{\F\per\m}\right) \left( \SI{300e-15}{\meter} \right) } \\
+					& = \SI{1.21e-13}{\J} \\
+				\frac{m_\alpha v^2}{2} & = \SI{1.21e-13}{\J} \\
+					v & = \SI{6.05e6}{\meter\per\second}
+			\end{align*}
+		\end{enumerate}
+		\item[7.] The difference in energy between the normal and $B$-aligned state is, \begin{align*}
+			\Delta E & = \abs{\mathbf{\mu}} \abs{\mathbf{B}} \\
+				& = 2.7928 \left(\SI{5.05e-27}{\J\per\tesla}\right) \left(\SI{12.5}{\tesla}\right) \\
+				& = \SI{1.76e-25}{\J} 
+			\intertext{The total difference in energy between the two aligned states is then $2\Delta E$,}
+			2 \Delta E & = \SI{3.52}{\J} \\
+				& = \SI{2.2e-6}{\eV}
+		\end{align*}
+		\item[10.] \begin{enumerate}
+			\item For \ce{^{12}_6 C}, \begin{align*}
+				r & = \left(\SI{1.2}{\femto\meter}\right) 12^{1/3} \\
+					& \approx \SI{2.74}{\femto\meter}
+			\end{align*}
+			\item I'm going to assume the distance from the other protons are given by the radius... \begin{align*}
+				\abs{F_r} & = \abs{ -\pdv{r} U_\mathrm{Coulomb}} \\
+					& =  \frac{5e^2}{4\pi \epsilon_0 r^2} \\
+					& \approx \SI{153.7}{\N}
+			\end{align*}
+			\item It's basically (b) but without the additional $r$,  \begin{align*}
+				W & = F_r \times r \\
+					& = \SI{4.21e-13}{\J} \\
+					& = \SI{2.63}{\MeV}
+			\end{align*}
+			
+			\item \begin{itemize}
+				\item From 1(b), $r = \SI{7.43}{\femto\meter}$.
+				\item $F = \frac{92e^2}{4\pi\epsilon_0 \left(\SI{7.43}{\femto\meter} \right)^2 } = \SI{384}{\N}$
+				\item $W = \SI{2.85e-12}{\J} = \SI{17.8}{\MeV}$
+			\end{itemize}
+		\end{enumerate}
+		\item[11.] Using (13.4), \begin{align*}
+			E_b & = \left[\SI{1.007825}{\amu} + 2 \times \SI{1.008655}{\amu} - \SI{3.016049}{\amu}\right] \times \SI{931.494}{\MeV\per\amu} \\
+				& = \SI{8.48}{\MeV}
+			\intertext{For the $A=3$ nucleons,}
+			\frac{8.48}{3} & = \SI{2.83}{\MeV\per\text{nucleon}}
+		\end{align*}
+		\item[12.] Applying (13.4) to \ce{^{56}_{26}Fe}, \begin{align*}
+			E_b & = \left[
+				26(1.007825) + 30(1.008665) - 55.934939
+			\right] \times 931.494 \\
+			& = \SI{492.26}{\MeV} \\
+			& = \SI{8.79}{\MeV \per \text{nucleon}}
+		\end{align*}
+		\item[14.] \begin{enumerate}
+			\item Using (13.4), \begin{align*}
+			E_b & = \left[8(1.007825) + 7(1.008665) - 15.003065\right] \times 931.494
+			\end{align*}
+		\end{enumerate}
+		\item[20.]
+	\end{enumerate}
+\end{document}

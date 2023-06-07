@@ -1,0 +1,92 @@
+\documentclass{homework}
+
+\title{Homework 13}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{December 3, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+\usepackage{amsthm}
+\newtheorem*{prop}{Proposition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Set $f$ is a function as since all elements of the domain correspond to something on the codomain.
+		
+			Set $g$ is not a function as there are elements (like $x=0$) which limit the range of $y$ to a smaller bit of the codomain.
+			
+		\item The function is not injective: $p_1 = (-3, -3)$ and $p_2 = (3, 0)$ both are in the domain $\mathbb{Z}^2$, however $f(p_1) = f(p_2) = 3$.
+		
+		The function is surjective. Since $\gcd(3, -4) = 1$ and using Bezout's theorem, any integer can be represented by a linear combination of $3$ and $-4$ (as any integer is a multiple of $1$).
+		
+		%suppose $(x, y), (x', y') \in \mathbb{Z}^2$ and $f(x, y) = f(x', y')$, then $3x - 4y = 3x' - 4y'$. By inspection, $x = x'$ and $y = y'$.
+		
+		\item The function is not injective, since there exists $f(0, 0) = f(2, 1)$.
+		
+			The function is not surjective, as odd numbers cannot be represented by the sum of two even numbers. Not sure if these need a formal proof or not. 
+			
+		\item  \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				The function $f:\mathbb{R} - \{2\} \to \mathbb{R} - \{5\}$, defined $f(x) = \frac{5x+1}{x-2}$ is bijective.
+			\end{prop}
+			\begin{proof} To show $f$ is bijective, it will be shown to be both injective and surjective.
+				
+				Suppose $a, a' \in \mathbb{R}$ and $f(a) = f(a')$. Then \begin{align*}
+					\frac{5a+1}{a-2} & = \frac{5a' + 1}{a'-2} \\
+					5 + 11 / (a-2) & = 5 + 11 / (a' - 2) \\
+					a - 2 & = a' - 2 \\
+					a & = a'
+				\end{align*}
+				Therefore $a=a'$ and $f$ is injective.
+				
+				Suppose $b \in \mathbb{R} - \{5\}$. Then \begin{align*}
+					b & = \frac{5x+1}{x-2} \\
+					b(x-2) & = 5x + 1 \\
+					x & = \frac{2b+1}{b - 5}
+				\end{align*}
+				Therefore $x \in \mathbb{R}$ for $b \in \mathbb{R} - \{5\}$ and $f$ is surjective. Since $f$ is both injective and surjective, it is bijective.
+			\end{proof}
+		
+			\item Suppose $x, y, m, n \in \mathbb{Z}$ and $f(x, y) = f(m, n)$. Then \begin{align*}
+				x + y & = m + n \\
+				2x + y & = 2m + n 
+				\intertext{Subtracting these two, it's clear that $x = m$. From that, we can determine that $y=n$. Therefore $f$ is injective.}
+			\end{align*}
+			
+				Suppose $(a, b) \in \mathbb{Z}^2$. Then \begin{align*}
+					(a, b) & = (m+n, 2m + n) \\
+					a & = m + n \\
+					b & = 2m + n
+					\intertext{Subtracting these two equations, $m, n \in \mathbb{Z}$,}
+					m & = b - a   \\
+					n & = a - m
+				\end{align*}
+				Therefore the function is surjective.
+		\end{minipage}
+	\end{enumerate}
+\end{document}

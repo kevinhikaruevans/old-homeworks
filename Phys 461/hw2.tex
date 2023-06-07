@@ -1,0 +1,139 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{January 31, 2021}
+\setclass{Physics}{461}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{amsthm}
+\newtheorem*{ident}{Identity}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item For the relative velocity $\bvec{v}_\mathrm{rel} = \bvec{v}_2 - \bvec{v}_1$, if we take the first derivative and substitute the opposing forces, \begin{align*}
+			\bvec{\dot{v}}_\mathrm{rel} & = \bvec{\dot{v}}_2 - \bvec{\dot{v}}_1 \\
+				& = -\frac{ \bvec{F} }{m_2} - \frac{ \bvec{F} }{m_1} = -\bvec{F} \left(m_2^{-1} + m_1^{-1}\right) \\
+				& = -\frac{ \bvec{F} }{\mu}
+			\intertext{where}
+			\mu & = \left(m_2^{-1} + m_1^{-1}\right)^{-1} \\
+				& = \frac{m_1 m_2}{m_1 + m_2}
+		\end{align*}
+	
+		For the hydrogen atom, it's a pretty good approximation as the mass of the electron is miniscule relative to the proton, \begin{align*}
+			\mu & = \frac{ m_p m_e }{m_p + m_e} \\
+				& \approx \frac{m_p m_e}{m_p} = m_e
+		\end{align*}
+		This approximation would not be valid for positronium, as the masses are equal.
+		
+		\item Starting with the rightmost and evaluating by chain rule (and mixing notations), we can get to the rightmost equation, \begin{align*}
+			\frac{1}{r} \dv[2]{r} r R(r) & = \frac{1}{r} \left[
+				r R''(r) + 2R'(r) + R(r) \dv[2]{r} r
+			\right] \\
+			& = R''(r) + \frac{2}{r}R'(r) + 0 \\
+			& = \left[ \dv[2]{r} + \frac{2}{r} \dv{r} \right] R(r) 
+		\end{align*}
+		Then, starting with the middle equation and evaluating by chain rule, \begin{align*}
+			\frac{1}{r^2} \dv{r} r^2 \dv{r} R(r) & = \frac{1}{r^2} \dv{r} r^2 R'(r) \\
+				& = \frac{1}{r^2} \left[ 2rR'(r) + r^2 R''(r) \right] \\
+				& = \left[\dv[2]{r} + \frac{2}{r} \dv{r}\right] R(r)
+		\end{align*}
+	
+		\item The radial Schrodinger equation with zero potential is given by \begin{align*}
+			-\frac{\hbar^2}{2m} \left[ \frac{1}{r} \dv[2]{r} r \phi(r) - \frac{\ell(\ell + 1)}{r^2}  \phi(r)\right] & = E \phi(r)
+			\intertext{Using the wavefunction $\phi(r) = Ae^{ikr} / r$ in the Schrodinger equation,}
+			-\frac{\hbar^2}{2m} \left[ \frac{-k^2}{r} \left(\frac{r}{r}\right) e^{ikr}  - \frac{\ell(\ell + 1)}{r^2} \phi(r)\right] & = E \phi(r) \\
+			-\frac{\hbar^2}{2m} \left[ -k^2 \phi(r) - \frac{\ell(\ell + 1)}{r^2} \phi(r)\right] & = E \phi(r)  \\
+			\frac{\hbar^2}{2m} \left[k^2 + \frac{\ell(\ell + 1)}{r^2}\right] & = E
+		\end{align*}
+		As discussed in class, the angular momentum term has an $r$ dependence that is not on the RHS. Thus $\ell(\ell + 1)$ must be zero, and $\ell = 0$. The energy is then $$E = \frac{\hbar^2 k^2}{2m}$$
+		
+		\item For an electron trapped in an infinite spherical well, the Schrodinger equation looks something like \begin{align*}
+			- \frac{\hbar^2}{2 m} \left[ \frac{1}{r} \dv[2]{r} r \phi(r) - \frac{\ell(\ell+1)}{r^2} \phi(r)\right] & = E \phi(r)
+			\intertext{For the $\ell = 0$ ground state and multiplying by $r$,}
+			- \frac{\hbar^2}{2 m} \left[ \frac{1}{r} \dv[2]{r} r \phi(r)\right] & = E \phi(r) \\
+			-\frac{\hbar^2}{2m} \dv[2]{r} r \phi(r) & = E r \phi(r)
+		\end{align*}
+		As the second derivative of the wavefunction must be negative, the ansatz\footnote{I'm not sure if I'm using \textit{ansatz} correctly here, but the textbook uses that word copiously.} will have the form \begin{align*}
+			\phi(r) & = A \frac{ \sin(kr) }{r} + B \frac{\cos(kr) }{r}
+			\intertext{For the wavefunction to be well-defined at the origin, $B \to 0$, and we're left with a $\mathrm{sinc}$-like function,}
+			\phi(r) & = A \frac{ \sin(kr) }{r} \\
+			\phi''(r) & = -Ak^2 \phi(r)
+			\intertext{Plugging this back into the Schrodinger equation to find $k$,}
+			\frac{\hbar^2 k^2}{2m} & = E \\
+			k & = \frac{\sqrt{2mE}}{\hbar}
+			%\intertext{At the boundary $r=a$, the $\abs{\phi}^2 = 0$ and}
+			%\phi(r=a) & = A \frac{\sin(ka)}{a} = 0 \\
+			%& 
+		\end{align*}
+	
+		\item For $R(r) = Ae^{-\beta r}$, \begin{align*}
+			-\frac{\hbar^2}{2m} \left[\frac{1}{r} \left(\beta^2 r - 2\beta\right)R(r) - \frac{\ell(\ell + 1)}{r^2} R(r)\right] - \frac{e^2}{4 \pi \epsilon_0 r} R(r)  & = Er \frac{ R(r) }{r} \\
+			-\frac{\hbar^2}{2m} \left[\beta^2 r - 2 \beta - \frac{ \ell(\ell + 1) }{r}\right] - \frac{e^2}{4 \pi \epsilon_0} & = Er
+		\end{align*}
+		I'm not entirely sure what I'm supposed to be doing here.
+		
+		\item For the $n=1$ hydrogen wavefunction \begin{align*}
+			\phi(r) & = C e^{-r/a_0}
+			\intertext{It's normalized as}
+			1 & = \int \abs{ \phi(r) }^2 \dd[3]{\bvec{r}} \\
+				& = 4 \pi C^2 \int_{0}^\infty e^{-2r/a_0} r^2 \dd{r} \\
+				& = 4 \pi C^2 \left(a_0^3 / 4\right) \qquad \text{(WolframAlpha'd the integral)} \\
+			C & = \sqrt{\frac{a_0^3}{\pi }}
+		\end{align*}
+	
+		\item \begin{enumerate}
+			\item For $l=1$, the associated $Y_{lm}$ is \begin{align*}
+				Y_{lm} & = \begin{cases}
+					\mp \frac{1}{2} \sqrt{\frac{3}{2\pi}} \sin \theta e^{\pm i \phi} & m = \pm 1 \\
+					\frac{1}{2} \sqrt{ \frac{3}{\pi} } \cos \theta & m = 0
+				\end{cases}
+			\end{align*}
+		
+			\item 
+		\end{enumerate}
+		\item Letting $\rho = Zr$ in the Schrodinger equation results in \begin{align*}
+			-\frac{\hbar^2}{2m} \left[ \frac{1}{\rho} \dv[2]{\rho} \rho R(\rho) - \frac{\ell(\ell + 1)}{\rho^2} R(\rho)\right] - \frac{Ze^2}{\rho} & = E R(\rho)
+		\end{align*}
+
+		\item In the two dimensional case and assuming a separable wavefunction, $\Psi(r, \phi) = R(r) \Phi(\phi)$, \begin{align*}
+			-\frac{\hbar^2}{2M} \left[ \pdv[2]{\Psi}{r} + \frac{1}{r} \pdv{\Psi}{r} + \frac{1}{r^2} \pdv[2]{\Psi}{\phi} \right] + U(r) \Psi & = E \Psi \\
+			- \frac{\hbar^2}{2M} \left[ \Phi(\phi) R''(r) + \frac{1}{r} \Phi(\phi) R'(r) + \frac{1}{r^2} R(r) \Phi''(\phi)\right] + U(r) \Psi & = E \Psi \\
+			\intertext{Dividing by $\Psi$ then multiplying by $r^2$ and rearranging,}
+			-\frac{\hbar^2}{2M} \left[\frac{1}{R(r)} \left(R''(r) + \frac{R'}{r}\right)  + \frac{\Phi''(\phi)}{r^2 \Phi(\phi)} \right] + U(r) & = E \\
+			- \frac{\hbar^2}{2M} \frac{r}{R(r)} \left(rR''(r) + R'(r)\right) + r^2 \left(U(r) - E\right) & = \frac{\hbar^2}{2M} \frac{\Phi''(\phi)}{\Phi(\phi)} = C
+		\end{align*}
+As the LHS depends only on $r$ and the RHS is a function on $\phi$, these both must be equal to a constant. We can assign this constant as
+$$				C  = -\frac{\hbar^2 m^2}{2M}$$
+		\item Starting from the last problem, \begin{align*}
+			\frac{ \hbar^2 }{2M} \frac{\Phi(\phi)}{\Phi(\phi)} & = - \frac{\hbar^2 m^2}{2M} \\
+			\Phi''(\phi) & = -m^2\Phi(\phi) \\
+			\Phi(\phi) & = Ae^{im\phi}
+		\end{align*}
+	Since $\Phi$ will have an argument $m \phi$, $m$ can be any integer (probably? or would it need to be a multiple of $2\pi$?). Compared to the spherical case, it's similar in that they're both sinusoidal functions.
+	\end{enumerate}
+\end{document}

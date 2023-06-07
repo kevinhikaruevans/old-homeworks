@@ -1,0 +1,190 @@
+\documentclass{homework}
+
+\title{Homework 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{February 28, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{venndiagram}
+\usepackage{icomma}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+
+\DeclareSIUnit{\curie}{Ci}
+\DeclareSIUnit{\year}{yr}
+\begin{document}
+	\maketitle
+	\subsubsection*{Chapter 14}
+	\begin{enumerate}
+		\item[6.] The $Q$ value for \ce{^{10}_5 B (\alpha, p) ^{13}_6 C} is \begin{align*}
+			Q_{B\to C} & = (M_B + M_\alpha - M_C - M_p) c^2
+			\intertext{For its inverse,}
+			Q_{C \to B} & = (M_C + M_p - M_B - M_\alpha) c^2 \\
+				& = - Q_{B \to C} \\
+			\therefore\quad \abs{Q_{B \to C}} & = \abs{Q_{C \to B}}
+		\end{align*}
+		\item[10.] Using (14.5), if $N_0$ particles are incident to the first layer, then the particles that make it through to the second layer would be \begin{align*}
+			N_1 & = N_0 e^{-n_1 \sigma x_1}
+			\intertext{Since these are now incident to the second layer, the number that then emerge past both layers is}
+			N & = N_1 e^{-n_2 \sigma x_2} = N_0 e^{-n_1 \sigma x_1} e^{-n_2 \sigma x_2} \\
+				& = N_0 e^{-\sigma \left(n_1 x_1 + n_2 x_2\right)}
+			\intertext{For an arbitrary number of layers $k$ with the same cross section $\sigma$,}
+			N_k & = N_0 e^{-\sigma \sum\limits_{k} n_k x_k}
+		\end{align*}
+		\item[11.] For a density of \SI{70}{\kg\per\meter\cubed} vat of liquid hydrogen, the number of particles per cubic meter is \begin{align*}
+			n & = \SI{70}{\kg} \times \frac{\SI{1000}{\g}}{\SI{1}{\kg}} \times \frac{\SI{1.008}{\mol}}{\SI{1}{\g} \text{ H ($\ell$)}} \times
+			\frac{\SI{6.022e23}{particles}}{\SI{1}{\mol}} \\
+				& = \num{4.25e28} \text{ particles \ce{H} per cubic meter}
+		\end{align*}
+		Then if 20\% reacts with the hydrogen after \SI{2}{\m}, then 80\% of the particles emerge past $x=\SI{2}{\m}$, \begin{align*}
+			\frac{N}{N_0} & = 0.80 \\
+			0.80 & = e^{-n \sigma x} \\
+			\ln 0.80 & = - \SI{4.25e28}{\per\m\cubed}\times \SI{2}{\m} \times \sigma \\
+			\sigma & = \SI{2.63e-30}{\m\squared} \\
+				& = \SI{0.0263}{\barn}
+		\end{align*}
+		\item[19.] For an energy $E_0$ that is halved each collision, then its energy after $n$ collisions can be described as \begin{align*}
+			E_n & = E_0 \left( \frac{1}{2} \right)^n
+			\intertext{For the neutron of initially \SI{1}{\MeV}, it will reach the thermal energy at:}
+			\SI{0.039}{\eV} & = \frac{ \SI{1e6}{\eV} }{2^n} \\
+			2^n & = \frac{\num{1e6}}{\num{0.039}} \\
+			n & = \left\lceil \log_2 \left( \frac{\num{1e6}}{0.039} \right) \right\rceil = \left\lceil 24.6 \right\rceil \\
+				& = 25 \text{ collisions}
+		\end{align*}
+		(Taking the $\mathrm{ceil}$ there since $n \in \mathbb{Z}$ and it's needs to exceed that number to reach that energy.)
+		\item[20.] \begin{enumerate}
+			\item For a thermal neutron at \SI{300}{\K}, its average kinetic energy is \begin{align*}
+				\expval{K} & = \frac{3}{2} k_B T = \frac{3}{2} \times \SI{8.617e-5}{\eV\per\K} \times \SI{300}{\K} \\
+					& = \SI{0.0388}{\eV}
+				\intertext{If we use the classical momentum-energy relationship, then}
+				\frac{p^2}{2m_n} & = K \\
+				p & = \sqrt{ 2m_nK } = \sqrt{2 \left(\SI{939.6e6}{\eV}/c^2\right)\left(\SI{0.0388}{\eV}\right)} \\
+					& = \SI{8538.9}{\eV}/c
+			\end{align*}
+			\item For the de Broglie wavelength, \begin{align*}
+				\lambda & = \frac{h}{p} \\
+					& = \frac{\SI{1240}{\eV\nm}}{\SI{8538.9}{\eV}} \\
+					& = \SI{0.1452}{\nm} \\
+					& = \SI{145.2}{\pico\meter}
+				\intertext{Which is fairly huge, relative to nuclei,}
+				\frac{\text{de Broglie wavelength}}{\text{nucleus diameter}}
+					& = \frac{\SI{145.2}{\pm}}{\SI{1.2}{\femto\meter}}  \approx 10^5
+				\intertext{It's approximately equal to the van der Waals radii of elements,}
+					\SI{145.2}{\pico\meter} & \approx \SI{1.5}{\angstrom} \\
+						& \approx \SI{1.2}{\angstrom} && \leftarrow \text{Radius of \ce{H}} \\
+						& \approx \SI{1.4}{\angstrom} && \leftarrow \text{Radius of \ce{He}}
+			\end{align*}
+		\end{enumerate}
+		\item[21.] In the reaction, the change in mass governs the energy released, \begin{align*}
+			\Delta M & = \left(1.008665 + 235.043915\right) - \left(140.9139 + 91.8973 + 3\times 1.008665\right) \\
+				& = \SI{0.215385}{\amu} \\
+			Q & = \Delta M c^2 = \SI{0.215385}{\amu} \times \SI{931.494}{\MeV}/c^2 \\
+				& = \SI{200.63}{\MeV}
+		\end{align*}
+		\item[22.] \begin{enumerate}
+			\item From Example 14.4 (p. 513), the energy released during a single \ce{^235 U} fission event is \[Q = \SI{208}{\MeV}\]
+			If we need to generate \SI{1000}{\MW} of power in a day, \begin{align*}
+				\expval{P} & = \frac{\Delta W}{\Delta T} \\
+				\SI{1000e6}{\J\per\s} & = \frac{\Delta W}{\SI{86400}{\s}} \\
+				Q & = \Delta W = \SI{86.4e13}{\J} \\
+					& = \SI{86.4e13}{\J} \times \frac{\SI{1}{\eV}}{\SI{1.602e-19}{\J}} \times \frac{\SI{1}{\MeV}}{\SI{1e6}{\eV}} \\ 
+					& = \SI{5.393e26}{\MeV}
+				\intertext{Relative to \ce{^235 U} fission events,}
+				N & = \frac{\SI{5.393e26}{\MeV}}{\SI{208}{\MeV}} = \num{2.593e24} \text{ fission events needed}
+				\intertext{If we assume every \ce{^{235} U} atom in a pure sample reacts, we can calculate the minimum mass needed to generate that power}
+				m & \ge \SI{2.593e24}{nuclei} \times \frac{\SI{235}{\g/\mol}}{\SI{6.022e23}{nuclei/\mol}} \\
+					& \ge \SI{1011.8}{\g} \text{ of } \ce{^{235} U}
+			\end{align*}
+			\item Given the density of uranium, the volume would be\begin{align*}
+				V & = \SI{1011.8}{\g} \times \frac{\SI{1}{\centi\meter\cubed}}{\SI{18.7}{\g}} = \SI{54.1}{\centi\meter\cubed}
+				\intertext{As a sphere,}
+				V & = \frac{4}{3} \pi r^3 \\
+				r & = \left( \frac{3}{4\pi} V \right)^{1/3} \\
+					& = \SI{2.35}{\centi\meter}
+				\intertext{The sphere would have a radius of \SI{2.35}{\centi\meter}.}
+			\end{align*}
+		\end{enumerate}
+		\item[30.] \begin{enumerate}
+			\item For the given reaction, the approximate energy released per fusion event is \SI{25}{\MeV} (p. 518, under \textit{Thermonuclear Reactions}).
+			
+			 Using a similar process as the last problem, \begin{align*}
+				 \frac{N}{\Delta T} & = \SI{4e26}{\J\per\s} \times \frac{\SI{1e-6}{\MeV}}{\SI{1.602e-19}{\J}} \times \frac{1 \text{ fusion event}}{\SI{25}{\MeV}} \\
+				 	& \approx \SI{1e38}{\per\s}
+			\end{align*}
+			
+			\item The change in mass during the fusion is
+				\[ \Delta M = 4(1.007825) - 4.002603 - \num{5.486e-4} = \SI{0.02815}{\amu} \]
+				Using the rate from (a), the mass to energy rate is
+				\begin{align*}
+					\frac{\Delta M}{\Delta T} & = \SI{2.815e36}{\amu\per\s} \\
+						& = \SI{4.67}{\kg\per\s}
+				\end{align*}
+		\end{enumerate}
+		\item[34.] \begin{enumerate}
+			\item For \SI{1}{\kg} of \ce{^{239}Pu} undergoing fission, \begin{align*}
+				N & = \SI{1000}{\g \; \ce{Pu}} \times \frac{\SI{1}{\mol}}{\SI{239}{\g}}
+					\times \frac{\num{6.022e23} \text{ nuclei}}{\SI{1}{\mol}} \\
+					& = \num{2.52e24} \text{ Pu nuclei} \\
+				Q_\mathrm{total} & = N Q_\mathrm{single} \\
+				& = \num{2.52e24} \times \SI{200}{\MeV} \times \frac{ \SI{1.602e-22}{\kJ} }{ \SI{1e-6}{\MeV}} \times \frac{1}{\SI{3600}{\s}} \\
+					& = \SI{22.43}{\kW \hour}
+			\end{align*}
+			\item The energy per fission event is given by the change in mass \begin{align*}
+				Q & = \left( 2.014102 + 3.016049 - 4.002603 - 1.009\right) \times 931.494 \\
+					& = \SI{17.278}{\MeV}
+			\end{align*}
+			\item For a kilogram of deuterium, \begin{align*}
+				Q_\mathrm{total}  & = \SI{1000}{\g} \times \frac{\SI{1}{\mol}}{\SI{2}{\g}} \times \frac{ \num{6.022e23} \text{ nuclei} }{ \SI{1}{\mol} } \times \SI{17.278}{\MeV} \text{ per nucleus} \\
+					& \quad \times \frac{ \SI{1.602e-22}{\kJ} }{ \SI{1e-6}{\MeV}} \times \frac{1}{\SI{3600}{\s}} \\
+					& = \SI{2.32e8}{\kWh}
+			\end{align*}
+			\item For a kilogram of coal, \begin{align*}
+				Q & = \frac{\SI{1000}{\g}}{\SI{12}{\g\per\mol}} \times \frac{\SI{6.022e23}{\text{ carbon atoms}}}{\SI{1}{\mol}} \times \SI{4.2e-6}{\MeV} \\
+				& \quad \times \frac{ \SI{1.602e-22}{\kJ} }{ \SI{1e-6}{\MeV}} \times \frac{1}{\SI{3600}{\s}}\\
+				& = \SI{9.38}{\kWh}
+			\end{align*}
+			\item \textbf{Fission}
+					
+					Pros: generates lots of energy per gram; not terrible for the environment.
+					
+					Cons: public perceives nuclear power as scary; generates harmful waste.
+					
+				\textbf{Fusion}
+				
+					Pros: generates lots of energy, waste is less harmful, currently expensive.
+					
+					Cons: literally impossible to do economically.
+					
+				\textbf{Combustion}
+				
+					Pros: cheap and (currently) readily-abundant, simple to extract energy from
+					
+					Cons: terrible for the environment, contributes to income inequality, generates little energy relative to nuclear options, mining for coal and other fuels destroys the environment, oil and coal reserves depleting.
+		\end{enumerate}
+		\item[53.] As a rad increases a kilogram by \SI{1e-2}{\J}, \begin{align*}
+			E & = \SI{25e-2}{\J\per\kg} \times \SI{75}{\kg} = \SI{18.75}{\J}
+		\end{align*}
+	\end{enumerate}
+\end{document}

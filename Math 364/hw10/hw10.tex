@@ -1,0 +1,142 @@
+\documentclass{homework}
+
+\title{Homework 10}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 9, 2021}
+\setclass{Math}{364}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+\newcommand{\st}{\mathrm{s.t.}}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+\newcommand{\bolditem}[1][YYY]{\item[\textbf{#1}]}
+\newenvironment{amatrix}[1]{%
+	\left(\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+	\end{array}\right)
+}
+
+%\renewcommand\arraystretch{1.25}
+
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\bolditem[6.2.8] Formulate integer (or mixed integer) programming models for the following. \begin{enumerate}
+			\item \textit{(The Knapsack Problem)} A backpacker's knapsack has a volume of $V$ cu. in. and can hold up to $W$ lb of gear. The backpacker has a choice of $n$ items to carry in it, with the $i$th item requiring $a_i$ cu. in. of space, weighing $w_i$ lb, and providing $c_i$ units of value for the trip. What items should be taken in the knapsack?
+			
+			\solution The decision variables are booleans that represent whether or not to take the item, \begin{align*}
+				\text{Let } x_i & = \begin{cases}
+					1 & \text{the $i$th item is taken} \\
+					0 & \text{the $i$th item is not taken}.
+				\end{cases}
+			\end{align*}
+			The objective function is the total value we're trying to minimize, \begin{align*}
+				\text{Total value } z & = \sum_i^n c_i x_i.
+			\end{align*}
+			And the constraints are given by the volume and weight limitations of the knapsack, \begin{align*}
+				\sum_i^n a_i x_i \le V \\
+				\sum_i^n w_i x_i \le W.
+			\end{align*}
+			The integer program is then as follows, \begin{tcolorbox}
+				\vspace{-1em}
+				\begin{align*}
+					\max \quad & z = \sum_i^n c_i x_n \\
+					\st \quad & \sum_i^n a_i x_i \le V \\
+						& \sum_i^n w_i x_i \le W \\
+						& x_i \in \{ 0, 1\}
+				\end{align*}
+			\end{tcolorbox}
+		
+			\pagebreak
+			
+			\item Refine part (a) to include the following considerations: Item 1, a can of tuna fish, Item 2, a can of corn, and Item 3, a can of stew, have no value unless Item 4, the can opener is taken; and only one snack, either Item 5, potato chips (light but bulky), or Item 6, unpopped popcorn (small but heavy), is to go. Of course Items 2, 3, and 6 all use Item 7, the cooking pot.
+			
+			\solution For the canned food, we must constrain it so Item 4 is in the pack \begin{align*}
+				x_4 \ge x_1  \\
+				x_4 \ge x_2.
+				\intertext{For the single snack constraint,}
+				x_5 + x_6 = 1.
+				\intertext{Lastly, for the cooking pot constraint (it's like the first constraint),}
+				x_7 \ge x_2 \\
+				x_7 \ge x_3 \\
+				x_7 \ge x_6.
+			\end{align*}
+		\end{enumerate}
+		
+		\pagebreak
+		
+		\bolditem[6.2.18] A company must produce weekly either 1500 $A$'s and 1000 $B$'s or 1000 $A$'s and 1500 $B$'s. Three difference processes can be used in production, with input (labor and raw materials $M$) and output ($A$'s and $B$'s) of 1 hr of operation of each as follows: 
+		
+		\begin{center}
+			\begin{tabular}{lcccc}
+				\toprule
+				& \multicolumn{2}{c}{\textbf{Input}} & \multicolumn{2}{c}{\textbf{Output}} \\
+				& Labor (hr) & $M$'s (units) & $A$'s (units) & $B$'s (units) \\
+				\midrule
+				Process 1 & 20 & 35 & 40 & 42 \\
+				Process 2 & 12 & 12 & 45 & 35 \\
+				Process 3 & 25 & 28 & 36 & 44 \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+		An unlimited number of $M$'s are available weekly at \$15/unit and up to 600 hr of labor at \$12/hr. How many $A$'s and $B$'s should be made, using what production schedule, to minimize weekly costs?
+		
+		\solution The decision variables are given by how hours of each process to run, \begin{align*}
+			\text{Let } x_i & = \text{hours to run the $i$th process, where $i = 1, 2, 3$},
+			\intertext{and a boolean to denote whether to produce the 1500/1000 or 1000/1500 outputs,}
+			b & = \begin{cases}
+				1 & \text{company produces 1500 $A$'s and 1000 $B$'s} \\
+				0 & \text{company produces 1000 $A$'s and 1500 $B$'s}.
+			\end{cases}
+		\end{align*}
+		The objective function is the cost to run those processes, \begin{align*}
+			\text{Cost } z & = 15\left( 35 x_1 + 12 x_2 + 28 x_3 \right) + 12 \left(20 x_1 + 12 x_2 + 25 x_3\right).
+		\end{align*}
+		The constraints are given by the number of outputs to produce and the limitations on labor, \begin{align*}
+			40 x_1 + 45 x_2 + 36 x_3 & = 1000 + 500b\\
+			42 x_1 + 35 x_2 + 44 x_3 & = 1500 - 500b\\
+			20x_1 + 12 x_2 + 25 x_3 & \le 600
+		\end{align*}
+		The linear program is \begin{tcolorbox}
+			\vspace{-1em}
+			\begin{align*}
+				\min \quad  &z = 15\left( 35 x_1 + 12 x_2 + 28 x_3 \right) + 12 \left(20 x_1 + 12 x_2 + 25 x_3\right) \\
+				\st \quad & 40 x_1 + 45 x_2 + 36 x_3  = 1000 + 500b\\
+					& 42 x_1 + 35 x_2 + 44 x_3  = 1500 - 500b\\
+					& 20x_1 + 12 x_2 + 25 x_3  \le 600 \\
+					& b \in \{0, 1\} \\
+					& x \ge 0 \\
+					& x \in \mathbb{Z}^3
+				\end{align*}
+		\end{tcolorbox}
+	\end{enumerate}
+\end{document}

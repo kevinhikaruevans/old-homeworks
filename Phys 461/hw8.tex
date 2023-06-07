@@ -1,0 +1,129 @@
+\documentclass{homework}
+
+\title{Homework 8}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 8, 2021}
+\setclass{Physics}{461}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Starting from the radial Schrodinger equation \begin{align*}
+			-\frac{\hbar^2}{2m_e} \left(R'' + \frac{2}{r} R\right) - \frac{\ell(\ell + 1)}{r^2}R - \frac{\slashed{e}^2}{r} R(r) & = E R
+			\intertext{Letting the constants go to $1$,}
+			\frac{1}{2} R'' + \frac{1}{2} R' + \left[\frac{1}{r} - \frac{\ell(\ell + 1)}{2r^2}\right] R & = - E R
+		\end{align*}
+		For $R(r) = e^{-r}$ and $\ell = 0$ and $E = -1/2$, the differential equation becomes \begin{align*}
+			\frac{1}{2} R(r) - \frac{1}{r} R(r) + \frac{1}{r} R(r) & = \frac{R(r)}{2}
+		\end{align*}
+	...which is true.
+	
+		\item \begin{enumerate}
+			\item The Rydberg constant is $207\times$ larger, so the wavelength is \begin{align*}
+				\lambda & = \frac{1}{207 \times R_\infty} = \SI{440.2}{\pm}
+			\end{align*}
+			This is in the x-ray to gamma ray region.
+		
+			\item Using the reduced mass, \begin{align*}
+				R_\mu & = \left(\frac{ m_\mu m_p }{m_\mu + m_p}\right) \frac{e^4}{8 \epsilon_0^2 h^3 c}  \\
+				\lambda & = R^{-1} = \SI{481.9}{\pm}
+			\end{align*}
+			It's pretty close to the infinite nuclear mass approximation.
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item Using $R_\mu$ from Problem 2, we can equate the energy to the Coulomb potential as \begin{align*}
+				E & = R_\mu h c \frac{Z^2}{n^2}= \frac{Z e^2}{4 \pi \epsilon_0 r} \\
+				r & = \frac{e^2}{4 \pi \epsilon_0 R Z h c} = \SI{6.89}{\femto\meter}
+			\end{align*}
+		
+			\item For muonic hydrogen, $Z=1$ and then from the equation used in (a), the radius is $\SI{564}{\femto\meter}$.
+		\end{enumerate} 
+	
+		\item  \begin{enumerate}
+			\item The energy levels are given by \begin{align*}
+				E_n & = - \frac{\mu e^4}{8 h^2 \epsilon_0^2} \frac{1}{n^2} = -\frac{\SI{-6.8}{\eV}}{n^2}
+			\end{align*}
+			For $n=1, 2, 3$, \begin{align*}
+				E_1 & = -\SI{6.8}{\eV} \\
+				E_2 & = -\SI{1.7}{\eV} \\
+				E_3 & = -\SI{0.75}{\eV}
+			\end{align*}
+		
+			\item For the $\alpha$ and $\beta$ lines, \begin{align*}
+				E_\alpha & = E_2 - E_1 = \SI{5.1}{\eV} \\
+				\lambda_\alpha & = \frac{hc}{E_2 - E_1} = \SI{243}{\nm} \\
+				\lambda_\beta & = \frac{hc}{E_3 - E_1} = \SI{204}{\nm}
+			\end{align*}
+		\end{enumerate}
+		
+		\item \begin{enumerate}
+			\item The core electrons shield (p 218) the nuclear charge completely.
+			
+			\item We can equate the energy to the Coulomb potential, \begin{align*}
+				\frac{Ry}{2000^2} & = \frac{e^2}{4 \pi \epsilon_0 r} \\
+				r & = {\frac{e^2 2000^2}{4 \pi \epsilon_0 Ry}} \\
+					& = \SI{427}{\um}
+			\end{align*}
+			The H atom is \SI{5e-11}{\m}, so this is much larger.
+			
+			\item From Wikipedia, \begin{align*}
+				mvr & = n\hbar \\
+				v & = \SI{1158}{\m\per\s}
+			\end{align*}
+		
+			\item For $n=1$, $v = \SI{2e6}{\m/s}$, which makes sense as the electron is much closer in orbit.
+			
+		\end{enumerate}
+		
+		\item \begin{enumerate}
+			\item For the inner $2s$ electron, the energy is $E_{2s} = Ry \frac{Z^2}{n^2} = Ry$. For the outer $4p$ electron, the effective charge is $1$ and the energy is $E_{4p} = Ry / 16$. Adding these, the energy is \begin{align*}
+				E_{2s4p} & = 1 + \SI{13.61}{\eV} \left(1 + \frac{1}{16} \right) = \SI{14.5}{\eV}
+			\end{align*}
+			The ground state of He (from Wikipedia) is $-\SI{79}{\eV}$, so the change in energy is $\Delta E = \SI{64.5}{\eV}$, corresponding to $\lambda = \SI{19}{\nm}$.
+			
+			\item Doing this classically, we can take the energy from (a) and set it to $mv^2 / 2$, \begin{align*}
+				\Delta E & = \frac{mv^2}{2} \\
+				v & = \sqrt{\frac{ 2 \Delta E}{m}} = \sqrt{\frac{2 \times \SI{64.5}{\eV}}{\SI{0.510}{\MeV}}} \\
+					& = \SI{4.8e6}{\m\per\s}
+			\end{align*}
+		\end{enumerate}
+	
+		\item From the $L$ shell, the electron drops of $L \to K$ corresponding to the $K_\alpha$ line \SI{3.69}{\keV}. Similarly for the $M$ and $N$ shells, the energies are \SI{0.341}{\keV} and \SI{0.024}{\keV} respectively.
+		
+		\item The emitted electron is roughly $\SI{300}{\eV}$, which is roughly the $L_\alpha$ line, which makes sense.
+		
+		\item I can't get the generalized way to work out, so I'm just going to give an example with the $2p3s$ state. Under $LS$ coupling, we get four terms: \ce{^1P_1}, \ce{^3P_0}, \ce{^3P_1}, \ce{^3P_2}. Under $jj$ coupling, there's four terms as well: for $j_1 = j_2 = 1/2$, we get two states $j=0, 1$. For $j_1 = 3/2, j_2 = 1/2$, we get two other states, $j=1, 2$.
+		
+		\item \begin{enumerate}
+			\item The combined $L=1$ and $S=1$, so $J$ goes from $0, 1, 2$, and the terms are \ce{^1P_1}, \ce{^3P_0}, \ce{^3P_1}, \ce{^3P_2}.
+			
+			\item For $j_1 = 1 + \frac{1}{2} = \frac{1}{2}, \frac{3}{2}$, $j_2 = \frac{1}{2}$, we can couple these with $J = j_1 + j_2$ to $|j_1 - j_2|$. For $j_1 = j_2 = 1/2$, we get two states $j=0, 1$. For $j_1 = 3/2, j_2 = 1/2$, we get two other states, $j=1, 2$.
+			
+			\item I think this can be explained by the Paschen-Back effect, except instead of an external field, it's related to the moment from the nucleus?
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

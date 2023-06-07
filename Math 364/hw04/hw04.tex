@@ -1,0 +1,170 @@
+\documentclass{homework}
+
+\title{Homework 4}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 21, 2021}
+\setclass{Math}{364}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+\newcommand{\st}{\mathrm{s.t.}}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+\newcommand{\bolditem}[1][YYY]{\item[\textbf{#1}]}
+\newenvironment{amatrix}[1]{%
+	\left(\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+	\end{array}\right)
+}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\bolditem[3.1.3] % (f) and (g)
+			Put the following problems into standard form.
+			
+			\begin{enumerate}
+				\item[(f)] Maximize $x_1 + 2x_2 + 4x_3$
+				
+				subject to
+				
+				$\abs{4x_1 + 3x_2 - 7x_3}  \le x_1 + x_2 + x_3$
+				
+				$x \ge 0$
+				
+				\vspace{1em}
+				\textit{Solution.} \quad First, we can change the objective from a maximization to a minimization and flipping the sign,
+				$$\min_x - x_1 -  2x_2 - 4x_3.$$
+				
+				Next, the absolute value constraint can be split into two constraints,
+				\begin{align*}
+					4x_1 + 3x_2 - 7x_3  & \le x_1 + x_2 + x_3 \\
+					-4x_1 + -3x_2 + 7x_3  & \le x_1 + x_2 + x_3.
+					\intertext{Then, we can add in slack variables $x_4$ and $x_5$, convert these into equalities,}
+					4x_1 + 3x_2 - 7x_3  + x_4 & = x_1 + x_2 + x_3 \\
+					-4x_1 + -3x_2 + 7x_3 + x_5 & = x_1 + x_2 + x_3.
+					\intertext{Subtracting out the extraneous terms,}
+					3x_1 + 2x_2 - 8x_3 + x_4  & = 0 \\
+					-5x_1 + -4x_2 + 6x_3  + x_5 & = 0.
+				\end{align*}
+				The linear program in standard form is
+				
+				\begin{tcolorbox}
+					\vspace{-1em}
+					\begin{align*}
+						\min_x \quad & -x_1 - 2x_2 - 4x_3 \\
+						\st \quad & 3x_1 + 2x_2 - 8x_3 + x_4  = 0 \\
+						& -5x_1 + -4x_2 + 6x_3  + x_5  = 0 \\
+						& x \ge 0
+					\end{align*}
+				\end{tcolorbox}
+			
+				\pagebreak
+				
+				\item[(g)] Maximize $x_1 + 6x_2 + 12 x_3$
+				
+					subject to
+					
+					$-x_1 - x_2 + x_4 \ge \text{maximum of } 7 x_1 + 2x_2 \text{ and } 5x_2 + x_3 + x_4$
+					
+					$x \ge 0$
+					
+					\vspace{1em}
+					
+					\textit{Solution.} \quad We can convert the maximization into a minimization by flipping signs again,
+					$$\min_x -x_1 - 6x_2 - 12 x_3.$$
+					
+					The ``maximum of...'' constraint can be split into two separate constraints,
+					\begin{align*}
+						-x_1 - x_2 + x_4 & \ge 7 x_1 + 2x_2 \\
+						-x_1 - x_2 + x_4 & \ge 5x_2 + x_3 + x_4.
+						\intertext{Adding in slack variables, we can convert this into equalities,}
+						-x_1 - x_2 + x_4 + x_5 & = 7 x_1 + 2x_2 \\
+						-x_1 - x_2 + x_4 + x_6 & = 5x_2 + x_3 + x_4.
+						\intertext{Making one side a constant, the equality constraints are}
+						-8x_1 - 3x_2 + x_4 + x_5 & = 0 \\
+						-x_1 - 6x_2  - x_3  + x_6 & = 0.
+					\end{align*}
+					
+					The linear program in standard form is
+					\begin{tcolorbox}
+						\vspace{-1em}
+						\begin{align*}
+							\min_x \quad & -x_1 - 6x_2 - 12 x_3 \\
+							\st \quad & -8x_1 - 3x_2 + x_4 + x_5  = 0 \\
+								& -x_1 - 6x_2  - x_3  + x_6 = 0 \\
+								& x \ge 0
+						\end{align*}
+					\end{tcolorbox}
+			\end{enumerate}
+		
+		\pagebreak
+		
+		\bolditem[3.2.3] A system of equations is said to be \textit{inconsistent} if the system has no solution. Show by using the pivot operation that the following systems are inconsistent. Is either of these systems equivalent to a system in canonical form?
+		
+		\begin{enumerate}
+			\item $x_1 + 2x_2 = 3$
+			
+				$x_1 + 2x_2 = 4$
+				
+				\solution	Putting this into matrix form, it's clear that because the coefficients of $x_1$ and $x_2$ are equal, there is no pivot operation to separate out a single variable,
+				\begin{align*}
+					\begin{amatrix}{2}
+						1 & 2 & 3 \\
+						1 & 2 & 4
+					\end{amatrix}.
+				\end{align*}
+				Because the coefficients are equal, the last row will be something like $(0, 0, -1)$, so this system is not solvable. \sout{This system is also not in canonical form, as if we take either $x_1$ or $x_2$ as the basic variable, there is no feasible solution.} I'm not sure, since a canonical form requires an objective function.
+				
+				
+			\item $\begin{aligned}[t]
+				x_1 + x_2  -  3x_3  & = 7 \\
+				 -2x_1  + x_2  +  5x_3 & = 2 \\
+				 3x_2 - x_3 & = 15
+			\end{aligned}$
+		
+			
+			\solution In matrix form, this becomes \begin{align*}
+				\begin{amatrix}{3}
+					1 & 1 & -3 & 7 \\
+					-2 & 1 & 5 & 2 \\
+					0 & 3 & -1 & 15
+				\end{amatrix} & \to \begin{amatrix}{3}
+				1 & 1 & -3 & 7 \\
+				0 & 3 & -1 & 16 \\
+				0 & 3 & -1 & 15
+			\end{amatrix} \\
+			\to \begin{amatrix}{3}
+				1 & 1 & -3 & 7 \\
+				0 & 3 & -1 & 16 \\
+				0 & 3 & -1 & 15
+			\end{amatrix}
+			\end{align*}
+			Because row 2 and row 3 have equal coefficients, the last row will be something like $(0, 0, 0, 1)$, which means this system is not solvable. \sout{I think this could be in canonical form, if we take $x_3$ as the non-basic variable and set it to $0$, we would have a basic solution.} Can this even be in canonical form if there is no objective function $z$?
+		\end{enumerate}
+		
+	\end{enumerate}
+\end{document}

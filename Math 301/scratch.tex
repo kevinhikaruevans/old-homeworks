@@ -1,0 +1,56 @@
+%\documentclass{article}
+\documentclass[varwidth=true, border=10pt]{standalone}
+
+\pagestyle{empty}
+\headheight=0pt
+\headsep=0pt
+
+\title{Homework 1}
+\author{Kevin Evans}
+%\studentid{11571810}
+%\date{August 28, 2020}
+%\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+
+\begin{document}
+	\begin{enumerate}
+		
+		
+		\item[5.] \textbf{Proposition:} if two integers have the opposite parity, their product is even.
+\textit{Proof.} Let $a$ have even parity and $b$ have odd parity, then $a$ and be can be expressed as \begin{align*}
+	a & = 2n \\
+	b & = 2m + 1 && \text{where $n, m \in \mathbb{Z}$}
+	\intertext{The product $ab$ becomes}
+	ab & = \left(2n\right)\left(2m + 1\right) \\
+	& = 4nm + 2n \\
+	& = 2(\underbrace{2nm + n}_{c}) && \text{Closure, $c \in \mathbb{Z}$}\\
+	& = 2c && \text{The result is always even. \qed}
+\end{align*}
+Two cases are not needed since multiplication is commutative, i.e. $ab = ba$.
+
+
+
+\end{enumerate}
+\end{document}

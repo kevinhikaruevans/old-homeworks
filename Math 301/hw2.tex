@@ -1,0 +1,102 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 1, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item If the determinate of a matrix is not zero, then a matrix is invertable.
+			\item If $\abs{r} < 1$, then a geometric series with common ratio $r$ converges.
+			\item If a function is continuous, then it is intergrable.
+			\item If a function is differentiable, then the function is continuous.
+			\item If I'm wearing a hat, then it is sunny.
+		\end{enumerate}
+	
+		\item $\begin{aligned}[t]
+			\text{Let } P & = \text{The Curiosity Rover is on Mars.} \\
+			Q & = \text{The Curiosity Rover is a good robot.} \\
+			R & = \text{The Mars Polar Lander is a good robot.}
+		\end{aligned}$
+		
+		And we know that $P$, $Q \vee R$, and $R \implies \neg P$ are all true. From $R \implies \neg P$,
+		\begin{center}
+			\begin{tabular}{cc|cl}
+				$R$ & $\neg P$ & $R \implies \neg P$ & \\
+				\midrule
+				T & T & T & \\
+				T & F & F & \\
+				F & T & T & \\
+				F & F & T & ($*$)
+			\end{tabular}
+		\end{center}
+		As $\neg P$ is false, the bottom row ($*$) intersects with $R \implies P$. So, $R$ must be false.
+		
+		\begin{enumerate}
+			\item True. Since $Q \vee R$ is true and $R$ is false, $Q$ must be true.
+			\item False. Shown above, $R$ is false.
+		\end{enumerate}
+	
+		\item If $P$ is false, then $P \wedge Q$ is false. If the original statement is true, then both sides of $\iff$ must be equal, i.e. $(R \implies S)$ must be false too. For an implication to be false, then \begin{align*}
+			R & = \text{true} \\
+			S & = \text{false}
+		\end{align*}
+	
+		It's impossible to know what $Q$ is as $P$ is false and $P \wedge Q$ will always be false regardless of $Q$'s value.
+		
+		\item For the implication $((P \wedge Q) \vee R) \implies (R \vee S)$ to be false, then \begin{align*}
+			((P \wedge Q) \vee R) & = \text{true} \\
+			(R \vee S) & = \text{false}
+			\intertext{From the latter, both $R$ and $S$ must be false, so}
+				(P \wedge Q) & = \text{true}
+			\intertext{This is only the case when both are true, thus}
+				P = Q & = \text{true} \\
+				R = S & = \text{false}
+		\end{align*}
+	
+		\item Building out a truth table, we can see both statements are  equivalent, \begin{center}
+			\begin{tabular}{cc|c|c}
+				$P$ & $Q$ & $(P \vee Q) \wedge \neg (P \wedge Q)$ & $(P \wedge \neg Q) \vee (Q \wedge \neg P)$ \\ \midrule
+				T & T & F & F \\
+				T & F & T & T \\
+				F & T & T & T \\
+				F & F & F & F
+			\end{tabular}
+		\end{center}
+	
+		\item Applying de Morgan's law to the second statement, \begin{align*}
+			\neg \left( \left( P \wedge Q\right) \wedge \neg R\right) & = \neg \left( P \wedge Q\right) \vee R
+			\intertext{For the two original statements to be equivalent, then it would mean}
+			\neg \left( P \wedge Q\right) & \stackrel{?}{=} \left(P \implies Q\right)
+			\intertext{...which is certainly false. These statements are \underline{not} equivalent.}
+		\end{align*}
+	
+	\end{enumerate}
+\end{document}

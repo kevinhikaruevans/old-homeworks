@@ -1,0 +1,163 @@
+\documentclass{homework}
+
+\title{Homework 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{April 14, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item The vector potential can be written \begin{align*}
+			\bvec{A} & = -\frac{\mu_0 p_0 \omega}{4 \pi r} \sin(\omega(t - r/c)) \left[
+				\cos \theta \uvec{r}
+				- \sin \theta \uvec{\theta}
+			\right]
+			\intertext{To check if the potentials satisfy the Lorenz gauge condition, we can find the divergence of the vector potential,}
+			\div{\bvec{A}} & =  -\frac{\mu_0 p_0 \omega}{4 \pi}  \left\{
+				\frac{1}{r^2} \pdv{r} \left[
+					r \sin(\omega(t - r/c)) \cos \theta
+				\right]
+				- \frac{\sin(\omega(t - r/c)) }{r^2 \sin \theta} \pdv{\theta} \left[
+					\sin[2](\theta)
+				\right]
+			\right\} \\
+				& =  -\frac{\mu_0 p_0 \omega}{4 \pi}  \left\{
+					\frac{\cos \theta}{r^2} \left[
+						\sin(\omega(t - r/c)) - \frac{ r \omega \cos(\omega (t - r/c)) }{c}
+					\right]
+					- \frac{2\sin(\omega(t - r/c)) \cos \theta}{r^2 } 
+				\right\} \\
+				& = -\frac{\mu_0 p_0 \omega}{4 \pi}  \left\{
+				\frac{\cos \theta}{r^2} \left[
+				- \frac{ r \omega \cos(\omega (t - r/c)) }{c}
+				\right]
+				- \frac{\sin(\omega(t - r/c)) \cos \theta}{r^2 } 
+				\right\}
+		\end{align*}
+		Next, taking the time derivative of the scalar potential \begin{align*}
+			\pdv{V}{t} & = \frac{p_0 \cos \theta \omega}{4 \pi \epsilon_0 r} \left[
+				-\frac{\omega}{c} \cos(\dots) 
+				+ \frac{1}{r} \sin(\dots)
+			\right]
+		\end{align*}
+		Rearranging, it becomes clear that the potentials obey the Lorenz gauge condition, 
+		\[ \div{\bvec{A}} = -\mu_0 \epsilon_0 \pdv{V}{t}. \]
+		\item Starting from the power radiated via the Poynting vector and the current flowing in the ``wire'', eq. (11.22) and (11.15), \begin{align*}
+			\expval{P} & = \frac{\mu_0 p_0^2 \omega^4}{12 \pi c} = \expval{I^2}_T R \\
+			R & = \frac{\expval{P}}{\expval{I^2}_T} \\
+				& = \frac{\mu_0 (q_0 d)^2 \omega^4}{12 \pi c} \frac{2}{q_0^2 \omega^2} \\
+				& = \frac{\mu_0 d^2 \omega^2}{6 \pi c} \\
+				& = \frac{\mu_0 d^2 \pi c}{3 \lambda^2} \propto (d/\lambda)^2
+		\end{align*}
+		For a \SI{1}{\m} antenna operating at $\lambda = \SI{30}{\centi\m}$, the resistance would be \SI{4.4}{\kohm}. This is quite high for an antenna.
+		
+		
+		\item From (11.40), the average power is \begin{align*}
+			\expval{P} & = \frac{\mu_0 m_0^2 \omega^4}{12 \pi c^3} = I^2 R \\
+			R & = \frac{\mu_0 \omega^4}{12 \pi c^3} (\pi b^2 I_0)^2 \frac{1}{\expval{I^2}} \\
+				& = \frac{\mu_0 \omega^4 b^4}{6 c^3}
+		\end{align*}
+		...as the time average of $\expval{I^2} = I_0 / 2$.
+		\item Starting from (11.33), \begin{align*}
+			\bvec{A} & = \frac{\mu_0 m_0}{4 \pi} \frac{\sin \theta}{r} \left\{
+				\frac{1}{r} \cos\left[\omega(t - r/c)\right]
+				- \frac{\omega}{c} \sin\left[\omega(t - r/c)\right]
+			\right\} \uvec{\phi}
+		\end{align*}
+		Assuming there is no net charge, the scalar potential is zero. The electric field is then \begin{align*}
+			\bvec{E} & = -\pdv{\bvec{A}}{t} \\
+				& = -\frac{\mu_0 m_0 }{4 \pi} \frac{\sin\theta \omega}{r} \left\{
+					-\frac{1}{r} \sin\left[\omega(t - r/c) \right]
+					- \frac{\omega}{c} \cos\left[\omega(t - r/c) \right]
+				\right\} \uvec{\phi} \\
+				& = \frac{\mu_0 m_0 }{4 \pi} \frac{\omega \sin\theta}{r} \left\{
+				\frac{1}{r} \sin\left[\omega(t - r/c) \right]
+				+ \frac{\omega}{c} \cos\left[\omega(t - r/c) \right]
+				\right\} \uvec{\phi} \\
+		\end{align*}
+		The magnetic field is the curl of the vector potential. The non-zero terms are \begin{align*}
+			\bvec{B} & = \curl\bvec{A} \\
+				& = \frac{1}{r \sin \theta} \pdv{\theta} \sin \theta A_\theta \uvec{r}
+					- \frac{1}{r}
+						\pdv{r} r A_\phi
+					\uvec{\theta} \\
+				& = \frac{\mu_0 m_0}{4 \pi} \left[
+					\frac{1}{r \sin \theta} \pdv{\theta} \left(
+						\frac{ \sin[2](\theta) }{r} \left\{\dots\right\} 
+					\right) \uvec{r} \:
+					- \frac{\sin \theta}{r} \pdv{r}
+						\left(
+							\frac{1}{r} \cos(\dots)
+							- \frac{\omega}{c} \sin(\dots)
+						\right) \uvec{\theta}
+				\right] \\
+				& = \frac{\mu_0 m_0}{4 \pi} \left[
+					\frac{2 \cos \theta}{r} \left\{ \dots \right\} \uvec{r}
+					- \frac{\sin \theta}{r} \left(
+						\frac{
+							c^2 \cos\left[\omega(t - r/c) \right]
+							+ (r^2 \omega^2 - cr \omega) \sin\left[\omega(t - r/c) \right]
+					 }{c^2 r^2}
+					\right)\uvec{\theta}
+				\right]
+		\end{align*}
+		The Poynting vector is found using \begin{align*}
+			\bvec{S} & = \frac{1}{\mu_0} \bvec{E} \cross \bvec{B}
+		\end{align*}
+		I've given up on this problem.
+		
+		\item \begin{enumerate}
+			\item Not sure if this is valid in this case, but if we reuse the setup from p. 480 and take the power radiating through a giant spherical surface, the total radiated power is \begin{align*}
+				P_\mathrm{rad} & \cong \frac{\mu_0}{6 \pi c} \ddot{p}^2
+				\intertext{where the capacitor is approximately a dipole,}
+				p(t) & = Q_0 d e^{-t/RC} \\
+				\ddot{p}(t) & = \frac{ Q_0 d }{(RC)^2} e^{-t/RC}
+				\intertext{Integrating to find the total radiated energy,}
+				E_\mathrm{rad} & = \int P(t) \dd{t} \\
+					& = \frac{\mu_0}{6 \pi c} \left( \frac{Q_0 d}{(RC)^2} \right)^2 \int_0^\infty  e^{-t/RC} \dd{t} \\
+					& = \frac{\mu_0}{6 \pi c} \left( \frac{Q_0 d}{(RC)^2} \right)^2 RC \\
+					& = \frac{\mu_0 Q_0^2 d^2}{6 \pi c R^3 C^3}
+				\intertext{As a fraction of its initial energy,}
+				\frac{E_\mathrm{rad}}{E_\mathrm{initial}} & = \frac{\mu_0 d^2}{3 \pi c R^3 C^2}
+			\end{align*}
+			
+			\item Plugging all the values in, the fraction is \begin{align*}
+				\frac{E_\mathrm{rad}}{E_\mathrm{initial}} & \approx \num{4.44e-9}
+			\end{align*}
+			which is pretty tiny.
+		\end{enumerate}
+	\end{enumerate}
+
+
+\end{document}

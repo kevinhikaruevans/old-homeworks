@@ -1,0 +1,170 @@
+\documentclass{homework}
+
+\title{Homework 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 24, 2021}
+\setclass{Physics}{461}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Assuming the isospin function must also be antisymmetric (by the Pauli principle) and the proton and neutron are orthogonal states, then deuteron would be more favorable than diproton and dineutron.
+		
+		Deuteron would have a total isospin of $1$ or $0$. The diproton and dineutron would have isospin $1$.
+		
+		\item 
+		
+		
+		\item \begin{enumerate}
+			\item For $\hat{A} = x$, \begin{align*}
+				\bra{\phi} x \ket{\psi} & = \int \phi^* x \psi \dd{x} \\
+					& = \int x \phi^* \psi \dd{x}
+			\end{align*}
+			
+		
+			\item For $\hat{A} = \dv{x}$, \begin{align*}
+				\bra{\phi} \dv{x} \ket{\psi} & = \int \phi^* \dv{\psi}{x} \dd{x} \\
+					& = \eval{ \phi^* {\psi} }_{\pm \infty }- \int \psi \dv{\phi^*}{x} \dd{x} \\
+					& = - \int \left( \dv{\phi}{x} \right)^* \psi \dd{x}
+				\intertext{Therefore, $\dv{x}$ is antihermitian.}
+			\end{align*}
+
+			\item For $\hat{p} = -i\hbar \dv{x}$, \begin{align*}
+				\bra{\phi} \hat{p} \ket{\psi} & = \int \phi^* \left(-i \hbar \dv{\psi}{x} \right) \dd{x} \\
+					& = - \int \left(-i \hbar \psi \right) \dv{\phi^*}{x} \dd{x} \\
+					& = \int \left(-i \hbar \dv{\phi}{x}\right)^* \psi \dd{x}
+			\end{align*}
+			The momentum operator is indeed Hermitian as $\hat{p} = \hat{p}^\dagger$.\
+			
+			\item For the Hamiltonian $\hat{H} = -(\hbar^2 / 2m) \pdv[2]{x} + V(x)$, \begin{align*}
+				\bra{\phi} \hat{H} \ket{\psi} & = \int \phi^* \left(-(\hbar^2 / 2m) \pdv[2]{x} + V(x)\right) \psi \dd{x} \\
+					& = - \int \left(-(\hbar^2 / 2m) \pdv[2]{x} + V(x)\right)
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item By the anti-distributive property of the Hermitain adjoint, $(\hat{A} \hat{B})^\dagger = \hat{B}^\dagger \hat{A}^\dagger$.
+			
+			\item If we have $\bra{\psi} \hat{A} \ket{\phi}$ and conjugate that, \begin{align*}
+				\left(\bra{\psi} \hat{A} \ket{\phi}\right)^* & = \ket{\psi} \hat{A}^\dagger \bra{\phi} \\
+					& = \bra{\phi} \hat{A}^\dagger \ket{\psi} \qed
+			\end{align*}
+		
+			\item 
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item Taking the Hamiltonian of a state, \begin{align*}
+				\hat{H} \ket{\psi} & = a \hat{H} \ket{\phi_i} + b \hat{H} \ket{\phi_f} \\
+					& = a (\hat{H_0} + \hat{V}) \ket{\phi_i} + b(\hat{H_0} + \hat{V}) \ket{\phi_f} \\
+					& = \begin{bmatrix}
+						E_i & M_{fi} \\
+						M_{if} & E_f
+					\end{bmatrix} \begin{bmatrix}
+					a \\ b
+				\end{bmatrix}
+			\intertext{For the $M_{fi}$ integral, there is no $H_0$ term as it is in the $E_i$/$E_f$ components? And as $\braket{\phi_i}{\phi_f} = 0$.}
+			\end{align*}
+		
+			\item 
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item By Problem 4, it must be Hermitain as $\hat{N}^\dagger = \hat{N}$: \begin{align*}
+				\hat{N}^\dagger & = (a^\dagger a)^\dagger = a^\dagger a
+			\end{align*}
+		
+			\item The Hamiltonian can be written as \begin{align*}
+				\hat{H} & = \hbar \omega \left(\hat{N} + \frac{1}{2}\right) \\
+					& = \frac{1}{2}{\hbar \omega} \left( \hat{N} + \hat{N} + 1 \right) \\
+					\intertext{As $1 = a a^\dagger - a^\dagger a$,}
+					& = \frac{1}{2} \hbar \omega \left(a^\dagger a + aa^\dagger\right)
+			\end{align*}
+		\end{enumerate}
+	
+		\item Multiplying it out and letting $\hat{x}$ and $\hat{y}$ be the things in the parenthesis, \begin{align*}
+			aa^\dagger - a^\dagger a & = \frac{1}{2} \left(
+				\hat{x}^2 - \hat{x} \hat{y} + \hat{y} \hat{x} - \hat{y}^2
+			\right) 
+			-  \frac{1}{2} \left(
+			\hat{x}^2 + \hat{x} \hat{y} - \hat{y} \hat{x} - \hat{y}^2
+			\right)  \\
+			& = \frac{1}{2} \times 2 \text{\qquad as the first derivatives are evaluated, resulting in $1$ for each cross terms}
+		\end{align*}
+	
+		From eq. (7), \begin{align*}
+			\hat{H} & = \frac{1}{2} \hbar \omega \left(a^\dagger a + a a^\dagger\right) \\
+				& = \frac{1}{4} \hbar \omega \left(
+					\alpha^2 x^2 - \alpha x \dv{x} - 1 + \frac{1}{\alpha^2} \dv[2]{x} + \alpha^2 x^2 + \alpha x \dv{x} + 1 + \frac{1}{\alpha^2} \dv[2]{x}
+				\right) \\
+				& = \frac{1}{2} \hbar \omega \left( 
+					\alpha^2 x^2 + \frac{1}{\alpha^2} \dv[2]{x}
+				 \right)  \\
+				 & = \frac{1}{2} \omega^2 x^2 + \frac{\hbar \omega}{2}\frac{\hbar}{\omega} \dv[2]{x} \\
+				 & = \frac{\hbar^2}{2} \dv[2]{x} + \frac{1}{2} \omega^2 x^2
+				 \intertext{Not sure where the negative is coming from...}
+		\end{align*}
+	
+		\item \begin{enumerate}
+			\item For eq. (9), \begin{align*}
+				\hat{N}a \ket{n} & = (a^\dagger a) a \ket{n} = (\underbrace{ a a^\dagger}_{\hat{N}=n} - 1) a \ket{n} = (n-1) a \ket{n}
+				\intertext{Similarly for eq. (10),}
+				\hat{N} a^\dagger \ket{n} & = (1 + a^\dagger a) a^\dagger \ket{n} = (n+1) a^\dagger \ket{n}
+			\end{align*}
+		
+			\item 
+		\end{enumerate}
+		
+		\item Using eq. (11) and (12) in the Hamiltonian, \begin{align*}
+			\hat{H} & = \int_V \left[
+				-\frac{\epsilon_0}{2} \frac{\hbar \omega}{2 \epsilon_0 V} 
+				\left(ae^{ikr} - a^\dagger e^{-ikr}\right)^2
+				+
+				\frac{1}{2\mu_0}
+				\frac{\mu_0 \hbar \omega}{2 V}
+				\left(ae^{ikr} + a^\dagger e^{-ikr} \right)
+			\right] \dd{\tau} \\
+				& = \frac{\hbar \omega}{4V} \int_V \left[
+					2\left(
+						a^2 e^{2ikr}
+						+ (a^\dagger)^2 e^{-2ikr}
+					\right)
+				\right] \dd{\tau}
+				\intertext{I assume this somehow integrates to $V$? So it'll leave}
+				\hat{H}& = \frac{\hbar \omega}{2}
+		\end{align*}
+		
+		\item \begin{enumerate}
+			\item Using eq. (11) and (14), \begin{align*}
+				\text{Rate} & = \mathrm{factor} \times \abs{M_{fi}}^2 \times \abs{
+					\bra{n-1}
+					\frac{\hbar \omega}{2 \epsilon_0 V} \left(a - a^\dagger\right)^2
+					\ket{n}
+				}^2	
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

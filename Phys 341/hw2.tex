@@ -1,0 +1,196 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 9, 2020}
+\setclass{Physics}{341}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+
+\begin{document}
+	\maketitle
+
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item $(0, 0, 0) \to (1, 0, 0) \to (1, 1, 0) \to (1, 1, 1)$ \begin{align*}
+				\int_P \bvec{v} \cdot \dd{\vec{\ell}} & = \eval{\int_0^1 xy \dd{x}}_{y=0} + \eval{\int_0^1 yz \dd{y}}_{z=0} + \eval{\int_0^1 zx \dd{z}}_{x=1} \\
+					& = \eval{\frac{z^2}{2}}_0^1 \\
+					& = \frac{1}{2}
+			\end{align*}
+		
+			\item $(0, 0, 0) \to (0, 0, 1) \to (0, 1, 1) \to (1, 1, 1)$
+			\begin{align*}
+				\int_P \bvec{v} \cdot \dd{\vec{\ell}} & = \eval{\int_0^1 zx \dd{z}}_{x=0} + \eval{\int_0^1 yz \dd{y}}_{z=1} + \eval{\int_{0}^{1} xy \dd{x}}_{y=1} \\
+					& = \frac{1}{2} \left( y^2 + x^2 \right)_{x,y=0}^{x,y=1} \\
+					& = 1
+			\end{align*}
+		
+			\item If we parameterize the function by $t$ from $0 \to 1$, \begin{align*}
+				\bvec{v} & = t^2 \left( \uvec{x} + \uvec{y} + \uvec{z}\right) \\
+				\dd{\vec{\ell}} & = \dd{t} \left( \uvec{x} + \uvec{y} + \uvec{z} \right) \\
+				\int_P \bvec{v} \cdot \dd{\vec{\ell}} & = 3 \int_{0}^1 t^2 \dd{t} = \eval{ t^3 }_0^1 \\
+					& = 1
+			\end{align*}
+		\end{enumerate}
+	
+		\item Applying the divergence theorem, as it's a closed surface, \begin{align*}
+			\oint_S \bvec{v} \cdot \dd{\bvec{a}} & = \int_V \left(\div{\bvec{v}}\right)  \dd{\tau} \\
+				& = \int_0^1 \int_0^1 \int_0^1 \left( x + y + z\right) \dd{x} \dd{y} \dd{z} \\
+				& = \int_0^1 \int_0^1 \left[ \frac{x^2}{2} + yx + zx\right]_0^1 \dd{y} \dd{z}
+				= \int_0^1 \int_0^1 \left( \frac{1}{2} + y + z \right) \dd{y}\dd{z} \\
+				& = \int_0^1 \left[\frac{y}{2} + \frac{y^2}{2} + zy\right]_0^1 \dd{z} = \int_0^1 \left(1 + z\right) \dd{z} \\
+				& = \left[ z + \frac{z^2}{2} \right]_0^1 \\
+				& = \frac{3}{2}
+		\end{align*}
+	
+		\item For the function
+		\[			f(r, \theta, \phi)  = r\left(\cos \theta + \sin \theta \cos \phi \right)\]
+		The gradient and Laplacian are found as
+		\begin{align*}
+			\grad{ f } & = \pdv{f}{r} \uvec{r}
+				+ \frac{1}{r} \pdv{f}{\theta} \uvec{\theta}
+				+ \frac{1}{r \sin \theta} \pdv{f}{\phi} \uvec{\phi} \\
+				& = \left( \cos \theta + \sin \theta \cos \phi\right) \uvec{r}
+				+ \frac{1}{\cancel{r}} \cancel{r} \left(-\sin \theta + \cos \phi \cos \theta\right) \uvec{\theta}
+				+  \frac{1}{r \sin \theta} \left(-r \sin \theta \sin \phi\right) \uvec{\phi}\\
+				& = \left(\cos \theta + \sin \theta \cos \phi\right) \uvec{r} + \left(\cos \phi \cos \theta - \sin \theta\right) \uvec{\theta} 
+				- \sin \phi \uvec{\phi} \\
+			\laplacian{f} & = \div{ \grad{f} } \\
+				& = \frac{1}{r^2} \pdv{r} r^2 \left(\cos \theta + \sin \theta \cos \phi\right)
+				+ \frac{1}{r \sin \theta} \pdv{\theta} \left[\sin \theta \left(\cos \phi \cos \theta - \sin \theta\right)\right] \\
+				& \qquad + \frac{1}{r \sin \theta} \pdv{\phi} \left(- \sin \phi\right) \\
+				& = \frac{1}{r^2} \left(2r\right) \left(\cos \theta + \sin\theta \cos \phi \right)
+				+ \frac{1}{r\sin \theta} \left[
+					\cos[2](\theta) \cos \phi - \sin[2](\theta) \cos \phi - 2 \sin \theta \cos \theta
+				\right] \\
+				& \qquad - \frac{1}{r \sin \theta} \cos \phi \\
+				& = \frac{2}{r} \left( \cos \theta + \sin \theta \cos \phi\right)
+					+ \frac{1}{r \sin \theta} \left[ \cos(2 \theta) \cos \phi - \sin(2 \theta)\right]
+					- \frac{1}{r \sin \theta} \cos \phi \\
+				& = \frac{1}{r \sin \theta} \left[
+					\underbrace{2 \sin \theta \cos \theta}_{\sin(2 \theta)} + \underbrace{2 \sin[2](\theta) \cos \phi + \cos(2 \theta) \cos \phi}_{\cos \phi} - \sin(2 \theta) - \cos \phi
+				\right] \\
+				& = 0
+		\end{align*}
+		Converting to Cartesian first, \begin{align*}
+			f(x, y, z) & = x + z \\
+			\laplacian{f(x, y, z)} & = 0 && \text{(all first-order)}
+		\end{align*}
+		\item For $\bvec{v} = z \cos \phi \uvec{s} + s \sin \phi \uvec{\phi} + 2 s \uvec{z}$ \begin{align*}
+			\div{\bvec{v}} & = \frac{1}{s} \pdv{s} \left[s z \cos \phi\right] + \frac{1}{s} \pdv{\phi} s \sin \phi + \pdv{z} 2 s \\
+				& = \frac{z \cos \phi}{s} + \cos \phi = \cos \phi \left( 1 + \frac{z}{s}\right) \\
+		\curl{\bvec{v}} & = 
+			\left(\frac{1}{s}(0) - 0\right) \uvec{s}
+			+ \left(\cos \phi - 2\right) \uvec{\phi} 
+			+ \frac{1}{s}\left( 2s \sin \phi + z \sin \phi\right) \uvec{z} \\
+			& = \left(\cos \phi - 2\right) \uvec{\phi}
+				+ \sin \phi\left(2 + \frac{z}{s}\right) \uvec{z}
+		\end{align*}
+	
+	\pagebreak
+	
+		\item \begin{enumerate}
+			\item Statement: \begin{align*}
+				%https://math.stackexchange.com/questions/1958252/gauss-divergence-theorem-for-volume-integral-of-a-gradient-field
+				\int_V \left(\grad{T}\right) \dd{\tau} & = \oint_S T \dd{\bvec{a}}
+			\end{align*}
+			\textit{Proof.} \begin{align*}
+				\text{Let } \bvec{v} & = \bvec{c} T && \text{ where $\bvec{c}$ is a constant vector} \\
+				\int \div[ \bvec{v} ] \dd{\tau} & = \int \div[T \bvec{c}] \dd{\tau} \tag{1} \\
+					& = \int \left[
+						T \left( \div{\bvec{c}} \right)
+						+ \bvec{c} \cdot \left(\grad{T}\right)
+					\right] \dd{\tau} && \text{Product rule} \\
+					& = \int \bvec{c} \cdot \left(\grad{T}\right) \dd{\tau} && \text{As $\div{\bvec{c}} = 0$} \\
+					& = \bvec{c} \cdot \int \grad{T} \dd{\tau} && \text{Moving the constant out}
+				\intertext{If we apply the divergence theorem to the original equation (1),}
+					\int \div[T \bvec{c}] \dd{\tau} & = \oint \left( \bvec{c} T \right) \cdot \dd{\bvec{a}} \\
+					& = \bvec{c} \cdot \left[\oint T \dd{\bvec{a}} \right] && \text{Moving the constant out}
+				\intertext{If we equate these two results, then from inspection:}
+				\int \grad{T} \dd{\tau} & = \oint T \dd{\bvec{a}} \qed
+			\end{align*}
+		
+			\item Statement:
+				\[ \int_V \left( \curl{\bvec{v}}\right) \dd{\tau} = - \oint_S \bvec{v} \cross \dd{\bvec{a}} \]
+				
+				\textit{Proof.} \begin{align*}
+					\text{Let } \bvec{A} & = \bvec{v} \cross \bvec{c} && \text{$\bvec{c}$ is const} \\
+					\int_V \left(\curl{\bvec{A}}\right) \dd{\tau} & = \int_V \curl[ \bvec{v} \cross \bvec{c}] \dd{\tau} \tag{2} \\
+						& = \int_V \bvec{c} \cdot \left( \curl{\bvec{v}} \right) - \bvec{v} \cdot \left(\curl{\bvec{c}}\right) \dd{\tau} && \text{Product rule} \\
+						& = \int_V \bvec{c} \cdot \left( \curl{\bvec{v}}\right) \dd{\tau} && \text{As $\curl{\bvec{c}}=0$} \\
+						& = \bvec{c} \cdot \int_V \left(\curl{\bvec{v}}\right) \dd{\tau}
+					\intertext{Applying the divergence theorem to the original intergral (2),}
+					\int_V \curl[ \bvec{v} \cross \bvec{c}] \dd{\tau} & = \oint \left( \bvec{v} \cross \bvec{c} \right) \cdot \dd{\bvec{a}} \\
+						& = \bvec{c} \cdot \oint_S \left( \dd{\bvec{a}} \cross \bvec{v}\right) && \text{Triple product} \\
+						& = \bvec{c} \cdot \left[ - \oint_S \bvec{v} \cross \dd{\bvec{a}}\right]
+							&& \text{Swapping cross product order} \\
+					\int_V \left( \curl{\bvec{v}}\right) \dd{\tau} & = - \oint_S \bvec{v} \cross \dd{\bvec{a}} \qed
+				\end{align*}
+			
+			\item Statement:
+				\[ \int_V \left[ T \laplacian{U} + \left(\grad{T}\right) \cdot \left(\grad{U}\right)\right] \dd{\tau} = \oint_S \left(T \grad{U}\right) \cdot \dd{\bvec{a}} \]
+				\textit{Proof.} \begin{align*}
+					\text{Let } \bvec{v} & = T \grad{U} \\
+					\int_V \div{\bvec{v}} \dd{\tau} & = \int_V \div[T \grad{U}] \\
+					& = \int_V \left[T \laplacian{U} + \left(\grad{U}\right) \cdot \left(\grad{T}\right)\right]  \dd{\tau} && \text{Product rule}
+					\intertext{Applying the divergence theorem to the original statement,}
+					\int_V \div[T \grad{U}] \dd{\tau} & = \oint_S \left(T \grad{U}\right) \cdot \dd{\bvec{a}}
+					\intertext{Then equating the two results, }
+					\int_V \left[ T \laplacian{U} + \left(\grad{T}\right) \cdot \left(\grad{U}\right)\right] \dd{\tau} & = \oint_S \left(T \grad{U}\right) \cdot \dd{\bvec{a}}  \qed
+				\end{align*}
+			
+			\item Statement:
+				\[ \int_V \left( T \laplacian{U} - U \laplacian{T}\right) \dd{\tau} = \oint_S \left(T \grad{U} - U \grad{T}\right) \cdot \dd{\bvec{a}}\]
+				\textit{Proof.}
+				From (c), if we now let two vectors \begin{align*}
+					\bvec{v} & = T \grad{U} \\
+					\bvec{w} & = U \grad{T}
+				\end{align*}
+				And we take the vector differences and apply the divergence theorem, the shared dot product $\left(\grad{T}\right) \cdot \left(\grad{U}\right)$ will cancel out. We are then left with \begin{align*}
+					\int_V \div{\bvec{v}} \dd{\tau} - \int_V \div{\bvec{w}} \dd{\tau} & = \int_V \left( T \laplacian{U} - U \laplacian{T}\right) \dd{\tau} \\
+						& = \oint_S \left( T \grad{U} \right) \cdot \dd{\bvec{a}} - \oint_S \left( U \grad{T} \right) \cdot \dd{\bvec{a}} \\
+					\int_V \left( T \laplacian{U} - U \laplacian{T}\right) \dd{\tau} & = \oint_S \left(T \grad{U} - U \grad{T}\right) \cdot \dd{\bvec{a}} \qed
+				\end{align*}
+			
+			\pagebreak
+			
+			\item Statement:
+					\[ \int_S \grad{T} \cross \dd{\bvec{a}} = - \oint_P T \dd{\bvec{\ell}}\]
+					\textit{Proof.} \begin{align*}
+						\text{Let } \bvec{A} & = \bvec{c} T && \text{$\bvec{c}$ is a constant vector} \\
+						\int_S \left(\curl{\bvec{A}}\right) \cdot \dd{\bvec{a}} & = \int_S \left( \curl[\bvec{c} T]\right) \cdot \dd{\bvec{a}} \\
+							& = \int_S \left[
+								T \left(\curl{\bvec{c}}\right)
+								- \bvec{c} \cross \left( \grad{T} \right)
+							\right] \cdot \dd{\bvec{a}} && \text{Product rule} \\
+							& = -\int_S \left(\bvec{c} \cross \grad{T}\right) \cdot \dd{\bvec{a}} && {\curl{\bvec{c}} = 0} \\
+							& = \bvec{c} \cdot \left[-\int_S \grad{T} \cross \dd{\bvec{a}}\right] && \text{Triple product}
+						\intertext{Applying Stokes' theorem to the original integral,}
+						\int_S \left( \curl[\bvec{c} T]\right) \cdot \dd{\bvec{a}} & = \oint_P \left(\bvec{c} T\right) \cdot \dd{\bvec{\ell}} = \bvec{c} \cdot \left[ \oint_P T \dd{\bvec{\ell}}\right]
+						\intertext{Equating these results and changing sign,}
+						\int_S \grad{T} \cross \dd{\bvec{a}} & = - \oint_P T \dd{\bvec{\ell}}
+					\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,263 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 7, 2021}
+\setclass{Math}{364}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+\newcommand{\st}{\mathrm{s.t.}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item[2.3.15] \underline{Problem}.\quad Using carnations and roses, a florist can make up to three different floral arrangements for the Mother's Day trade. The composition (number of flowers of each type) and selling price (\$)  of a single arrangement of each type are as follows:
+		
+		\begin{table}[h]
+			\centering
+			\begin{tabular}{lccc}
+				\toprule
+				& \textit{Carnations} & \textit{Roses} & \textit{Price (\$)} \\
+				\midrule
+				Type A & 5 & 2 & 2.75 \\
+				Type B & 12 & 4 & 6.50 \\
+				Type C & 3 & 6 & 5.25 \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+		
+		The florist can purchase from a local wholesaler up to 85 doz carnations at \$1.80/doz and up to 75 roses at \$4.80/doz. The florist can also purchase up to an additional 65 doz carnations at \$3/doz from a distant dealer. Assuming that all arrangements made can be sold, how many of each type should the florist make to maximize income?
+		
+		\textit{Solution.} \quad First, we can identify the decision variables. It seems like the obvious choices would be: \begin{align*}
+			\text{Let } x_k & = \text{the number of type $k$ arrangements made, where } k \in \{A, B, C\} \\
+				\ell_C & = \text{dozens of carnations bought locally} \\
+				\ell_R & = \text{dozens of roses bought locally} \\
+				r_C & = \text{dozens of carnations bought from the distant dealer}.
+		\end{align*}
+		Next, we can identify the objective function. Here, we'll be trying to maximize the income, which is determined by the number of arrangements sold and the costs of flowers,
+		\begin{align*}
+			\text{Income } z & = \text{profits} - \text{costs} \\
+				& = 2.75 x_a + 6.50 x_b + 5.25 x_c - 1.80 \ell_C - 4.80 \ell_R - 3 r_C.
+		\end{align*}
+		The constraints are given by the compositions of each arrangement and the purchase limits per dozen of flowers: \begin{align*}
+			x_a & = \frac{1}{12} \left[5\left(\ell_C + r_C\right) + 2 \ell_R  \right] \\
+			x_b & = \frac{1}{12} \left[12\left(\ell_C + r_C\right) + 4 \ell_R  \right] \\
+			x_c & = \frac{1}{12} \left[3\left(\ell_C + r_C\right) + 6 \ell_R  \right] \\
+			0 & \le \ell_C \le 85 \\
+			0 & \le  \ell_R  \le 75 \\
+			0 & \le r_C  \le 65 \\
+			& x_k, \ell_C, \ell_R, r_C  \in \mathbb{Z}^+.
+		\end{align*}
+	
+		\pagebreak
+		
+		The linear program in the standard notation is 
+		
+		\begin{tcolorbox}
+			\vspace{-1em}
+			\begin{align*}
+				\max\quad  z & = 2.75 x_a + 6.50 x_b + 5.25 x_c - 1.80 \ell_C - 4.80 \ell_R - 3 r_C \\
+				\st \quad	x_a  & = \frac{1}{12} \left[5\left(\ell_C + r_C\right) + 2 \ell_R  \right] \\
+				x_b & = \frac{1}{12} \left[12\left(\ell_C + r_C\right) + 4 \ell_R  \right] \\
+				x_c & = \frac{1}{12} \left[3\left(\ell_C + r_C\right) + 6 \ell_R  \right] \\
+				0 & \le \ell_C \le 85 \\
+				0 & \le  \ell_R  \le 75 \\
+				0 & \le r_C  \le 65 \\
+				& x_k, \ell_C, \ell_R, r_C  \in \mathbb{Z}^+.
+			\end{align*}
+		\end{tcolorbox}
+	
+		\item[2.4.6] \underline{Problem.}\quad Two sources supply three destinations with a commodity. Each source has a supply of 80 units and each destination has a demand for 50 units. Shipping costs in dollars per unit are:
+		
+		\begin{center}
+			\begin{tabular}{lcccc}
+				\toprule
+				& & \multicolumn{3}{c}{Destinations} \\
+				& & \textit{1} & \textit2 & \textit3 \\
+				\midrule
+				\multirow{2}{*}{Sources} & \textit1 & 8 & 17 & 19 \\
+				& \textit2 & -- & 21 & 22 \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+		The transportation costs from Source 2 to Destination 1 vary. The first 20 units shipped on this route cost \$10/unit, and each unit over 20 cost \$13/unit. Determine a minimal-cost shipping schedule.
+		
+		\textit{Solution.}\quad The decision variables can be the unit shipments from source $i$ to destination $j$, represented by a matrix $x$ and an additional variable is needed for the number of units from source 2 to destination 1 over 20, \begin{align*}
+			\text{Let } x_{ij} & = \text{number of units shipped from source $i$ to destination $j$} \\
+			& \qquad \text{where } i \in \{ 1, 2\}, j \in \{ 1, 2, 3 \} \\
+			y_{21} & = \text{number of units shipped $2 \to 1$ at the higher cost}
+		\end{align*}
+		The objective function is the total cost of the shipping schedule, \begin{align*}
+			\text{Cost } z & = c^T x + 13 y_{21}\\
+			c^T & = \begin{pmatrix}
+				8 & 17 & 19 \\
+				10 & 21 & 22
+			\end{pmatrix}
+		\end{align*}
+		Lastly the constraints are given by the source supplies, destination demand, and the $2 \to 1$ limitations, \begin{align*}
+			0 \le \sum_j x_{ij} \le 80 & \qquad \text{for } i \in \{ 1, 2\} \\
+			 \sum_i x_{ij} = 50 & \qquad \text{for } j \in \{1, 2, 3\} \\
+			 0 \le x_{21} \le 20 \\
+			 x_{ij}, y_{ij} \in \mathbb{Z}^+
+		\end{align*}
+	
+		The linear program in the standard notation is
+		
+		\begin{tcolorbox}
+			\vspace{-1em}
+			\begin{align*}
+				\min_{x_{ij}, y_{21} \in \mathbb{Z}^+}z & = c^T x + 13 y_{21} \\
+				\text{where } c^T & = \begin{pmatrix}
+					8 & 17 & 19 \\
+					10 & 21 & 22
+				\end{pmatrix} \\ \\
+				\st \qquad & 0 \le \sum_j x_{ij} \le 80  \qquad \text{for } i \in \{ 1, 2\} \\
+				&  \sum_i x_{ij} = 50  \qquad \text{for } j \in \{1, 2, 3\} \\
+				& 0 \le x_{21} \le 20 \\
+				& x_{ij}, y_{ij} \in \mathbb{Z}^+
+			\end{align*}
+		\end{tcolorbox}
+		\item[2.5.6] \begin{enumerate}
+			\item \underline{Problem.}\quad Suppose the agent in (TK) Problem 5 can also by and sell Commodity B at the following prices per unit:
+			
+			\begin{center}
+				\begin{tabular}{lcc}
+					\toprule
+					\textit{B} & Buy (\$) & Sell (\$) \\
+					\midrule
+					\textit{Month 1} & 80 & 95 \\
+					\textit{Month 2} & 85 & 110 \\
+					\textit{Month 3} & 95 & 125 \\
+					\bottomrule
+				\end{tabular}
+			\end{center}
+			
+			The dealer can buy at most 200 units of B and sell at most 250 units during any one month and can also store B at the local warehouse, but space is limited. Assume the warehouse has 30 cu. yd of space available at \$2/cu. yard and that a unit of A requires 1 cu. yd and a unit of B requires 2 cu. yd. Again, the dealer has no stock on hand and wants none at the end of the 3 months. Determine an optimal buying, selling, and storing program utilizing both commodities. 
+			
+			\vspace{1em}
+			
+			\textit{Solution.}\quad Let's begin by first looking at the decision variables. For each month $k$ and for commodity $i$, we'll let \begin{align*}
+				b_{ik} & = \text{commodity $i$ bought in month $k$} \\
+				s_{ik} & = \text{commodity $i$ sold in month $k$} \\
+				w_{ik} & = \text{commodity $i$ stored in month $k$}, \\
+				& \text{where } i \in \{ A, B\}, k \in \{1, 2, 3\}.
+			\end{align*}
+			The objective function is the income generated by both commodities, \begin{align*}
+				\text{Income } z & = \text{selling income} - \text{purchasing costs} - \text{storage costs} \\
+					& = 40 s_{A1} + 44 s_{A2} + 48 s_{A3} \\
+					& \quad + 95 s_{B1} + 110 s_{B2} + 125 s_{B3} \\
+					& \quad - 31 b_{A1} - 33 b_{A2} - 36 b_{A3} \\
+					& \quad - 80 b_{B1} - 85 b_{B2} - 95 b_{B3} \\
+					& \quad - 2 w_{A1} - 2 w_{A2} - 4 w_{B1} - 4 w_{B2}
+			\end{align*}
+		
+			The constraints are given by the commodity flow,
+			\begin{align*}
+				\text{prev. in storage} + \text{bought} & = \text{sold} + \text{stored} \\
+				w_{ik-1} + b_{ik} & = s_{ik} + w_{ik} \\
+				\intertext{For $i \in \{A, B\}$,}
+				\cancel{w_{i0}} + b_{i1} & = s_{i1} + w_{i1} \\
+				w_{i1} + b_{i2} & = s_{i2} + w_{i2} \\
+				w_{i2} + b_{i3} & = s_{i3} + \cancel{w_{i3}}.
+			\end{align*}
+			And the per-month constraints, for month $k \in \{1, 2, 3\}$, \begin{align*}
+				0 \le b_{Ak} \le 450 && 0 \le b_{Bk} \le 200 \\
+				0 \le s_{Ak} \le 600 && 0 \le s_{Bk} \le 250 \\
+				0 \le w_{Ak} + 2 w_{Bk} \le 30. && 
+			\end{align*}
+		
+			\begin{tcolorbox}
+				\vspace{-1em}
+				\begin{align*}
+					\max z & = c^T x \\
+					\text{where } x^T & = \begin{pmatrix}
+						b_{A1}  & b_{A2} & b_{A3} & s_{A1} & s_{A2} & s_{A3} & w_{A1} & w_{A2} \\
+						b_{B1}  & b_{B2} & b_{B3} & s_{B1} & s_{B2} & s_{B3} & w_{B1} & w_{B2}
+					\end{pmatrix} \\
+				c^T & = \begin{pmatrix}
+					-31 & -33 & -36 & 40 & 44 & 48 & -2 & -2 \\
+					-80 & -85 & -95 & 95 & 110 & 125 & -4 & -4
+				\end{pmatrix} \\
+				\st \qquad &	0 \le b_{Ak} \le 450  \qquad 0 \le b_{Bk} \le 200 \\
+				& 0 \le s_{Ak} \le 600 \qquad 0 \le s_{Bk} \le 250 \\
+				& 0 \le w_{Ak} + 2 w_{Bk} \le 30 \\
+			 & b_{i1}  = s_{i1} + w_{i1} \\
+				& w_{i1} + b_{i2} = s_{i2} + w_{i2} \\
+				& w_{i2} + b_{i3}  = s_{i3}
+				\end{align*}
+				
+			\end{tcolorbox}
+		
+			\pagebreak
+			
+			\item \underline{Problem.}\quad In the above problem, any units stored represent an investment of capital. Reconsider the problem, assuming that a maximum of \$10,000 can be borrowed each month for this purpose, with an accompanying 2\% interest rate.
+			
+			
+			\textit{Solution.}\footnote{I'm 75\% sure I'm not understanding this part completely. I'm assuming we can both borrow capital \textit{and} use our liquid money to rent storage.}\quad In this scenario, we can add an additional variable for borrowed capital, 
+			$$\text{Let } c_k = \text{capital borrowed for storing units in month $k$}.$$
+			We can modify the objective function as 
+			\begin{align*}
+			\text{Income } z & = \text{selling income} + \text{borrowed} - \text{purchasing costs} - \text{storage costs} - \text{interest} \\
+				& = 40 s_{A1} + 44 s_{A2} + 48 s_{A3} \\
+				& \quad + 95 s_{B1} + 110 s_{B2} + 125 s_{B3} \\
+				& \quad + c_1 + c_2 \\
+				& \quad - 31 b_{A1} - 33 b_{A2} - 36 b_{A3} \\
+				& \quad - 80 b_{B1} - 85 b_{B2} - 95 b_{B3} \\
+				& \quad - 2 w_{A1} - 2 w_{A2} - 4 w_{B1} - 4 w_{B2} \\
+				& \quad - 1.02 c_{2} - 1.02 c_1.
+			\end{align*}
+			Additionally, we'll have to add constraints ensuring the borrowed money at the end is zero and so we cannot borrow more than \$10,000 each month: \begin{align*}
+				0 \le c_k & \le 10000 \\
+				c_3 & = 0.
+			\end{align*}
+			The modified linear program is then 
+			\begin{tcolorbox}
+				\vspace{-1em}
+				\begin{align*}
+					\max z & = c^T x \\
+					\text{where } x^T & = \begin{pmatrix}
+						b_{A1}  & b_{A2} & b_{A3} & s_{A1} & s_{A2} & s_{A3} & w_{A1} & w_{A2} & c_1 & c_2 \\
+						b_{B1}  & b_{B2} & b_{B3} & s_{B1} & s_{B2} & s_{B3} & w_{B1} & w_{B2} & 0 & 0
+					\end{pmatrix} \\
+					c^T & = \begin{pmatrix}
+						-31 & -33 & -36 & 40 & 44 & 48 & -2 & -2 & -0.02 & -0.02\\
+						-80 & -85 & -95 & 95 & 110 & 125 & -4 & -4 & 0 & 0
+					\end{pmatrix} \\
+					\st \qquad &	\text{for $k \in \{1, 2, 3\}$: } \\
+					& 0 \le b_{Ak} \le 450  \qquad 0 \le b_{Bk} \le 200 \\
+					& 0 \le s_{Ak} \le 600 \qquad 0 \le s_{Bk} \le 250 \\
+					& 0 \le w_{Ak} + 2 w_{Bk} \le 30 \\
+					& 0 \le c_k \le 10000 \\
+					& b_{i1}  = s_{i1} + w_{i1} \\
+					& w_{i1} + b_{i2} = s_{i2} + w_{i2} \\
+					& w_{i2} + b_{i3}  = s_{i3} \\
+					& c_3 = 0
+				\end{align*}
+				
+			\end{tcolorbox}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

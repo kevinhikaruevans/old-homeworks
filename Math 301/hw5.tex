@@ -1,0 +1,170 @@
+\documentclass{homework}
+
+\title{Homework 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 24, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+\usepackage{amsthm}
+\newtheorem*{prop}{Proposition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	
+
+	\begin{enumerate}
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				Let $n$ be an integer. If $4$ divides $(n-1)$, then $4$ divides $(n^2 - 1)$.
+			\end{prop}
+			\begin{proof}
+				Suppose $n$ is an integer and $4$ divides $(n-1)$.
+				Then $n - 1 = 4k$ for some $k \in \mathbb{Z}$. This can be rewritten as $n=4k + 1$.
+				
+				Next, if we take $(n^2 - 1)$ and substitute this new expression for $n$, \begin{align*}
+					n^2 - 1 & = \left(4k + 1\right)^2 - 1 \\
+					& = 16k^2 + 8k \\
+					& = 4 \left(4k^2 + 2k\right)
+					\intertext{If we let $m = 4k^2 + 2k$, then $m \in \mathbb{Z}$, and we can write $n^2 - 1$ as}
+					n^2 - 1 & = 4m
+				\end{align*}
+				Therefore $4$ divides $(n^2 - 1)$ if $4$ divides $(n-1)$. 
+			\end{proof}
+		\end{minipage}
+		
+		\item[B.] Just gonna copy most of the proof from Problem 1...
+		
+		 \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				Let $n$ be an integer. If $4$ divides $(n-1)$, then $8$ divides $(n^2 - 1)$.
+			\end{prop}
+			\begin{proof}
+				Suppose $n$ is an integer and $4$ divides $(n-1)$.
+				Then $n - 1 = 4k$ for some $k \in \mathbb{Z}$. This can be rewritten as $n=4k + 1$.
+				
+				Next, if we take $(n^2 - 1)$ and substitute this new expression for $n$, \begin{align*}
+					n^2 - 1 & = \left(4k + 1\right)^2 - 1 \\
+					& = 16k^2 + 8k \\
+					& = 8 \left(2k^2 + k\right)
+					\intertext{If we let $m = 2k^2 + k$, then $m \in \mathbb{Z}$, and we can write $n^2 - 1$ as}
+					n^2 - 1 & = 8m
+				\end{align*}
+				Therefore $8$ divides $(n^2 - 1)$ if $4$ divides $(n-1)$. 
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				If $n \in \mathbb{Z}$, then $5 n^2 + 3n + 1$ is odd.
+			\end{prop}
+			\begin{proof}
+				We can divide this into two cases for $n$.
+				
+				\underline{Case 1:} Suppose $n$ is even, then $n$ can be written as $2k$ where $k \in \mathbb{Z}$, then this expression can be substituted in the original statement, \begin{align*}
+					5n^2 + 3n + 1 & = 5\left(2k\right)^2 + 3(2k) + 1 \\
+						& = 2m + 1
+				\end{align*}
+				where $m = 10k^2 + 3k$, then $m \in \mathbb{Z}$. Therefore, for an even $n$, the original expression is odd.
+				
+				\vspace{1em}
+				
+				\underline{Case 2:} Suppose $n$ is odd, then $n$ can be written as $2p + 1$ where $p \in \mathbb{Z}$, then this can be substituted in the original expression, \begin{align*}
+					5n^2 + 3n + 1 & = 5\left(2p + 1\right)^2 + 3(2p + 1) + 1 \\
+						& = 2q + 1
+				\end{align*}
+				where $q = 10p^2 + 13p + 8$, then $q \in \mathbb{Z}$. Therefore, the original expression is odd.
+%				Suppose $n \in \mathbb{Z}$, then we can write $5 n^2 + 3n + 1$ as $k + 1$, where $k = 5n^2 + 3n$. Because multiplication and addition are closed for integers, $k$ must also be an integer. By definition of odd numbers, $k+1$ must be odd. Therefore $5n^2 + 3n + 1$ is odd.
+			\end{proof}
+		\end{minipage}
+	
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				Suppose $a, b, c \in \mathbb{Z}$. If $a \mid b$ and $a \mid c$, then $a \mid \left(b+c\right)$.
+			\end{prop}
+			\begin{proof}
+				Suppose $a, b, c \in \mathbb{Z}$, and also $a \mid b$ and $a \mid c$. Then we know that $b = k_1 a$ and  $c = k_2 a$, for some $k_1, k_2 \in \mathbb{Z}$.
+				
+				Then by substitution, the sum $b+c$ can be written as \begin{align*}
+					b+c & = k_1 a + k_2 a \\
+						& = \left(k_1 + k_2\right) a \\
+						& = k_3 a
+				\end{align*}
+				Since addition is closed on integers, $k_3 \in \mathbb{Z}$, $b+c$ can be written as an integer multiple of $a$.
+				
+				Therefore $a \mid \left(b+c\right)$.
+			\end{proof}
+		\end{minipage}
+		
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				Let $x$ and $y$ be positive integers. If $\gcd(x, y) > 1$, then $x \mid y$ or $x$ is not prime.
+			\end{prop}
+			\begin{proof} Suppose $x$ and $y$ are positive integers and $\gcd(x, y) > 1$. Then there exists an integer that divides both $x$ and $y$, i.e. there are integers $n_1$ and $n_2$, with $k=\gcd(x, y)$, where \begin{align*}
+				x & = n_1 k \\
+				y & = n_2 k
+			\end{align*}
+			We can split $x$ to two cases: $x$ is prime or $x$ is not prime.
+			
+			\underline{Case 1:} $x$ is prime. If $x$ is prime, then $n_1 = 1$ as $k = x$. Then, $y = n_2 x$. Therefore $x \mid y$.
+			
+			\underline{Case 2:} $x$ is not prime. (Does this case need a body?)
+			
+			\vspace{1em}
+			
+			Therefore, if $\gcd(x, y) > 1$, then $x \mid y$ or $x$ is not prime.
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				Let $a$ be an integer. If there exists an integer $n$ such that $a \mid (4n + 3)$ and $a\mid (2n + 1)$, then $a = 1$ or $a = -1$.
+			\end{prop}
+			\begin{proof}
+				Let $a$ be an integer. Suppose there is an integer $n$ such that $a \mid (4n + 3)$ and $a \mid (2n + 1)$, then this may be written as multiples of $a$ where $k_1, k_2 \in \mathbb{Z}$ \begin{align*}
+					4n + 3 & = k_1 a \tag{1}\\
+					2n + 1 & = k_2 a \tag{2}
+					\intertext{Subtracting the two expressions (1) and (2), then squaring,}
+					2n + 2 & = \left(k_1 - k_2\right)a \\
+					\left(2n + 2\right)^2 & = \left(k_1 - k_2\right)^2 a^2 \\
+						& = \left( k_1^2 - 2 k_1 k_2 + k_2^2 \right) a^2
+					\intertext{Moving the cross term to the other side,}
+					\left(2n + 2\right)^2 + 2k_1 k_2 a^2 & = \left( k_1^2 + k_2^2\right) a^2 \tag{3}
+					\intertext{Next, if we multiply the original expressions (1) and (2),}
+					\left(4n+3\right) \left(2n + 1\right) & = k_1 k_2 a^2
+					\intertext{Substituting this into (3), then expanding the LHS}
+					\left(2n+2\right)^2 + 2\left(4n+3\right)\left(2n + 1\right) & = \left(k_1^2 + k_2^2\right) a^2 \\
+						20n^2 + 28n + 10 & = \left(k_1^2 + k_2^2\right) a^2
+					\intertext{Guessing the squares, }
+					\left(4n+3\right)^2 + \left(2n + 1\right)^2 & = \left(k_1^2 + k_2^2\right) a^2 \\
+					\therefore a & = \pm 1
+				\end{align*}
+			\end{proof}
+		\end{minipage}
+	\end{enumerate}
+\end{document}

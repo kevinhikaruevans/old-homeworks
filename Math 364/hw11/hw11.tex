@@ -1,0 +1,192 @@
+\documentclass{homework}
+
+\title{Homework 11}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 30, 2021}
+\setclass{Math}{364}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+\newcommand{\st}{\mathrm{s.t.}}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+\newcommand{\bolditem}[1][YYY]{\item[\textbf{#1}]}
+\newenvironment{amatrix}[1]{%
+	\left(\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+	\end{array}\right)
+}
+
+%\renewcommand\arraystretch{1.25}
+
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\bolditem[6.3.2] Solve using the cutting plane algorithm. \begin{enumerate}
+			\item[(b)] 
+			 Maximize $3x_1 + 8x_2$ 
+
+				subject to
+				
+				$\begin{matrix}
+					x_1 & + & 2x_2 & \le 9 \\
+					& & 2x_2 & \le 5
+				\end{matrix}$
+			
+				
+				$x \ge 0, x \in \mathbb{Z}^2$
+				
+				% solution for relaxation is (4, 2.5)
+				\solution Putting this in a tableau and applying the simplex method to solve the LP relaxation, \begin{align*}
+					\begin{array}{cc|cc|cc}
+						x_1 & x_2 & x_3 & x_4 & \\
+						\hline
+						\boxed{1} & 2 & 1 & 0 & 9 & \boxed{x_3} \\
+						0 & 2 & 0 & 1 & 5 & x_4 \\
+						\hline
+						\boxed{3} & 8 & 0 & 0 & 0 & -z \\
+						\midrule
+						1 & 2 & 1 & 0 & 9 & x_1 \\
+						0 & \boxed{2} & 0 & 1 & 5 & \boxed{x_4} \\
+						\hline
+						0 & \boxed{2} & -3 & 0 & -27 & -z \\
+						\midrule
+						1 & 0 & 1 & -1 & 4 & x_1 \\
+						0 & 1 & 0 & 1/2 & 5/2 & x_2 \\
+						\hline
+						0 & 0 & -3 & -1 & -32 & -z\\
+						\midrule
+					\end{array}
+				\end{align*}			
+				The LP relaxation is optimal at $x^* = (4, 5/2)$, $z^* = 32$. The second constraint has a non-integral coefficient, \begin{align*}
+					x_2 + (1/2)x_4 & = 5/2.
+					\intertext{Rearranging this to integral and nonintegral parts,}
+					x_2 + (1/2) x_4 & = 2 + 1/2 \\
+					(1/2) x_4 - 1/2 & = -x_2 + 2. \\
+					\implies (1/2) x_4 - 1/2 & \ge 0 \quad (\in \mathbb{Z})
+					\intertext{We can add a new constraint,}
+					\Aboxed{ (-1/2)x_4 + x_5 & = -1/2. }
+				\end{align*}
+				The modified tableau is  \begin{align*}
+					\begin{array}{cc|ccc|cc}
+						x_1 & x_2 & x_3 & x_4 & x_5 & \\
+						\hline
+						1 & 0 & 1 & -1 & 0 & 4 & x_1 \\
+						0 & 1 & 0 & 1/2 & 0 & 5/2  & x_2 \\
+						0 & 0 & 0 & \boxed{-1/2} & 1 &  \boxed{-1/2} & x_5 \\
+						\hline
+						0 & 0 & -3 & -1 & 0 & -32 & -z\\
+						\midrule
+						1 & 0 & 1 & 0 & -2 & 5 & x_1 \\
+						0 & 1 & 0 & 0 & 1 & 2 & x_2 \\
+						0 & 0 & 0 & 1 & -2 & 1 & x_4\\
+						\hline
+						0 & 0 & -3 & 0 & -2 & -31 & -z\\
+						\bottomrule
+					\end{array}
+				\end{align*}
+				The optimal solution to the IP is $\bar{x} = (5, 2)$, $\bar{z} = 31$.
+		\end{enumerate}
+	
+		\bolditem[6.4.2] Solve using the branch and bound approach. \begin{enumerate}
+			\item[(a)] 
+				Maximize $4x_1 + 5x_2 + 3x_3$ 
+				
+				subject to
+				
+				$\begin{matrix*}[r]
+					3x_1 & - & 2x_2 & + & x_3 & \le & 15 \\
+					x_1 & + & 2x_2 & + & x_3 & \le & 8
+				\end{matrix*}$
+			
+				$x \le 0, x \in \mathbb{Z}^3$
+				
+				\solution  Using a computer solver, the LP relaxation $(1)$ solution is $x^{(1)}=(5.75, 1.125, 0)$, $z^{(1)}=28.625$.
+				\begin{enumerate}
+					\item $\begin{aligned}[t]
+						L & = \{(1)\} \\
+						B & = \varnothing \\
+						\bar{z} & = -\infty
+					\end{aligned}$
+					
+					Looking at $(1)$, we can split the solution on $x^{(1)}_1 = 5.75$, we can add \begin{align}
+						x_1^{(2)} & \le 5 \tag{2} \\
+						x_1^{(3)} & \ge 6 \tag{3}.
+					\end{align}
+				
+					\item  $\begin{aligned}[t]
+						L & = \{(2), (3)\} \\
+						B & = \varnothing \\
+						\bar{z} & = -\infty
+					\end{aligned}$
+				
+					Looking at $(2)$, $x^{(2)} = (5, 0.75, 1.5)$, $z^{(2)} = 28.25$. We'll add constraints \begin{align}
+						x_2^{(4)} & = 0 \tag{4} \\
+						x_2^{(5)} & \ge 1 \tag{5}.
+					\end{align}
+				
+					\item $\begin{aligned}[t]
+						L & = \{(3), (4), (5)\} \\
+						B & = \varnothing \\
+						\bar{z} & = -\infty
+					\end{aligned}$
+				
+					Looking at (5), $x^{(5)} = (5, 1, 1)$ and $z^{(5)} = 28$. This is integer and we can add it into $B$ and set $\bar{z}$.
+					
+					\item  $\begin{aligned}[t]
+						L & = \{(3), (4)\} \\
+						B & = \{(5)\} \\
+						\bar{z} & = 28
+					\end{aligned}$
+					3 is infeasible and can just be removed from the list.
+					
+					\item $\begin{aligned}[t]
+						L & = \{(4)\} \\
+						B & = \{(5)\} \\
+						\bar{z} & = 28
+					\end{aligned}$
+				
+					Looking at (4), we'll have $x^(4) = (3.5, 0, 4.5)$ and $z^{(4)} = 27.5$. Since the objective value is worse than (5), we can ignore this one.
+					
+					\item  $\begin{aligned}[t]
+						L & = \varnothing\\
+						B & = \{(5)\} \\
+						\bar{z} & = 28
+					\end{aligned}$
+					
+					The algorithm is now finished and we're left with an optimal solution from (5): \begin{align*}
+						\bar{x} & = (5, 1, 1) \\
+						\bar{z} & = 28
+					\end{align*}
+				\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

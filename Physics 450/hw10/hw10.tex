@@ -1,0 +1,113 @@
+\documentclass{homework}
+
+\title{Homework 10}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 15, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\newcommand{\aplus}{\hat{a}_+}
+\newcommand{\aminus}{\hat{a}_-}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Using eq. (4.27), (4.28), and (4.32), \begin{align*}
+			Y_0^0(\theta, \phi) & = \sqrt{\frac{1}{4 \pi}} P_0^0(\cos \theta) = \sqrt{\frac{1}{4 \pi}}.
+			\intertext{Checking to see if this is normalized,}
+			\int_0^\pi \int_0^{2\pi} \frac{1}{4\pi} \sin \theta \dd{\theta} \dd{\phi} & = 1. \quad \checkmark
+		\end{align*}
+		For the other spherical harmonic, \begin{align*}
+			Y_2^1(\theta, \phi) & = \sqrt{ \frac{5}{4 \pi} \frac{1!}{3!} } e^{i\phi} \left(- 3 \sin \theta \cos \theta\right) \\
+				& = -\sqrt{\frac{45}{24 \pi}} e^{i \phi} \sin \theta \cos \theta.
+			\intertext{Checking for normalization,}
+			\frac{45}{24 \pi}\int_0^\pi \int_0^{2\pi} \sin[3](\theta) \cos[2](\theta) \dd{\theta} \dd\phi & = \frac{45}{24 \pi} \frac{4}{15} 2 \pi = 1. \quad \checkmark
+		\end{align*}
+		Now, to check for orthogonality, \begin{align*}
+			\braket{Y_0^0}{Y_2^1} & = -\sqrt{\frac{1}{4\pi} \frac{45}{24 \pi}}  \int_0^\pi \int_0^{2\pi} e^{i \phi} \sin ^2\theta \cos \theta \dd\theta \dd\phi \\
+				& = \dots \int \dots \dd{\phi} \underbrace{\int_0^{2 \pi} \sin^2 \theta \cos\theta \dd\theta}_{\int_{-\pi}^\pi \cos^2\theta \sin \theta = 0 \text{ (odd)}} = 0.
+		\end{align*}
+		The two functions are orthogonal. 
+		\item % 4.7
+			From (4.32), \begin{align*}
+				Y_\ell^\ell & = \sqrt{\frac{2 \ell + 1}{4\pi} \frac{0!}{(2\ell)!}} e^{i\ell \phi} P_\ell^\ell(\cos \theta) \\
+					& = \sqrt{ \frac{2 \ell + 1}{8 \pi \ell!} } e^{i \ell \phi} P_\ell^\ell(\cos \theta)
+				\intertext{For $P_\ell^\ell$, from (4.27) and using the Rodrigues formula (4.28),}
+				P_\ell^\ell(x) & = (-1)^\ell \left(1-x^2\right)^{m/2} \left(\dv{x}\right)^\ell P_\ell(x) \\
+					& =  (-1)^\ell \left(1-x^2\right)^{\ell/2} \left(\dv{x}\right)^\ell \frac{1}{2^\ell \ell!} \left(\dv{x}\right)^\ell \left(x^2 - 1\right)^\ell \\
+					& = \frac{ (-1)^\ell (1-x^2)^{\ell/2} }{2^\ell \ell!} \left(\dv{x}\right)^{2\ell} (x^2-1)^\ell \\
+				\intertext{Borrowing a hint from classmates: assuming $x^2 \gg 1$, we can approximate this as}
+				P_\ell^\ell	& = \frac{ (-1)^\ell (1-x^2)^{\ell/2} }{2^\ell \ell!} \left(\dv{x}\right)^{2\ell} (x^2)^\ell \\
+						& = \frac{ (-1)^\ell (1-x^2)^{\ell/2} }{2^\ell \ell!} (2\ell)! \\
+						& = \frac{ (-1)^\ell (1-x^2)^{\ell/2} }{2^{\ell+1}} \\
+				\Aboxed{ Y_\ell^\ell & =  \frac{ (-1)^\ell (1-\cos^2\theta)^{\ell/2} }{2^{\ell+1}} \sqrt{ \frac{2 \ell + 1}{8 \pi \ell!} } e^{i \ell \phi}. }
+%				\Aboxed{ Y_\ell^\ell(\theta, \phi) & =  \frac{ (-1)^\ell (1-\cos^2 \theta)^{\ell/2} }{2^\ell \ell!} \sqrt{ \frac{2 \ell + 1}{8 \pi \ell!} } e^{i \ell \phi}  \left(\dv{\cos \theta}\right)^{2\ell} (\cos^2 \theta-1)^\ell }
+			\end{align*}
+			To check if this satisfies the angular equation (4.18), it must satisfy \begin{align*}
+				\sin\theta \pdv{\theta} \left(\sin\theta \pdv{Y}{\theta}\right) + \pdv[2]{Y}{\phi} & = -\ell(\ell + 1) \sin^2\theta Y.
+			\end{align*}
+			Using $Y_\ell^\ell$, and with the help of WolframAlpha to calculate the derivatives, the RHS becomes \begin{align*}
+				\mathrm{constants} \times \sin\theta \pdv{\theta}(\ell \cos\theta (\sin^2(\theta))^{\ell/2}) + i^2 \ell^2 Y & = \mathrm{constants} \times \ell \sin^2\theta \left(\ell\cot^2 \theta - 1\right) (\sin^2\theta)^{\ell/2} - \ell^2 Y \\
+					& = \left[\ell \sin^2\theta(\cot^2\theta - 1) - \ell^2\right]Y \\
+					& = -\ell(\ell+1)\sin^2\theta Y. 
+					\intertext{This matches the LHS.}
+%				 \sin \theta \pdv{\theta}(\sin \theta \ell \cot\theta Y) + i^2 \ell^2 Y & = \ell \sin \theta \pdv{\theta}(\cos(\theta) Y) - \ell^2 Y \\
+%				 	& = (\ell+1)\sin\theta\cos \theta Y - \ell^2 Y \\
+%				 	& = - \ell(\ell - 1) \sin \theta \cos \theta Y.
+%			 	\intertext{(There's an arithmetic error somewhere.)}
+			\end{align*}
+			
+			The other spherical harmonic is given by Table 4.3,\begin{align*}
+				Y_3^2(\theta, \phi) & = \sqrt{\frac{105}{32 \pi}} \sin^2 \theta \cos \theta e^{2 i \phi}.
+				\intertext{The RHS of the angular equation (4.18) becomes,}
+				\left(\sqrt{\frac{105}{32\pi}} e^{2i \phi}\right)\sin\theta \pdv{\theta}(\sin \theta \pdv{\theta}\sin^2\theta \cos \theta) + 4i^2 Y & = \left(\sqrt{\frac{105}{32\pi}} e^{2i \phi}\right) \left[
+					4\cos^2(\theta) - 2 \sin^2(\theta)
+				\right] \left(\sin^2\theta \cos\theta\right) - 4 Y \\
+					& = \left[
+						4\cos^2(\theta) - 2 \sin^2(\theta) - 4
+					\right] Y \\
+					& = -12\sin^2\theta Y.
+				\intertext{This correctly matches the LHS of (4.18).}
+			\end{align*}
+		\pagebreak
+		\item % 4.26, use eq 4.130
+			The raising operator is given by (4.130), \begin{align*}
+				L_+ & = \hbar e^{i \phi} \left(\pdv{\theta} + i \cot \theta \pdv{\phi}\right)
+				\intertext{Applying this to $Y_2^1$,}
+				L_+ Y_2^1 & = \hbar e^{i \phi} \left(\pdv{\theta} + i \cot \theta \pdv{\phi}\right) \left(-\sqrt{\frac{15}{8 \pi}} \sin\theta \cos \theta e^{i \phi}\right) \\
+					& = -\hbar e^{i \phi} \sqrt{ \frac{15}{8 \pi} } \left(
+						\cos(2 \theta)e^{i \phi}
+						+ i \cot \theta \sin \theta \cos \theta i e^{i \phi}
+					\right) \\
+					& = \hbar e^{2i \phi} \sqrt{\frac{15}{8\pi}} \sin[2](\theta)
+				\intertext{The normalization is given by the $A_\ell^m$ coefficient from (4.121),}
+				A_2^1 & = \hbar \sqrt{(2+1+1) } = 2\hbar \\
+				\Aboxed{ Y_2^2 & = \hbar^2 e^{2 i \phi} \sqrt{ \frac{ 30 }{4 \pi} } \sin[2](\theta). }
+			\end{align*}
+		
+		\item Study Chapter 4.1.
+	\end{enumerate}
+\end{document}

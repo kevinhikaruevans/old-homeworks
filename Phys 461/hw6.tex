@@ -1,0 +1,312 @@
+\documentclass{homework}
+
+\title{Homework 6}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 1, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item In hydrogenic atoms, the shielding effects of outer electrons breaks down the degeneracy. Essentially, the inner electrons in filled shells ``blocks'' the effects of the nuclear electronic charge, and the outer electrons are pushed outward more by the electronic repulsion of inner electrons. From Fig. 6.22 in the book, the energy ranking would be $2s$, $2p$, $3s$, $3p$, $3d$...
+		\item \begin{enumerate}
+			\item In the ground state, the total energy is minimized. This is done with the valance electrons in the triplet states, where the spins are parallel to one another. This is only allowable (due to the Pauli principle) when the spins are in separate subshells.
+			\item The spins are added to the lowest empty subshell. If there's no non-empty subshells left, it goes with the first non-paired electron, but with an opposite spin orientation.
+			
+			\item \ce{1^2 S_{1/2}}, as $n=1, s=1/2, j=1/2$
+			
+				\ce{2^2 S_{1/2}}, as $n=2, s=1/2, j=1/2$
+				
+				\ce{2^1 S_0}, as $n=2, s=0 \text{ (spins are opposite)}, j=0$
+				
+				\ce{2^2 P_{3/2}}, as $n=2, s=1/2, j=1+1/2$. Is the book wrong here?
+				
+				\ce{2^3 P_{2}}, as $n=2, s=1, j=2$
+		\end{enumerate}
+		\item \begin{enumerate}
+			\item Since the kinetic energy for a rotating thing is \begin{align*}
+				T & = I \omega^2 / 2
+				\intertext{But angular momentum is just $L=I\omega \implies \omega^2  = (L/I)^2$,}
+				T & = \frac{ L^2 }{2 I} \\
+					& = \frac{\hbar^2 \ell(\ell + 1)}{2 I}
+			\end{align*}
+		
+			\item At lower temperatures, we would expect more electrons to fall to the ground singlet state. So it should have more para hydrogen at low temperatures.
+		\end{enumerate}
+	
+		\item This is due to the relative proportion of singlet to triplet states for each molecule. For hydrogen, we would expect the singlet state to be a third of the triplet probability. For oxygen and by Hund's rule, the ground state must have aligned spins and therefore must be in the triplet state. The singlet state is missing because it's energetically unfavorable (I think but could use some clarification!).
+		
+		\item \begin{enumerate}
+			\item If we impose the Pauli principle, the singlet state must have a symmetric spatial function (and an antisymmetric spin function), so now \begin{align*}
+				\ket{1s}\ket{2s} & \to \frac{1}{\sqrt{2}} \left(\ket{1s}\ket{2s} + \ket{2s}\ket{1s}\right) \\
+				\bra{\bvec{r}_1} \bra{\bvec{r}_2} \frac{1}{\sqrt{2}} \left(\ket{1s}\ket{2s} + \ket{2s}\ket{1s}\right) & = \frac{1}{\sqrt{2}} \left(\psi_{1s}(\bvec{r}_1) \psi_{2s}(\bvec{r}_2) + \psi_{2s}(\bvec{r}_1) \psi_{1s}(\bvec{r}_2) \right)
+			\end{align*}
+		
+			\item For the triplet state, the spatial function must be antisymmetric, \begin{align*}
+				\ket{1s}\ket{2s} & \to \frac{1}{\sqrt{2}} \left(\ket{1s}\ket{2s} - \ket{2s}\ket{1s}\right) \\
+								\bra{\bvec{r}_1} \bra{\bvec{r}_2} \frac{1}{\sqrt{2}} \left(\ket{1s}\ket{2s} - \ket{2s}\ket{1s}\right) & = \frac{1}{\sqrt{2}} \left(\psi_{1s}(\bvec{r}_1) \psi_{2s}(\bvec{r}_2) - \psi_{2s}(\bvec{r}_1) \psi_{1s}(\bvec{r}_2) \right)
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item The expectation becomes \begin{align*}
+				\expval{\hat{U}} & = \bra{1s} \hat{U} \ket{1s} \\
+					& = \int \braket{1s}{\bvec{r}} \hat{U} \braket{\bvec{r}}{1s} \dd[3]{\bvec{r}}
+			\end{align*}
+			\item There's a $1/2$ as a normalization constant, as it would double count the energy. The expectation for the two electron is now \begin{align*}
+				\expval{\hat{U}} & = \bra{a}\bra{b} \left(\frac{1}{2}\iint \ket{\bvec{r}_1}\ket{\bvec{r}_2}\frac{\slashed{e}^2}{r_{12}}
+				\bra{\bvec{r}_1} \bra{\bvec{r}_2}
+				\right) \ket{a} \ket{b} \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \\
+				& = \frac{1}{2} \iint \psi_a^*(\bvec{r}_1) \psi_b^*(\bvec{r}_2) \frac{\slashed{e}^2}{r_{12}} \psi_a(\bvec{r}_1) \psi_b(\bvec{r}_2) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+			\end{align*}
+		\end{enumerate}
+	
+		\item Using the singlet state $$\frac{1}{\sqrt{2}} \left(\ket{a}\ket{b}+\ket{b}\ket{a}\right)$$
+		\begin{enumerate}
+			\item The average potential energy is \begin{align*}
+	\expval{\hat{U}} & = \frac{1}{4} 
+	\left(\bra{a}\bra{b}+\bra{b}\bra{a}\right)
+	\iint \ket{\bvec{r}_1}\ket{\bvec{r}_2}\frac{\slashed{e}^2}{r_{12}}
+	\bra{\bvec{r}_1} \bra{\bvec{r}_2} \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+	\left(\ket{a}\ket{b}+\ket{b}\ket{a}\right) \\
+	& = \frac{1}{4} \iint \left(
+	\braket{a}{\bvec{r}_1}
+	\braket{b}{\bvec{r}_2}
+	+
+	\braket{b}{\bvec{r}_1}
+	\braket{a}{\bvec{r}_2}							
+	\right)
+	\frac{\slashed{e}^2}{r_{12}}
+	\left(
+	\braket{\bvec{r}_1}{a}
+	\braket{\bvec{r}_2}{b}
+	+
+	\braket{\bvec{r}_1}{b}
+	\braket{\bvec{r}_2}{a}							
+	\right)
+	\dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \\
+	& = \frac{1}{4} 
+	\iint
+	\left(
+	\psi_a^*(\bvec{r}_1)
+	\psi_b^*(\bvec{r}_2)
+	+
+	\psi_b^*(\bvec{r}_1)
+	\psi_a^*(\bvec{r}_2)							
+	\right)
+	\frac{\slashed{e}^2}{r_{12}}
+	\left(
+	\psi_a(\bvec{r}_1)
+	\psi_b(\bvec{r}_2)
+	+
+	\psi_b(\bvec{r}_1)
+	\psi_a(\bvec{r}_2)							
+	\right)
+	\dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+	\intertext{Foiling out the two groups,}
+	\expval{\hat{U}} & = \frac{1}{4} \iint \frac{\slashed{e}^2}{r_{12}} \bigg(
+	\psi_a^*(\bvec{r}_1)
+	\psi_b^*(\bvec{r}_2)
+	\psi_a(\bvec{r}_1)
+	\psi_b(\bvec{r}_2)
+	+
+	\psi_a^*(\bvec{r}_1)
+	\psi_b^*(\bvec{r}_2)
+	\psi_b(\bvec{r}_1)
+	\psi_a(\bvec{r}_2)							
+	 \\
+	& \qquad +
+	\psi_b^*(\bvec{r}_1)
+	\psi_a^*(\bvec{r}_2)
+	\psi_b(\bvec{r}_1)
+	\psi_a(\bvec{r}_2)	
+	+						
+	\psi_b^*(\bvec{r}_1)
+	\psi_a^*(\bvec{r}_2)
+	\psi_a(\bvec{r}_1)
+	\psi_b(\bvec{r}_2) \bigg) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+	\intertext{As the labels $r_1$ and $r_2$ are arbitrary, we can reorder and combine the integrals,}
+	\expval{\hat{U}} & = \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \big(
+		\underbrace{ \psi_a^*(\bvec{r}_1)
+		\psi_b^*(\bvec{r}_2)
+		\psi_a(\bvec{r}_1)
+		\psi_b(\bvec{r}_2) }_{J}
+		+
+		\underbrace{ \psi_a^*(\bvec{r}_1)
+		\psi_b^*(\bvec{r}_2)
+		\psi_b(\bvec{r}_1)
+		\psi_a(\bvec{r}_2)	}_K
+	\big)  \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+	\intertext{From Problem 5, we have the direct integral $J$, then the exchange integral $K$ is}
+	K & = \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \psi_a^*(\bvec{r}_1)
+	\psi_b^*(\bvec{r}_2)
+	\psi_b(\bvec{r}_1)
+	\psi_a(\bvec{r}_2) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+\end{align*}
+			\item For the triplet state, it's about the same as (a), but with a $-$ sign, \begin{align*}
+				\expval{\hat{U}} & = \frac{1}{4} 
+					\left(\bra{a}\bra{b}-\bra{b}\bra{a}\right)
+					\iint \ket{\bvec{r}_1}\ket{\bvec{r}_2}\frac{\slashed{e}^2}{r_{12}}
+						\bra{\bvec{r}_1} \bra{\bvec{r}_2} \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+					\left(\ket{a}\ket{b}-\ket{b}\ket{a}\right) \\
+						& = \frac{1}{4} \iint \left(
+							\braket{a}{\bvec{r}_1}
+							\braket{b}{\bvec{r}_2}
+							-
+							\braket{b}{\bvec{r}_1}
+							\braket{a}{\bvec{r}_2}							
+						\right)
+						\frac{\slashed{e}^2}{r_{12}}
+						\left(
+							\braket{\bvec{r}_1}{a}
+							\braket{\bvec{r}_2}{b}
+							-
+							\braket{\bvec{r}_1}{b}
+							\braket{\bvec{r}_2}{a}							
+						\right)
+						\dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \\
+						& = \frac{1}{4} 
+							\iint
+						\left(
+							\psi_a^*(\bvec{r}_1)
+							\psi_b^*(\bvec{r}_2)
+							-
+							\psi_b^*(\bvec{r}_1)
+							\psi_a^*(\bvec{r}_2)							
+						\right)
+						\frac{\slashed{e}^2}{r_{12}}
+						\left(
+							\psi_a(\bvec{r}_1)
+							\psi_b(\bvec{r}_2)
+							-
+							\psi_b(\bvec{r}_1)
+							\psi_a(\bvec{r}_2)							
+						\right)
+						\dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \\
+				& = \frac{1}{4} \iint \frac{\slashed{e}^2}{r_{12}} \bigg(
+					\psi_a^*(\bvec{r}_1)
+					\psi_b^*(\bvec{r}_2)
+					\psi_a(\bvec{r}_1)
+					\psi_b(\bvec{r}_2)
+					-
+					\psi_a^*(\bvec{r}_1)
+					\psi_b^*(\bvec{r}_2)
+					\psi_b(\bvec{r}_1)
+					\psi_a(\bvec{r}_2)							
+					\\
+					& \qquad +
+					\psi_b^*(\bvec{r}_1)
+					\psi_a^*(\bvec{r}_2)
+					\psi_b(\bvec{r}_1)
+					\psi_a(\bvec{r}_2)	
+					-						
+					\psi_b^*(\bvec{r}_1)
+					\psi_a^*(\bvec{r}_2)
+					\psi_a(\bvec{r}_1)
+					\psi_b(\bvec{r}_2) \bigg) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \\
+				& = \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \left(
+					\psi_a^*(\bvec{r}_1)
+					\psi_b^*(\bvec{r}_2)
+					\psi_a(\bvec{r}_1)
+					\psi_b(\bvec{r}_2)
+					-
+					\psi_a^*(\bvec{r}_1)
+					\psi_b^*(\bvec{r}_2)
+					\psi_b(\bvec{r}_1)
+					\psi_a(\bvec{r}_2)		
+				\right) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} 
+			\end{align*}
+			Between the singlet and triplet state, the energy differs by $K$ (or is it $2K$?).
+		\end{enumerate}
+		
+		\item At least in the book, the assumption is made by the ansatz which approximates the screening effects of inner electrons. It assumes the screening effects are spherically symmetric, and therefore the potential must be spherically symmetric too.
+		
+		\item \begin{enumerate}
+			\item To scale/normalize the sum of $N$ permutations, it requires the factor of $\frac{1}{N!}$. I think it's rooted because it requires the expectation (which would square it) to be normalized.
+			
+			\item 
+			
+			\item 
+		\end{enumerate}
+		
+		\item \begin{enumerate}
+			\item To show that it's real, we can check if $K^* = K$, \begin{align*}
+				K^* & = \left( \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \psi_a^*(\bvec{r}_1)
+				\psi_b^*(\bvec{r}_2)
+				\psi_b(\bvec{r}_1)
+				\psi_a(\bvec{r}_2) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \right)^* \\
+					& = \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \psi_a(\bvec{r}_1)
+					\psi_b(\bvec{r}_2)
+					\psi_b^*(\bvec{r}_1)
+					\psi_a^*(\bvec{r}_2) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} 
+				\intertext{Swapping the labels, it's equal to $K$. \qed}
+					K^* & = \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \psi_a^*(\bvec{r}_1) \psi_b^*(\bvec{r}_2) 
+\psi_a(\bvec{r}_2) \psi_b(\bvec{r}_1)
+\dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2}
+%				\intertext{That's definitely not equal to $K$. I think this question might be wrong and we should be checking $J$ as Hermitian matrices require the \textit{diagonal} elements to be real.}
+%				J^* & = \left( \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \psi_a^*(\bvec{r}_1)
+%				\psi_b^*(\bvec{r}_2)
+%				\psi_a(\bvec{r}_1)
+%				\psi_b(\bvec{r}_2) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \right)^* \\
+%				& = \frac{1}{2} \iint \frac{\slashed{e}^2}{r_{12}} \psi_a(\bvec{r}_1)
+%				\psi_b(\bvec{r}_2)
+%				\psi_a^*(\bvec{r}_1)
+%				\psi_b^*(\bvec{r}_2) \dd[3]{\bvec{r}_1} \dd[3]{\bvec{r}_2} \\
+%				& = J \qed
+			\end{align*}
+
+			\item The eigenvalues are found as \begin{align*}
+				\det \begin{bmatrix}
+					J/2 - E & K/2 \\
+					K/2 & J/2 - E
+				\end{bmatrix} & = 0 \\
+				\left(J/2 - E\right)^2 - \left(K/2\right)^2 & = 0 \\
+				J/2 - E & = \pm K/2 \\
+				E & = \frac{1}{2} \left(J \pm K\right)
+			\end{align*}
+		
+			\item For the basis vectors, the associated eigenvectors can be solved with WolframAlpha and normalized as \begin{align*}
+				\frac{1}{\sqrt{2}}\begin{bmatrix}
+					-1 \\ 1
+				\end{bmatrix}, \qquad & E  = \frac{J-K}{2}
+				\intertext{This vector can be expanded using the provided basis as}
+				\implies & \frac{1}{\sqrt{2}} \left(\ket{2s} \ket{1s} - \ket{1s}\ket{2s}\right)
+				\intertext{And that's basically the triplet state. For the other eigenvector, it expands to the singlet state,}
+				\frac{1}{\sqrt{2}} \begin{bmatrix}
+					1 \\ 1
+				\end{bmatrix}, \qquad & E = \frac{J+K}{2} \\
+				\implies & \frac{1}{\sqrt{2}} \left(\ket{1s}\ket{2s} + \ket{2s}\ket{1s}\right)
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,98 @@
+\documentclass{homework}
+
+\title{Problem Set 3}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 21, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{tcolorbox}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Using Snell's law, for an air-to-glass interface at $45^\circ$, the transmission angle is given as \begin{align*}
+			\theta_t & = \sin[-1](\frac{\sin(45^\circ)}{1.5}) = 28.13^\circ
+		\end{align*} \begin{enumerate}
+			\item For S-polarized light, \begin{align*}
+				r_\perp & = \frac{n_i \cos \theta - n_t \cos \theta_t}{n_i \cos \theta_i + n_t \cos \theta_t} = \frac{\cos(45^\circ) - 1.5 \cos(28^\circ)}{\cos(45^\circ) + 1.5 \cos(28^\circ)} = -0.304 \\
+				R_\perp & = r_\perp^2 \approx 0.092
+			\end{align*}
+			
+			\item For P-polarized light, \begin{align*}
+				r_\parallel & = \frac{n_t \cos \theta_i - n_i \cos \theta_t}{n_i \cos \theta_t + n_t \cos \theta_i} = 0.092 \\
+				R_\parallel & = r_\parallel^2 \approx 0.0085
+			\end{align*}
+		\end{enumerate}
+	
+		\item For an interface with air, $n_t \approx 1$ and $n_{ti} \approx 1 / n_i$. For the critical angles, \begin{align*}
+			\theta_c & = \sin[-1](1 / n_{i}) \\
+					& = 48.8^\circ \quad \text{for water} \\
+					& = 34.4^\circ \quad \text{for sapphire}
+		\end{align*}
+	
+		For the Brewster angles,  \begin{align*}
+			\theta_p & = \tan[-1](1 / n_i) \\
+				& = 36.9^\circ \quad \text{for water}\\
+				& = 29.5^\circ \quad \text{for sapphire}
+		\end{align*}
+	
+		\item \begin{enumerate}
+			\item Assuming $n_t = 1$, the decay constant \begin{align*}
+				\beta & = \frac{2 \pi n_t}{\lambda_0} \left[\left(\frac{n_i}{n_t}\right)^2 \sin[2](\theta_i) - 1\right]^{1/2} \\
+					& = \frac{2 \pi \left(1\right)}{\SI{589}{\nm}} \left[ \left(\frac{1.6}{1}\right)^2 \sin[2](45^\circ) - 1\right]^{1/2} \\
+					& = \SI{5.645e6}{\per\m}
+			\end{align*}
+		
+			\item For $n_t=1.33$, the critical angle increases to $\theta_c = 56.2^\circ$ and TIR no longer occurs. 
+		\end{enumerate}
+	
+		\pagebreak
+		
+		\item For this problem, I am assuming: \begin{itemize}
+			\item The Brewster window is in air, $n_i = 1$.
+			\item The incident waves are half s- and p-polarized and the transmitted waves remain s- and p-polarized.
+		\end{itemize}
+		
+		For s-polarized waves, the transmission coefficient and transmittance are given from the Fresnel equations, \begin{align*}
+			t_\perp & = \frac{ 2n_i \cos \theta_i }{n_i \cos \theta_i + n_t \cos \theta_t} \\
+			T_\perp & = \frac{n_t \cos \theta_t}{n_i \cos \theta_i} t^2 = \frac{n_t \cos \theta_t}{n_i \cos \theta_i} \left(\frac{ 2n_i \cos \theta_i }{n_i \cos \theta_i + n_t \cos \theta_t}\right)^2
+			\intertext{Substituting $n_i = 1$ and $n_t = n$ and simplifying somewhat,}
+			T_\perp & = \frac{4 n \cos \theta_t}{\cancel{\cos \theta_i}} \frac{\cos[\cancel{2}](\theta_i)}{\left(\cos \theta_i + n \cos \theta_t\right)^2} =  \frac{4 n \cos \theta_t \cos \theta_i}{\left(\cos \theta_i + n \cos \theta_t\right)^2}
+			\intertext{However Brewster's angle, 			$\theta_i + \theta_t = 90^\circ$, then}
+			\tan \theta_i & = \frac{n_t}{n_i} = n, \qquad \cos(\theta_t) = \cos(90^\circ - \theta_i) = \sin(\theta_i)
+			\intertext{Applying this to transmittance $T_\perp$,}
+			T_\perp & = \frac{4 n \sin \theta_i \cos \theta_i}{\left(\cos \theta_i + n \sin \theta_i\right)^2} = \frac{4 n \sin \theta_i \cos \theta_i}{\left( \cos \theta_i +  n^2 \cos \theta_i\right)^2} = \frac{4n \sin \theta_i \cos \theta_i}{\cos[2](\theta_i) \left(1 + n^2\right)} \\
+				& = \frac{4n \tan \theta_i}{\left(1 + n^2\right)^2} = \frac{4 n^2}{\left(1 + n^2\right)^2}
+		\end{align*}
+		The degree of polarization is given as \begin{align*}
+			P & = \frac{I_\mathrm{max} - I_\mathrm{min}}{I_\mathrm{max} + I_\mathrm{min}}
+			\intertext{And since the intensity is proportional to the transmittance of the light, and the incident light is of equal parts s- and p-polarization, we can omit the common factors and write the degree of polarization as a function of $T_\mathrm{max}$ and $T_\mathrm{min}$.}
+			P & = \frac{T_\mathrm{max} - T_\mathrm{min}}{T_\mathrm{max} + T_\mathrm{min}}
+			\intertext{As the p-polarization is perfectly transmitted, $T_\mathrm{max} = T_\parallel = 1$. Then substituting $T_\perp$,}
+			\Aboxed{ P & = \frac{T_\mathrm{\parallel} - T_\mathrm{\perp}}{T_\parallel + T_\perp} = \frac{1 - 4n^2 / \left(1 + n^2\right)^2}{1 + 4n^2 / \left(1 + n^2\right)^2} }
+		\end{align*}
+		For $n=1.5$, the degree of polarization is $P\approx 0.08$.
+	\end{enumerate}
+\end{document}

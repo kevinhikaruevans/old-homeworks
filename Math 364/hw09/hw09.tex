@@ -1,0 +1,259 @@
+\documentclass{homework}
+
+\title{Homework 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 2, 2021}
+\setclass{Math}{364}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+\newcommand{\st}{\mathrm{s.t.}}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+\newcommand{\bolditem}[1][YYY]{\item[\textbf{#1}]}
+\newenvironment{amatrix}[1]{%
+	\left(\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+	\end{array}\right)
+}
+
+%\renewcommand\arraystretch{1.25}
+
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\bolditem[5.1.8] A bakery, using flour and sugar, makes cakes, and pastries. Requirements and profits for making and selling a unit of each are as follows: \begin{center}
+				\begin{tabular}{lccc}
+					\toprule
+					& Flour (lb) & Sugar (lb) & Profit (\$) \\
+					\midrule
+					Cake & 10 & 15 & 40 \\
+					Pastry & 3 & 2 & 9 \\
+					\bottomrule
+				\end{tabular}
+			\end{center}
+			The bakery has available $b_1$ lb flour and $b_2$ lb of sugar. Assuming that all items can be sold, express the maximum profit attainable as a function of the ratio of $b_1$ to $b_2$.
+			
+			\solution We can let the decision variables be the number of cakes and pastries to make \begin{align*}
+				\text{Let } x_1 & = \text{\# cakes to make,} \\
+					x_2 & = \text{\# pastries to make}.
+			\end{align*}
+			The objective function is the profit to maximize \begin{align*}
+				\text{Profit } z & = 40 x_1 + 9 x_2.
+			\end{align*}
+			The constraints are given by the flour and sugar available, \begin{align*}
+				10 x_1 + 3 x_2 \le b_1 && \text{(flour)} \\
+				15 x_1 + 2 x_2 \le b_2 && \text{(sugar)}
+			\end{align*}
+			The linear program is given by \begin{tcolorbox}
+				\textit{Primal Problem} \begin{align*}
+					\max \quad & z = 40 x_1 + 9 x_2 \\
+					\st \quad & 10 x_1 + 3 x_2 \le b_1 \\
+							&	15 x_1 + 2 x_2 \le b_2 \\
+							& x \ge 0 \\
+							& x \in \mathbb{R}^2
+				\end{align*}
+			\end{tcolorbox}
+		
+			Using the conversion table from in-class, the dual problem is \begin{tcolorbox}
+				\textit{Dual Problem} \begin{align*}
+					\min \quad & w = b_1 y_1 + b_2 y_2 \\
+					\st \quad & 10y_1 + 15 y_2 \ge 40 \\
+						& 3 y_1 + 2 y_2 \ge 9 \\
+						& y \ge 0 \\
+						& y \in \mathbb{R}^2
+				\end{align*}
+			\end{tcolorbox}
+			
+			Sorta following what we did in class, we can let $s=b_1/b_2$ and using the dual problem, we can express the maximum profit as a function of $s$, \begin{center}
+				\begin{tabular}{lccc}
+					\toprule 
+					Condition $s$ & $ s< 10/15$ & $10/15 < s < 3/2$ & $3/2 > s$ \\
+					Optimal Point & $(4, 0)$ & $(11/5, 6/5) $ & $(2, 5/2)$ \\
+					Optimal Objective & $4b_1$ & $11b_1 / 5 + 6b_2/5$ & $2b_1 + 5b_2/2$ \\
+					\bottomrule
+				\end{tabular}
+			\end{center}
+		
+		\bolditem[5.3.3] Starting from the final tableau of Table 5.5, complete the problem of (5.3.1) if the objective function coefficient of \begin{enumerate}
+			\item $x_3$ is increased from 1 to 4.
+				
+				\solution As $c_3^* = 2$ and we're increasing $x_3$ by $3$, the coefficient becomes negative. Using the tableau in Table 5.5, the new tableau becomes \begin{align*}
+					\begin{array}{cccccc|cc}
+						x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & &  \\
+						\hline
+						-2 & 0 & \boxed{5} & 1 & 2 & -1 & 6 & \boxed{x_4} \\
+						11 & 1 & -18 & 0 & -7 & 4 & 4 & x_2 \\
+						\hline
+						3 & 0 & \boxed{-1} & 0 & 2 & 1 & 106 & z \\
+						\midrule
+						-2/5 & 0 & 1 & 1/5 & 2/5 & -1/5 & 6/5 & x_3 \\
+						19/5 & 1 & 0 & 18/5 & 1/5 & 2/5 & 128/5 & x_2 \\
+						\hline
+						13/5 & 0 & 0 & 1/5 & 12/5 & 4/5 & 536/5 & z \\
+						\bottomrule
+					\end{array}
+				\end{align*}
+				As all the coefficients are non-negative, this is now optimal at the point  $$\boxed{x^* = (0, 128/5, 6/5, 0), z^* = 536/5.}$$
+				
+			\item $x_4$ is increased from 15 to 16\textonehalf.
+			
+				\solution As $x_4$ was a basic variable, we're also now changing $c_B$, affecting $r$ and $z$. This results in the tableau \begin{align*}
+					\begin{array}{cccccc|cc}
+						x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & & \\
+						\hline
+						-2 & 0 & 5 & \boxed{1} & 2 & -1 & 6 & \boxed{x_4} \\
+						11 & 1 & -18 & 0 & -7 & 4 & 4 & x_2 \\
+						\hline
+						3 & 0 & 2 & \boxed{-3/2} & 2 & 1 & 115 & z \\
+						\midrule
+						-2 & 0 & 5 & 1 & 2 & -1 & 6 & x_4 \\
+						11 & 1 & -18 & 0 & -7 & \boxed{4} & 4 & \boxed{x_2} \\
+						\hline
+						0 & 0 & 19/2 & 0 & 5 & \boxed{-1/2} & 124 & z \\
+						\midrule
+						3/4 & 1/4 & 1/2 & 1 & 1/4 & 0 & 7 & x_4\\
+						11/4 & 1/4 & -18/4 & 0 & -7/4 & 1 & 1 & x_6 \\
+						\hline
+						11/8 & 1/8 & 29/4 & 0 & 33/8 & 0 & 249/2 & z
+					\end{array}
+				\end{align*}
+				\sout{ This is optimal at the point $$\boxed{x^* = (0, 0, 0, 7), z^* = 249/2.}$$ } 
+				
+				I messed this up in the original $z$ value on the RHS in the tableau. It's off by 9. So the optimal value is actually
+				$$\boxed{x^* = (0, 0, 0, 7), z^* = 231/2.}$$				
+			\item $x_4$ is decreased from 15 to 14 and the coefficient of $x_3$ is decreased from 1 to -2.
+			
+%			\solution If these values are decreased, we're still in the optimal strategy. Only the objective value is changed, so $$\boxed{x^* = (0, 4, 0, 6), z^*= 84.}$$
+
+			\solution We'll need to enforce $x_4$ being in the basis and leave it out of the objective row in the tableau. The new tableau will be \begin{align*}
+				\begin{array}{cccccc|cc}
+					x_1 & x_2 & x_3 & x_4 & x_5 & x_6 & & \\
+					\hline
+					-2 & 0 & 5 & 1 & 2 & -1 & 6 & x_4 \\
+					11 & 1 & -18 & 0 & -7 & 4 & 4 & x_2 \\
+					\hline
+					3 & 0 & 5 & \boxed{1} & 2 & 1 & 106 & z \\
+					\midrule
+					-2 & 0 & 5 & 1 & 2 & -1 & 6 & x_4 \\
+					11 & 1 & -18 & 0 & -7 & 4 & 4 & x_2 \\					
+					\hline
+					5 & 0 & 0 & 0 & 0 & 2 & 100 & z
+				\end{array}
+			\end{align*}
+			The new optimal point is $$\boxed{x^*=(0, 4, 0, 6), z^*=100.}$$
+		\end{enumerate}
+		
+		
+		\bolditem[5.5.2] Consider the linear program of Example 3.5.1 on page 87. Determine the maximum value of the objective function and a point at which this value is attained if \begin{enumerate}
+			\item $b_2$ is increased from 10 to 30 units, $b_1$ and $b_3$ remain unchanged.
+				
+				\solution The basic variables are the slack variables. From the final tableau, the submatrix of these variables is \begin{align*}
+					A_B^{-1} & = \begin{pmatrix}
+						1/5 & -2/5 & 0 \\
+						1/5 & 3/5 & 0 \\
+						0 & 2 & 1
+					\end{pmatrix}.
+				\end{align*}
+				The change in the objective value is, where $c_B$ are the basic variable coefficients in the final tableau, \begin{align*}
+					\delta z & = c_B A_B^{-1} (\delta b) = c_B A_B^{-1} \begin{pmatrix}
+						0 & 20 & 0
+					\end{pmatrix}^T \\
+					& = -20. \\
+					-z^* & = -90.
+				\end{align*}
+				
+			\item $b_1, b_2$, and $b_3$ are each decreased by 10 units from their original values.
+				
+				\solution Using the same method as (a), \begin{align*}
+					\delta b^* & = A_B^{-1} \begin{pmatrix}
+						-10 \\ -10 \\ -10
+					\end{pmatrix} = \begin{pmatrix}
+						2 \\ -8 \\ -30	
+					\end{pmatrix} \\
+					\delta z & = c_B (\delta b^*) = \begin{pmatrix}
+						-2 & -3 & 0
+					\end{pmatrix} \begin{pmatrix}
+					-2 & -8 & -30
+				\end{pmatrix}^T = 20 \\
+				-z^* & = 50.
+				\end{align*}
+		\end{enumerate}
+	
+		\pagebreak
+		
+		\bolditem[5.6.7] The aluminum can company of Example 5.1.3 on page 166 has just signed a contract calling for the delivery of an additional 1,800 cases of the Type A can per month (with all other data as stated in the original example). Determine the revised optimal operating schedule and monthly costs, and the new marginal costs for the constraints.
+		
+		\solution The increase in requirements will affect the first constraint, so $b_1$ will increase by 1800.
+			
+			The modified $b^*$ can be determined using the existing tableau, \begin{align*}
+				b^* & = A_B^{-1} b = A_B^{-1} \begin{pmatrix}
+					2400 \\ 2800 \\ 600
+				\end{pmatrix} + A_B^{-1} \begin{pmatrix}
+					1800 \\ 0 \\ 0
+			\end{pmatrix} \\
+			& = \begin{pmatrix}
+				75 \\ 150 \\ 350
+			\end{pmatrix}
+			+ \begin{pmatrix}
+				3/16 & 0 & -5/8 \\
+				-1/8 & 0 & 3/4 \\
+				3/8 & -1 & 15/4
+			\end{pmatrix} \begin{pmatrix}
+			1800 \\ 0 \\ 0
+		\end{pmatrix} \\
+		& = \begin{pmatrix}
+			825/2 \\ -75 \\ 1025
+		\end{pmatrix}
+			\end{align*}
+			These values result in $z^*=-50625$. The modified tableau with these values is \begin{align*}
+				\begin{array}{ccccc|ccc|cc}
+					\toprule
+					9/8 & 1 & 0 & -3/16 & 0 & 3/16 & 0 & -5/8 & 825/2 & x_2 \\
+					\boxed{-3/4} & 0 & 1 & 1/8 & 0 & -1/8 & 0 & 3/4 & \boxed{-75} & x_3 \\
+					-23/4 & 0 & 0 & -3/8 & 1 & 3/8 & -1 & 15/4 & 1025 & x_5 \\
+					\hline
+					\boxed{185/4} & 0 & 0 & 25/8 & 0 & -25/8 & 0 & -225/4 & -50625 & -z \\
+					\midrule
+					0 & 1 & 3/2 & 0 & 0 & 5/16 & 0 & 1/2 & 300 & x_2 \\
+					1 & 0 & -4/3 & -1/6 & 0 & 1/6 & 0 & -1 & 100 & x_1 \\
+					0 & 0 & -23/3 & -4/3 & 1 & 4/3 & -1 & -2 & 1600 & x_5 \\
+					\hline
+					0 & 0 & 185/3 & 65/6 & 0 & -65/6 & 0 & -10 & -55250 & -z \\
+					\bottomrule
+				\end{array}
+			\end{align*}
+			(I'm not entirely sure if I can end the dual simplex method here, since there are still negatives in the last row. )
+			
+			The new operating schedule is running all Process 3 for 66.6 hours and the monthly cost is \$55,250. The new marginal costs are \$65.6/case of Type A and \$10/lb of using recycled aluminum. 
+			
+	\end{enumerate}
+\end{document}

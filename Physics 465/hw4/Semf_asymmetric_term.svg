@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="339.41" width="401.03" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/">
+ <defs>
+  <linearGradient id="e">
+   <stop stop-opacity=".71622" offset="0"/>
+   <stop stop-color="#6c6c6c" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="f">
+   <stop stop-opacity=".58559" offset="0"/>
+   <stop stop-color="#6c6c6c" stop-opacity="0" offset="1"/>
+  </linearGradient>
+  <linearGradient id="h">
+   <stop stop-color="#ff9191" offset="0"/>
+   <stop stop-color="#f00" offset="1"/>
+  </linearGradient>
+  <linearGradient id="g">
+   <stop stop-color="#7291f2" offset="0"/>
+   <stop stop-color="#004aef" offset="1"/>
+  </linearGradient>
+  <radialGradient id="b" xlink:href="#g" gradientUnits="userSpaceOnUse" cy="127.21" cx="151.6" gradientTransform="matrix(.32586 .89069 -.93912 .34358 217.56 -66.34)" r="70"/>
+  <radialGradient id="a" xlink:href="#e" gradientUnits="userSpaceOnUse" cy="119.41" cx="230.33" gradientTransform="matrix(.49148 -1.3282 1.4282 .52849 -67.71 428.52)" r="70"/>
+  <radialGradient id="d" xlink:href="#h" gradientUnits="userSpaceOnUse" cy="130.45" cx="146.94" gradientTransform="matrix(.32586 .89069 -.93912 .34358 217.56 -66.34)" r="70"/>
+  <radialGradient id="c" gradientUnits="userSpaceOnUse" xlink:href="#f" cx="230.33" cy="119.41" r="70" gradientTransform="matrix(.55293 -1.5126 1.4303 .52286 -82.11 471.66)"/>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+    <cc:license rdf:resource=""/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(13.132 1.2269)">
+  <g transform="matrix(.21290 0 0 .21290 127.83 123.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 124.27 124.95)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 124.27 155.95)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 124.27 186.96)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 124.27 217.96)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="translate(35.01)">
+   <g transform="matrix(.21290 0 0 .21290 124.27 124.95)">
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+   </g>
+   <g transform="matrix(.21290 0 0 .21290 124.27 155.95)">
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+   </g>
+   <g transform="matrix(.21290 0 0 .21290 124.27 186.96)">
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+   </g>
+   <g transform="matrix(.21290 0 0 .21290 124.27 217.96)">
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+    <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+   </g>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 315.49 155.95)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 315.49 186.96)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 315.49 217.96)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 350.5 155.95)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 350.5 186.96)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 350.5 217.96)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#d)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -616.85 28.559)" fill="url(#c)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 127.83 92.164)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 127.83 154.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 127.83 185.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 162.83 123.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 162.83 92.164)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 162.83 154.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 162.83 185.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 319.54 123.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 319.54 92.164)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 319.54 154.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 319.54 185.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 319.54 60.521)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 353.9 123.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 353.9 92.164)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 353.9 154.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 353.9 185.17)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g transform="matrix(.21290 0 0 .21290 353.9 60.521)">
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#b)"/>
+   <path d="m247.14 143.57c0 38.66-31.34 70-70 70s-70-31.34-70-70 31.34-70 70-70c38.66 0.001 70 31.34 70 70z" transform="matrix(.93942 0 0 .93942 -234.85 182.56)" fill="url(#a)"/>
+  </g>
+  <g>
+   <path opacity=".71562" style="block-progression:tb;text-indent:0;color:#000000;text-transform:none" d="m9.4062 93.438v178.22 0.9375h0.96875 70.688 0.96875v-0.9375-178.22h-1.9062v177.25h-68.812v-177.25l-1.9078-0.002z"/>
+   <path opacity=".71562" style="block-progression:tb;text-indent:0;color:#000000;text-transform:none" d="m94.121 93.438v178.22 0.9375h0.96875 70.687 0.96875v-0.9375-178.22h-1.9062v177.25h-68.812v-177.25l-1.907-0.002z"/>
+  </g>
+  <g>
+   <path opacity=".71562" style="block-progression:tb;text-indent:0;color:#000000;text-transform:none" d="m200.19 93.438v178.22 0.9375h0.96875 70.687 0.96875v-0.9375-178.22h-1.9062v177.25h-68.812v-177.25l-1.91-0.002z"/>
+   <path opacity=".71562" style="block-progression:tb;text-indent:0;color:#000000;text-transform:none" d="m285.41 93.438v178.22 0.9375h0.96875 70.687 0.96875v-0.9375-178.22h-1.9062v177.25h-68.812v-177.25l-1.91-0.002z"/>
+  </g>
+  <g font-size="40px" font-family="Sans" fill="#000000">
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" xml:space="preserve" line-height="125%" y="289.50504" x="45.352539"><tspan font-size="15px" y="289.50504" x="45.352539">Protons</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" line-height="125%" y="289.50504" x="130.06682" xml:space="preserve"><tspan font-size="15px" y="289.50504" x="130.06682">Neutrons</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" line-height="125%" y="289.50504" x="236.1382" xml:space="preserve"><tspan font-size="15px" y="289.50504" x="236.1382">Protons</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" xml:space="preserve" line-height="125%" y="289.50504" x="321.35248"><tspan font-size="15px" y="289.50504" x="321.35248">Neutrons</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" xml:space="preserve" line-height="125%" y="318.00757" x="278.32053"><tspan style="letter-spacing:-1.15px;text-anchor:middle;text-align:center" font-size="22.5px" line-height="125%" dx="0" y="318.00757" x="277.74551" font-family="Sans">| N – Z | = 4</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" xml:space="preserve" line-height="125%" y="78.007568" x="87.306847"><tspan style="letter-spacing:-1.15px;text-anchor:middle;text-align:center" font-size="22.5px" line-height="125%" y="78.007568" x="86.731842" font-family="Sans">Lower energy</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" line-height="125%" y="78.798584" x="278.32053" xml:space="preserve"><tspan style="letter-spacing:-1.15px;text-anchor:middle;text-align:center" font-size="22.5px" line-height="125%" y="78.798584" x="277.74551" font-family="Sans">Higher energy</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" line-height="125%" y="42.007568" x="187.30685" xml:space="preserve"><tspan style="letter-spacing:-1.15px;text-anchor:middle;text-align:center" font-size="35px" line-height="125%" y="42.007568" x="186.73186" font-family="Sans"><tspan font-style="italic">A</tspan> = 16</tspan></text>
+   <text style="word-spacing:0px;letter-spacing:0px;text-anchor:middle;text-align:center" line-height="125%" y="318.00757" x="87.306847" xml:space="preserve"><tspan style="letter-spacing:-1.15px;text-anchor:middle;text-align:center" font-size="22.5px" line-height="125%" y="318.00757" x="86.73185" font-family="Sans">| N – Z | = 0</tspan></text>
+  </g>
+ </g>
+</svg>

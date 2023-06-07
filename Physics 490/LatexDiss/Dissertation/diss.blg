@@ -1,0 +1,20 @@
+[0] Config.pm:311> INFO - This is Biber 2.16
+[1] Config.pm:314> INFO - Logfile is 'diss.blg'
+[208] biber-MSWIN64:340> INFO - === 
+[279] Biber.pm:415> INFO - Reading 'diss.bcf'
+[540] Biber.pm:952> INFO - Found 15 citekeys in bib section 0
+[560] Biber.pm:4340> INFO - Processing section 0
+[573] Biber.pm:4531> INFO - Looking for bibtex format file 'bib.bib' for section 0
+[659] bibtex.pm:1689> INFO - LaTeX decoding ...
+[708] bibtex.pm:1494> INFO - Found BibTeX data source 'bib.bib'
+[840] Utils.pm:395> WARN - legacy month field 'Apr' in entry 'PhysRevA.83.043611' is not an integer - this will probably not sort properly.
+[844] Utils.pm:395> WARN - legacy month field 'May' in entry 'PhysRevLett.62.2065' is not an integer - this will probably not sort properly.
+[849] Utils.pm:395> WARN - legacy month field 'Oct' in entry 'PhysRevLett.71.2683' is not an integer - this will probably not sort properly.
+[864] Utils.pm:395> WARN - BibTeX subsystem: C:\Users\evans\AppData\Local\Temp\biber_tmp_Utd0\283e1cb250985c2debc501124f55eeff_17476.utf8, line 161, warning: undefined macro "pr"
+[889] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[890] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[890] Biber.pm:4168> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[890] Biber.pm:4174> INFO - No sort tailoring available for locale 'en-US'
+[910] bbl.pm:654> INFO - Writing 'diss.bbl' with encoding 'UTF-8'
+[919] bbl.pm:757> INFO - Output to diss.bbl
+[920] Biber.pm:128> INFO - WARNINGS: 4

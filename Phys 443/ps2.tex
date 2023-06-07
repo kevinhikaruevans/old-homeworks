@@ -1,0 +1,141 @@
+\documentclass{homework}
+
+\title{Problem Set 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 9, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+
+\begin{document}
+	\maketitle
+	
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item Linear polarization, $63^\circ$ from the $x$ axis.
+			\item Right elliptical polarization.
+			\item Left circular polarization.
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item If we add a $\pi/2$ phase shift, \begin{align*}
+				\left[ \begin{matrix}
+					-2 \\ 1
+				\end{matrix} \right]
+			\end{align*}
+			It's still linearly polarized, just out of phase.
+			
+			\item Using a left elliptical polarization, these matrices are orthogonal \begin{align*}
+				\left[
+				\begin{matrix}
+					2 \\ i				
+				\end{matrix}
+				\right] \text{ or } \left[
+					\begin{matrix}
+						-2i \\ 1
+					\end{matrix}
+				\right]
+			\end{align*}
+			(The relative difference is the same, right?)
+			
+			\item Using a right circular polarization, \begin{align*}
+				\left[
+					\begin{matrix}
+						1 \\ -i
+					\end{matrix}
+				\right]
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item Reusing the diagram and conventions from in class, where \begin{align*}
+				n_1 & = \text{higher/slower index ($y$)} \\
+				n_2 & = \text{lower/faster index ($x$)}
+\intertext{			Then piggybacking from the quarter-wave derivation,}
+				\Delta \phi & = k_y d - k_x d = \frac{2\pi d}{\lambda} \left(n_1 - n_2\right) \\
+				\pi & = \frac{2 \pi d}{\lambda} \left(n_1 - n_2\right) \\
+				d (n_1 - n_2) & = \frac{\lambda}{2} \\
+					& = \frac{\lambda}{2} + m \lambda \\
+					& \hspace{1.5em} \text{(where $m \in \mathbb{Z}$, for higher orders)}
+			\end{align*}
+		
+			\item Finding the Eigenvalues $\lambda$, \begin{align*}
+				\left[ \begin{matrix}
+					1 & 0 \\
+					0 & -1
+				\end{matrix}\right] \bvec{M} & = \lambda \bvec{M} \\
+				\abs{ \begin{matrix}
+					1 - \lambda & 0 \\
+					0 & -1 - \lambda
+				\end{matrix} } & = 0 \\
+				\left(1 - \lambda\right)\left(-1 - \lambda\right) & = 0 \\
+				\lambda & = \pm 1
+				\intertext{Substituting the found $\lambda$ values into the original equation, the Eigenvectors can be found. }
+				\left[ \begin{matrix}
+					1 - \lambda & 0 \\
+					0 & -1 - \lambda
+				\end{matrix}\right] \left[
+					\begin{matrix}
+						A \\ B
+					\end{matrix}
+				\right] = 0 \\
+				\left(1 - \lambda\right) A = 0 \\
+				\left(-1 - \lambda\right) B = 0
+			\end{align*}
+				For $\lambda = 1$, $B=0$ and the relative Jones vector is
+				$\left[
+					\begin{matrix}
+						1 \\
+						0
+					\end{matrix}
+				\right]$.
+				
+				Similarly for $\lambda = -1$, the Jones vector is 
+				$\left[
+					\begin{matrix}
+						0 \\
+						1
+					\end{matrix}
+				\right]$.
+			\item A linearly polarized wave at $45^\circ$ can be represented with a Jones vector $\left[\begin{matrix}
+			1 \\ 1
+			\end{matrix}\right]$, and using the Jones matrix from (b), \begin{align*}
+				\left[\begin{matrix}
+					1 & 0 \\
+					0 & -1
+				\end{matrix}\right] \left[
+				\begin{matrix}
+					1 \\ 1
+				\end{matrix}
+			\right] & = \left[
+				\begin{matrix}
+					1 \\
+					-1
+				\end{matrix}
+			\right]
+			\end{align*}
+		The $x$-component remains the same, but now the $y$-component is ``flipped.'' The wave is now phase shifted by a half-wave and is linearly polarized at $225^\circ$.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

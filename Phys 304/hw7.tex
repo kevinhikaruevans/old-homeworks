@@ -1,0 +1,143 @@
+\documentclass{homework}
+
+\title{Homework 7}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 13, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+
+\DeclareSIUnit{\year}{yr}
+\begin{document}
+	\maketitle
+	\subsubsection*{Chapter 10}
+	\begin{enumerate}
+		\item[2.] In this problem, it notes to find the peak of $n(v)$. This would occur when $\dv{n}{v} = 0$. \begin{align*}
+			n(v) & = \frac{4\pi N}{V} \left(\frac{m}{2\pi k_B T}\right)^{3/2} v^2 e^{-mv^2 / 2 k_B T} \\
+			\dv{n}{v} & = \frac{4\pi N}{V} \left(\frac{m}{2\pi k_B T}\right)^{3/2} \left[2v e^{-mv^2 / 2k_B T} + v^2e^{-mv^2/2k_BT} \left(-\frac{2mv}{2k_B T}\right)\right] = 0
+			\intertext{Removing the initial factor,}
+			0 & = 2ve^{-mv^2/2k_BT} - \frac{-mv^3}{k_BT} e^{-mv^2 / 2k_B T} \\
+				& = 2v - \frac{mv^3}{k_B T} = v \left(1 - \frac{mv^2}{2k_B T}\right)
+			\intertext{Removing the trivial root,}
+			1 & = \frac{ mv^2 }{2k_B T} \\
+			v & = \sqrt{\frac{2 k_B T}{m}} \qed
+		\end{align*}
+		\item[6.]
+		\begin{enumerate}
+			\item We are given: the states have equal weight, so $g_i = g_j \; \forall \: i, j \in \mathbb{N}$, and the energy between the $n=1$ and $n=2$ state is
+				\[ \Delta E = \SI{4.86}{\eV} \]
+				Then, we can divide the number per volume of each state to find the ratio between the states, \begin{align*}
+					\frac{n_2}{n_1} & = e^{\Delta E / k_B T} \\
+						& = \exp\left[(-\SI{4.86}{\eV}) / (\SI{8.617e-5}{\eV/\K})(\SI{1600}{\K})\right] \\
+						& = \num{4.91e-16}
+					\intertext{If we assume all of the particles are within these two states, then}
+					n_1 + n_2 & = 10^{20} \\
+					n_1 + (\num{4.91e-16})n_1 & = 10^{20} \\
+					n_1 & = \frac{10^{20}}{1 + \num{4.91e-16}} \\
+						& \approx 10^{20} \leftarrow \text{ My calculator is not precise enough} \\
+					n_2 + \frac{n_2}{\num{4.91e-16}} & = 10^{20} \\
+					n_2 & = \frac{ 10^{20} }{1 + 1 / (\num{4.91e-16})} \approx \num{49160}
+				\end{align*}
+				\item The average power emitted is \begin{align*}
+					P & = \frac{E_\mathrm{total}}{\Delta T} \\
+						& = \frac{N E_{2\to1}}{\Delta T} = \frac{(\num{49160})(\SI{4.86}{\eV})}{\SI{100}{\nano\second}} \\
+						& \approx \SI{2.39e12}{\eV/\s} \\ & \approx \SI{3.83e-7}{\W}
+				\end{align*}
+			\end{enumerate}
+		\item[9.] For a single iron atom, the mean speed would be \begin{align*}
+			\bar{v} & = \pm \sqrt{\frac{8 k_B T}{\pi m}} \\
+				& = \pm \sqrt{
+					\frac{8 \left(\SI{1.38e-23}{\J\per\K}\right)(\SI{6000}{\K})}
+					{\pi \left(\SI{55.845}{\g\per\mole} \times \frac{\SI{1}{\mol}}{\num{6.023e23} \text{ atoms}} \times \SI{1e-3}{\kg \per \g} \right)}
+				} \\
+			& = \SI{1507}{\m\per\s}
+			\intertext{The relative change in frequency is}
+			\frac{\Delta f}{f_0} & = \frac{\Delta v}{c} = \frac{\SI{1507}{\m\per\s}}{\SI{3e8}{\m\per\s}} \\
+				& \approx \num{5.03e-6}
+		\end{align*}
+			Using the relativistic Doppler shift formula is not needed as the iron atoms are not moving relativistically, with the mean speed as only a tiny fraction of $c$.
+		\item[12.] \begin{enumerate}
+			\item The average energy would be given as the total energy over the total number of photons, \begin{align*}
+				\bar{E} = \frac{E}{N} &
+					= \frac{\int_0^\infty E g(E) f_{BE}(E) \dd{E}}{\int_0^\infty g(E) f_{BE}(E) \dd{E}} \\
+					& = \frac{ \int_0^\infty E^3 \frac{1}{e^{E/k_B T} - 1} \dd{E} }
+						{\int_0^\infty E^2 \frac{1}{e^{E/k_B T} - 1} \dd{E}} && \text{Removed the constants of $g$} \\
+					\intertext{Using the hints in the problem,}
+						z & = E / k_B T \\
+					\bar{E} & = \frac{ (k_B T)^3 \int_0^\infty z^3 / (e^z - 1) \dd{E} }
+					{(k_B T)^2 \int_0^\infty z^2 / (e^z - 1) \dd{E}} \\
+						& \approx k_B T \frac{\pi^4}{2.41 \times 15} \\
+						& \approx 2.7 k_B T
+			\end{align*}
+			\item For a photon's energy at $T=\SI{6000}{\K}$, \begin{align*}
+				\bar{E} & = 2.7 \left(\SI{8.617e-5}{\eV \per \K}\right) \left(\SI{6000}{\K} \right) \\
+				& = \SI{1.4}{\eV}
+			\end{align*}
+		\end{enumerate}
+		\item[14.] \begin{enumerate}
+			\item Using the average energy from Problem 16, \begin{align*}
+				\bar{E}& = \frac{3(7.05)}{5} = \SI{4.23}{\eV}
+			\end{align*}
+			\item Equating (a) to the energy of an ideal gas, \begin{align*}
+				\frac{3}{2} k_B T & = \SI{4.23}{\eV} \\
+				T & = \frac{2}{3} \left(\SI{4.23}{\eV}\right) \left( \SI{8.617e-5}{\eV\per\K} \right) \\
+				& \approx \SI{3.3e4}{\K}
+			\end{align*}
+		\end{enumerate}
+		\item[16.] The average energy is defined as \begin{align*}
+			\bar{E} & = \frac{\int_0^\infty E g(E) f_{FD}(E) \dd{E}}{N/V} \\
+				& = \frac{\int_0^\infty E g(E) f_{FD}(E) \dd{E}}{\int_{0}^{\infty} g(E) f_{FD}(E) \dd{E}}
+			\intertext{As the probability is $0$ at energies above $E_F$ at \SI{0}{\K} and empty at higher energies, we can set the upper bound of both integrals to the Fermi energy and substitute in $g(E)$ using $(10.39)$,}
+			\bar{E} & = \frac{D\int_0^{E_F} E^{3/2} \dd{E}}
+			{D \int_{0}^{E_F} E^{1/2} \dd{E}} \\
+			& = \frac{\frac{E^{5/2}}{5/2}}{ \frac{E^{3/2}}{3/2}} = \frac{3}{5} E_F \qed
+		\end{align*}
+		\item[17.] The Fermi energy at \SI{0}{\K} is given in (10.44) as \begin{align*}
+			E_F & = \frac{ h^2 }{2m} \left( \frac{3N}{8\pi V}\right)^{2/3}
+			\intertext{For the zinc protons, the Fermi energy is found as}
+			E_F & = \frac{\left(\SI{1240}{\MeV\femto\meter}\right)^2}{2\times \SI{938.28}{\MeV}} \left(\frac{3\times 30}{8 \pi \times\frac{4}{3} \pi \left(\SI{4.8}{\femto\meter}\right)^3}\right)^{2/3} \\
+			& \approx \SI{32.0}{\MeV}
+			\intertext{Similarily for the zinc neutrons, }
+			E_F & \approx \SI{34.8}{\MeV}
+			\intertext{Using the average energy from Problem 16,}
+			\bar{E} & = \frac{3}{5} \left(\SI{32.0}{\MeV}\right) \approx \SI{19.2}{\MeV}
+		\end{align*}
+		Is that reasonable? Probably?
+		\item[18.] From (10.44), we can pull out $n$ (electrons per volume) and evaluate \begin{align*}
+			E_F & = \frac{h^2}{2m_e} \left(\frac{3N}{8\pi V}\right)^{2/3} \\
+				& = \frac{h^2}{2m_e} \left(\frac{3}{8\pi}\right)^{2/3} n^{2/3} \\
+				& \approx \frac{ \left(\SI{6.626e-34}{\J\s}\right)^2 }
+				{2 \times \SI{9.11e-31}{\kg}} \times \frac{\SI{1}{\eV}}{\SI{1.602e-19}{\J}} \times 0.2424 n^{2/3} \\
+				& \approx \num{3.65e-19} n^{2/3} \si{\eV} \qed
+		\end{align*}
+		\item[19.] The probability of a copper conduction electron having energy $0.99E_F$ at \SI{300}{\K} is \begin{align*}
+			f_{MB} & = \frac{1}{e^{(0.99 E_F - E_F) / k_B (\SI{300}{\K})} + 1} \\
+				& = \frac{1}{\exp(-\frac{0.01 \left(\SI{7.05}{\eV}\right)}{\SI{8.62e-5}{\eV\per\K} \times \SI{300}{\K}} ) + 1} \\
+				& = 0.939
+		\end{align*}
+		\item[20.] At the Fermi energy, the exponential reduces to $e^0$ and the probability will always be $0.5$, \[ f_{MB} = \frac{1}{e^0 + 1} = \frac{1}{2}\]
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,90 @@
+\documentclass{homework}
+
+\title{Homework 4}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 17, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item[1.] \begin{enumerate}
+			\item $A \cup B = \left\{ 1, 5, 3, 6, 7, 8 \right\}$
+			\item $\begin{aligned}[t]
+				A \cap \left(B \cup C\right) & = A \cap \left\{ 3, 5, 6, 7, 8\right\} \\
+				& = \left\{ 3, 5, 6, 7\right\}
+			\end{aligned}$
+			\item $A - B = \left\{1, 3 \right\}$
+			\item $\begin{aligned}[t]
+				C - A & = \left\{ 8 \right\} \\
+				\left(C - A\right) \cup B & = \left\{ 5, 6, 7, 8\right\} \\
+				\left(\left(C - A\right) \cup B\right) \cap A& = \left\{ 3, 5, 6, 7 \right\}
+			\end{aligned}$
+			
+			\item $\varnothing$ (as both sets are disjoint)
+		\end{enumerate}
+	
+	
+		\item[2.] \begin{enumerate}
+			\item $\left(A \cup C\right) - B$
+			\item $\left(A \cup C\right) - \left(A \cap B\right)$
+			\item $\left(A \cup B \cup C\right) - \left(A \cap B \cap C\right)$
+			\item $\left(A \cap B\right) \cup \left(A \cap C\right) \cup \left(B \cap C\right)$
+			\item $\left(A \cup B \cup C\right) - \left(A \cap B\right) \cup \left(A \cap C\right) \cup \left(B \cap C\right)$
+		\end{enumerate}
+	
+		\item[3.] \begin{enumerate}
+			\item $A \cup B - \left(A \cap C\right) - \left(A \cap B \cap \overline{C}\right)$
+			\item $\left(A \cap \overline{B} \cap \overline{C}\right)\cup \left(B \cap C\right)$
+			\item $\overline{\left(B - \left(A \cup C\right)\right) \cup \left(C - \left(A \cup B\right)\right)}$
+			\item $\overline{ \left(A \cup C\right) - B }$
+			\item $\overline{B \cup \left(A \cap \overline{C}\right)}$
+		\end{enumerate}
+	
+		\item[4.] \textbf{Proposition:} If $n$ is an odd integer, then $n^2 + 4n + 6$ is odd.
+		
+		\textit{Proof.} Let $n$ be an odd integer, then $n$ can be expressed as \begin{align*}
+			n & = 2a + 1 && \text{...where $a \in \mathbb{Z}$} \\
+			n^2 + 4n + 6 & = \left(2a + 1\right)^2 + 4(2a + 1) + 6 && \text{Substition for $n$}\\
+				& = 4a^2 + 4a + 1 + 8a + 4 + 6 && \text{Expanding the terms} \\
+				& = 2(\underbrace{2a^2 + 6a + 5}_{b}) + 1 && \text{From closure, $b \in \mathbb{Z}$}\\
+				& = 2b + 1 && \text{The result is odd.} \qed
+		\end{align*}
+	
+		\item[5.] \textbf{Proposition:} if two integers have the opposite parity, their product is even.
+		\textit{Proof.} Let $a$ have even parity and $b$ have odd parity, then $a$ and be can be expressed as \begin{align*}
+			a & = 2n \\
+			b & = 2m + 1 && \text{where $n, m \in \mathbb{Z}$}
+			\intertext{The product $ab$ becomes}
+			ab & = \left(2n\right)\left(2m + 1\right) \\
+				& = 4nm + 2n \\
+				& = 2(\underbrace{2nm + n}_{c}) && \text{Closure, $c \in \mathbb{Z}$}\\
+				& = 2c && \text{The result is always even. \qed}
+		\end{align*}
+		Two cases are not needed since multiplication is commutative, i.e. $ab = ba$.
+	\end{enumerate}
+\end{document}

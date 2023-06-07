@@ -1,0 +1,66 @@
+\documentclass{homework}
+
+\title{Problem Set 8}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 9, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{tcolorbox}
+\usepackage{mathrsfs}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item For $\lambda = \SI{600}{\nm}$ and $\Delta \lambda = \SI{10}{\nm}$, the coherence length and time is given by \begin{align*}
+			\Delta \ell_c & = \frac{\lambda^2}{\Delta \lambda} = \SI{36}{\um} \\
+			\Delta t_c & = \Delta \ell_c / c = \SI{120}{\fs}
+		\end{align*}
+	
+		\item Using the notes in-class and since we're dealing with a small angle, \begin{align*}
+			\ell_t & = \lambda / \theta_s \\
+				& = \frac{\SI{600}{\nm}}{\left(\SI{0.5}{\deg} \times \pi / \SI{180}{\deg}\right)} \\
+				& = \SI{68.8}{\um}
+		\end{align*}
+	
+		\item In this problem, we're trying to find the separation $s$, which can be found treating them as two incoherent sources, 
+		\begin{align*}
+			\ell_t & = \frac{\lambda}{\theta_s} \approx \frac{\lambda r}{s} \\
+			s & = \frac{\lambda r}{\ell_t} = \frac{\SI{589}{\nm} \times \left(\SI{2}{\m} \times \SI{1e9}{\nm/\m}\right)}{\SI{1}{\mm} \times \SI{1e6}{\mm/\nm}} \\
+				& = \SI{1.2}{\mm}
+		\end{align*}
+	
+		\item The envelope square wave has a frequency of \SI{40}{\MHz}, so for each period, it's able to pass \SI{12.5}{\ns} of light. This corresponds to a coherence length of \SI{3.75}{\m}. From the notes in class, \begin{align*}
+			\ell_c & = \frac{\lambda^2}{\Delta \lambda} \\
+			\Delta \lambda & = \frac{\lambda^2}{\ell_c} = \frac{\left(\SI{488}{\nm}\right)^2}{\SI{3.75}{\m}} \\
+				& = \SI{6.35e-5}{\nm}
+		\end{align*}
+		
+		\item For the frequency spectrum $$I(\omega) = \frac{A}{(\omega - \omega_0)^2 + b^2}$$ the width $\Delta \omega$ is found by the FWHM. The maximum is found at $\omega = \omega_0$ as $I_\mathrm{max} = A/b^2$. At half-max, $\omega=\omega_0 \pm b$, so the full width is $\Delta \omega = 2b$, or $\Delta \nu = b / \pi$. 
+		
+		From the relation from in-class, \begin{align*}
+			\expval{\tau_0} & = \frac{1}{\Delta \nu} = \frac{\pi}{b}
+		\end{align*}
+	\end{enumerate}
+\end{document}

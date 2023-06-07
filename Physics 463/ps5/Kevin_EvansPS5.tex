@@ -1,0 +1,132 @@
+\documentclass{homework}
+
+\title{Problem Set 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 9, 2021}
+\setclass{Physics}{463}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{listings}
+
+
+\newcommand{\fm}{\femto\meter}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item % 5.1
+			\textbf{\textit{Singularity in density of states.}} \begin{enumerate}
+				\item From the dispersion relation derived in Chapter 4 for a monatomic lattice of $N$ atoms with nearest-neighbor interactions, show that the density of modes is
+					$$D(\omega) = \frac{2N}{\pi} \cdot \frac{1}{\left(\omega_m^2 - \omega^2\right)^{1/2}}, $$
+				where $\omega_m$ is the maximum frequency. 
+				
+				\solution The dispersion relation from Chapter 4 for a monatomic lattice of $N$ atoms is given by (4.9) \begin{align*}
+					\omega & = (4 C / M)^{1/2} \abs{\sin \frac{1}{2} Ka}.
+					\intertext{As the coefficient is the maximum and has units of frequency,}
+					 \omega  &= \omega_M \abs{\sin \frac{1}{2} Ka}.
+				\end{align*}
+				Then, the density is given by (15), \begin{align*}
+					D(\omega) & = \frac{L}{\pi} \dv{K}{\omega} \\
+						\text{where} \quad \dv{K}{\omega} & = \frac{2}{a} \dv{\omega} \sin[-1](\omega / \omega_M) \\
+							& = \frac{2}{a} (\omega_M^2 - \omega^2)^{-1/2}. && \text{WolframAlpha} \\
+					\implies D(\omega) & = \frac{2L}{a \pi} \frac{1}{(\omega_m^2 - \omega^2)^{1/2}}
+					\intertext{As there are $N$ atoms over length $L$ in intervals of $a$, $N=L/a$,}
+					D(\omega) & = \frac{2N}{\pi} \frac{1}{(\omega_m^2 - \omega^2)^{1/2}}. \qed
+				\end{align*}
+			
+				\item Suppose that an optical phonon branch has the form $\omega(K) = \omega_0 - A K^2$, near $K=0$ in three dimensions. Show that $$D(\omega) = (L/2 \pi)^3 (2 \pi / A^{3/2})(\omega_0 - \omega)^{1/2}$$
+				for $\omega < \omega_0$ and $D(\omega) = 0$ for $\omega > \omega_0$. Here the density of modes is discontinuous.
+				
+				\solution From the dispersion relation above, $$ K(\omega) =  \sqrt{ \frac{1}{A}\left( \omega_0 - \omega \right) }.$$
+				The density is given by (35) \begin{align*}
+					D(\omega) \dd{\omega} & = \left(\frac{L}{2 \pi}\right)^3 \underbrace{ \int_\mathrm{shell} \dd[3]{K}}_{V(K)} \\
+					D(\omega) \dd{\omega} & = \left(\frac{L}{2 \pi}\right)^3 \left(\frac{4}{3} \pi K^3\right) \\
+						& = (L/2\pi)^3 (2 \pi / A^{3/2}) (2/3) \left(\omega_0 - \omega\right)^{3/2} \\
+					\intertext{Integrating, we seem to be getting an extra multiple of $1/3$ (as part of the $2/3$), but is otherwise right,}
+					\implies D(\omega) & = (L/2 \pi)^3 (2 \pi / 3A^{3/2}) (\omega_0 - \omega)^{1/2}. \qed
+				\end{align*}
+			\end{enumerate}
+		
+		\pagebreak
+		
+		\item % 5.3, hint
+			\textbf{\textit{Zero point lattice displacement and strain.}} \begin{enumerate}
+				\item In the Debye approximation, show that the mean square displacement of an atom at absolute zero is $$\expval{R^2} = \frac{3 \hbar \omega_D^2}{8 \pi^2 \rho v^3},$$
+				where $v$ is the velocity of sound. Start from the result (4.29) summed over the independent lattice modes: $\expval{R^2}=(\hbar / 2 \rho V) \sum \omega^{-1}$. We have included a factor of $\frac{1}{2}$ to go from mean square amplitude to mean square displacement. 
+				
+				\textit{Hint:} Note that the quantity $\sum \omega^{-1}$ can be taken as $\int \dd{\omega} D(\omega) \omega^{-1}$ where $D(\omega)$ is the density of states in the Debye approximation.
+				
+				
+				\solution From the hint and using (5.21), \begin{align*}
+					\expval{R^2} & = \frac{\hbar}{2 \rho V} \sum \omega^{-1} = \frac{\hbar}{2 \rho V} \int \dd{\omega} D(\omega) \omega^{-1} \\
+						& = \frac{\hbar}{2 \rho V} \frac{V}{2 \pi^2 v^3} \int_0^{\omega_D} \omega \dd{\omega} \\
+						& = \frac{\hbar \omega_D}{8 \pi^2 \rho v^3}.
+				\end{align*}
+				(Not sure where the factor of $3$ is coming from...)
+								
+				\item Show that $\sum \omega^{-1}$ and $\expval{R^2}$ diverge for a one-dimensional lattice, but that the mean square strain is finite. Consider $$\expval{\left(\pdv{R}{x}\right)^2} = \frac{1}{2} \sum K^2 u_0^2$$
+				as the mean square strain, and show that it is equal to $$\frac{\hbar \omega_D^2 L}{4MNv^3}$$
+				for a line of $N$ atoms each of mass $M$, counting longitudinal modes only. The divergence of $R^2$ is not significant for an physical measurement.
+				
+				\solution  From (4.29), the square amplitude of the $n$-th mode is \begin{align*}
+						u_0^2 & = 4 \left(n + \frac{1}{2}\right) \frac{ \hbar  }{\rho V \omega}.
+					\end{align*}
+					Using this in the formula above, \begin{align*}
+						\expval{\left(\pdv{R}{x}\right)^2} & = \frac{1}{2} \sum K^2 u_0^2 \\
+							& = \frac{4 \hbar}{2 \rho V} \sum K^2 \left(n + \frac{1}{2}\right) \omega^{-1}
+						\intertext{Can we just omit the $\sum n$ term here and use the dispersion?}
+						\expval{\left(\pdv{R}{x}\right)^2}	& = \frac{\hbar}{v \rho V} \sum K 
+						\intertext{I'm not really sure where to go from here...}
+					\end{align*}
+			\end{enumerate}
+		
+		\pagebreak
+		
+		\item % 5.4
+			\textbf{\textit{Heat capacity of layer lattice.}} \begin{enumerate}
+				\item Consider a dielectric crystal made up of layers of atoms, with rigid coupling between layers so that the motion of the atoms is restricted to the plane of the layer. Show that the phonon heat capacity in the Debye approximation in the low temperature limit is proportional to $T^2$. 
+				
+				\solution In the Debye model derivation on p. 111--114, if we restrict the atoms to a plane, we'll first change the allowed $\bvec{K}$ values per volume to $$\left(\frac{L}{2 \pi}\right)^3 = \frac{A}{4 \pi^2}.$$
+				Then, we can change $N$ to \begin{align*}
+					N & = \left(A / 4 \pi ^2\right) \left(2 \pi K^2 / 2\right) \\
+						& = \frac{A}{4 \pi^2} \pi K^2.
+					\intertext{Changing variables to $\omega$ using $\omega = vK \implies K^2 = \omega^2 / v^2$, then finding the density of states,}
+					N(\omega) & = \frac{A \omega^2}{4 \pi v^2}. \\
+					\implies D(\omega) & = \dv{N}{\omega} = \frac{A \omega}{2 \pi v^2}.
+				\end{align*}
+				The thermal energy is given by (5.9) using (5.7) \begin{align*}
+					U & = \int \dd{\omega}  D(\omega) \expval{n(\omega)} \hbar \omega \\
+						& = \frac{A}{2 \pi v^2} \int_0^{\omega_D} \dd{\omega} \omega \frac{1}{\exp(\hbar \omega / \tau) - 1} \hbar \omega \\
+						& = \frac{A}{2 \pi v^2} \frac{\tau^2}{\hbar} \int_0^{\omega_D} \dd{\omega} \left(\frac{\hbar \omega}{\tau} \right)^2\frac{1}{\exp(\hbar \omega / \tau) - 1}.
+					\intertext{Changing the integral variables to $x = \hbar \omega / \tau$, then $\dd{x} = \hbar \dd{\omega} / \tau$,}
+					U & = \frac{A}{2 \pi v^2} \frac{\tau^3}{\hbar^2}  \underbrace{ \int_0^{x_D} \frac{x^2}{\exp(x) - 1} \dd{x}}_\text{some funky constant} \\
+						& \propto \tau^3  \propto T^3. && (\tau = k_B T)
+					\intertext{Thus the specific heat capacity is proportional to $T^2$,}
+					C_V & = \dv{U}{T} \propto \dv{T} T^3 \\
+						& \propto T^2. \qed
+				\end{align*}
+				\item Suppose instead, as in many layer structures, that adjacent layers are very weakly bound to each other. What form would you expect the phonon heat capacity to approach at extremely low temperatures?
+				
+				\solution At low temperatures, we can let $x_D \to \infty$ and the integral evaluates to roughly $2.4$. We would expect $$C_V \approxeq 0.76 \: \frac{A k_B^2 }{\hbar^2 v^2} \: T^2.$$
+			\end{enumerate}
+	\end{enumerate}
+\end{document}

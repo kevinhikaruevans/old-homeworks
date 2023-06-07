@@ -1,0 +1,191 @@
+\documentclass{homework}
+
+\title{Homework 4}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 28, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item If we consider the product of the hermitian operators $\hat{x} \cdot \hat{p}$, \begin{align*}
+			\braket{ \psi }{\hat{x} \hat{p} \psi} & = \int \psi^* x \frac{\hbar}{i} \dv{x} \psi \dd{x} \\
+				& = - \int \frac{\hbar}{i} \psi \dv{x} x \psi^* \\
+				& =  \int \left( \psi^* \hat{p} \hat{x} \psi \dd{x} \right)^* \\
+				& = \braket{\psi}{\hat{p} \hat{x} \psi}^*
+				\intertext{This is only hermitian if $\hat{x}\hat{p} = \hat{p}{x}$.}
+		\end{align*}
+		
+		For the operator $\frac{1}{2} \left(\hat{x} \hat{p} + \hat{p} \hat{x}\right)$, its expectation is \begin{align*}
+			\frac{1}{2} \big(
+			\braket{\psi}{\hat{x} \hat{p} \psi}
+			& + \braket{\psi}{\hat{p} \hat{x} \psi}
+			\big).
+			\intertext{From the first part of the problem, we can see that this is equivalent to}
+			\frac{1}{2} \left(
+				\braket{\psi}{\hat{p} \hat{x} \psi}^*
+				+ \braket{ \psi }{\hat{x} \hat{p} \psi}^*
+				\right) & = \frac{1}{2} \braket{\psi}{\frac{1}{2}(\hat{x}\hat{p} + \hat{p}\hat{x}) \psi}^*
+			\intertext{Therefore, this is indeed hermitian.}
+		\end{align*}
+%		\item We can see $\hat{x} \cdot \hat{p}$ is not hermitian by considering wavefunctions $g$ and $f$, \begin{align*}
+%			\braket{f}{\hat{x} \cdot \hat{p} g} & = \int f^* x \frac{\hbar}{i}\dv{x} g \dd{x} \\
+%				& = \frac{\hbar}{i} \int f^* x \dv{x} g \dd{x} \\
+%				& = \frac{\hbar}{i} \left(
+%					0 - \int g \dv{x} f^* x \dd{x}
+%				\right) \\
+%				& = -\frac{\hbar}{i} \int g \left(f^* + x\dv{x}f^* \right) \dd{x} \\
+%				& = \text{not hermitian.}
+%		\end{align*}
+%		If we now consider the operator
+%		\begin{align*}
+%			\frac{1}{2} \hat{x} \cdot \hat{p} + \frac{1}{2} \hat{p} \cdot \hat{x}, \\
+%			\frac{1}{2} \left[
+%				\braket{f}{\hat{x} \cdot \hat{p} g}
+%				+ \braket{f}{\hat{p} \cdot \hat{x} g}
+%			\right] & = \frac{\hbar}{2i} \left[
+%				\int f^* x \dv{x} g \dd{x}
+%				+ \int f^* \dv{x} x g \dd{x}
+%			\right] \\
+%			& = \frac{\hbar}{2i} \left[
+%				\int f^*x \dv{x} g \dd{x}
+%				+
+%				\int f^* \left(x \dv{g}{x} + g\right) \dd{x}
+%			\right] \\
+%			& = \frac{\hbar}{2i} \left[
+%				2 \int f^* x \dv{x}g \dd{x}
+%				+ \int f^* x g \dd{x}
+%			\right] \\
+%			& = \frac{\hbar}{2i} \left[
+%				-2 \int g \dv{x} x f^*  \dd{x} + \int f^* x g \dd{x}
+%			\right] \\
+%			& = \frac{\hbar}{2i} \left[
+%			-2 \int g \left(
+%					f^*
+%					+ x\dv{x} f^*
+%				\right) \dd{x}
+%				+ \int f^* x g \dd{x} 
+%			\right] \\
+%			& = -\frac{\hbar}{i} \int g x \dv{x} f^* \dd{x}
+%			& = ??? TODO
+%		\end{align*}
+	
+		\item % 3.4
+			\begin{enumerate}
+				\item Let $\hat{A}$ and $\hat{B}$ be both hermitian operators, then the sum of these are hermitian, 
+					\begin{align*}
+						\braket{f}{(\hat{A} + \hat{B}) g} & = \braket{f}{\hat{A} g} + \braket{f}{\hat{B} g} \\
+							& = \braket{\hat{A} f}{g} + \braket{\hat{B} f}{g} \\
+							& = \braket{(\hat{A} + \hat{B}) f}{g} && \qed
+					\end{align*}
+				
+				\item If $\hat{Q}$ is hermitian and $\alpha \in \mathbb{C}$, their product is hermitian when \begin{align*}
+					(\alpha \hat{Q})^\dagger & = \alpha^* \hat{Q}^\dagger \\
+					\implies \alpha & = \alpha^* \\
+					\implies \alpha & \in \mathbb{R}
+				\end{align*}
+			
+				\item For two hermitian operators $\hat{A}$ and $\hat{B}$, the expectation of the product is \begin{align*}
+					\braket{f}{\hat{A} \hat{B} g} & = \braket{ \hat{B} \hat{A} f}{g}
+					\intertext{For the product to be hermitian, $\hat{A} \hat{B} = \hat{B} \hat{A}$. This was also shown in Problem 1.}
+				\end{align*}
+				\item The position operator $\hat{x}$ is hermitian as \begin{align*}
+					\braket{f}{\hat{x} g} & = \int f^* x g \dd{x}
+					\intertext{As $x \in \mathbb{R}, x^*=x$,}
+					\braket{f}{\hat{x} g} & = \int (f x)^* g \dd{x} = \braket{\hat{x} f}{g}
+					\intertext{Because $\hat{x} = \hat{x}^\dagger$, $\hat{x}$ is hermitian.}
+				\end{align*}
+				The Hamiltonian operator is \begin{align*}
+					\hat{H} & = \frac{ \hat{p}^2 }{2m} + V(x)
+					\intertext{Because $\hat{p}$ is hermitian, $\hat{p}^2$ is also hermitian. From linearity, we can conclude that the Hamiltonian operator is hermitian.}
+				\end{align*}
+			\end{enumerate}
+		
+		\item % 3.5
+			\begin{enumerate}
+				\item The hermitian conjurgate of $x$ is $x$ as it's real. 
+				
+					For $i$, the hermitian conjurgate is just the complex conjurgate $-i$.
+					
+					For $\dv{x}$, by integration by parts, \begin{align*}
+						\braket{f}{\dv{x} g} & = \int f^* \dv{g}{x} \dd{x} = 0 - \int g \dv{x} f^* \dd{x} \\
+							& = -\braket{\dv{f^*}{x}}{g}
+							\intertext{The adjoint is then}
+							\dv{x}^\dagger & = -\dv{x}
+					\end{align*}
+				
+				\item For the product of two operators $\hat{Q}\hat{R}$, its adjoint is \begin{align*}
+					\left(\hat{Q} \hat{R}\right)^\dagger & \implies \braket{f}{Q^\dagger R^\dagger g} = \braket{\hat{Q} f}{\hat{R}^\dagger g} \\
+						& = \braket{\hat{R} \hat{Q} f}{g}
+				\end{align*}
+			
+				\item For the raising operator $\hat{a}_+$, the adjoint is \begin{align*}
+					{\hat{a}_+}^\dagger & = \frac{1}{\sqrt{2 \hbar m \omega}} \left(- i \hat{p} + m \omega x \right) = \hat{a}_-
+				\end{align*}
+			\end{enumerate}
+		
+			\item % 3.32
+				\begin{enumerate}
+					\item The expectation of an anti-hermitian operator $\hat{Q}$ is \begin{align*}
+						\braket{f}{\hat{Q} g} & = \braket{ \hat{Q}^\dagger f }{g} = \braket{-\hat{Q} f}{g} \\
+							& = -\braket{f}{\hat{Q} g}^*
+					\end{align*}
+					The condition $\expval{\hat{Q}}^* = -\expval{\hat{Q}}$ is only true for imaginary numbers.
+					
+					\item The eigenvalues of an operator are its expectation, so for the eigenvalue $\hat{Q} f = q f$, it must be true that $q^* = -q$, therefore its eigenvalue $q$ is imaginary.
+					
+					\item If we consider two eigenstates of an anti-hermitian operator $\hat{Q}$, \begin{align*}
+						\hat{Q} \phi_n & = a_n \phi_n  \\
+						\hat{Q} \phi_m & = a_m \phi_m,
+						\intertext{and consider the inner product}
+						\braket{ \phi_n }{\hat{Q} \phi_m} & = \braket{\phi_n }{a_m \phi_m} = a_m \braket{\phi_n}{\phi_m}
+						\intertext{and by the anti-hermitian nature of the original inner product,}
+						\braket{\phi_n}{\hat{Q} \phi_m} & = \braket{-\hat{Q} \phi_n}{\phi_m} = -a_n\braket{\phi_n}{\phi_m}.
+						\intertext{Equating these expressions together (as they're the same thing),}
+						0 & = \left(a_m + a_n\right) \braket{\phi_n}{\phi_m}
+						\intertext{This is only true when $\phi_n$ and $\phi_m$ are orthogonal.}
+					\end{align*}
+					
+					\item For the commutator of two hermitian operators, \begin{align*}
+						\comm{\hat{A}}{\hat{B}} & = \left(\hat{A} \hat{B} - \hat{B}\hat{A}\right) \\
+						\implies \braket{f}{\left(\hat{A} \hat{B} - \hat{B}\hat{A}\right)g} & = \braket{f}{\hat{A}\hat{B}g} - \braket{f}{\hat{B}\hat{A} g} \\
+							& = \braket{\hat{B}^\dagger \hat{A}^\dagger f}{g} - \braket{\hat{A}^\dagger \hat{B}^\dagger f}{g} \\
+							& = -\braket{f}{\comm{A}{B}g} 
+					\end{align*}
+					
+					For anti-hermitian operators, we can follow the same general steps until: \begin{align*}
+						\dots & = -\braket{\hat{B}^\dagger \hat{A}^\dagger f}{g} + \braket{\hat{A}^\dagger \hat{B}^\dagger f}{g} \\
+							& = \braket{f}{\comm{A}{B} g}
+						\intertext{The commutator of two anti-hermitian operators is hermitian.}
+					\end{align*}
+				
+					\item If we let $\hat{Q} = \hat{A} + \hat{B}$, then we can write \begin{align*}
+						\hat{A}& = \frac{1}{2} \left( \hat{Q} + \hat{Q}^\dagger \right) \\
+						\hat{B}& = \hat{Q} - \hat{A} \frac{1}{2} \left(\hat{Q} - \hat{Q}^\dagger\right)
+					\end{align*}
+				\end{enumerate}
+	\end{enumerate}
+\end{document}

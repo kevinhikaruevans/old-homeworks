@@ -1,0 +1,134 @@
+\documentclass{homework}
+
+\title{Homework 10}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 5, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+\usepackage{amsthm}
+\newtheorem*{prop}{Proposition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	
+	\begin{enumerate}
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+			For a positive integer $n$,
+				\[\sum_{i = 1}^n i = \frac{n(n+1)}{2}\]
+			\end{prop}
+			\begin{proof} This will be proven with induction. For the base case, we will check $n=1$. \begin{enumerate}
+					\item[(1)] For $n=1$, $$ \frac{1(1+1)}{2} = 1$$
+					\item[(2)] If we suppose the proposition is true for $k$, we will show it is also true for $k+1$, \begin{align*}
+						\sum_{i=1}^{k + 1} i & = \sum_{i=1}^k i + (k+1) \\
+							& = \frac{ k(k+1) }{2} + (k+1) = \frac{ k(k+1) }{2} + \frac{2(k+1)}{2} \\
+							& = \frac{(k+1)(k+2)}{2} \\
+							& = \frac{(k+1)\left[(k+1) + 1\right]}{2}
+					\end{align*}
+					This shows the proposition is also true for $k+1$.
+				\end{enumerate}
+			\end{proof}
+		\end{minipage}
+	
+		\item  \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				For any nonnegative integer $n$,
+				\[ 2^{n+1} > \sum_{i=0}^n 2^i\]
+			\end{prop}
+			\begin{proof} This will be proven with induction. For the base case, we will check $n=0$. \begin{enumerate}
+					\item[(1)] For $n=0$, it holds true that \[2^{0+1} > 2^0\]
+					
+					\item[(2)] If we suppose the proposition is true for $k$, we will show it is also true for $k+1$. On the LHS, the $k+1$ term is
+					\begin{align*}
+						2^{k+2} & = 2\left( 2^{k+1} \right)
+						\intertext{From the proposition,}
+						2(2^{k+1}) & > 2\sum_{i = 0}^k 2^i && \text{(assuming the hypothesis)} \\
+						2(2^{k+1}) & > \sum_{i = 0}^k 2^{i+1} && \text{(moving the 2 into the indexed term)} \\						
+						2(2^{k+1}) & > \sum_{i = 0}^{k + 1} 2^{i} && \text{(changing the indices)}
+						\intertext{Substituting the original expression, it follows by induction that}
+						2^{k+2} & > \sum_{i = 0}^{k + 1} 2^{i}
+					\end{align*}
+				\end{enumerate}
+			\end{proof}
+		\end{minipage}
+	
+		\item  \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				For any positive integer $n$, there exists a sequence $b_i \in \{0, 1\}$ such that $b_k = 1$ and $$n = \sum_{i=0}^k b_i 2^i $$
+			\end{prop}
+			\begin{proof} This will be shown using strong induction. For the base case, we will check $n=1$. \begin{enumerate}
+					\item[(1)] For $n=1$, it holds true that $1 = (1) 2^0$.
+					\item[(2)] Suppose $m \ge 1$ and every integer on between $1$ and $m$ can be written as the sum of powers of two. If we consider $m+1$, we can divide this into two cases: one where $m+1$ is even and one where $m+1$ is odd.
+					
+					\underline{Case 1:  $m+1$ is even}. Then $m+1$ can be expressed as $m + 1 = 2a$, where $a \in \mathbb{Z}$. We know that $m+1 \ge 2$ and thus $m+1 > a$. Then, $1 \le a \le m$, and by the inductive hypothesis, $a = \sum_{i=0}^l c_i 2^i$ where $l \in \mathbb{Z}$.
+					
+					Multiplying this by $2$ to find $m+1$, \begin{align*}
+						m+1 & = 2a = 2\left(\sum_{i=0}^l b_i 2^i\right) \\
+						m+1 & = \sum_{i=0}^{l+1} b_i 2^{i}
+					\end{align*}
+					Therefore $m+1$ can be written as the sum of powers of two.
+					
+					\underline{Case 2: $m+1$ is odd}. If $m+1$ is odd, then $m$ must be even. This means that in the sum representing $m$, the last coefficient $b_0 = 0$. Then $m+1$ is the same sum but now with $b_0 = 1$, 
+					\begin{align*}
+						m & = b_0 2^0 + b_1 2^1 + \dots \\
+						  & = 0 \times 2^0 + b_1 2^1 + \dots \\	
+						 m+1 & = 1 \times 2^0 + b_1 2^1 + \dots
+					\end{align*}
+					Therefore $m+1$ can be written as the sum of powers of two.
+				\end{enumerate}
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				The representation of a positive integer as a sum of powers of $2$ is unique.
+			\end{prop}
+			\begin{proof} It will be shown by strong induction that the representation of a positive integer as a sum of powers of $2$ is unique. For the base case, we will check $n=1$.
+				\begin{enumerate}
+					\item[(1)] For $n=1$, there is a single way to represent this as $1 = (1)2^0$.
+					\item[(2)] Suppose $m \ge 1$ and every integer between $1$ and $m$ can be written as a sum of powers of two. If we consider $m+1$ and its representation as the sum of powers of $2$, then assume there are actually two different ways of representing it, \begin{align*}
+						m+1 & = \sum_{i = 0}^k b_i 2^i = \sum_{i = 0}^\ell c_i 2^i
+					\end{align*}
+					where $b_k = 1, c_\ell = 1, b_i, c_i \in \{0, 1\}$.
+					
+					\begin{enumerate}
+						\item[(a)] If we suppose that one sum has more terms than the other, perhaps $k > \ell$. Then there would exist a term $2^{\ell + 1}$ (or greater) in $\sum_{i=0}^k b_i 2^i$. However, by Problem 2 (which finds $2^{n+1} > \sum_{i=0}^n 2^i$), this would lead to a contradiction: it means $$ \sum_{i = 0}^k b_i 2^i > \sum_{i = 0}^\ell c_i 2^i$$
+						which cannot be right, as we have stated these two values are equal to $m+1$. Therefore, it must be true that $k=\ell$ for $m+1$.
+						
+						\item[(b)] Next, if we factor out a $2$ from each side, \begin{align*}
+							 2 \left(\sum_{i = 1}^k b_i 2^{i - 1} \right) + b_0 & = 2\left(\sum_{i = 1}^\ell c_i 2^{i - 1}\right) + c_0
+						\end{align*}
+						Then $b_0$ and $c_0$ must be equal, as the modulus $2$ of both sides must be equal. If this operation is continued $k$ times, in each iteration, $b_i = c_i$ for all values. Therefore, the coefficients $b_i = c_i$ for all $i$.
+					\end{enumerate}
+					
+					Since there is a single way of representing a number by the powers of $2$, it is unique.
+				\end{enumerate}
+			\end{proof}
+		\end{minipage}
+	\end{enumerate}
+\end{document}

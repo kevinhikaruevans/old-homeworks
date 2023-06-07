@@ -1,0 +1,82 @@
+\documentclass{homework}
+
+\title{Problem Set 7}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 26, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{tcolorbox}
+\usepackage{mathrsfs}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item As the function is odd, we can assume $A_m = 0 \; \forall \; m$ and only find $B_m$, \begin{align*}
+			B_m & = \frac{2}{T} \left[ \int_0^{T/2} \sin(m \omega t) \dd{t} - \int_{T/2}^T \sin(m \omega t) \dd{t}\right] \\
+				& = -\frac{2}{m\omega T} \left[ \eval{ \cos(m \omega t) }_0^{T/2} -  \eval{\cos(m \omega t) }_{T/2}^{T} \right] \\
+				& = -\frac{1}{m \pi} \left[\cos(m \pi) - 1 - 1 + \cos(m \pi) \right] \\
+				& = \frac{2}{m \pi} \left(1 - \cos m \pi\right)
+			\intertext{As this is only non-zero for odd $m$, the Fourier series is}
+			f(t) & = \frac{4}{\pi} \sum_{m = 1, 3, 5\dots} \frac{1}{m} \sin( m \omega t)
+		\end{align*}
+	
+		\item For the function \[f(x) = e^{-ax}\]
+	
+		We can apply the Fourier transform for $x > 0$ and find \begin{align*}
+			F(k) & = \int_0^\infty e^{-ax} e^{-ikx} \dd{x} \\
+				& = \int_0^\infty e^{(-a -ik)x} \dd{x} \\
+				& = \frac{1}{a + ik}
+		\end{align*}
+	
+		\item If $\mathscr{F} \{g(x)\} = G(k)$, then $\mathscr{F} \{ g(x-a) \} = G(k)e^{-ika}$
+		\begin{align*}
+			\textit{Let } u & = x-a \\
+			\textit{Then } x & = u + a \\
+				\dd{x} & = \dd{u} \\
+			\mathscr{F}\{g(u)\} & = \int_\mathbb{R} g(u) e^{-ik(u+a)} \dd{x} \\
+				& = \int_\mathbb{R} g(u) e^{-ik(u+a)} \dd{x} \\
+				& = e^{-ika} \underbrace{ \int_\mathbb{R} g(u) e^{-iku} \dd{u}}_{G(k)} \\ 
+				& = G(k) e^{-ika}&&  \qed
+		\end{align*}
+	
+		\item From the in-class derivation of the Fourier transform of a Gaussian cosine, the FWHM in the time domain is \begin{align*}
+			\Delta t & = 2 t_\mathrm{1/2} = 2 \sqrt{\alpha \ln 2} \\
+				& = 2 \sqrt{ \tau^2 \ln 2} = \SI{33.3}{\fs}
+		\end{align*}
+	
+		\begin{enumerate}
+			\item In the frequency spectrum, if we assume a product of $8 \ln 2$, \begin{align*}
+				\Delta \nu \Delta t & = 8 \ln 2 / (2 \pi) \\
+				\Aboxed{ \Delta \nu & = \SI{ 26.5 }{\THz} }
+			\end{align*}
+		
+			\item For the (absolute) wavelength, \begin{align*}
+				\Delta \lambda & = \frac{\lambda^2 \Delta \nu }{c} \\
+					& = \frac{\left(\SI{800}{\nm}\right)^2 \left(\SI{26.5}{\THz}\right)}{c} \\
+				\Aboxed{ \Delta \lambda & =  \SI{56.5}{\nm} }
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

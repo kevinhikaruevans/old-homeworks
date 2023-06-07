@@ -1,0 +1,64 @@
+\documentclass{homework}
+
+\title{Problem Set 10}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{November 30, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{tcolorbox}
+\usepackage{mathrsfs}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item For the values of $v_2$, the corresponding values of $C(v)$ and $S(v)$ are
+		
+		\begin{center}
+			\begin{tabular}{ccc}
+				\toprule
+				$v$ & $C(v)$ & $S(v)$ \\
+				\midrule
+				$1.4$ & $0.5431$ & $0.7135$ \\
+				$1.0$ & $0.7799$ & $0.4383$ \\
+				$-1.0$ & $-0.7799$ & $-0.4383$ \\
+				\bottomrule
+			\end{tabular}
+		\end{center}
+		Then using the formula from in-class, the unnormalized $U_p$ are given by \[ U_p = \frac{1}{1+i} \left[ C(v_2) + i S(v_2) + \frac{1}{2} + \frac{1}{2}i \right] \]
+		For each $v_2$,
+		\begin{align*}
+			U_p(1.4) & = 1.1283 + 0.0852i \\
+			U_p(1.0) & = 1.1091-0.1708i \\
+			U_p(-1.0) & = -0.1091+0.1708i
+		\end{align*}
+		
+		\item The beam waist diameter is \SI{3.0}{\mm}, so $w_0 = \SI{1.5}{\mm}$. So projected on the wall, the light will have a radius of \begin{align*}
+			w(\SI{100}{\m}) & = w_0 \left[1+\left( \frac{\lambda z}{\pi w_0^2}\right)^2\right]^{1/2} \\
+				& = \left(\SI{1.5}{\mm}\right)
+					\left[ 1 + \left(\frac{\SI{632.8}{\nm} \times \SI{100}{\m}}{\pi \left(\SI{1.5}{\mm}\right)^2}\right)^2\right]^{1/2} \\
+					& = \SI{13.51}{\mm}
+ 		\end{align*}
+	\end{enumerate}
+\end{document}

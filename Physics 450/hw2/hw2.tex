@@ -1,0 +1,151 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 8, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item $\checkmark$ Read through Chapter 1.
+		
+		\item \textbf{Proposition.} If $\psi_1(\bvec{r}, t)$ and $\psi_2(\bvec{r}, t)$ are solutions to the Schr\"odinger equation (SE), then $\alpha \psi_1 + \beta \psi_2$ is also a solution, where $\alpha, \beta \in \mathbb{C}$.
+		\begin{proof}
+			If we apply $\Psi = \alpha \psi_1 + \beta \psi_2$ to the SE, then \begin{align*}
+				i \hbar \pdv{\Psi}{t} & = - \frac{\hbar^2}{2m} \laplacian{\Psi}+ V \Psi \\
+				i \hbar \left(\alpha \pdv{\psi_1}{t} + \beta \pdv{\psi_2}{t}\right) & =  - \frac{\hbar^2}{2m} \left[
+					\alpha (\laplacian + V){\psi_1}
+					+ \beta (\laplacian + V) \psi_2
+				\right]
+			\intertext{We can then separate this to two equations in terms of $\psi_1$ and $\psi_2$,}
+				i \hbar \alpha \pdv{\psi_1}{t} & = \alpha \left( - \frac{\hbar^2}{2m} \laplacian + V \right) \psi_1 \\
+				i \hbar \beta \pdv{\psi_2}{t} & = \beta \left( - \frac{\hbar^2}{2m} \laplacian + V \right) \psi_2 \\
+			\end{align*}
+			Since these two equations are satisfied, we've shown the linear sum of the two is also a solution to the SE.
+		\end{proof}
+	
+		\item For an arbitrary wavefunction $$\psi(\bvec{r}, t) = A(\bvec{r}, t) e^{i \chi(\bvec{r}, t)},$$ the quantum current density is given by \begin{align*}
+			\bvec{j} & \equiv \frac{i\hbar}{2m} \left(\psi \grad{\psi^*} - \psi^* \grad{\psi}\right) \\
+				& = \frac{i \hbar}{2m} \left[
+					Ae^{i\chi} \grad(Ae^{-i\chi})
+					- Ae^{-i\chi} \grad(Ae^{i\chi})
+				\right] \\
+				& = \frac{i \hbar}{2m} \bigg\{
+					Ae^{i \chi} \left[
+						\grad{(A)}
+						e^{-i \chi}
+						+ Ae^{- i\chi}
+						\left(-i \grad \chi\right)
+					\right] \\
+				& \hspace{2.5em} - Ae^{-i \chi} \left[
+				\grad{(A)}
+				e^{i \chi}
+				+ Ae^{ i\chi}
+				\left(i \grad \chi\right)
+				\right] 
+				\bigg\} \\
+				& = \frac{i \hbar}{2m} \left(A \grad{A} -i A^2 \grad{\chi} - A \grad{A} -i A^2 \grad{\chi}\right) \\
+				& = \frac{\hbar A^2 \grad{\chi}}{m}
+		\end{align*}
+		
+			
+			
+			\pagebreak
+			
+		\item For the wavefunction \begin{align*}
+			\psi(x, t) & = Ae^{-\lambda \abs{x}} e^{-i \omega t}
+			\intertext{It is normalized as}
+			\int_\mathbb{R} \psi^* \psi \dd{x} & = A^2 \left(e^{i \omega t} e^{-i\omega t}\right) \int_\mathbb{R} e^{-2\lambda \abs{x}} \dd{x} = 1\\
+				& = A^2 \left(
+					\int_{-\infty}^0 e^{2 \lambda x} \dd{x} 
+					+ \int_0^\infty e^{-2\lambda x} \dd{x}
+				\right) 
+			\intertext{Using WolframAlpha,}
+				& = A^2 \left(\frac{1}{2\lambda } + \frac{1}{2\lambda}\right) \\
+			A & =  \sqrt{\lambda}
+			\intertext{\textbf{Note: } I'm not sure if we're solving for $A$ or creating a new normalization constant. If it's a new constant, we can set it to}
+			\alpha & = \sqrt{\frac{\lambda}{A^2}}.
+		\end{align*}
+	
+		\item For the wavefunction \begin{align*}
+			\psi(x, t) & = Ae^{-a \left(
+						mx^2 / \hbar + i t
+					\right)} 
+			\intertext{Before normalizing it, it's clear that the imaginary part will equal $1$ when $\psi^* \psi$ is taken and can be ignored, so}
+			\int_\mathbb{R} \psi^* \psi \dd{x} & = A^2 \int_{-\infty}^\infty e^{-2a mx^2 / \hbar} \dd{x} = 1
+			\intertext{This is a Gaussian integral and evaluates as}
+			1	& = A^2  \sqrt{\frac{\pi}{2am}} \\
+			A & = \left(\frac{2am}{\pi}\right)^{1/4} 
+			\intertext{If we're using a new constant, it'll be}
+			\alpha & = \frac{1}{A} \left(\frac{2 am}{\pi}\right)^{1/4}
+		\end{align*}
+	
+	\pagebreak
+		\item \begin{enumerate}
+			\item The probability on the range $(a, b)$ is given by \begin{align*}
+				P_{ab} & = \int_a^b \psi^* \psi \dd{x}.
+				\intertext{Taking the time derivative,}
+				\dv{P_{ab}}{t} & = \dv{t} \int_a^b \psi^* \psi \dd{x}.
+				\intertext{Applying the chain rule within the integral and applying the SE [eq. (1.23)],}
+				\dv{P_{ab}}{t} & = \int_a^b \dv{\psi^*}{t} \psi + \psi^* \dv{\psi}{t} \dd{x} \\
+					& = \int_a^b \left(
+						-\frac{i \hbar}{2m} \dv[2]{\psi^*}{x}
+						+ \frac{i}{\hbar} V \psi^*
+					\right) \psi
+					+ \psi^* \left(
+						\frac{i \hbar}{2m} \dv[2]{\psi}{x}
+						- \frac{i}{\hbar} V \psi
+					\right) \dd{x}.
+			\end{align*}
+			The potential terms cancel and we're left with
+			\begin{align*}
+				\dv{P_{ab}}{t} & = \frac{i \hbar}{2m}\int_a^b  -\dv[2]{\psi^*}{x} \psi + \psi^* \dv[2]{\psi}{x} \dd{x}
+				\intertext{By using $J(x, t) = \frac{i\hbar}{2m} \left(\psi \dv{\psi^*}{x} - \psi^* \dv{\psi}{x}\right)$,}
+				\dv{P_{ab}}{t} & = \frac{i \hbar}{2m} \int_a^b \dv{J}{x} \dd{x} = J(a, t) - J(b, t) && \qed
+			\end{align*}
+			The units of $J$ are energy/mass $\cdot$ time.
+			
+			\item From Problem 1.9, the wavefunction is given by \begin{align*}
+				\Psi(x, t) & = Ae^{-a\left[(mx^2/\hbar) + it\right]}
+				\intertext{The probability current is}
+				J & \equiv \frac{i \hbar}{2m} \left(\Psi \pdv{\Psi^*}{x} - \Psi^* \pdv{\Psi}{x}\right) \\
+				& = \frac{i \hbar}{2m} \bigg(
+						A e^{-a\left[(mx^2/\hbar) + it\right]}
+						\dv{x} A e^{-a\left[(mx^2/\hbar) - it\right]} \\
+				& \qquad -	A e^{-a\left[(mx^2/\hbar) - it\right]}
+						\dv{x} A e^{-a\left[(mx^2/\hbar) + it\right]}
+					\bigg)
+				\intertext{The complex phases $\pm it$ will cancel out and we're left with}
+				J & = \frac{i \hbar A^2}{2m} \left(
+					-(2amx/\hbar)e^{-2amx^2/\hbar}
+						- \text{same thing?}
+				\right) \\
+				& = 0
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

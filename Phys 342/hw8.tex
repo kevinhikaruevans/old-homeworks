@@ -1,0 +1,130 @@
+\documentclass{homework}
+
+\title{Homework 8}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 31, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Not sure if it's better to do this problem in Cartesian or cylindrical coordinates, so... in Cartesian coordinates, the trajectory is a circle on the $xy$ plane \begin{align*}
+			\bvec{w} & = a \cos(\omega t) \uvec{x} + a\sin(\omega t) \uvec{y}
+			\intertext{The Li\'enard-Wiechert scalar potential is}
+			V(\bvec{r}, t) & = \frac{1}{4 \pi \epsilon_0 } \frac{qc}{\scriptr c - \boldscriptr \cdot \bvec{v}}
+			\intertext{However the displacement vector $\boldscriptr$ is always perpendicular to $\uvec{\phi}$, so the dot product part is zero. Then we are left with }
+			V & = \frac{1}{4 \pi \epsilon_0} \frac{q}{\left(z^2 + a^2(\cos[2](\omega t_r) + \sin[2](\omega t_r))\right)^{1/2}} \\
+			& = \frac{q}{4 \pi \epsilon_0 \sqrt{z^2 + a^2}} 
+			\intertext{From eq. (10.47), the vector potential is}
+			\bvec{A}(\bvec{r}, t) & = \frac{\bvec{v}}{c^2} V \\
+				& = \frac{ a \omega  }{c^2} \frac{q}{4 \pi \epsilon_0 \sqrt{z^2 + a^2}} \uvec{\phi}
+%			\intertext{Then the displacement vector is}
+%			\boldscriptr & = \bvec{r} - \bvec{w}(t_r) \\
+%				& = z \uvec{z} - a\left[ \cos(\omega t_r) \uvec{z} + \sin(\omega t_r) \uvec{y} \right]
+		\end{align*}
+	
+		\item Given the trajectory \begin{align*}
+			\bvec{w}(t) & = \sqrt{b^2 + (ct)^2} \uvec{x} 
+			\intertext{The retarded time can be determined as}
+			\abs{ \bvec{r} - \bvec{w}(t_r) } & = c (t - t_r) \\
+			\sqrt{ x^2 + b^2 + (ct_r)^2 } & = c (t - t_r) 
+			\intertext{Using WolframAlpha to do algebra and solve for $t_r$,}
+			t_r & = -\frac{ b^2 + (ct)^2 - x^2 }{2 c^2 t}
+		\end{align*}
+	
+		\item From eq. (10.72), the electric field is described by \begin{align*}
+			\bvec{E} & = \frac{q}{4 \pi \epsilon_0} \frac{\scriptr}{(\boldscriptr \cdot \bvec{u})^3} \left[
+			(c^2 - v^2) \bvec{u}
+			+ \boldscriptr \cross (\bvec{u} \cross \bvec{a})
+			\right]
+			\intertext{As $\boldscriptr \parallel \bvec{u}$ on $\uvec{x}$, we can reduce this expression to}
+			\bvec{E} & = \frac{q}{4 \pi \epsilon_0} \frac{1}{\scriptr^2 {u}^2} \left[
+				(c^2 - v^2) 
+				\right] \uvec{x} \\
+				& = \frac{q}{4 \pi \epsilon_0} \frac{1}{\scriptr^2 (c - v)^2} \left[
+				(c + v)(c - v) 
+				\right] \uvec{x} \\
+				& = \frac{q}{4 \pi \epsilon_0} \frac{(c+v)}{\scriptr^2 (c - v)} \uvec{x} \qed
+		\end{align*}
+		For the magnetic field, it must be zero as $\boldscriptr \parallel \uvec{x} \implies \hat{\boldscriptr} \cross \bvec{E} = 0$.
+		
+		\item \begin{enumerate}
+			\item We can rewrite a little bit of charge as $\dd{q} = \lambda \dd{x}$ and $\sin \theta = d / R$, then \begin{align*}
+				\bvec{E} &  = \int \frac{\lambda \dd{x}}{4 \pi \epsilon_0} \frac{1-v^2/c^2}{(1-v^2 \sin[2] (\theta )/ c^2)^{3/2}} \frac{\uvec{R}}{R^2}
+			\intertext{As $\cos \theta = x / R \implies \dd{x} = -R \sin \theta \dd{\theta}$ and since it is symmetric in $x$,}
+					& = -\frac{\lambda }{4 \pi \epsilon_0} \int \frac{1-v^2/c^2}{(1-v^2 \sin^2 \theta / c^2)^{3/2}} \frac{1}{R^2} R \sin \theta \dd{\theta} \uvec{s} \\
+					& = -\frac{\lambda }{4 \pi \epsilon_0} \int \frac{1-v^2/c^2}{(1-v^2 \sin \theta / c^2)^{3/2}} \frac{\sin \theta}{d} \sin \theta \dd{\theta} \uvec{s} \\
+					& = -\frac{\lambda }{4 \pi \epsilon_0 d} \int_0^\pi \frac{1-v^2/c^2}{(1-v^2 \sin^2 \theta / c^2)^{3/2}} \sin^2 (\theta) \dd{\theta} \uvec{s} \\
+					& = ?
+			\end{align*}
+			Can't seem to solve this easily and WolframAlpha isn't able to solve this either...
+			
+			\item The magnetic field is \begin{align*}
+				\bvec{B} & = \frac{1}{c^2} \bvec{v} \cross \bvec{E} \\
+					& = -\frac{\lambda }{4 \pi \epsilon_0 d} \uvec{\theta} \int_0^\pi \left(\dots\right) \dd{\theta}
+			\end{align*}
+		\end{enumerate}
+
+		\item As it's moving with a constant angular velocity $\omega$, then \begin{align*}
+			\boldscriptr & = a \uvec{s} \\
+			\bvec{u} & = c \hat{\boldscriptr} - \bvec{v} = c \uvec{s} - \omega a \uvec{\phi} 
+		\end{align*}
+		From eq. (10.72), the electric field is \begin{align*}
+			\bvec{E}(\bvec{r}, t) & = \frac{q}{4 \pi \epsilon_0} \frac{\scriptr}{(\bvec{r} \cdot \bvec{u})^3} \left[
+				(c^2 - v^2) \bvec{u} + \boldscriptr \cross (\bvec{u} \cross \bvec{a}) 
+			\right] \\
+				& = \frac{q}{4 \pi \epsilon_0} \frac{a}{(ac)^3} \left[
+					(c^2 - v^2) (c \uvec{s} - \omega a \uvec{\phi})
+					+ a \uvec{s} \cross \left(-\frac{(a \omega)^3}{a} \uvec{z}\right)
+				\right] \\
+				& = \frac{q}{4 \pi \epsilon_0} \frac{a}{(ac)^3} \left[
+				(c^2 - \omega^2 a^2) (c \uvec{s} - \omega a \uvec{\phi})
+				+ (\omega a)^3 \uvec{\phi}
+				\right] \\
+				& = \frac{q}{4 \pi \epsilon_0} \left[
+					\uvec{s}
+					+
+					\frac{2a^2 \omega^3 - c^2 \omega}{ac^3} \uvec{\phi}
+				\right]
+		\end{align*}
+		The magnetic field is given by eq. (10.73), \begin{align*}
+			\bvec{B}(\bvec{r}, t) & = \frac{1}{c} \boldscriptr \cross \bvec{E} \\
+				& = \frac{q \omega }{4 \pi \epsilon_0 c^4} \left[ 2a^3 - c^2 \right] \uvec{z}
+		\end{align*}
+	
+		For a current $I$ going around a loop of circumference $2 \pi a$, the moving charge equivalent is $q\omega = 2 \pi I$. The magnetic field can then be written as \begin{align*}
+			\bvec{B} & = \frac{I}{2 \epsilon_0 c^4} \left(2 a^3 - c^2\right) \uvec{z}
+		\end{align*}
+		
+	\end{enumerate}
+\end{document}

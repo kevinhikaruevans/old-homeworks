@@ -1,0 +1,98 @@
+\documentclass{homework}
+
+\title{Homework 4}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{February 17, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item The momentum is \begin{align*}
+				\bvec{p} & = \mu_0 \epsilon_0 \int_V \bvec{S} \dd{\tau} \\
+				& = \epsilon_0 EB \left(\uvec{z} \cross \uvec{x}\right) Ad \\
+				& = \epsilon_0 A EB d \uvec{y}
+			\end{align*}
+			\item From the magnetic force on the wire, \begin{align*}
+				F & = Id B \\
+				p & = \int_0^t F \dd{t} \\
+					& = dB \int_0^t I(t) \dd{t} = dB Q_\mathrm{tot}?
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item By Gauss's law, \begin{align*}
+				\bvec{ E } & = \frac{ Q_\mathrm{enc} }{2 \pi \epsilon_0 s L} \uvec{s}\\
+					& = -\frac{\lambda }{2 \pi \epsilon_0 s} \uvec{s}
+			\end{align*}
+		
+			\item The total charge must be zero outside of the cylinder, so \begin{align*}
+				Q_\mathrm{enc} & = \sigma A = \lambda L \\
+				\sigma & = \frac{ \lambda L }{2 \pi a L} \\
+					& = \frac{\lambda }{2 \pi a} 
+			\end{align*}
+		
+			\item Omitting the $z$ axis from the integral, it should give the momentum per unit length as \begin{align*}
+				\bvec{p} / L & = \mu_0 \epsilon_0 \iint_A \bvec{S} s \dd{s} \dd{\phi} \\
+					& = \mu_0 \epsilon_0 B_\mathrm{ext} \left(-\frac{\lambda}{2 \pi \epsilon_0}\right) \left(\uvec{s} \cross \uvec{z}\right) \int_0^a s^2 \dd{s} \int_0^{2\pi} \dd{\phi} \\
+					& = \frac{\mu_0 B_\mathrm{ext} \lambda a^3}{3} \uvec{\phi}
+			\end{align*}
+		\end{enumerate}
+	
+		\item For $f(z, t) = A \sin[2](\alpha z+\beta t)$, \begin{align*}
+			\pdv[2]{f}{z} & = 2Aa^2 \cos(2(\alpha z + \beta t)) \\
+			\pdv[2]{f}{t} & = 2A\beta^2 \cos(2(\alpha z + \beta t))
+			\intertext{Applying the wave equation and removing terms on both sides,}
+			\alpha^2 & = \frac{1}{v^2} \beta^2 \\
+			v & = \beta/\alpha
+		\end{align*}
+	
+		\item \begin{enumerate}
+			\item $-1$
+			\item $i$
+			\item $\frac{1}{\sqrt{2}}(1 + i)$
+		\end{enumerate}
+	
+		\item \underline{Proposition}: $\sin(u+v) = \sin u \cos v + \cos u \sin v$ and $\cos(u+v) = \cos u \cos v - \sin u \sin v$.
+			\begin{proof}
+				By Euler's formula, \begin{align*}
+					e^{i(u+v)} & = e^{iu}e^{iv} = \cos(u+v) + i \sin(u+v) \\
+						& = \left(\cos u + i \sin u\right)\left(\cos v + i \sin v \right) \\
+						& = \cos u \cos v + i \cos u \sin v + i \sin u \cos v - \sin u \sin v
+					\intertext{Separating the real and imaginary parts,}
+					\sin(u+v) & = \cos u \sin v + \sin u \cos v \\
+					\cos(u+v) & = \cos u \cos v - \sin u \sin v					
+				\end{align*}
+			\end{proof}
+	\end{enumerate}
+\end{document}

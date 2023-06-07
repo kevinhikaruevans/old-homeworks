@@ -1,0 +1,135 @@
+\documentclass{homework}
+
+\title{Homework 8}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 28, 2020}
+\setclass{Physics}{341}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item The neutral atom will have a dipole moment \begin{align*}
+			\bvec{p} & = \alpha \bvec{E}
+			\intertext{If the electric field is from a point charge $r$ from the atom, then the force is given by }
+			\bvec{F} & = \left( \bvec{p} \cdot \grad \right) \bvec{E} \\
+				& = \left(\alpha \bvec{E} \cdot \grad\right) \bvec{E} \\
+				& = \alpha E \left(\pdv{E_r}{r}\right) \uvec{r} \\
+				& = \alpha \frac{q}{4 \pi \epsilon r^2} \left(\frac{-2q}{4 \pi \epsilon r^3}\right) \uvec{r}\\
+			\Aboxed{
+				\bvec{F} & = -\frac{\alpha q^2}{8 \pi^2 \epsilon^2 r^5} \uvec{r}
+			}
+		\end{align*}
+		
+		\item \begin{enumerate}
+			\item From Gauss's law and using WolframAlpha to integrate, \begin{align*}
+				E \left(4 \pi r^2\right) & = \frac{4 \pi}{\epsilon_0} \int_0^r \left(\frac{q}{\pi a^3} e^{-2r/a}\right)r^2\dd{r} \\
+					& = \frac{4q}{a^3 \epsilon_0} \left(
+						\frac{a}{4}
+					\right) \left[
+						a^2 - e^{-2r/a}
+							\left(
+								a^2 + 2ar + 2r^2
+							\right)
+					\right] \\
+				\bvec{E}(r) & = \frac{q}{4 \pi \epsilon_0 a^2 r^2} \left[
+					a^2 - e^{-2r/a}
+					\left(
+					a^2 + 2ar + 2r^2
+					\right)
+				\right] \uvec{r}
+			\end{align*}
+		
+			\item Expanding the exponential as $e^x = \sum_n x^n / n!$, \begin{align*}
+				\bvec{E} & =  \frac{q}{4 \pi \epsilon_0 a^2 r^2} \left[
+				a^2 - 
+				\left(
+					1 - \frac{2r}{a} + \frac{4r^2}{2a^2} - \frac{8 r^3}{6a^3} + \dotsm
+				\right)
+				\left(
+				a^2 + 2ar + 2r^2
+				\right)
+				\right] \uvec{r} \\
+				& =  \frac{q}{4 \pi \epsilon_0 a^2 r^2} \left[
+					\frac{4r^3}{3a^3} + \dotsm
+				\right] \text{ (used WolframAlpha to simplify)} \\
+				& = \frac{qr}{3 \pi \epsilon_0 a^5}
+			\intertext{Matching the terms to (4.1),}
+			\alpha & = 3 \pi \epsilon_0 a^5 \\
+				& = \SI{3.45e-62}{\coulomb \meter \per \N}
+			\end{align*}
+			Pretty sure the $a^5$ is wrong here as $a^3$ gives a relatively accurate value.
+		\end{enumerate}
+	
+		\item This is pretty hand-wavy: work due to a torque over an angle can be generalized from work due to a force over a distance, \begin{align*}
+			U & = \int \bvec{N} \cdot \left(\dd{\theta} \uvec{\theta}\right) \\
+				& = \int p E \sin \theta \dd{\theta} = p E \int \sin \theta \dd{\theta} \\
+				& = p E \cos \theta = \bvec{p} \cdot \bvec{E}
+			\end{align*}
+			Since the work is done by the force, the result would have a negative sign attached (I think?). 
+		\item \begin{enumerate}
+			\item For the inner surface at $r=a$, the normal is pointing inward, so the bound surface charge is \begin{align*}
+				\eval{\sigma_b}_{r=a} & = \bvec{P} \cdot \left(-\uvec{r}\right) \\
+					& = -\frac{k}{a^2}
+			\end{align*}
+			On the outer surface, the normal is pointing outward, \begin{align*}
+				\eval{ \sigma_b}_{r=b} & = \frac{k}{b^2}
+			\end{align*}
+			The bound volume charge is given by the divergence of the polarization, \begin{align*}
+				\rho_b & \equiv -\div{\bvec{P}} \\
+					& = 0 \text{ as the $r^2$ cancels out }
+			\end{align*}
+		
+			\item \begin{enumerate}
+				\item Within $r<a$, there is no enclosed charge, so $\bvec{E} = 0$.
+				
+				\item From Gauss's law, the charge distribution is uniform through $r$, \begin{align*} 
+					E_r \left( 4 \pi r^2 \right) & = \frac{1}{\epsilon_0} \left[ \sigma_a A_a \right] \\
+						& = \frac{1}{\epsilon_0} \left[ \sigma_a 4 \pi a^2 \right] \\
+					\bvec{E} & = -\frac{k}{\epsilon_0 r^2} \uvec{r}
+				\end{align*}
+			
+				\item The bound surface charges $\sigma_a$ and $\sigma_b$ would cancel, so $\bvec{E} = 0$.
+			\end{enumerate}
+		\end{enumerate}
+	
+		\item Converting this to Cartesian and noting that $\uvec{r} \cdot \uvec{n}$ is positive on all sides, then for a single side perhaps in $+\uvec{x}$, \begin{align*}
+			\sigma_b & \equiv \bvec{P} \cdot \uvec{n} = k r \uvec{r} \cdot \uvec{n} \\
+				& = k \left(x^2 + y^2 + z^2\right)^{1/2} \frac{x \uvec{x} + y \uvec{y} + z \uvec{z}}{\left(x^2 + y^2 + z^2\right)^{1/2}} \cdot \left(\uvec{x}\right) \\
+				& = k x = \frac{ ka }{2}
+			\intertext{For all six sides, the total charge is} 
+			Q_\sigma & = \sigma_b A = \frac{6ka}{2} a^2 = 3ka^3
+			\intertext{For the bound charges,}
+			\rho_b & \equiv - \div{\bvec{P}} = -\frac{k}{r^2} \pdv{r} r^3 = -3k \\
+			Q_\rho & = -3ka^3
+		\intertext{The total bound charges are equal to each other. Could I have just shown this to be true with the divergence theorem?}
+		\end{align*}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,125 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 8, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Read Chapter 2.1, 2.4.
+		
+		\item From the time-dependent Schr\"odinger equation, \begin{align*}
+			i \hbar \pdv{\Psi}{t} & = -\frac{\hbar^2}{2m} \pdv[2]{\Psi}{x} + V\Psi
+			\intertext{If we assume a separable solution and plug it into the time-dependent SE,}
+			\Psi(x, t) & = \psi(x) \phi(t) \\
+			{i \hbar} \psi \pdv{\phi}{t} & = - \frac{\hbar^2}{2m} \phi \pdv[2]{\psi}{x}  + V \phi \psi
+			\intertext{Dividing by $\Psi$, we can see the two sides must equal a constant $E$,}
+			\frac{i \hbar}{\phi} \pdv{\phi}{t} & = - \frac{\hbar^2}{2m \psi} \pdv[2]{\psi}{x} + V = E \\
+			\implies & - \frac{\hbar^2}{2m} \pdv[2]{\psi}{x} + V \psi = E \psi \\
+			\implies & i \hbar \pdv{\phi}{t} = E \phi
+		\end{align*}
+		These equations are solvable by integrating \begin{align*}
+			i \hbar \pdv{\phi}{t} & = E \phi \\
+			\frac{i \hbar}{\phi} \dd{\phi} & = E  \dd{t} \\
+			i \hbar \ln \phi & = E t + k_0 \\
+			\phi(t)& = k_1 e^{ -i E t / \hbar }
+		\end{align*}
+		Assuming $V=0$, the spatial equation is solvable with \begin{align*}
+			-\frac{\hbar^2}{2m} \pdv[2]{\psi}{x} & = E \psi
+			\intertext{By inspection, this is a sinusoid,}
+			\psi(x) & = e^{i \hbar x / \sqrt{2m E}} \\
+				& = e^{ikx}, \quad \text{where } k = \frac{\hbar}{\sqrt{2mE}}
+		\end{align*}
+		Bringing this all together, the wavefunction with both parts is \begin{align*}
+			\Psi(x, t) & = \psi(x) \phi(t) \\
+				& = e^{i(kx - \omega t)}, & \text{where } k = \hbar / \sqrt{2mE} \\
+				& & \omega = E / \hbar
+		\end{align*}
+	
+		\item No it is not quantized, since there is an infinite spectrum of energies. If it were bounded in a square well, then the energies could be quantized.
+		
+		\item \begin{enumerate}
+			\item From class, we derived \begin{align*}
+				a(t) & = a_0 \sqrt{ 1 + \left(\frac{\hbar t}{m {a_0}^2}\right)^2 }.
+				\intertext{For $m=\SI{1}{\g}$ and $a_0 = \SI{1}{\um}$, it doubles in width when}
+				\sqrt{ 1 + \left(\frac{\hbar t}{m {a_0}^2}\right)^2 } & = 2 \\
+				\frac{\hbar t}{m {a_0}^2} & = \sqrt{3} \\
+				t & = \frac{ \sqrt{3} m {a_0}^2 }{\hbar} \\
+					& \approx \SI{1.64e19}{\s} \approx 38 \times \text{age of the universe}.
+			\end{align*}
+		
+			\item For $m=m_e$, \[ t \approx \SI{14.96}{\ns}. \]
+				
+				After one second, it's huge \begin{align*}
+					a(t) & = a_0 \sqrt{ 1 + \left(\frac{\hbar t}{m_e {a_0}^2}\right)^2 } \\
+						& \approx \SI{115.8}{\m}.
+				\end{align*}
+		\end{enumerate}
+	
+		\item Considering the Gaussian pdf 
+			\[ \rho(x) = Ae^{-\lambda(x-a)^2},\]
+			\begin{enumerate}
+				\item It is normalized with \begin{align*}
+					1 & = A \int_\mathbb{R} e^{-\lambda(x-a)^2} \dd{x} = A \sqrt{\frac{\pi}{\lambda}} \\
+					\implies A & = \sqrt{\frac{\lambda}{\pi}}.
+				\end{align*}
+			
+				\item The expectation of $x$ is \begin{align*}
+					\expval{x} & = \int_\mathbb{R} x \rho(x) \dd{x} \\
+						& = A \int_{-\infty}^\infty x e^{-\lambda(x-a)^2} \dd{x}.
+					\intertext{Let $z=x-a$. Then we can write the integral as}
+					\expval{x} & = A \int (z+a) e^{-\lambda z^2} \dd{z} \\
+						& = A \left( \int z e^{-\lambda z^2} \dd{z} + a\int e^{-\lambda z} \dd{z}   \right)
+					\intertext{Let $u = -\lambda z^2$, then $\dd{u} = -2\lambda z \dd{z}$,}
+					\expval{x} & = A \left( -\frac{1}{2 \lambda} \int e^{u} \dd{u} + a\sqrt{\frac{\pi}{\lambda}}  \right) \\
+						& = A \left(-\frac{1}{2 \lambda} \eval{ e^{-2 \lambda (x-a)^2} }_{z=-\infty}^\infty + a\sqrt{\frac{\pi}{\lambda}}\right) \\
+						& = A a \sqrt{ \frac{\pi}{\lambda}} = a?
+				\end{align*}
+				
+				For the expectation of $x^2$, we can first let $u=x-a$, then $x = u+a$, and \begin{align*}
+					\expval{x^2} & = \int_{-\infty}^\infty x^2 \rho(x) \dd{x} \\
+						& = A\int (u^2 + a^2 + 2au) e^{-\lambda u^2} \dd{x}
+					\intertext{The last term is an odd function, so it evaluates to zero and we're left with}
+					\expval{x^2} & = A\int u^2 e^{-\lambda u^2} \dd{u} + a^2A\int e^{-\lambda u^2} \dd{u}
+					\intertext{Using some WolframAlpha to integrate}
+					\expval{x^2} & =  A \left(
+						\frac{\sqrt{\pi}}{2 \lambda^{3/2}} 
+						+ a^2 \sqrt{ \frac{\pi}{\lambda} }
+					\right) \\
+						& = \frac{1}{2 \sqrt{\lambda}} + a^2
+				\end{align*}
+			
+				\item The variance is given by \begin{align*}
+					\sigma^2 & = \expval{x^2} - \expval{x}^2 \\
+						& = a^2 - a + \frac{1}{2 \sqrt{\lambda}}
+				\end{align*}
+			\end{enumerate}
+		
+			\item Read 3.1 and 3.2.
+	\end{enumerate}
+\end{document}

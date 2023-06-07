@@ -1,0 +1,150 @@
+\documentclass{homework}
+
+\title{Homework 7}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 15, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+\usepackage{amsthm}
+\newtheorem*{prop}{Proposition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	
+
+	\begin{enumerate}
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				Suppose $n \in \mathbb{Z}$. If $n^2$ is odd, then $n$ is odd.
+			\end{prop}
+		
+			\begin{enumerate}
+				\item \begin{proof} Suppose for the sake of contradiction, there is a $n \in \mathbb{Z}$ where $n^2$ is odd and $n$ is even. As $n^2$ is odd, then
+					\[ n^2 = 1 \pmod{2} \]
+				However, if $n$ is even, then we can write this as $2m$ for some $m \in \mathbb{Z}$. Squaring this expression of $n$, \begin{align*}
+					\left(2m\right)^2 & = 2\left(2m^2\right) \\
+						& = 0 \pmod{2}
+				\end{align*}
+				This is a contradiction, as $n^2$ is both even and odd.
+				\end{proof}
+			
+				\item \begin{proof}
+					For the contrapositive, we will show if $n$ is even, then $n^2$ is even. Suppose $n$ is even, then it is expressed as twice an integer $m$, \begin{align*}
+						n & = 2m \\
+						n^2 & = 2(\underbrace{2m^2}_{\in \mathbb{Z}})
+					\end{align*}
+					Squaring this, it is still twice another integer. Therefore $n^2$ is also even and we have shown the contrapositive to be true.
+				\end{proof}
+			
+				\item \begin{proof}
+					Suppose $n^2$ is odd, where $n \in \mathbb{Z}$. As it is odd, it can be expressed as \begin{align*}
+						n^2 & = 2m + 1 \\
+						n^2 - 1 & = 2m \\
+						\left(n - 1\right)\left(n + 1\right) & = 2m
+					\end{align*}
+					On the LHS, both groups must have the same parity and each group with $n \pm 1$ must have even parity. Therefore, $n$ must be odd as $n - 1$ and $n+1$, and their product will be even.
+				\end{proof}
+			\end{enumerate}
+		\end{minipage}
+	
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				If $x, y \in \mathbb{Z}$, then $x^2 - 4y - 2 \ne 0$.
+			\end{prop}
+			\begin{proof}
+				For the sake of contradiction, suppose $x, y \in \mathbb{Z}$ and $x^2 - 4y - 2 = 0$. Then solving for $x^2$, \begin{align*}
+					x^2 & = 4y - 2 = 2\left(y + 1\right)
+					\intertext{As $x^2$ is even, it follows that $x$ is also even. We can express $x = 2z$ for some integer $z$. Using this expression for $x$ in the original equation,}
+					0 & = x^2 - 4y - 2 \\
+					  & = 4z^2 - 4y - 2 \\
+					2 & = 4z^2 - 4y \\
+					1 & = 2\left(2z^2 - 2\right)
+				\end{align*}
+				As $1$ cannot be twice another integer, the original assumptions must be incorrect and the proposition must be true.
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{enumerate}
+			\item \begin{minipage}[t]{\linewidth}
+				\begin{prop}
+					There exists a prime number $p$ such that $p + 4$ and $p+6$ are also prime numbers.
+				\end{prop}
+				\begin{proof}					
+					There exists a prime number $p=7$ where both $p+4=11$ and $p+6=13$ are primes.
+				\end{proof}
+			\end{minipage}
+		
+			\item \begin{minipage}[t]{\linewidth}
+				\begin{prop}
+					There exists prime numbers $p$ and $q$ such that $p+q = 128$.
+				\end{prop}
+				\begin{proof}					
+					There exists prime numbers $p=109$ and $q=19$ such that $p+q = 128$.
+				\end{proof}
+			\end{minipage}
+		\end{enumerate}
+
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				For integers $a$ and $b > 0$, there exists unique integers $q$ and $r$ such that $a = bq + r$, where $0 \le r < b$.
+			\end{prop}
+			\begin{proof}
+				Suppose there exists two sets of integers $q_i$ and $r_i$ such that \begin{align*}
+					a & = bq_1 + r_1 \\
+					a & = b q_2 + r_2
+				\end{align*}
+				and $0 \le r_i < b$. Then, if we subtract the two expressions, \begin{align*}
+					0 & = b \left(q_1 - q_2\right) + \left(r_1 - r_2\right) \\
+					\frac{r_1 - r_2}{b} & = q_1 - q_2
+				\end{align*}
+				Because of the original conditions on $r_i$, it must hold true $\abs{r_1 - r_2} / b < 1$. As $q_1 - q_2$ must be an integer as well, it can only be $0$. Therefore $q_1 = q_2$ (and $r_1 = r_2$ as well).
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				Suppose $a, b, p \in \mathbb{Z}$ and $p$ is a prime number. If $p \mid ab$, then $p \mid a$ or $p \mid b$.
+			\end{prop}
+			\begin{proof}
+				Suppose $a, b, p \in \mathbb{Z}$ and $p$ is a prime number and $p \mid ab$. 
+				
+				\underline{Case 1:} $p \mid a$.
+				
+				
+				\underline{Case 2:} $p \nmid a$. Then $\gcd(p, a) = 1$ and by Bezout's theorem, \begin{align*}
+					1 & = n_1 p + n_2 a && n_1, n_2 \in \mathbb{Z}
+					\intertext{Multiplying by $b$ and since $p \mid ba$, we can replace $n_2 ba$ as some integer $n_3$ multiple of $p$,}
+					b & = n_1 b p + n_2 b a = n_1 b p + n_3 p \\
+					  & = \left(n_1 b + n_3\right)p
+				\end{align*}
+				Therefore, $p \mid b$.
+			\end{proof}
+		\end{minipage}
+	\end{enumerate}
+\end{document}

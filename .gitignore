@@ -1,0 +1,6 @@
+*.o
+*.bak
+*.gz
+*.aux
+*.log
+*.zip

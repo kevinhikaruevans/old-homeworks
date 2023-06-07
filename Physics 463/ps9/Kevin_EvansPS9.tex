@@ -1,0 +1,164 @@
+\documentclass{homework}
+
+\title{Problem Set 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{April 29, 2022}
+\setclass{Physics}{463}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{listings}
+
+
+\newcommand{\fm}{\femto\meter}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item % 8.1
+			\textit{\textbf{Impurity orbits.}} Indium antimonide has $E_g = \SI{0.23}{\eV}$; dielectric constant $\epsilon=18$; electron effective mass $m_e = 0.015 m$. \begin{enumerate}
+				\item Calculate the donor ionization energy.
+				
+				\solution Using (51), \begin{align*}
+					E_d & = \frac{e^4 m_e}{2(4 \pi \epsilon \epsilon_0 \hbar)^2} \\
+						& = \frac{e^4 (0.015 m)}{2 (4 \pi 18 \epsilon_0 \hbar)^2} \\
+						& = \SI{1.0092e-22}{\J} = \SI{0.629}{\meV}.
+				\end{align*}
+				
+				\item Calculate the radius of the ground state orbit.
+				
+				\solution Using (52), the Bohr radius of the donor is \begin{align*}
+					a_d & = \frac{4 \pi \epsilon \epsilon_0 \hbar^2}{m_e e^2} \\
+						& = \frac{4 \pi 18 \epsilon_0 \hbar^2}{0.015 m e^2} \\
+						& = \SI{6.35e-8}{\m} = \SI{635}{\angstrom}.
+				\end{align*}
+			
+				\item At what minimum donor concentration will appreciable overlap effects between the orbits of adjacent impurity atoms occur? This overlap tends to produce an impurity band---a band of energy levels which permit conductivity presumably by a hopping mechanism in which electrons move from one impurity site to a neighboring ionized impurity site.
+				
+				\solution
+				We can approximate the concentration $N_d \approxeq 1/R^3$, so \begin{align*}
+					N_d & \approx 1/ (\SI{6.35e-8}{\m})^3 = \SI{4e21}{\per\meter\cubed}.
+				\end{align*}
+			\end{enumerate}
+		
+		\pagebreak
+		
+		\item % 8.2
+			\textit{\textbf{Ionization of donors.}} In a particular semiconductor, there are $10^{13}$ \si{donors/\centi\meter\cubed} with ionization energy $E_d$ of \SI{1}{\meV} and effective mass $0.01m$. \begin{enumerate}
+				\item Estimate the concentration of conduction atoms at \SI{4}{\K}.
+				
+				\solution The conduction concentration can be found using the notes of 9.3. The coefficient is \begin{align*}
+					N_c & = 2 \left(\frac{m_e k_B T}{2 \pi \hbar^2}\right)^{3/2} \\
+						& = 2 \left( \frac{0.01 m k_B \times \SI{4}{\K}}{2 \pi \hbar^2} \right)^{3/2} = \SI{3.86e13}{\per\cm\cubed}.
+					\intertext{With the approximation $\epsilon_F \approx \frac{1}{2} E_g$, the electron concentration is}
+					n & \approxeq (N_c N_d)^{1/2} e^{-E_d / 2 k_B T} \\
+						& = \left[
+						\left(\SI{3.86e13}{\per\cm\cubed}\right) \left(10^{13}\si{\per\cm\cubed}\right)\right]^{1/2} \times \exp( - \SI{1}{\meV} / 2 k_B \cdot \SI{4}{\K}) \\
+						& = \SI{4.61e12}{\per\cm\cubed}.
+				\end{align*}
+				
+				\item What is the value of the Hall coefficient? Assume no acceptor atoms are present and that $E_g \gg k_B T$.
+				
+				\solution From (7.55), \begin{align*}
+					R_H & = - \frac{1}{ne} = -\frac{1}{\SI{4.61e12}{\per \cm \cubed} \times e} \\
+						& = -\SI{1.355}{\m\cubed\per\coulomb}.
+				\end{align*}
+				
+			\end{enumerate}
+		
+		\pagebreak
+		
+		\item % 8.5
+			\textbf{\textit{Magnetoresistance with two carrier types.}} Problem 6.9 shows that in the drift velocity approximation, the motion of charge carriers in electric and magnetic fields do not lead to transverse magnetoresistance. The result is different with two carrier types. 
+			
+			Consider a conductor with a concentration $n$ of electrons of effective mass $m_e$ and relaxation time $\tau_e$; and a concentration $p$ of holes with effective mass $m_h$ and relaxation time $\tau_h$. Treat the limit of very strong magnetic fields, $\omega_c \tau \gg 1$. \begin{enumerate}
+				\item Show in this limit that $$\sigma_{yx} = (n-p)ec/B.$$
+				
+				\solution From the in-class discussion, we've showed that the total conductivity of a semiconductor is given by electron and hole parts. We can write the magnetoconductivity tensor as \begin{align*}
+					\sigma & = \sigma^e + \sigma^h \\
+						& = \frac{ \sigma_0^e }{1 + (\omega_c^e \tau_e)^2} \begin{pmatrix}
+							1 & -\omega_c^e \tau_e & 0 \\
+							\omega_c^e \tau_e & 1 & 0 \\
+							0 & 0 & 1 + (\omega_c^e \tau_e)^2
+						\end{pmatrix} \\
+						& + \frac{ \sigma_0^h }{1 + (\omega_c^h \tau_h)^2} \begin{pmatrix}
+							1 & \omega_c^h \tau_h & 0 \\
+							-\omega_c^h \tau_h & 1 & 0 \\
+							0 & 0 & 1 + (\omega_c^h \tau_h)^2
+						\end{pmatrix}
+				\intertext{Note that above in the hole matrix, we flip sign due to the positive charges flowing opposite of the electrons, in (6.51). Then, the matrix $yx$ element is}
+				\sigma_{yx} & = \frac{\sigma_0^e}{1 + (\omega_c^e \tau_e)^2} \left(\omega_c^e \tau_e\right)
+					- \frac{\sigma_0^h}{1 + (\omega_c^h \tau_h)^2} \left(\omega_c^h \tau_h\right) \\
+						& \approx \frac{ \sigma_0^e }{\omega_c^e \tau_e} - \frac{ \sigma_0^h }{\omega_c^h \tau_h} \qquad \text{ (in $\omega_c \tau \gg 1$)} \\
+						& = \frac{ne^2 \tau_e}{m_e} \frac{m_e c}{eB\tau_e} - \frac{pe^2 \tau_p}{m_p} \frac{m_p c}{eB\tau_p} = (n-p) ec/B. \qed
+				\end{align*}
+				\item Show that the Hall field is given by, with $Q\equiv \omega_c \tau$,
+					$$E_y = -(n-p) \left(\frac{n}{Q_e} + \frac{p}{Q_h}\right)^{-1} E_x,$$
+					which vanishes if $n=p$.
+					
+					\solution In the Hall field case, we can set $j_y = 0$. Then from the magnetoconductivity tensor in (a) and using (6.64), \begin{align*}
+						j_y & = 0 = \sigma_{yx} E_x + \left(\frac{\sigma_0^e}{Q_e^2} + \frac{\sigma_0^h}{Q_h^2} \right)E_y \\
+						E_y & =-(n-p)\left(
+							 \frac{\sigma_0^e}{Q_e^2} + \frac{\sigma_0^h}{Q_h^2}
+							\right)^{-1}
+							 (ec / B) E_x \\
+							& =-(n-p)\left(
+								\frac{ne^2 \tau_e}{m_e Q_e^2} + \frac{pe^2 \tau_h}{m_h Q_h^2}
+								\right)^{-1}
+							(ec / B) E_x
+						\intertext{Using $\omega_c = eB/mc \implies Q=eB \tau/mc$, we can bring in the $ec/B$ term as a factor of $Q$'s,}
+						E_y & = -(n-p) \left(\frac{n}{Q_e}  + \frac{p}{Q_h}\right)^{-1} E_x. \qed
+					\end{align*}
+					
+				\item Show that the effective conductivity in the $x$ direction is 
+				$$\sigma_\mathrm{eff} = \frac{ec}{B} \left[
+					\left(\frac{n}{Q_e} + \frac{p}{Q_h}\right)
+					+ (n-p)^2 \left(
+						\frac{n}{Q_e} + \frac{p}{Q_h}
+					\right)^{-1}
+				\right].$$
+				If $n=p$, $\sigma \propto B^{-2}$. If $n \ne p$, $\sigma$ saturates in strong fields; that is, it approaches a limit independent of $B$ as $B \to \infty$.
+				
+				\solution Similarly, for the $x$ direction, we have \begin{align*}
+					j_x & = \sigma_{xx} E_x + \sigma_{xy} E_y \\
+						& = \left( \frac{\sigma_0^e}{Q_e^2} + \frac{\sigma_0^h}{Q_h^2} \right) E_x - \left[(n-p)ec/B\right] E_y \\
+						& = \left(
+							\frac{ne^2 \tau_e}{m_e Q_e^2}
+							+ \frac{pe^2 \tau_h}{m_h Q_h^2} 
+						\right) E_x
+						+ \left[
+							(n-p) ec/B
+						\right] \left[
+							(n-p) \left(
+								\frac{n}{Q_e}
+								+ \frac{p}{Q_h}
+							\right)^{-1}
+						\right] E_x && \text{from (b)} \\
+						& =  \underbrace{ \frac{ec}{B} \left[
+						\left(\frac{n}{Q_e} + \frac{p}{Q_h}\right)
+						+ (n-p)^2 \left(
+						\frac{n}{Q_e} + \frac{p}{Q_h}
+						\right)^{-1}
+						\right]}_{\sigma_\mathrm{eff}} E_x
+				\end{align*}
+			\end{enumerate}
+	\end{enumerate}
+\end{document}

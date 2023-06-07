@@ -1,0 +1,151 @@
+\documentclass{homework}
+
+\title{Homework 6}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 10, 2021}
+\setclass{Physics}{465}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\DeclareSIUnit\eVperc{\eV\per\clight}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}}
+\DeclareSIUnit\year{yr}
+\newcommand{\M}{\ensuremath{\mathcal{M}}}
+\newcommand{\fm}{\femto\meter}
+
+\renewcommand{\P}{\ensuremath{\mathbb{P}}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item For \ce{^15_7N_8}, we have 8 neutrons (magic, non-contributing) and 7 protons (unfilled \ce{1p_{1/2}}). The ground state spin is $\frac{1}{2}$ with odd parity, $\boxed{1/2-}$.
+			
+			\item For \ce{^17_8O_9}, the protons are magic and the 9 neutrons lead to an unfilled \ce{1d_{5/2}} shell. This means we have $\boxed{5/2+}$ spin and parity.
+			
+			\item For \ce{^39_19K_20}, the 19 protons in the unfilled \ce{1d_{3/2}} shell lead to $\boxed{3/2+}$ spin and parity.
+			
+			\item For \ce{^207_82Pb_125}, the 125 neutrons lead to an unfilled \ce{1i_{13/2}} shell, with $\boxed{13/2+}$ spin and parity.
+			
+			\item An electron from the \ce{3p_{1/2}} shell could've jumped up to fill the \ce{1i_{13/2}} shell, leading to a vacancy in the \ce{3p_{1/2}} shell.
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item From conservation of energy, \begin{align*}
+				2 E_{m} & = E_M \\
+				2 \gamma m & = M \\
+				\implies M & = 2 \left( 1 - (3/5)^2 \right)^{-1/2} m \\
+					& = 2.5 m.
+			\end{align*}
+		
+			\item Similarly, by conservation of energy again, \begin{align*}
+				2 \gamma m & = M \\
+				\gamma & = M / 2 m \\
+				1 - v^2 / c^2 & = M / 2 m \\
+				v/c & = \sqrt{ 1 - (M / 2m) }.
+			\end{align*}
+		
+			\item For a 4-vector $\P = (E/c, p)$, its dot product is \begin{align*}
+				\P^2 & = \P \cdot \P \\
+					& = \frac{ E^2 }{c^2} - p^2 = m^2 c^2.
+				\intertext{Without the $c$'s,}
+				\P^2 & = E^2 - p^2 = m^2.
+			\end{align*}
+		
+			\item For different vectors $\P_1$ and $\P_2$, \begin{align*}
+				\P_1 \cdot \P_2 & = \frac{ E_1 E_2  }{c^2} - p_1 p_2 \\
+				\implies & = E_1 E_2 - p_1 p_2.
+			\end{align*}
+		\end{enumerate}
+		
+		\pagebreak
+		
+		\item % follow notes?
+			For moving particle $m_1$ with $p_1$ and stationary particle $m_2$, we can begin deriving the CM momenta by considering a frame where $m_1$ and $m_2$ have equal momentum $p$. In this frame moving at velocity $v_c$, the momentum of each particle will be \begin{align*}
+				p_c & = m_1 (v_1 - v_c) = m_2 v_c. \\
+				\implies p_1 & = m_1 v_1 = (m_1 + m_2) v_c. \\
+				\implies v_c & = \frac{m_1}{m_1 + m_2} v_1.
+				\intertext{The CM momentum is }
+				p_c & = m_2 v_c = \frac{m_1 m_2}{m_1 + m_2} v_1 \\
+					& = \frac{m_2}{m_1 + m_2} p_1.
+			\end{align*}
+		
+		\item To begin by deriving the CM momentum relativistically, we can consider the same system as Problem 3, with a frame moving at $v_c$ (with Lorentz factor $\gamma_c$). In this frame, we can use the Lorentz transformation to find the CM momenta $p$, \begin{align*}
+			p & = \gamma_c (p_1 - v_c E_1) && \text{(particle 1)}\\
+			-p & = \gamma_c (p_2 - v_c E_2) = \gamma_c (0 - v_c m_2 c^2) && \text{(particle 2)}\\
+			\implies p \,\, & = \gamma_c v-c m_2 \\
+			\implies v_c & = p / \gamma_c m.
+			\intertext{Substituting $v_c$ in, the CM momentum is }
+			p & = \gamma_c \left(p_1 - \frac{p}{\gamma_c m_2} E_1\right) \ gamma_c p_1 - \frac{E_1}{m_2} p \\
+				& = \frac{\gamma_c}{1 + E_1 / m_2} p_1 \\
+			\Aboxed{ p & = \frac{\gamma_c m_2}{E_1 + m_2} p_1. }
+		\end{align*}
+		
+		\item From Problem 3, the CM momentum is given by \begin{align*}
+			p_c & = \frac{m_2}{m_1 + m_2} p_1.
+			\intertext{For both particles, the total kinetic energy is given by }
+			T_c & = T_{c1} + T_{c2} \\
+				& = \frac{p_c^2}{2m_1} + \frac{p_c^2}{2 m_2} = \frac{p_c^2}{2} \left( \frac{1}{m_1} + \frac{1}{m_2} \right) = \frac{p_c^2}{2} \frac{m_1 + m_2}{m_1 m_2} \\
+				& = \frac{m_2^2}{(m_1 + m_2)^2} \frac{(m_1 + m_2)}{m_1 m_2} \frac{ p_1^2 }{2} \\
+				& = \frac{m_2}{2 m_1 (m_1 + m_2)} p_1^2.
+			\intertext{In terms of $T_1 = p_1^2 / 2m_1$,}
+			\Aboxed{T_c & = \frac{m_2}{m_1 + m_2} T_1.}
+		\end{align*}
+		
+		\item \begin{enumerate}
+			\item For the two particles, their 4-momenta are \begin{align*}
+				\P_1 & = (E_1, p_1) \\
+				\P_2 & = (m_2, 0). \quad \text{(at rest in lab frame)}
+				\intertext{The total 4-momentum is }
+				\P_\mathrm{tot} & = \P_1 + \P_2
+				\intertext{Squaring this and using stuff from Problem 2,}
+				\P_\mathrm{tot}^2 & = (\P_1 + \P_2)^2 = \P_1^2 + \P_2^2 + 2 \P_1 \cdot \P_2 \\
+					& = m_1^2 + m_2^2 + 2 \P_1 \cdot \P_2  = m_1^2 + m_2^2 + (E_1, p_1) \cdot (m_2, 0) \\
+					& = m_1^2 + m_2^2 + E_1 m_2.
+				\intertext{Since $\P_\mathrm{tot}^2 = E_c^2$, as $\P_\mathrm{tot} = (E_c, 0),$}
+				E_c^2 & =  m_1^2 + m_2^2 + E_1 m_2.
+			\end{align*}
+		
+			\item I don't really understand this problem, so I might be way off here. In the CM frame, the total energy is given by the masses and total kinetic energy, \begin{align*}
+				E_c & = m_1 + m_2 + T_c.
+				\intertext{We can square this to fit the stuff from (a),}
+				E_c^2 & = (m_1 + m_2 + T_c)^2 = (m_1 + m_2)^2 + T_c^2 + 2 (m_1 + m_2) T_c \\
+					& = m_1^2 + m_2^2 + E_1 m_2 = m_1^2 + m_2^2 + (m_1 + T_1) m_2.
+				\intertext{Here's the part that I'm not seeing (where is this coming from?):}
+				T_c^2 & = 2 T_c (m_1 + m_2) \\
+				\intertext{The condition when we can neglect $T_c^2$ is given by}
+				T_c & \ll 2 (m_1 + m_2).
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

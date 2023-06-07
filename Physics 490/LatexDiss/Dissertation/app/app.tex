@@ -1,0 +1,41 @@
+\addchapheadtotoc
+
+\chapter{Appendices}
+
+
+\begin{lstlisting}[language=Python, caption={A function used to generate an initial excited state independent of the box size.}, label={lst:fouriernoise}]
+def fourier_noise(n_modes=4, dirichlet=True, seed=3):
+	""" Generates random sinuosodal noise independent of box size """
+	
+	np.random.seed(seed)
+	n = np.arange(n_modes) - n_modes // 2
+	
+	# ks = 2*np.pi * np.fft.fftfreq(N, dx)
+	# ks[inds] = 2*np.pi * n /L
+	# np.where(...)
+	
+	# create list of wavenumbers for the modes to generate
+	ks = 2 * np.pi * n / L
+	
+	# create random amplitudes for each mode (-0.5, 0.5)
+	As = (np.random.random(n_modes) - 0.5) * 2
+	
+	# random phases too
+	phases = np.random.random(n_modes) * 2 * np.pi
+	
+	# box space
+	_x = (1 + np.arange(N)) * dx
+	
+	if dirichlet:
+	# for dirichlet, the end points are zero (as each mode is guaranteed to fit in the box, as phase=0)
+	# although: there is no complex phase here, so: will this generate turbulance as the phase is uniform?
+	psi = sum(_A * (np.exp(1j * _k * _x) - np.cos(_k * _x))
+	for _A, _k in zip(As, ks))
+	else:
+	# basically do a fourier series but of these specific modes, i.e. sum up each sine wave
+	# the ends may not be zero here
+	psi = sum(_A * np.exp(1j * (_k * _x + _phase))
+	for _A, _k, _phase in zip(As, ks, phases))
+	
+	return psi
+\end{lstlisting}

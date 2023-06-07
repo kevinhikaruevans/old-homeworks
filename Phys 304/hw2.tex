@@ -1,0 +1,126 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{January 31, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{venndiagram}
+\usepackage{icomma}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+
+\begin{document}
+	\maketitle
+	\section*{Problems}
+	\begin{enumerate}
+		\item[0.] For three spin-1/2, the total angular momenta are $j_s = s_1 + s_2 + s_3 = 3/2$ and $1/2$.
+		
+		\begin{tabular}{cccc}
+			\toprule
+			$j_s$ & $s_1$ & $s_2$ & $s_3$  \\
+			\midrule
+			$1/2$ & - & - & +  \\
+			$1/2$ & - & + & - \\
+			$1/2$ & + & - & - \\
+			$1/2$ & + & + & - \\
+			$3/2$ & + & - & + \\
+			$3/2$ & - & + & + \\
+			$3/2$ & + & + & + \\
+			$3/2$ & - & - & - \\
+			\bottomrule
+		\end{tabular}
+		
+		\item[10.] For $n=2$, $\ell \in \{0, 1\}$. Then, $j \in \{ 1/2, 3/2 \}$.
+			\begin{align*}
+				j = \frac{1}{2} & \implies m_j \in \left\{ -\frac{1}{2}, \frac{1}{2} \right\} \\
+				j = \frac{3}{2} & \implies m_j \in \left\{ -\frac{3}{2}, -\frac{1}{2}, \frac{1}{2}, \frac{3}{2} \right\}
+			\end{align*}
+			
+		\item[11.] For a $d$-electron, $l=2$ and $j \in \left\{ \frac{1}{2}, \frac{3}{2}, \frac{5}{2} \right\}$. \begin{align*}
+			j = \frac{1}{2} & \implies m_j \in \left\{ \pm \frac{1}{2} \right\} \\
+			j = \frac{3}{2} & \implies m_j \in \left\{ \pm \frac{1}{2}, \pm \frac{3}{2} \right\} \\
+			j = \frac{5}{2} & \implies m_j \in \left\{ \pm \frac{1}{2}, \pm \frac{3}{2}, \pm \frac{5}{2} \right\}
+		\end{align*}
+		\item[12.] \begin{enumerate}
+			\item $7\mathrm{G}_{9/2}$
+			\item $6\mathrm{H}_{11/2}$, $6\mathrm{H}_{9/2}$, $6\mathrm{H}_{7/2}$, $6\mathrm{H}_{5/2}$, $6\mathrm{H}_{3/2}$, $6\mathrm{H}_{1/2}$
+		\end{enumerate}
+	\pagebreak
+		\item[17.] With no potential inside the cube of side length $L$, \begin{align*}
+			-\frac{\hbar^2}{2m} \laplacian{\psi}(\bvec{r}) & = E \psi(\bvec{r})
+			\intertext{The solutions for $\psi$ would have the form}
+			\psi(e_i) & = \sin(k_i \pi e_i) \implies k_i = \frac{n_i \pi}{L}
+			\intertext{Then the momentum in each direction and total energy is:}
+			p_i & = \hbar k_i = \frac{\pi \hbar}{L} n_i \\
+			E_\mathrm{total} & = \frac{\pi^2 \hbar^2}{2m L^2} \left( n_x^2 + n_y^2 + n_z^2  \right) = \frac{\pi^2 \hbar^2 n^2}{2mL^2}
+			\intertext{Applying the dimensions given in the problem,}
+			E_\mathrm{total} & \approx \frac{ \pi^2 \left(\SI{0.1973}{\eV\um}\right)^2}{2\left(\SI{0.511e6}{\eV \per c^2}\right) \left(\SI{0.2e-3}{\um}\right)^2} \; n^2 \\
+			& \approx 9.398 n^2 \quad [\si{\eV}]
+		\end{align*}
+		
+		\begin{enumerate} %395
+			\item For electrons, each state can contain two electrons. In the $n_i=1$ ($n^2=3$) state, 6 electrons would be contained, each with energy 
+			\[ E_{111} = 3\cross9.398\]
+			The remaining two electrons would be in the threefold-degenerate state with $n^2=6$,
+			\[ E_{112} = E_{121} = E_{211} = 6 \cross 9.398  \]
+			The lowest energy possible is then \begin{align*}
+				E_\mathrm{total} & = 6 \cross 3 \cross 9.398 + 2 \cross 6 \cross 9.398 \\
+					& = \SI{281.7}{\eV}?
+			\end{align*}
+			Not sure what part I'm not understanding as the answer given is \SI{395}{\eV}.
+			
+			\item For bosons, each particle would fall to the ground state, \begin{align*}
+				E_\mathrm{total} & = 8 E_{111} \\
+					& = \SI{225.6}{\eV}
+			\end{align*}
+		\end{enumerate}
+		\item[21.] \begin{enumerate}
+			\item $1s^2 2s^2 2p^4$
+			\item \begin{tabular}[t]{cccc}
+				\toprule
+				$n$ & $\ell$ & $m_\ell$ & $m_s$ \\
+				\midrule
+				$1$ & $0$ & $0$ & $-1/2$ \\
+				$1$ & $0$ & $0$ & $1/2$ \\
+				\midrule
+				$2$ & $0$ & $0$ & $-1/2$ \\
+				$2$ & $0$ & $0$ & $1/2$ \\
+				$2$ & $1$ & $0$ & $-1/2$ \\
+				$2$ & $1$ & $0$ & $1/2$ \\
+				$2$ & $1$ & $\pm1$ & $-1/2$ \\
+				$2$ & $1$ & $\pm1$ & $1/2$ \\
+				\bottomrule
+			\end{tabular}
+		\end{enumerate}
+	\end{enumerate}
+
+	\section*{Questions}
+	\begin{enumerate}
+		\item[1.] After $Z=83$, the repulsive Coulomb force between the protons is greater than the nuclear force holding the protons and neutrons together.
+		\item[2.] The frequency also doubles as $\omega \propto \abs{\bvec{B}}$.
+		\item[3.] Because there's an uneven number of protons and neutrons.
+		\item[4.] Y would be more unstable. If X has a higher binding energy, that would mean it there's more energy holding it together.
+	\end{enumerate}
+\end{document}

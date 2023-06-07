@@ -1,0 +1,76 @@
+\documentclass{homework}
+
+\title{Homework 11}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{April 15, 2021}
+\setclass{Physics}{461}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item  The absorption coefficient is given by \begin{align*}
+				\alpha(\nu_{12}) & = \left[
+					N_1 - (g_1 / g_2) N_2
+				\right] \sigma(\nu_{12})
+			\end{align*}
+			where in the $2 \to 1$ transition, the statistical weights are $5$ and $3$ respectively. As the rotational energy is defined as $E_J = B_e J(J+1)$ where $B_e$ is the rotational constant specific to the molecule, then $\Delta E = hc B_e \left[(J_2 (J_2 + 1) - J_1(J_1 + 1))\right] = $. Additionally, the populations of the two levels are related as \begin{align*}
+				\frac{N_2}{N_1} & = \frac{g_2}{g_1} e^{-h \nu / kT} \\
+				\implies \frac{N_2}{N_1} - \frac{g_1}{g_2} N_2 & = N_1 - \frac{g_1}{g_2} \left[
+					\frac{g_2}{g_1} (1 - \Delta E / kT)
+				\right] N_1
+			\end{align*}
+		
+		\item The Fourier transform of $S(t)$ can be written \begin{align*}
+			I(\omega) & = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^\infty S(t) e^{i\omega t} \dd{t}
+			\intertext{From the relation $e^{i\omega t} = \cos(\omega t) + i \sin(\omega t)$, we can convert this to a one-sided Fourier transform}
+			I(\omega)	& = \frac{2}{\sqrt{2 \pi}} \int_0^\infty S(t) \cos(\omega v t / c) \dd{t}
+		\end{align*}
+	
+		\item For 1200 grooves per mm, the distance between grooves is \begin{align*}
+			d & = \SI{833.3}{\nm}
+			\intertext{For $m=1$, the angle of each reflection is}
+			\beta_1 & = \sin[-1](\frac{\lambda}{d} - \sin \alpha) \\
+				& = \SI{0.208209}{\radian} \\
+			\beta_2 & = \SI{0.208945}{\radian} \\
+			\Delta \beta & = \SI{0.00073598}{\radian} \\
+			\implies \Delta s & = \beta f \\
+				& = \SI{0.736}{\mm}
+		\end{align*}
+	
+		\item[5.] From Beere's law, the transmitted power is \begin{align*}
+			P & = P_0 e^{-\alpha x} \approx P_0 (1 - \alpha x)
+			\intertext{Then the absorbed power per length is}
+			\Delta P & = \alpha P_0  = 10^{-7} \quad \si{\W\per\centi\meter}
+			\intertext{Therefore, the power absorption rate is}
+			N & = \frac{\Delta P}{E} = \frac{\Delta P}{h \nu} \\
+				& \approx \num{2.5e11} \text{ photons per s}
+			\intertext{For the given angle, the detector receives the fraction }
+			\frac{ \Delta \Omega }{4 \pi} N = \frac{0.2}{4 \pi} \num{2.5e11} & = \num{4e9} \quad \text{ photons per s}
+			\intertext{Then for the given efficiency, the current is just the fraction of photons per second and}
+			I & = ( \eta  G) I_0 = \SI{0.13}{\mA}
+		\end{align*}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass{homework}
+
+\title{Homework 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{April 5, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{graphicx} 
+\DeclareSIUnit{\year}{yr}
+
+\begin{document}
+	\maketitle
+	\subsubsection*{Chapter 12}
+	\begin{enumerate}[label={\arabic*.}]%[label=\textbf{Problem {\arabic*.}}, align=left]
+		\item Ionic solids are poor electrical conductors, as there aren't any free electrons.
+		
+			Ionic solids form stable, hard crystals with high melting and boiling points.
+		\item Covalent solids are also poor electrical conductors, as the electrons are tightly bound.
+		
+		Covalent solids are also extremely hard solids, moreso than ionic solids, and have high melting points.
+		
+		\item The availability of electrons in the conductance band determines whether or not the material is a good electrical insulator or conductor. If all or most of the electrons are located in the valance band, the material would be a good insulator as the electrons are unable to move freely and are bound to an atom. And if there are a large number of electrons in the conduction band, the material is able to conduct.
+		
+		For non-metals, the width of the energy gap determines whether electrons can easily jump into the conduction band and give the material ability to conduct.
+		
+		\item In metals, the resistivity increases with temperature, shown using the Wiedemann-Franz law. As the temperature increases, the atoms gain more vibrational and rotational energy. As a result, they impede the ability of electrons to move freely. 
+		
+		In intrinsic semi-conductors, as temperature decreases, the availability of electrons shifts from the conduction band to the valance band. At $T=0$, the conduction band is vacant of electrons and all electrons are at the lowest energy state below $E_F$. At higher temperatures, more electrons move into the conduction band.
+		
+		\item Metals have a single partly-filled band. Electrons can move freely in this band.
+		
+			
+			In semi-conductors, the band-gap energy between the conduction and valance band is reduced. There's some probability that electrons can cross into the conduction band from the valance band, and this increases as the average energy increases. 
+			
+			In insulators, the conduction and valance bands have a wide band-gap energy. The probability of electrons crossing into the conduction band is very low and insulators are unable to conduct energy.
+			
+		\item When a semiconductor absorbs a photon (and the photon's energy exceeds the band-gap energy), a bound electron within the valance band can ``break free'' and move into the conduction band. When this happens, the electron leaves a vacancy of $+e$ in the conductance band, i.e. a hole.
+		
+		\item The minima is given at $r_0$ when \begin{align*}
+			\dv{U_\mathrm{tot}}{r} & = 0
+			\intertext{Evaluating the derivative and factoring out some stuff,}
+			\dv{U_\mathrm{tot}}{r} & = \alpha k_e e^2 r^{-2} - B m r^{-m - 1} = 0 \\
+				0 & = -r^{-1} \left( \alpha k_e e^2 r^{-1} + B m r^{-m} \right)
+				\intertext{Removing the $r \to \infty$ root and evaluating at $r_0$,}
+				\frac{B}{r_0^m} & =  \frac{1}{m} \times \alpha \frac{k_e e^2}{r_0} \\
+				\intertext{Evaluating the original potential $U_\mathrm{tot}$ at $r_0$, then substituting the last expression in,}
+				U_\mathrm{tot}(r_0) & = -\alpha \frac{k_e e^2}{r_0} + \frac{B}{r_0^m} \\
+					& =  -\alpha \frac{k_e e^2}{r_0} + \frac{1}{m} \times \alpha \frac{k_e e^2}{r_0} \\
+					& = -\alpha k \frac{e^2}{r_0} \left(1 - \frac{1}{m}\right)
+		\end{align*}
+		\item If we have a chain of alternating ions each separated by a distance $r$, it would start off looking something like:
+			
+			\begin{center}
+				\begin{tabular}{ccccc}
+					1 & 2 & 3 & $\dots$ & $n$ \\
+					$+$ & $-$ & $+$ & & $\dots$
+				\end{tabular}
+			\end{center}
+		
+			For the first left-most ion, its potential would look something like:
+			\begin{align*}
+				U(r) & = -\frac{ke^2}{r} \left( 1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} \dots \right) \\
+					& = -\frac{ke^2}{r} \ln 2 && \text{Using $\ln(1 + x)$ with $x=1$}
+				\intertext{If we also include the infinite chain on the other side, its potential is doubled by superposition,}
+				U(r) & = -\frac{ke^2}{r} 2 \ln 2 = -k\alpha \frac{e^2}{r} \qed
+			\end{align*}
+			
+		\item \begin{minipage}[t]{0.7\linewidth}
+			From the definition of resistivity:
+			\begin{align*}
+				\rho & = \frac{1}{\sigma} = \frac{E}{J}
+				\intertext{Then from $\Delta V = IR$}
+				R & = \frac{ \Delta V }{I} = \frac{ E \ell }{J A} \\
+				& = \rho \frac{ \ell }{A} \qed
+			\end{align*}
+		\end{minipage}
+		\begin{minipage}[t]{0.3\linewidth}
+			~ \newline
+			\includegraphics[width=\linewidth]{"../../../Downloads/Untitled Diagram"}
+		\end{minipage}
+	
+		\item \begin{enumerate}
+			\item Using the classical kinetic energy formula, \begin{align*}
+				v & = \left(\frac{2 E_F}{m_e}\right)^{1/2} = \SI{1.57e6}{\m/\s} 
+			\end{align*}
+			\item The conduction velocity is $\approx 10^{10}$ times faster than the drift velocity.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

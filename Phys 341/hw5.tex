@@ -1,0 +1,125 @@
+\documentclass{homework}
+
+\title{Homework 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 30, 2020}
+\setclass{Physics}{341}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item Integrating over the sphere's volume, \begin{align*}
+				W & = \frac{1}{2} \int_v \rho V \dd{\tau} \\
+					& = \frac{1}{2} \frac{3q}{4 \pi R^3} \int_v \frac{q}{4 \pi \epsilon_0}
+					\frac{1}{2 R} \left(3 - \frac{r^2}{R^2}\right) \dd{\tau} \\
+					& = \frac{3q^2}{64 \pi^2 \epsilon_0 R^4} \left(4 \pi \right) \int_0^R \left(3 - \frac{r^2}{R^2}\right) \left(r^2 \dd{r}\right) \\
+					& = \frac{12q^2}{64 \pi \epsilon_0 R^4} \left[\frac{3r^3}{3} - \frac{r^5}{5R^2}\right]_0^R \\
+					& = \frac{3q^2}{20 \pi \epsilon_0 R}
+			\end{align*}
+		
+			\item Integrating over all space, \begin{align*}
+				W & = \frac{\epsilon_0}{2} \int_{\mathbb{R}^3} E^2 \dd{\tau} \\
+					& = \frac{4 \pi \epsilon_0}{2} \left[\int_0^R {E_\mathrm{in}}^2 \; r^2\dd{r}
+					+ \int_R^\infty {E_\mathrm{out}}^2 \; r^2 \dd{r}
+					 \right] \\
+					& = 2\pi\epsilon_0 \left[\int_0^R \left(\frac{qr}{4 \pi \epsilon_0 R^3} \right)^2 r^2 \dd{r} + \int_{R}^{\infty} \left(\frac{q}{4 \pi \epsilon_0 r^2}\right)^2 r^2 \dd{r} \right] \\
+					& = \frac{q^2}{8 \pi \epsilon_0} \left[ \frac{1}{R^6} \int_0^R r^4 \dd{r} + \int_R^\infty r^{-2} \dd{r} \right] \\
+					& = \frac{q^2}{8 \pi \epsilon_0} \left[ \frac{R^5}{5R^6} + \left(0 + \frac{1}{R} \right) \right] = \frac{6q^2}{40 \pi \epsilon_0 R} \\
+					& = \frac{3q^2}{20 \pi \epsilon_0 R}
+			\end{align*}
+		
+			\item From (b), we can reuse much of the calculation, but instead use $a$ as the upper bound of the $E_\mathrm{out}$ integral, leading to \begin{align*}
+				W & = \frac{\epsilon_0}{2} \left( \int_v E^2 \dd{\tau} + \oint_S V \bvec{E} \cdot \dd{\bvec{a}} \right) 
+					 = \frac{q^2}{8 \pi \epsilon_0} \left[ \frac{R^5}{5R^6} + \left(\frac{1}{a} + \frac{1}{R}\right)\right] + \frac{\epsilon_0}{2} \oint_S V\bvec{E} \cdot \dd{\bvec{a}}
+				\intertext{And since $\dd{\bvec{a}}$ does not include a $\dd{r}$ term, the area integral becomes the surface area of a sphere with radius $a$,} 
+				W & = \frac{q^2}{8 \pi \epsilon_0} \left[ \frac{R^5}{5R^6} + \left(\frac{1}{a} + \frac{1}{R}\right)\right] + \frac{\epsilon_0}{2} \left(\propto \frac{1}{a}\right) \left( \propto \frac{1}{a^2}\right) \left(4 \pi a^2\right)
+				\intertext{At the limit $a \to \infty$, $1/a \to 0$ and we're left with the expected expression}
+				& =  \frac{q^2}{8 \pi \epsilon_0} \left[ \frac{R^5}{5R^6} + \frac{1}{R}\right] = \frac{3q^2}{20 \pi \epsilon_0 R}
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item If we take a Gaussian surface, the only region with a non-zero enclosed charge is between the two spheres. By Gauss's law, the electric field between the spheres is \begin{align*}
+				\bvec{E} & = \frac{q}{4 \pi r^2} \uvec{r}
+				\intertext{The energy of the configuration is then}
+				W & = \frac{\epsilon_0}{2} \int_{\mathbb{R}^3} E^2 \dd{\tau} = \frac{4 \pi \epsilon_0}{2} \int_a^b \left(\frac{q}{4 \pi \epsilon_0 r^2}\right)^2 r^2 \dd{r} \\
+					& = \frac{q^2}{8 \pi \epsilon_0} \int_a^b \frac{1}{r^2} \dd{r} \\
+					& = \frac{q^2}{8 \pi \epsilon_0} \left(a^{-1} - b^{-1}\right)
+			\end{align*}
+		
+			\item Using the alternative formula, the electric field of each individual charge distribution is only non-zero outside of its radius, \begin{align*}
+				\bvec{E}_1 & = \frac{q}{4 \pi \epsilon_0 r^2} \uvec{r} \\
+				W_1 & = \frac{\epsilon_0}{2} \int_{\mathbb{R}^3} {E_1}^2 \dd{\tau} \\
+					& = \frac{4 \pi \epsilon_0}{2} \int_a^\infty \left( \frac{q}{4 \pi \epsilon_0 r^2} \right)^2 r^2 \dd{r} \\
+					& = \frac{q^2}{8 \pi \epsilon_0} a^{-1}
+				\intertext{Similarly for the outer charge,}
+				W_2 & = \frac{q^2}{8 \pi \epsilon_0} b^{-1}
+			\intertext{For the dot product, it is only non-zero after $b$,}
+			\epsilon_0 \int_v \bvec{E}_1 \cdot \bvec{E}_2 \dd{\tau} & = 4 \pi \epsilon_0 \int_b^\infty \left(\frac{q}{4 \pi \epsilon_0 r^2}\right) \left(-\frac{q}{4 \pi \epsilon_0 r^2}\right) r^2 \dd{r} \\
+				& = -\frac{q^2}{4 \pi \epsilon_0} \left(b^{-1}\right)
+			\intertext{Summing these work terms, it equals the work found in (a),}
+				W & = \frac{q^2}{8 \pi \epsilon_0} a^{-1} +  \frac{q^2}{8 \pi \epsilon_0} b^{-1}  -\frac{q^2}{4 \pi \epsilon_0} b^{-1} \\
+					& = \frac{q^2}{8 \pi \epsilon_0} \left(a^{-1} - b^{-1}\right)
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item Since the inner sphere is a conductor, $q$ will be uniformly distributed on the surface, \begin{align*}
+				\sigma_R & = \frac{q}{4 \pi R^2} \\
+				\intertext{Similarly on the outer shell, the inner sphere will induce a uniform surface charge,}
+				\sigma_a & = \frac{-q}{4 \pi a^2} \\
+				\sigma_b & = \frac{q}{4 \pi b^2}
+			\end{align*}
+		
+			\item The potential can be found by splitting the integrals: beyond the outer shell and between the two spheres, \begin{align*}
+				V & = -\int_o^r \bvec{E} \cdot \dd{\vec{\ell}} \\
+					& = - \frac{q}{4 \pi \epsilon_0} \int_\infty^b r^2 \dd{r} - \frac{q}{4 \pi \epsilon_0} \int_a^R r^2 \dd{r} \\
+					& = \frac{q}{4 \pi \epsilon_0} \left( b + R - a\right)
+			\end{align*}
+		
+			\item For (a), Only $\sigma_b$ is changed, as it would equal zero, since the charges on $\sigma_a$ would ``come from'' ground, instead of coming from the zero net charge.
+			
+			For (b), the outer sphere and reference point is now an equipotential, so the potential difference in the first term of $V$ in (b) would equal zero, i.e. 
+			\[V = \frac{q}{4 \pi \epsilon_0} \left(R - a\right)\]
+		\end{enumerate}
+	
+		\item Using (2.48), $\bvec{E} = \frac{\sigma}{\epsilon_0} \uvec{n}$ and since $\sigma = Q / A$, the pressure \[ P = \frac{\epsilon_0}{2} E^2 = \frac{Q^2}{2A^2 \epsilon_0} \]
+		
+		\item From Gauss's law, the electric field between the two cylinders (of arbitrary length $l$) is \begin{align*}
+			\bvec{E} & = \frac{Q}{2 \pi \epsilon_0 s l } \uvec{s}
+			\intertext{The potential difference between the two tubes and capacitance per length is found as}
+			V & = -\int_b^a \bvec{E} \cdot \dd{\vec{\ell}} = - \frac{Q}{2 \pi \epsilon_0 l}\int_b^a s^{-1} \dd{s} \\
+				& = \frac{Q}{2 \pi \epsilon_0 l} \ln(\frac{b}{a}) \\
+			C/l & = \frac{Q}{2 \pi \epsilon_0} \ln(\frac{b}{a})
+		\end{align*}
+	\end{enumerate}
+\end{document}

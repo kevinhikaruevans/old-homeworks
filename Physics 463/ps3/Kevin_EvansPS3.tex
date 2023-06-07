@@ -1,0 +1,109 @@
+\documentclass{homework}
+
+\title{Problem Set 3}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{February 16, 2021}
+\setclass{Physics}{463}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{listings}
+
+
+\newcommand{\fm}{\femto\meter}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item %3.2
+			\textbf{\textit{Cohesive energy of bcc and fcc neon.}} Using the Lennard-Jones potential, calculate the ratio of the cohesive energies of neon in the bcc and fcc structures (Ans. 0.958). The lattice sums for the bcc structures are $$
+				\sum_j^{} \phantom{}^{'} {p_{ij}}^{-12} = 9.11418; \qquad \sum_j^{} \phantom{}^{'} {p_{ij}}^{-6} = 12.2533.
+			$$
+			
+			\solution Using eq. (13) as a starting point, the minimum energy $U$ is reached when \begin{align*}
+				\dv{U_{\mathrm{tot}}}{R} & = -2 N \epsilon \left[12(9.11418) \frac{\sigma^{12}}{R^{13}}
+					-	6(12.2533) \frac{\sigma^6}{R^7}
+					\right] = 0 \\
+					\implies & 12(9.11418) \frac{\sigma^{6}}{R^{6}} = 6(12.2533) \\
+					R_0 / \sigma & = \left(\frac{12(9.11418)}{6(12.2533)}\right)^{1/6} = \boxed{1.0684}.
+			\end{align*}
+			Then, for the total energy, we can use eq. (11) at $R_0$ and use the ratio previously found, \begin{align*}
+				U_{\mathrm{tot}}(R_0) & = 2 N \epsilon \left[
+					(9.11418)(1.0684)^{-12} - 12.2533(1.0684)^{-6}
+				\right] \\
+					& = -(2.0591)(4 N \epsilon).
+			\end{align*}
+			Using eq. (16), the ratio of the cohesive energies in neon in bcc and fcc is then \begin{align*}
+				\frac{U_{\mathrm{bcc}}}{U_{\mathrm{fcc}}} & = \boxed{0.958}.
+			\end{align*}
+		
+		\item %3.4
+			\textbf{\textit{Possibility of ionic crystals $R^+ R^-$.}} Imagine a crystal that exploits for binding, the coulomb attraction of the positive and negative ions of the same atom or molecule R. This is believed to occur with certain organic molecules, but it is not found when \textbf{R} is a single atom.
+			
+			Use the data in Tables 5 and 6 to evaluate the stability of such a form of Na in the NaCl structure relative to the normal metallic sodium. Evaluate the energy at the observed interatomic distance in metallic sodium, and use \SI{0.78}{\eV} as the electron affinity of Na.
+			
+			\solution Using $R_0=\SI{3.659}{\angstrom}$ as the observed interatomic distance in metallic sodium and $\alpha = 1.747565$ from p. 65, the Madelung energy is given by \begin{align*}
+				U_{\mathrm{Madelung}} & = -N \alpha q^2 / R_0 \\
+					& = - \frac{ (1.747565) e^2  }{4 \pi \epsilon_0 \SI{3.659}{\angstrom}} \\
+					& = - \SI{6.8588}{\eV}.
+			\end{align*}
+			The Madelung energy is nine times greater than the electron affinity of Na, so is more likely to form a crystal than give up electrons(?)
+			
+		\item %3.5(a) 
+			\textbf{\textit{Linear ionic crystal.}} Consider a line of $2N$ ions of alternating charge $\pm q$ with a repulsive potential energy $A/R^n$ between the nearest neighbors. 
+
+			Show that at equilibrium separation, $$U(R_0) = -\frac{2Nq^2 \ln 2}{R_0} \left(1 - \frac{1}{n}\right).$$ 
+				
+			\solution The total potential is given by replacing\footnote{I'm not entirely sure if I'm understanding this correctly after some discussion with classmates. If we're replacing the repulsive term in the $U_{ij}$ before the double sums, wouldn't the repulsive term depend on the nearest neighbors $z$?} the repulsive term of eq. (20), \begin{align*}
+				U_{\mathrm{tot}} & = N \left(
+					\frac{A}{R^n} - \frac{\alpha q^2}{R}
+				\right).
+			\end{align*}
+			At equilibrium, we can evaluate the $R$ derivative and set it equal zero to find the equilibrium condition on $R$, \begin{align*}
+				\dv{U_{\mathrm{tot}}}{R} & = N \left(
+					-\frac{An}{R^{n+1}} 
+					+ \frac{\alpha q^2}{R^2}
+				\right) = 0.
+			\end{align*}
+			Now, to find $R_0$ and get the relationship between $R_0^n$ and $R_0$,
+			\begin{align*}
+				\implies \frac{An}{R_0^{n+1}} & = \frac{\alpha q^2}{R_0^2} \\
+				\frac{An}{{R_0}^n} & = \frac{\alpha q^2}{R_0} \\
+				\frac{{R_0}^n}{An} & = \frac{R_0}{\alpha q^2}.
+			\end{align*}
+			Substituting this in the original potential, \begin{align*}
+				U(R_0) & = N \left[
+					\frac{\alpha q^2}{R_0 n}
+					-
+					\frac{\alpha q^2}{R_0}
+				\right] \\
+					& = - \frac{N \alpha q}{R_0} \left(
+						1 - \frac{1}{n}
+					\right). \qed
+			\end{align*}
+				
+				
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,89 @@
+\documentclass{homework}
+
+\title{Homework 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{August 30, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\textbf{Prompt: } Prepare a one-paragraph summary of each subsection in the two chapters of the Feynman lectures that are available on the class web site. There are 14 subsections and thus your summary statement should contain 14 paragraphs.
+	
+	\begin{enumerate}
+		\item[1-1]  Quantum mechanics describes the very-small scale where objects act strangely, far different than the macroscopic scale of our everyday lives. There is not much intuition because of this and can be hard to understand. An example is given with the electron, behaving neither fully like a particle nor wave. Quantum mechanics was formalized by Schr\"odinger, Heisenberg, and Born in the early 20th century. 
+		
+		\item[1-2] Using bullets as an example, an experimental setup contains a gun that shoots a continuous stream of bullets toward a point with some random deviation. The apparatus contains two holes where the bullets may pass through, finally reaching a detector on the other side. Basically this is a double-slit experiment using bullets shot from a gun. The probabilities can be measured at each point along the backdrop by counting the number of bullets detected over the number of total shot. This results in a probability density curve that is independent of the firing rate and that there is no interference between the two holes, i.e. the bullets behave classically.
+		
+		\item[1-3] In a new experiment, we use water waves to demonstrate interference between the two slits of a double-slit experiment setup. Water is perturbed by a jiggling object, creating circular waves incident on two slits. A detector is placed beyond the slits, allowing the intensity to be found at each point on the backdrop. It's noted that the source amplitude directly affects the amplitude of the waves at the detector. With both holes unblocked, the waves are also diffracted by the holes, creating an interference pattern. When one hole is blocked, a single `lump' appears. The interference pattern is a result of phase differences between the waves at the outlets of each hole.
+		
+		\item[1-4] Finally, an example is given with electrons, where electrons are boiled off and accelerated toward two holes and eventually toward a detector. The detector can only output a on-off response, where the electron either reaches the detector or it doesn't---there is no half-response. However, we can measure the average rate at which the detector measures responses (like electrons per minute on average). (I'm not really sure if I fully understand what Feynman is talking about when he describes ``lumps''.) The result of the experiment shows interference pattern when plotted.
+		
+		\item[1-5] Starting with the proposition that each electron goes \textit{either} through hole 1 or hole 2, we can create additional experiments. If we block one of the holes and measure the pattern, we will get a single Gaussian-ish curve. Strangely, if we combine these two patterns for each hole and sum them, we do not get the pattern if both holes were unblocked (going against a classical view of the experiment). Like the water wave experiment, there appears to be interference with the electrons, i.e. $P_{12} \ne P_1 + P_2$. The result of the experiment is: electrons appear to be particles but the probability of arrival acts like a wave. This quantum mechanical wave is now represented by complex numbers, unlike the real counterpart of classical waves. Additionally, we say the original proposition described above must be false.
+		
+		\item[1-6] I think the pages were in the wrong order, so I'm merging this with the next section.
+		\item[1-7] Now we can alter the experiment and add a light source between the two holes, allowing us to see which hole the electrons pass through. This changes the result as now we're seeing a single Gaussian curve on the backdrop, meaning the electrons now behave just like classical particles. Now our last proposition from 1-4 is seemingly true and $P_{12} = P_1 + P_2$. The conclusion of this is: if we look at an electron, the distribution of them changes than if we don't look. Perhaps it's the light source affecting the electrons, but even if we use a dimmer source, the results are the same. If we use a longer wavelength that exceeds the electron momentum (given by the de Broglie relation), the electrons are not seen. \textit{If the electrons are not seen, we have interference.} 
+		
+		These sections are summarized as: (1) The probability of an event is given by the absolute value of a complex number squared, \begin{align*}
+			P & = \text{probability} \\
+			\phi & = \text{probability amplitude} \\
+			P & = \abs{\phi}^2.
+		\end{align*}
+		(2) The probability of an event is given by the sum of the probability amplitude of each individual event and there is interference, \begin{align*}
+			\phi & = \phi_1 + \phi_2, \\
+			P & = \abs{\phi_1 + \phi_2}^2.
+		\end{align*}
+		(3) If we can detect one or another path, there is no interference, $$P = P_1 + P_2.$$
+
+		There is a major difference between classical and quantum mechanics: it's impossible to know what exactly will happen in quantum mechanics, we can only find a probability. It seems that there are no hidden variables and there is an inherit randomness to physics. This touches on the uncertainty principle as if we did know which hole the electron passed through, it would disturb the electrons enough to destroy the interference pattern. 
+		
+		\item[1-8] Heisenberg stated the uncertainty principle as $$\Delta x = h / \Delta p,$$ as in you cannot know both the position and momentum more accurately than the Planck constant. This extends to our interference experiment where we cannot know which alternative was taken without destroying the interference (as this would result in knowing the position/path). If we consider a modification to the experiment where the slits can move freely along the wall, we can see if the wall experiences a vertical kick by the electrons, effectively giving us the momentum of the electron. This seems to violate the uncertainty principle, but instead what results is the interference pattern will be smeared out as a result of ``knowing'' the position and momentum.
+		
+		\pagebreak
+		
+		\item[2-1] In quantum mechanics, we can use an amplitude (well, the square of the amplitude) of a wavefunction to describe the probability of finding a particle. These amplitudes are represented in complex space and can sometimes be described sinusoidally in space and time. In these cases, we can connect the energy and momentum to a particle's wave nature with \begin{align*}
+			E & = \hbar \omega \\
+			\bvec{p} & = \hbar \bvec{k}.
+		\end{align*}
+		From the uncertainty principle, we cannot define a wavelength for a short wave train. This is akin to how there's a trade off between knowing a frequency of a short wave packet and the duration (in time) of the wave packet, especially when dealing with Fourier transforms.
+		
+		
+		\item[2-2] If we consider a particle moving horizontally and classically through a slit of width $B$ (from a source far away), we can say that its vertical momentum is zero (as it's from far). After passing through the slit, because there is an uncertainty in its $y$-position, namely $B/2$, we can conclude that in quantum mechanically, the vertical momentum cannot be zero after passing the hole. Again, if we decrease the size of $B$, we're taking a more accurate measurement of the position of the particle, therefore the diffraction pattern would get larger as the momentum is more uncertain. The uncertainty relation pertains to the predictability of a situation and not the past, if we knew a momentum before the slit, that knowledge is lost after the particle passes through the slit. Using a new method of measuring the particle, treating it as a wave, we can find the wavenumber $k$ and measure its momentum. Using a diffraction grating, we can determine the momentum by measuring the resolving power of the grating. To have a sharp line (i.e. a definite momentum), the wave train has to exceed the length to the grating. This is because if the wavetrain is finite and short, the wavenumber cannot be counted precisely. 
+		
+		\item[2-3] Now, we're considering the reflection from particle waves from a crystal (I'm pretty sure this is Bragg reflection), where the crystal is a lattice of atoms which the incident particle interacts with. In order for an additive (coherent) reflection to occur, it follows $$2d \sin \theta = n \lambda, \qquad n \in \mathbb{N},$$
+		where $d$ is the lattice spacing and $\theta$ is the angle of incidence. As a result of this, different patterns emerge depending on the lattice type and spacing. The intensity is also affected by what particles are scattering the waves. For lattice spacings less than $\lambda / 2$, there are no valid solutions for $n$. As a result, the incident waves pass through the material without interaction (Feynman provides an example with neutrons passing through a graphite block). This confirms the idea of particle waves.
+		
+		\item[2-4] Here, we consider a new example of an electron orbiting a nucleus. Classically, the electron should spiral down to the nucleus and orbit light on its way down (though this is not right quantum mechanically). Suppose we measure the electron about a hydrogen atom, and measure its position with uncertainty $\Delta x \approx O(a)$. Then the spread in momentum must be $h/a$ by the uncertainty relation. The kinetic energy is then $$\frac{mv^2}{2} = p^2 / 2m = h^2 / 2ma^2.$$ Along with the Coulomb potential, the total energy is roughly
+		$$E = h^2 / 2ma^2 - e^2 / a.$$
+		We can minimize the energy with respect to $a$ and find
+		$$\dv{E}{a} = -h^2 / ma^3 + e^2 / a^2 = 0,$$
+		$$a = \SI{0.528}{\angstrom}.$$
+		Using this in the total energy, we find $E = \SI{-13.6}{\eV}$. This implies the electron has less energy when it is bound in hydrogen than a free electron (and that it should take \SI{13.6}{\eV} to ionize a hydrogen atom). Finally, we see this is the Rydberg of energy and can be confirmed experimentally.
+		
+		\item[2-5] Electrons bound in an atom has a lowest energy (shown in 2-5), but also can ``jiggle and wiggle in a more energetic manner'', leading to additional higher energy levels. These can be plotted (like in Figure 2-9) with allowed non-arbitrary energy levels when bound, but can have any energy when free ($E>0$). When in an excited bound state, it can fall to a lower energy level and release a photon with energy $E_k - E_{k-1} = \hbar \omega_{k \to k-1}$. These frequencies are also additive, called the \textit{Ritz combination principle}. 
+		
+		\item[2-6] Feynman now discusses the philosophical implications of quantum mechanics. He notes that applying science to other fields often distorts the idea. A most interesting idea is the uncertainty principle and how observing something affects the phenomenon. There is no way to observe something without affecting the outcome, we can only minimize the effect: \textit{the disturbance is necessary for the consistency of the viewpoint.} Feynman also discusses that things we cannot measure has no place in theory. And since momentum of a localized particle cannot be measured, it should not have a place in theory. However, Feynman argues that although we cannot precisely measure them does not mean we cannot talk about them---instead he says we need not talk of them, i.e. measuring the momentum is moot. Classical theory is not wrong and quantum mechanics cannot always give the exact prediction. Instead quantum mechanics predicts the probability amplitude of things we cannot measure directly. 
+	\end{enumerate}
+\end{document}

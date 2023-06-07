@@ -1,0 +1,75 @@
+\documentclass{homework}
+
+\title{Homework 8}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 25, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\newcommand{\aplus}{\hat{a}_+}
+\newcommand{\aminus}{\hat{a}_-}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item Starting from (2.58) and following the proof on p. 42, \begin{align*}
+			\hat{H} & = \hbar \omega \left(\hat{a}_\pm \hat{a}_\mp \pm \frac{1}{2}\right), \\
+			\hat{H}(\hat{a}_- \psi) & = \hbar \omega \left(\aminus \aplus - \frac{1}{2}  \right) \aminus \psi \\
+				& = \hbar \omega \aminus \left(\aplus \aminus - \frac{1}{2} \right)\psi
+			\intertext{As $\comm{\aminus}{\aplus} = \aminus \aplus - \aplus \aminus = 1 \implies \aplus \aminus = \aminus \aplus - 1$,}
+				& = \aminus \left[
+					\hbar \omega \left(\aminus \aplus - 1 - \frac{1}{2}\right) \psi
+				\right] \\
+				& = \aminus \left[
+					\underbrace{\hbar \omega \left(\aminus \aplus  - \frac{1}{2}\right)}_{\hat{H}}- \hbar \omega 
+				\right]\psi  \\
+				\hat{H}(\aminus \psi) & = \aminus \left(E - \hbar \omega\right) \psi \qed
+			\intertext{Therefore $E-\hbar \omega$ is a solution to the Hamiltonian of the lowering operator on a wavefunction.}
+		\end{align*}
+		On the ground state, the energy is $E_0 = \hbar \omega / 2$ and lowering it results in a negative energy $$E_{-1} = -\hbar \omega / 2.$$
+		\item From the analytical solution (2.86), \begin{align*}
+			\psi(x) & = \left(\frac{m \omega}{\pi \hbar}\right)^{1/4}\frac{1}{\sqrt{2^n n!}} H_n (\xi) e^{-\xi^2 / 2} \\
+				& = \left(\frac{m \omega}{\pi \hbar}\right)^{1/4} e^{- \xi^2 / 2} \\
+				& = \left(\frac{m \omega}{\pi \hbar}\right)^{1/4} e^{- m \omega x^2 / 2 \hbar}.
+		\end{align*}
+		Then applying the raising operator $\hat{a}_+$, \begin{align*}
+			\hat{a}_+ \psi(x) & = \frac{1}{\sqrt{2 \hbar m \omega}} \left(- i \hat{p} + m \omega x\right) \psi(x) \\
+				& =  \frac{1}{\sqrt{2 \hbar m \omega}} \left(
+						\frac{m \omega}{\pi \hbar}
+					\right)^{1/4} 
+					\left(
+						m \omega x e^{-m \omega x^2 / 2 \hbar} 
+						+ m \omega x e^{-m \omega x^2 / 2 \hbar}
+					\right) \\
+				& = \left(
+				\frac{m \omega}{\pi \hbar}
+				\right)^{1/4} \frac{1}{\sqrt{2}} \left(2
+					\sqrt{ \frac{m \omega}{\hbar} } x
+				\right) e^{-m \omega x^2 / 2 \hbar}.
+		\end{align*}
+		\item Study Chapter 3.5.
+	\end{enumerate}
+\end{document}

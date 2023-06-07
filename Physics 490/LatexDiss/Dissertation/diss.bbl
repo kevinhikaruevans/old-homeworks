@@ -1,0 +1,595 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global}
+    \entry{shankar2012principles}{book}{}
+      \name{author}{1}{}{%
+        {{hash=da264ccf69a35c1d68643cdd7b991c43}{%
+           family={Shankar},
+           familyi={S\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer US}%
+      }
+      \strng{namehash}{da264ccf69a35c1d68643cdd7b991c43}
+      \strng{fullhash}{da264ccf69a35c1d68643cdd7b991c43}
+      \strng{bibnamehash}{da264ccf69a35c1d68643cdd7b991c43}
+      \strng{authorbibnamehash}{da264ccf69a35c1d68643cdd7b991c43}
+      \strng{authornamehash}{da264ccf69a35c1d68643cdd7b991c43}
+      \strng{authorfullhash}{da264ccf69a35c1d68643cdd7b991c43}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781475705768}
+      \field{title}{Principles of Quantum Mechanics}
+      \field{year}{2012}
+      \verb{urlraw}
+      \verb https://books.google.com/books?id=sDvrBwAAQBAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.com/books?id=sDvrBwAAQBAJ
+      \endverb
+    \endentry
+    \entry{GouldTobochnik+2010}{book}{}
+      \name{author}{2}{}{%
+        {{hash=48b7065868685fa8de1482e6df40ce77}{%
+           family={Gould},
+           familyi={G\bibinitperiod},
+           given={Harvey},
+           giveni={H\bibinitperiod}}}%
+        {{hash=113863d9c4a11cfebe0de7a56daa9458}{%
+           family={Tobochnik},
+           familyi={T\bibinitperiod},
+           given={Jan},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{3836e80e36c93fc322e0b20bc31ae8f3}
+      \strng{fullhash}{3836e80e36c93fc322e0b20bc31ae8f3}
+      \strng{bibnamehash}{3836e80e36c93fc322e0b20bc31ae8f3}
+      \strng{authorbibnamehash}{3836e80e36c93fc322e0b20bc31ae8f3}
+      \strng{authornamehash}{3836e80e36c93fc322e0b20bc31ae8f3}
+      \strng{authorfullhash}{3836e80e36c93fc322e0b20bc31ae8f3}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781400837038}
+      \field{title}{Statistical and Thermal Physics: With Computer Applications}
+      \field{year}{2010}
+      \verb{doi}
+      \verb doi:10.1515/9781400837038
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1515/9781400837038
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1515/9781400837038
+      \endverb
+    \endentry
+    \entry{einstein1924quantum}{article}{}
+      \name{author}{1}{}{%
+        {{hash=3ebf53e52a3ce84f0ffb8553200a6a63}{%
+           family={Einstein},
+           familyi={E\bibinitperiod},
+           given={Albert},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{fullhash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{bibnamehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{authorbibnamehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{authornamehash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \strng{authorfullhash}{3ebf53e52a3ce84f0ffb8553200a6a63}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Sitzungsberichte der Preussischen Akademie der Wissenschaften, Physikalisch-mathematische Klasse}
+      \field{title}{Quantum theory of the monatomic ideal gas}
+      \field{year}{1924}
+      \field{pages}{261\bibrangedash 267}
+      \range{pages}{7}
+    \endentry
+    \entry{allen1938flow}{article}{}
+      \name{author}{2}{}{%
+        {{hash=56b43e8202a41b02debd00802429acc1}{%
+           family={Allen},
+           familyi={A\bibinitperiod},
+           given={John\bibnamedelima F},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=77fe5c7b008ae57e555767a57fd234bc}{%
+           family={Misener},
+           familyi={M\bibinitperiod},
+           given={AD},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Nature Publishing Group}%
+      }
+      \strng{namehash}{31733eccf6adad7ec4c795cfd6f18180}
+      \strng{fullhash}{31733eccf6adad7ec4c795cfd6f18180}
+      \strng{bibnamehash}{31733eccf6adad7ec4c795cfd6f18180}
+      \strng{authorbibnamehash}{31733eccf6adad7ec4c795cfd6f18180}
+      \strng{authornamehash}{31733eccf6adad7ec4c795cfd6f18180}
+      \strng{authorfullhash}{31733eccf6adad7ec4c795cfd6f18180}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature}
+      \field{number}{3558}
+      \field{title}{Flow of liquid helium II}
+      \field{volume}{141}
+      \field{year}{1938}
+      \field{pages}{75\bibrangedash 75}
+      \range{pages}{1}
+    \endentry
+    \entry{ensher1996bose}{article}{}
+      \name{author}{5}{}{%
+        {{hash=591c89c332d85b6300101dc5f8637038}{%
+           family={Ensher},
+           familyi={E\bibinitperiod},
+           given={JR},
+           giveni={J\bibinitperiod}}}%
+        {{hash=7fde0cba67ef9337366bef9ea08192b0}{%
+           family={Jin},
+           familyi={J\bibinitperiod},
+           given={Deborah\bibnamedelima S},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=3efb37de2d396b5e006e0f39757459d2}{%
+           family={Matthews},
+           familyi={M\bibinitperiod},
+           given={MR},
+           giveni={M\bibinitperiod}}}%
+        {{hash=d15b1c557ef076c4d97fd757b427146b}{%
+           family={Wieman},
+           familyi={W\bibinitperiod},
+           given={CE},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8946550f9dce9878b27d1a21469c5e4c}{%
+           family={Cornell},
+           familyi={C\bibinitperiod},
+           given={Eric\bibnamedelima A},
+           giveni={E\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {APS}%
+      }
+      \strng{namehash}{8d4e2c3b9cf6801c21ecab0eceabdf2f}
+      \strng{fullhash}{aeef0863e63020a3f0db72b5f06c2fbf}
+      \strng{bibnamehash}{aeef0863e63020a3f0db72b5f06c2fbf}
+      \strng{authorbibnamehash}{aeef0863e63020a3f0db72b5f06c2fbf}
+      \strng{authornamehash}{8d4e2c3b9cf6801c21ecab0eceabdf2f}
+      \strng{authorfullhash}{aeef0863e63020a3f0db72b5f06c2fbf}
+      \field{sortinit}{5}
+      \field{sortinithash}{20e9b4b0b173788c5dace24730f47d8c}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Physical Review Letters}
+      \field{number}{25}
+      \field{title}{Bose-Einstein condensation in a dilute gas: Measurement of energy and ground-state occupation}
+      \field{volume}{77}
+      \field{year}{1996}
+      \field{pages}{4984}
+      \range{pages}{1}
+    \endentry
+    \entry{HK:1964}{article}{}
+      \name{author}{2}{}{%
+        {{hash=40ea553b503fe0418f7f07689980cd95}{%
+           family={Hohenberg},
+           familyi={H\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=5d41414fe0631332e20a859e66a25627}{%
+           family={Kohn},
+           familyi={K\bibinitperiod},
+           given={W.},
+           giveni={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{7d5f8c830aae8dc4c996b32459939beb}
+      \strng{fullhash}{7d5f8c830aae8dc4c996b32459939beb}
+      \strng{bibnamehash}{7d5f8c830aae8dc4c996b32459939beb}
+      \strng{authorbibnamehash}{7d5f8c830aae8dc4c996b32459939beb}
+      \strng{authornamehash}{7d5f8c830aae8dc4c996b32459939beb}
+      \strng{authorfullhash}{7d5f8c830aae8dc4c996b32459939beb}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{11}
+      \field{number}{3B}
+      \field{title}{Inhomogeneous Electron Gas}
+      \field{volume}{136}
+      \field{year}{1964}
+      \field{pages}{B864\bibrangedash B871}
+      \range{pages}{-1}
+    \endentry
+    \entry{vulpiani2009chaos}{book}{}
+      \name{author}{3}{}{%
+        {{hash=8e44118cc185cb1bbb090b56d9b2f45b}{%
+           family={Vulpiani},
+           familyi={V\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=9e9383a725a35ea0af26cf0f564a8313}{%
+           family={Cecconi},
+           familyi={C\bibinitperiod},
+           given={F.},
+           giveni={F\bibinitperiod}}}%
+        {{hash=1db5383737039f5742bcefd8e3b3f97d}{%
+           family={Cencini},
+           familyi={C\bibinitperiod},
+           given={M.},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {World Scientific Publishing Company}%
+      }
+      \strng{namehash}{93240d1b60494353b80b82334832eb4a}
+      \strng{fullhash}{32cd16aaa092b43b7d85f1b70bd59c59}
+      \strng{bibnamehash}{32cd16aaa092b43b7d85f1b70bd59c59}
+      \strng{authorbibnamehash}{32cd16aaa092b43b7d85f1b70bd59c59}
+      \strng{authornamehash}{93240d1b60494353b80b82334832eb4a}
+      \strng{authorfullhash}{32cd16aaa092b43b7d85f1b70bd59c59}
+      \field{sortinit}{7}
+      \field{sortinithash}{108d0be1b1bee9773a1173443802c0a3}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9789814467490}
+      \field{series}{Series On Advances In Statistical Mechanics}
+      \field{title}{Chaos: From Simple Models To Complex Systems}
+      \field{year}{2009}
+      \verb{urlraw}
+      \verb https://books.google.com/books?id=29jFCgAAQBAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.com/books?id=29jFCgAAQBAJ
+      \endverb
+    \endentry
+    \entry{DeterministicNonperiodicFlow}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b3eeab11b971bbf5ed269c4f19465b91}{%
+           family={Lorenz},
+           familyi={L\bibinitperiod},
+           given={Edward\bibnamedelima N.},
+           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston MA, USA}%
+      }
+      \list{publisher}{1}{%
+        {American Meteorological Society}%
+      }
+      \strng{namehash}{b3eeab11b971bbf5ed269c4f19465b91}
+      \strng{fullhash}{b3eeab11b971bbf5ed269c4f19465b91}
+      \strng{bibnamehash}{b3eeab11b971bbf5ed269c4f19465b91}
+      \strng{authorbibnamehash}{b3eeab11b971bbf5ed269c4f19465b91}
+      \strng{authornamehash}{b3eeab11b971bbf5ed269c4f19465b91}
+      \strng{authorfullhash}{b3eeab11b971bbf5ed269c4f19465b91}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Atmospheric Sciences}
+      \field{number}{2}
+      \field{title}{Deterministic Nonperiodic Flow}
+      \field{volume}{20}
+      \field{year}{1963}
+      \field{pages}{130\bibrangedash 141}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2
+      \endverb
+      \verb{urlraw}
+      \verb https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml
+      \endverb
+      \verb{url}
+      \verb https://journals.ametsoc.org/view/journals/atsc/20/2/1520-0469_1963_020_0130_dnf_2_0_co_2.xml
+      \endverb
+    \endentry
+    \entry{bohr_n_1920_2051363}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=a0bed8dbeec8d1cc48216777bb7dae35}{%
+           family={Bohr},
+           familyi={B\bibinitperiod},
+           given={N.},
+           giveni={N\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Zenodo}%
+      }
+      \strng{namehash}{a0bed8dbeec8d1cc48216777bb7dae35}
+      \strng{fullhash}{a0bed8dbeec8d1cc48216777bb7dae35}
+      \strng{bibnamehash}{a0bed8dbeec8d1cc48216777bb7dae35}
+      \strng{authorbibnamehash}{a0bed8dbeec8d1cc48216777bb7dae35}
+      \strng{authornamehash}{a0bed8dbeec8d1cc48216777bb7dae35}
+      \strng{authorfullhash}{a0bed8dbeec8d1cc48216777bb7dae35}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{10}
+      \field{title}{Über die Serienspektra der Elemente}
+      \field{year}{1920}
+      \verb{doi}
+      \verb 10.1007/bf01329978
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/bf01329978
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/bf01329978
+      \endverb
+    \endentry
+    \entry{PhysRevA.83.043611}{article}{}
+      \name{author}{5}{}{%
+        {{hash=f5edaa203b561ca88c72430f8fd09d25}{%
+           family={Brezinová},
+           familyi={B\bibinitperiod},
+           given={Iva},
+           giveni={I\bibinitperiod}}}%
+        {{hash=f51d94d36f4fa084f189116a3d71ca5a}{%
+           family={Collins},
+           familyi={C\bibinitperiod},
+           given={Lee\bibnamedelima A.},
+           giveni={L\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=cc40c71a1a023dfad7aebe878d47bef0}{%
+           family={Ludwig},
+           familyi={L\bibinitperiod},
+           given={Katharina},
+           giveni={K\bibinitperiod}}}%
+        {{hash=03fd4a80b66c34586a4b3c5cbc243f18}{%
+           family={Schneider},
+           familyi={S\bibinitperiod},
+           given={Barry\bibnamedelima I.},
+           giveni={B\bibinitperiod\bibinitdelim I\bibinitperiod}}}%
+        {{hash=21fb933072f95ad6a47e66e2419bbb0b}{%
+           family={Burgdörfer},
+           familyi={B\bibinitperiod},
+           given={Joachim},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{cff00709103f1e8148ada7dec7b0a629}
+      \strng{fullhash}{3b540330850823d42ec1219049e45a0f}
+      \strng{bibnamehash}{3b540330850823d42ec1219049e45a0f}
+      \strng{authorbibnamehash}{3b540330850823d42ec1219049e45a0f}
+      \strng{authornamehash}{cff00709103f1e8148ada7dec7b0a629}
+      \strng{authorfullhash}{3b540330850823d42ec1219049e45a0f}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{4}
+      \field{journaltitle}{Phys. Rev. A}
+      \field{month}{4}
+      \field{title}{Wave chaos in the nonequilibrium dynamics of the Gross-Pitaevskii equation}
+      \field{volume}{83}
+      \field{year}{2011}
+      \field{pages}{043611}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1103/PhysRevA.83.043611
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevA.83.043611
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevA.83.043611
+      \endverb
+    \endentry
+    \entry{PhysRevLett.62.2065}{article}{}
+      \name{author}{2}{}{%
+        {{hash=030a87c1c34fe1fe16be97abc2a87283}{%
+           family={Herbst},
+           familyi={H\bibinitperiod},
+           given={B.\bibnamedelimi M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+        {{hash=73dafdfe8c8171704d8387cc669c10f8}{%
+           family={Ablowitz},
+           familyi={A\bibinitperiod},
+           given={Mark\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{37b25cb6d2ff8b0b732ccc6352309c88}
+      \strng{fullhash}{37b25cb6d2ff8b0b732ccc6352309c88}
+      \strng{bibnamehash}{37b25cb6d2ff8b0b732ccc6352309c88}
+      \strng{authorbibnamehash}{37b25cb6d2ff8b0b732ccc6352309c88}
+      \strng{authornamehash}{37b25cb6d2ff8b0b732ccc6352309c88}
+      \strng{authorfullhash}{37b25cb6d2ff8b0b732ccc6352309c88}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{18}
+      \field{journaltitle}{Phys. Rev. Lett.}
+      \field{month}{5}
+      \field{title}{Numerically induced chaos in the nonlinear Schrödinger equation}
+      \field{volume}{62}
+      \field{year}{1989}
+      \field{pages}{2065\bibrangedash 2068}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.62.2065
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.62.2065
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.62.2065
+      \endverb
+    \endentry
+    \entry{PhysRevLett.71.2683}{article}{}
+      \name{author}{3}{}{%
+        {{hash=73dafdfe8c8171704d8387cc669c10f8}{%
+           family={Ablowitz},
+           familyi={A\bibinitperiod},
+           given={Mark\bibnamedelima J.},
+           giveni={M\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=0df27588490e71e0b57ecbbc27a91079}{%
+           family={Schober},
+           familyi={S\bibinitperiod},
+           given={Constance},
+           giveni={C\bibinitperiod}}}%
+        {{hash=48c25e74de88b4dc08af2fa6b2aa6bda}{%
+           family={Herbst},
+           familyi={H\bibinitperiod},
+           given={Ben\bibnamedelima M.},
+           giveni={B\bibinitperiod\bibinitdelim M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {American Physical Society}%
+      }
+      \strng{namehash}{d7a546053e451608b7ea0e095126f1ec}
+      \strng{fullhash}{9d47450b240a90adc1b173e10eedf8a5}
+      \strng{bibnamehash}{9d47450b240a90adc1b173e10eedf8a5}
+      \strng{authorbibnamehash}{9d47450b240a90adc1b173e10eedf8a5}
+      \strng{authornamehash}{d7a546053e451608b7ea0e095126f1ec}
+      \strng{authorfullhash}{9d47450b240a90adc1b173e10eedf8a5}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{issue}{17}
+      \field{journaltitle}{Phys. Rev. Lett.}
+      \field{month}{10}
+      \field{title}{Numerical chaos, roundoff errors, and homoclinic manifolds}
+      \field{volume}{71}
+      \field{year}{1993}
+      \field{pages}{2683\bibrangedash 2686}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1103/PhysRevLett.71.2683
+      \endverb
+      \verb{urlraw}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.71.2683
+      \endverb
+      \verb{url}
+      \verb https://link.aps.org/doi/10.1103/PhysRevLett.71.2683
+      \endverb
+    \endentry
+    \entry{Barenghi_2016}{article}{}
+      \name{author}{2}{}{%
+        {{hash=bc4fef953132cce55213aff5f150be10}{%
+           family={Barenghi},
+           familyi={B\bibinitperiod},
+           given={Carlo},
+           giveni={C\bibinitperiod}}}%
+        {{hash=f91483792e0204cad73d8ea41ed6a8a2}{%
+           family={Parker},
+           familyi={P\bibinitperiod},
+           given={Nick\bibnamedelima G.},
+           giveni={N\bibinitperiod\bibinitdelim G\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{ed10389734ec5b5800b102f38eca1fd8}
+      \strng{fullhash}{ed10389734ec5b5800b102f38eca1fd8}
+      \strng{bibnamehash}{ed10389734ec5b5800b102f38eca1fd8}
+      \strng{authorbibnamehash}{ed10389734ec5b5800b102f38eca1fd8}
+      \strng{authornamehash}{ed10389734ec5b5800b102f38eca1fd8}
+      \strng{authorfullhash}{ed10389734ec5b5800b102f38eca1fd8}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9783319424767}
+      \field{issn}{2191-5431}
+      \field{journaltitle}{SpringerBriefs in Physics}
+      \field{title}{A Primer on Quantum Fluids}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1007/978-3-319-42476-7
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/978-3-319-42476-7
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/978-3-319-42476-7
+      \endverb
+    \endentry
+    \entry{pethick2002bose}{book}{}
+      \name{author}{2}{}{%
+        {{hash=51982a6e8e4825889211a5e335e8d184}{%
+           family={Pethick},
+           familyi={P\bibinitperiod},
+           given={C.J.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=652628f425826f7462847f8cd14aba85}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={H.},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{57c0f3a41165ef316bc6d6403b8e2500}
+      \strng{fullhash}{57c0f3a41165ef316bc6d6403b8e2500}
+      \strng{bibnamehash}{57c0f3a41165ef316bc6d6403b8e2500}
+      \strng{authorbibnamehash}{57c0f3a41165ef316bc6d6403b8e2500}
+      \strng{authornamehash}{57c0f3a41165ef316bc6d6403b8e2500}
+      \strng{authorfullhash}{57c0f3a41165ef316bc6d6403b8e2500}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780521665803}
+      \field{title}{Bose-Einstein Condensation in Dilute Gases}
+      \field{year}{2002}
+      \verb{urlraw}
+      \verb https://books.google.com/books?id=iBk0G3\_5iIQC
+      \endverb
+      \verb{url}
+      \verb https://books.google.com/books?id=iBk0G3%5C_5iIQC
+      \endverb
+    \endentry
+    \entry{1985--ieee754}{book}{}
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Electrical}%
+        {Electronics Engineers}%
+      }
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{{IEEE standard for binary floating-point arithmetic}}
+      \field{note}{Note: Standard 754--1985}
+      \field{title}{{IEEE standard for binary floating-point arithmetic}}
+      \field{year}{1985}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

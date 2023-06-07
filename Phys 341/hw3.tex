@@ -1,0 +1,128 @@
+\documentclass{homework}
+
+\title{Homework 3}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 16, 2020}
+\setclass{Physics}{341}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item Since the $\delta$ function is at $x=3$ and the upper bound of the integral is $2$, the integral evaluates to zero,
+			\[ \int_0^2 \left(2x + 3\right) \delta(x - 3) \dd{x} = 0\]
+			
+			\item The $\delta$ function is at zero and evaluate to $1$. \begin{align*}
+				\int_{-2}^2 \left(x^2 + x + 1\right) \delta(x) \dd{x} & = \left[x^2 + x + 1\right]_{x=0} = 1
+			\end{align*}
+		
+			\item Using the scaling property, \begin{align*}
+				\int_{-1}^1 9 \left(x+1\right)^2 \delta(3x) \dd{x} & = \int_{-1}^1 3 \left(x + 1\right)^2 \delta(x) \dd{x} \\
+					& = \left[3 \left(x + 1\right)^2\right]_{x=0} = 3
+			\end{align*}
+		
+			\item The $\delta$ function is located at $x=0$ and will evaluate to zero, \begin{align*}
+				\int_{-\pi}^{\pi} \sin(x) \delta(x) \dd{x} & = \left[ \sin x \right]_{x=0} = 0
+			\end{align*}
+		\end{enumerate}
+	
+		\pagebreak
+		
+		\item \begin{enumerate}
+			\item For $\bvec{v} = yz \uvec{x} + xz \uvec{y} + xy \uvec{z}$, \begin{align*}
+				\div{\bvec{v}} & = 0 \qquad \text{} \\
+				\curl{\bvec{v}} & = \abs{\begin{matrix}
+						\uvec{x} & \uvec{y} & \uvec{z} \\
+						\pdv{x} & \pdv{y} & \pdv{z} \\
+						yz & xz & xy
+				\end{matrix}} \\
+				& = \left(x - x\right) \uvec{x} + \left(y - y\right) \uvec{y} + \left(z - z\right) \uvec{z} = 0
+			\end{align*}
+		
+		
+			\item For the scalar potential $V$, we can just inspect and integrate each differential and find \begin{align*}
+				\bvec{v} & = -\grad{V} \\
+				yz \uvec{x} + xz \uvec{y} + xy \uvec{z} & = -\left(\pdv{V}{x} \uvec{x} + \pdv{V}{y} \uvec{y} + \pdv{V}{z} \uvec{z} \right) \\
+				V & = - xyz 
+				\intertext{The vector potential $\bvec{A}$ is found using}
+				\bvec{v} & = \curl{\bvec{A}} \\
+				v_x & = \pdv{A_z}{y} - \pdv{A_y}{z} = yz \\
+				v_y & = \pdv{A_x}{z} - \pdv{A_z}{x} = xz \\
+				v_z & = \pdv{A_y}{x} - \pdv{A_x}{y} = xy
+				\intertext{Letting the second differential equal zero in each $v_i$ expression above, a vector potential is}
+				\bvec{A} & = \frac{xz^2}{2} \uvec{x} + \frac{yx^2}{2} \uvec{y} + \frac{zy^2}{2} \uvec{z}
+			\end{align*}
+		\end{enumerate}
+	
+		\item The displacement vector from each charge is \begin{align*}
+			\boldscriptr & = \bvec{r} - \bvec{r}' = z \uvec{z} \pm \frac{d}{2} \uvec{x} \\
+			\abs{\boldscriptr} & = \left(z^2 + \frac{d^2}{4}\right)^{1/2}
+			\intertext{The sum of the two electric fields add and point toward the $-\uvec{x}$ direction}
+			\bvec{E} & = \frac{1}{4\pi \epsilon_0} \sum_i \frac{q_i}{\abs{\boldscriptr_i}^2} \uvec{\scriptr}_i\\
+				& = \frac{q}{4\pi \epsilon_0} \frac{1}{\left(z^2 + d^2 / 4\right)^{3/2}} \bigg(\underbrace{z\uvec{z} - \frac{d}{2} \uvec{x}}_\text{due to $+q$} - \underbrace{z\uvec{z} - \frac{d}{2} \uvec{x}}_{-q}\bigg) \\
+				& = -\frac{qd \uvec{x}}{4 \pi \epsilon_0 \left(z^2 + d^2 / 4\right)^{3/2}}
+		\end{align*}
+	
+		\item For a line segment, the tiny bit of charge would be $\dd{q} = \lambda \dd{\ell'}$ and the displacement vector \begin{align*}
+			\boldscriptr & = \bvec{r} - \bvec{r}' = d \uvec{x} - y' \uvec{y} \\
+			\abs{\boldscriptr} & = \left( d^2 + y'^2\right)^{1/2}
+		\end{align*}
+		The electric field at point $P$ becomes \begin{align*}
+			\bvec{E} & = \frac{1}{4\pi \epsilon_0} \int_0^L \frac{1}{\left(d^2 + y'^2\right)^{3/2}} \left(d \uvec{x} - y' \uvec{y}\right) \left( \lambda \dd{\ell}'\right)
+			\intertext{Bringing out the $\lambda$ (as it's uniform) and rearranging,}
+			\bvec{E} & = \frac{\lambda}{4 \pi \epsilon_0} \left[
+				d \uvec{x} \int_0^L \left(d^2 + y'^2\right)^{-3/2} \dd{y'}
+				- \uvec{y} \int_0^L \frac{y'}{\left(d^2 + y'^2\right)^{3/2}} \dd{y'}
+			\right] \\
+				& = \frac{\lambda}{4 \pi \epsilon_0} \left[
+					\frac{L}{d \sqrt{d^2 + L^2}} \uvec{x}
+					+ \left(
+						\frac{1}{\sqrt{d^2 + L^2}}
+						- \frac{1}{d}
+					\right) \uvec{y}
+				\right] \quad \leftarrow \text{integration table}
+			\intertext{For the case $d \gg L$, the terms in the $\uvec{y}$ group would cancel and we would be left with something like a point charge at the origin}
+			\bvec{E} & = \frac{1}{4 \pi \epsilon_0} \frac{\lambda L}{d \sqrt{d^2}} \uvec{x} = \frac{1}{4 \pi \epsilon_0 } \frac{Q_\mathrm{total}}{d^2} \uvec{x}
+		\end{align*}
+		
+		
+		\item From the symmetry of the ring, we can expect the only non-zero component of the electric field will be in the $\uvec{z}$-direction and reduce the $\boldscriptr$ vector expression, though its magnitude would still contain an $R$ term. \begin{align*}
+			\dd{q} & = \lambda \dd{\ell'} = \lambda s' \dd{\phi}' = \lambda R \dd{\phi}' \\
+			\boldscriptr & = \bvec{r} - \bvec{r}' \approx z \uvec{z}\\
+			\abs{\boldscriptr} & = \left(z^2 + R^2\right)^{1/2} 
+			\intertext{Putting this all together, we would integrate fully around $\phi'$,}
+			\bvec{E} & = \frac{1}{4 \pi \epsilon_0} \int_0^{2\pi} \frac{\lambda R z \dd{\phi'}}{\left(z^2 + R^2\right)^{3/2}} \uvec{z} \\
+				& = \frac{\lambda R z}{2 \epsilon_0 \left(z^2 + R^2\right)^{3/2}} \uvec{z}
+			\intertext{At $z \gg R$, the electric field approaches something resembling a point charge}
+			\bvec{E} & = \frac{\lambda R z}{2 \epsilon_0 \left(z^2\right)^{3/2}} \uvec{z} = \frac{\lambda R}{2 \epsilon_0 z^2} \uvec{z}
+		\end{align*}
+	\end{enumerate}
+\end{document}

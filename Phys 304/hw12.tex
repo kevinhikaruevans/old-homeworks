@@ -1,0 +1,106 @@
+\documentclass{homework}
+
+\title{Homework 12}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{April 26, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{graphicx} 
+\DeclareSIUnit{\year}{yr}
+\usepackage[export]{adjustbox}
+
+\usepackage{dsfont}
+\newcommand{\1}{\mathds{1}}
+
+\begin{document}
+	\maketitle
+	\subsubsection*{Chapter 16: Cosmology}
+	\begin{enumerate}[label={\arabic*.}]
+		\item[3.] \begin{enumerate}
+			\item From Hubble's law,  \begin{align*}
+				v & = H_0 R \\
+				R & = \frac{ 0.55 \times \SI{3e5}{\km/\s} }{\SI{23e-6}{\km/\s/ly}} \\
+				& = \SI{7.17e9}{ly}
+			\end{align*}
+			
+			\item Assuming a constant speed, \begin{align*}
+				t & = \frac{R}{v} = \frac{ \SI{7.17e9}{ly} }{0.55 c} \\
+					& = \SI{13}{\giga\year}
+			\end{align*}
+		\end{enumerate}
+		\item[4.] \begin{enumerate}
+			\item For $a(t) = Ae^{bt}$, then $\dot{a}(t) = Ab e^{bt} = b a(t)$ and \begin{align*}
+				H(t) & = \frac{\dot{a}(t)}{a(t)} \\
+				& = b \qed
+			\end{align*}
+			\item From ($16.21$), \begin{align*}
+				a & = C t^{2/3} \\
+				\dot{a} & = \frac{2}{3} C t^{-1/3} \\
+				H(t) & = \frac{ \dot{a} }{a} = \frac{2 t^{-1/3}}{3t^{2/3}} \\
+					& = \frac{2}{3 t}
+			\end{align*}
+		\end{enumerate} 
+		\item[5.] \begin{enumerate}
+			\item From ($16.22$) and Hubble's law, \begin{align*}
+				1 + Z & = \frac{ a(t_0) }{a(t_e)} = \frac{R(t_0)}{R(t_e)} \\
+				R_0 & = 6 R_e \\
+				& = \frac{6 v_e}{H_0} = \frac{6c}{H_0} \left(\frac{Z^2 + 2Z}{Z^2 + 2Z + 2} \right) \\
+				& = 5.676 \frac{c}{H_0} \\
+				& = \SI{7.403e10}{ly}
+			\end{align*}
+			\item Using ($16.23$) and the result of 4(b), \begin{align*}
+				t_0 & = 6^{3/2} t_e \\
+					& = 6^{3/2} \left( \frac{2}{3 H(t_e)} \right) \\
+					& = 6^{3/2} \left( \frac{2}{3 H(t_e)} \right) \\
+					& = \SI{426e3}{ly / (\km/\s)} \\
+					& = \SI{1.28e11}{\year}
+			\end{align*}
+		\end{enumerate}
+		\item[7.] \begin{enumerate}
+			\item For that redshift, \begin{align*}
+				Z & = \frac{\Delta \lambda}{\lambda_0} \approx 0.500 \\
+				v & = c \left(\frac{0.5^2 + 1}{0.5^2 + 3}\right) = 0.385c
+			\end{align*}
+			\item From ($16.10$), \begin{align*}
+				R & = \frac{0.385 c}{H_0} \\
+					& \approx \SI{16.7e3}{ly}
+			\end{align*}
+		\end{enumerate}
+		\item[13.] \begin{enumerate}
+			\item If the expansion proceeds at a constant rate, from Hubble's law, \begin{align*}
+					v & = H_0 R \\
+					\frac{R}{t} & = H_0 R \\
+					t & = \frac{1}{H_0}
+			\end{align*}
+		
+			\item Taking the inverse, \begin{align*}
+				t & = \frac{\SI{3e5}{\km/\s}}{\SI{23e-6}{(\km/\s)/ly}} \\
+					& = \SI{1.3e10}{\year}
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

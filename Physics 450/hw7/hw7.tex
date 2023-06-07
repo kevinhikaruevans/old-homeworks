@@ -1,0 +1,100 @@
+\documentclass{homework}
+
+\title{Homework 7}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 18, 2021}
+\setclass{Physics}{450}
+\usepackage{amssymb}
+%\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item The wavefunction for $x < 0$ can be described as a free particle with a left (incident) and right (reflected) direction, \begin{align*}
+				\Psi_I(x) & = A e^{ikx} + B e^{-ikx}.
+				\intertext{At $x>0$, it must be a real exponential as $E < V$. It should only be a negative exponential, as a positive one would explode at infinity,}
+				\Psi_{II}(x) & = C e^{-\ell x}, \\
+				\text{where} \quad k & = \frac{\sqrt{2mE}}{\hbar} \\
+					\ell & = \frac{\sqrt{2m(V_0-E)}}{\hbar}.
+			\end{align*}
+			From the continuity at $x=0$, \begin{align*}
+				A + B & = C \\
+				ik(A - B) & = -\ell C.
+			\end{align*}
+			Dividing these, the reflection coefficient can be found as \begin{align*}
+				ik (A-B) & = - \ell (A+B) \\
+				A(ik + \ell) & = (ik - \ell) B \\
+				R & \equiv \frac{\abs{B}^2}{\abs{A}^2} \\
+				& = \frac{\abs{ik+\ell}^2}{\abs{ik-\ell}^2} = \frac{-k^2 + \ell^2}{-k^2 + \ell^2} = 1.
+			\end{align*}
+			The wave is completely reflected at the barrier.
+			
+			\item For $E>V_0$, the wavefunction over the barrier can take the form of a free particle moving right, \begin{align*}
+				\Psi_{II}(x) & = Ce^{i\ell x} \\
+				\text{where} \quad \ell & = \frac{\sqrt{2m(E-V_0)}}{\hbar}.
+				\intertext{For continuity at $x=0$ in $\Psi(x)$ and $\Psi'(x)$, }
+				A + B &= C \\
+				ik(A-B) &= i\ell C 
+				\intertext{Dividing these again, we see that}
+				ik(A-B) & = i\ell(A+B) \\
+				i(k - \ell)A & = i(k + \ell)B \\
+				R & = \frac{ \abs{B}^2 }{\abs{A}^2} = \frac{ \abs{k-\ell}^2 }{\abs{k+\ell}^2} < 1.
+			\end{align*}
+		
+			\item This problem says to use (2.99) as a hint, but I'm guessing it's actually meaning to use (2.98)? In any case, we know that: \begin{align*}
+				v_I & = \sqrt{E/2m} \\
+				v_{II} & = \sqrt{(E-V_0)/2m}.
+				\intertext{I have no idea where to go from here, but to match the form of (2.175), we're going to need to take the ratio}
+				\frac{ v_{II} }{v_I} & = \sqrt{ \frac{E - V_0 }{E} }
+				\intertext{Then we can just tack it onto $T$?}
+				T & = \sqrt{ \frac{E-V_0}{E} } \frac{\abs{F}^2}{\abs{A}^2}
+				\intertext{I don't understand this problem and I hope solutions get posted...}
+			\end{align*}
+			
+			\item
+				From part (a) and (b), \begin{align*}
+					E & = \frac{\hbar^2 k^2}{2m}\\
+					E-V_0 & = \frac{\ell^2 \hbar^2}{2m} \\
+					\implies \sqrt{\frac{E-V_0}{E}} & = \frac{\ell}{k}
+				\end{align*}
+			
+				For $E>V_0$ and starting from the continuity of part (b) and the equation from (c), \begin{align*}
+				A + B & = C \\
+				ik(A-B) & = -i\ell C \implies A-B  = -\frac{\ell}{k} C\\
+				\implies 2A & = \left(1 - \frac{\ell}{k}\right) C \\
+				T & = \sqrt{ \frac{E-V_0}{E} } \frac{\abs{C}^2}{\abs{A}^2} \\
+					& = \frac{4\ell}{k\abs{1-\ell/k}^2} = \frac{4k\ell}{(k-\ell)^2}.
+			\end{align*}
+			Checking $T+R=1$, \begin{align*}
+					T+R & = \frac{4k\ell}{(k-\ell)^2} + \frac{(k-\ell)^2}{(k+\ell)^2} \\
+						& = \text{not 1?}
+					\intertext{There's an algebraic mistake and I think I should've used $(k+\ell)^2$ in the denominator of the first term.}
+						& = \frac{4k\ell}{(k+\ell)^2} + \frac{(k-\ell)^2}{(k+\ell)^2} \\
+						& = \frac{4k\ell + (k-\ell)^2}{(k+\ell)^2} = 1. \qed
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

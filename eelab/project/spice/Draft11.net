@@ -1,0 +1,11 @@
+* C:\Users\evans\Documents\2020 Spring\eelab\project\spice\Draft11.asc
+V1 N003 0 PULSE(0 3.3 0 0 0 10m)
+V2 N001 0 5
+M1 N002 N003 0 0 NMOS
+R2 N001 N002 10k
+.model NMOS NMOS
+.model PMOS PMOS
+.lib C:\Users\evans\Documents\LTspiceXVII\lib\cmp\standard.mos
+.tran 0 50m 0 1m
+.backanno
+.end

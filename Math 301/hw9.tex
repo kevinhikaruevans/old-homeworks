@@ -1,0 +1,94 @@
+\documentclass{homework}
+
+\title{Homework 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 29, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+\usepackage{amsthm}
+\newtheorem*{prop}{Proposition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	
+	\begin{enumerate}
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				$\{ 12n : n \in \mathbb{Z} \} \subseteq \{2n : n \in \mathbb{Z}\} \cap \{3n : n \in \mathbb{Z}\}$
+			\end{prop}
+			\begin{proof}
+				Suppose $a \in \{ 12n : n \in \mathbb{Z}\}$. Then $a$ can be expressed as $12n$ for some $n \in \mathbb{Z}$, and can be written as $a=2 \cdot 3 (2n)$. This means $a = 2k$ and $a=3m$ for a $k, m \in \mathbb{Z}$ and therefore belongs in the intersection of the two latter sets. This then implies
+				$$\{ 12n : n \in \mathbb{Z} \} \subseteq \{2n : n \in \mathbb{Z}\} \cap \{3n : n \in \mathbb{Z}\}$$
+			\end{proof}
+		\end{minipage}
+	
+		\item  \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				If $m, n \in \mathbb{Z}$, then $\{ x \in \mathbb{Z} : mn \mid x\} \subseteq \{x \in \mathbb{Z} : m \mid x\} \cap \{x \in \mathbb{Z} : n \mid x\}$.
+			\end{prop}
+			\begin{proof} Suppose $m, n \in \mathbb{Z}$ and $y \in \{x \in \mathbb{Z} : mn \mid x\}$. Then $y$ can be expressed as $y = kmn$ for a $k \in \mathbb{Z}$. This also means $m \mid y$ and $n \mid y$. Therefore, all elements of the first set are also elements of the intersection of the latter two sets, i.e. $\{ x \in \mathbb{Z} : mn \mid x\} \subseteq \{x \in \mathbb{Z} : m \mid x\} \cap \{x \in \mathbb{Z} : n \mid x\}$.
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{proof}[Disproof]
+			Let $A = \{ 1 \}$, $B=\{2 \}$, $X=\{1, 2\}$. Then $X \subseteq A \cup B$, but $X \nsubseteq A$ and $X \nsubseteq B$.
+		\end{proof}
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				$\{ 9^n : n \in \mathbb{Z}\} \subseteq \{3^n : n \in \mathbb{Z}\}$, but $\{9^n : n \in \mathbb{Z}\} \ne \{3^n : n \in \mathbb{Z}\}$.
+			\end{prop}
+			\begin{proof} Let $x \in \{ 9^n : n \in \mathbb{Z}\}$, then $x = 9^m$ for an $m \in \mathbb{Z}$. This can also be written $x = (3^2)^m = 3^{2m}$. Since $2m \in \mathbb{Z}$, $x \in \{3^n : n \in \mathbb{Z}\}$ too. Therefore $\{ 9^n : n \in \mathbb{Z}\} \subseteq \{3^n : n \in \mathbb{Z}\}$.
+				
+			However, $3 \in \{3^n : n \in \mathbb{Z}\}$, but $3 \notin \{ 9^n : n \in \mathbb{Z}\}$. Therefore these two sets are not equal. 
+			\end{proof}
+		\end{minipage}
+		
+		
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				For sets $A$, $B$, and $C$, \[ \left(A \cup B\right) - C = (A - C) \cup (B- C) \]
+			\end{prop}
+			\begin{proof} If we let $x \in (A \cup B) - C$, this means $x \in A \cup B$ but $x \notin C$. And since $x \in A \cup B$, this means $(x \in A \vee x \in B) \wedge (x \notin C)$. This can also be expressed as $(x \in A \wedge x \notin C) \vee (x \in B \wedge x \notin C)$, or $\left(A \cup B\right) - C \subseteq (A - C) \cup (B - C)$.
+			
+			Then, if we let $x \in  (A - C) \cup (B- C)$. This means $x \in A-C \vee x \in B-C$, or equivalently, $(x \in A \wedge x \notin C) \vee (x \in B \wedge x \notin C)$. Since $x \notin C$ is common to both terms, this is also equivalent to $(A \cup B) - C$.
+			\end{proof}
+		\end{minipage}
+	
+		\item \begin{minipage}[t]{\linewidth}
+			\begin{prop}
+				For sets $A$ and $B$, $A \subseteq B \iff A - B = \varnothing$.
+			\end{prop}
+			\begin{proof} Suppose $A \subseteq B$. Then let $x \in A$, then $x \in B$ ($\forall x \in A$). Therefore $\nexists y \in A \wedge y \notin B$, and $A - B = \varnothing$.
+				
+				Next, suppose $A - B = \varnothing$. Then $\forall x \in A$, $x \in B$, therefore $A \subseteq B$.
+			\end{proof}
+		\end{minipage}
+	
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,113 @@
+\documentclass{homework}
+
+\title{Homework 11}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{December 2, 2020}
+\setclass{Physics}{341}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item Since the current is uniformly distributed, we can assume the current density to be \begin{align*}
+				J & = \frac{I}{\pi a^2}
+				\intertext{At a radius $s$, the current is then}
+				I_\mathrm{enc}(s) & = \frac{I s^2}{a^2}
+				\intertext{The azimuthal magnetic field is then}
+				B & = \frac{ I_\mathrm{enc} }{2 \pi s \mu_0} \\
+				    & = \begin{cases*}
+					\dfrac{  \mu_0 I s }{2 \pi a^2} & $0 < s < a$ \\
+					\dfrac{ \mu_0 I }{2 \pi s} & $s \ge a$
+				\end{cases*}
+			\end{align*}
+			%%TODO: check this above, change r -> s
+			\item For current density proportional to $s^2$, we can assume $J = k s^2$ where $k \in \mathbb{R}^+$, and integrating this to find the enclosed current, \begin{align*}
+				I_\mathrm{enc}(s) & = \oint_0^s \bvec{J} \cdot \dd{\bvec{a}} \\
+					& = k \int_0^{2\pi} \dd{\phi} \int_0^s  s^3 \dd{s} \\
+					& = \frac{ k \pi s^4 }{2}
+			\end{align*}
+			The azimuthal magnetic field is \begin{align*}
+				B & = \begin{cases*}
+					\frac{\mu_0 k \pi s^3}{4 \pi} & $0 < s < a$ \\
+					\frac{\mu_0 k \pi a^4}{2 \pi s} & $s \ge a$
+				\end{cases*}
+			\end{align*}
+%			Within the wire, we can create an Amperian loop of radius $r$, so the current enclosed will be \begin{align*}
+%				I_\mathrm{enc} & = J \left(\pi r^2\right)
+%				\intertext{So the magnetic field can be found as}
+%				\bvec{B} & = \begin{cases*}
+%						\frac{\mu_0 I}{2 \pi r}
+%				\end{cases*}
+%			\end{align*}
+		\end{enumerate}
+	
+		\item Within the first solenoid, both solenoids will affect the magnetic field and will be uniform. Between the two solenoids, only the larger one will affect the magnetic field. Outside both, there is no magnetic field. This leaves \begin{align*}
+				\bvec{B} & = \begin{cases}
+					\mu_0 (n_2 - n_1) I \uvec{z} & 0 < s < a\\
+					\mu_0 n_2 I \uvec{z} & a < s < b\\
+					0  & s > b
+				\end{cases}
+		\end{align*}
+	
+		\item Using (5.66) and from the discussion in-class, the $\uvec{y}$-component will cancel. Then, $x$ can be parameterized by the angle $\theta$ as $x = R \sin(\theta)$, \begin{align*}
+			\bvec{A} & = \frac{\mu_0 I}{4 \pi}  \int \frac{1}{R} \dd{\bvec{l}'} \\
+				& = \frac{\mu_0 I}{4 \pi} \int_{-\pi/2}^{\pi/2} \frac{R \cos \theta}{R} \uvec{x} \\
+				& = - \frac{\mu_0 I}{2 \pi} \uvec{x}
+		\end{align*}
+	
+		\item \begin{enumerate}
+			\item The magnetic dipole moment is\begin{align*}
+				\bvec{m} & \equiv I \dd{a} \\
+					& = 4 I a^2 \uvec{z} \\
+					& = 4 I a^2 \left(\cos \theta \uvec{r} - \sin \theta \uvec{\theta}\right)
+			\end{align*}
+		
+			\item The dipole term of the magnetic potential is \begin{align*}
+				\bvec{A}_\mathrm{dip}(\bvec{r}) & = \frac{\mu_0}{4 \pi} \frac{\bvec{m} \cross \uvec{r}}{r^2} \\
+					& = \frac{\mu_0 I a^2 \sin \theta}{\pi r^2}\uvec{\phi}
+				\intertext{The magnetic field becomes}
+				\bvec{B}_\mathrm{dip}(\bvec{r}) & =  \curl{\bvec{A}} \\
+					& = \frac{1}{r \sin \theta} \pdv{\theta} \left(\frac{\mu_0 I a^2 \sin[2](\theta) }{\pi r^2}\right) \uvec{r} 
+					- \frac{1}{r} \pdv{r} \left(\frac{\mu_0 I a^2 \sin \theta}{\pi r}\right) \uvec{\theta} \\
+					& = \frac{2\mu_0 I a^2}{\pi r^3} \left( \cos \theta \uvec{r} + \frac{\sin \theta}{r} \uvec{\theta} \right)
+			\end{align*}
+		\end{enumerate}
+		
+		\item The magnetic moment is defined as \begin{align*}
+			\bvec{m} & \equiv I \int \dd{\bvec{a}} \\
+			\intertext{where the current $I$ is }
+			I & = \int_S \bvec{J} \cdot \dd{\bvec{a}} \\
+				& = \int_0^R \int_{-L/2}^{L/2} \frac{Q s \omega}{\pi R^2 L}   \dd{z} \dd{s} \uvec{\phi} \\
+				& = \frac{Q\omega}{2 \pi}\\
+			\bvec{m} & = \frac{Q \omega R L}{2 \pi} \uvec{\phi}
+		\end{align*}
+	\end{enumerate}
+\end{document}

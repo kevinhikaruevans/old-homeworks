@@ -1,0 +1,162 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{January 27, 2021}
+\setclass{Physics}{465}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\DeclareSIUnit\eVperc{\eV\per\clight}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}}
+\DeclareSIUnit\year{yr}
+
+\newcommand{\fm}{\femto\meter}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item Because the probability involves $\psi_0(t)^* \psi_0(t)$, where the imaginary part cancels out. We're then left with \begin{align*}
+				P(t) & = \abs{ \psi_0^* \psi_0 }^2 \\
+					& = e^{-\Gamma t / \hbar} .
+			\end{align*}
+			Taking this at $t=0$, we see that $P(t)=1$. This makes sense as the state is definite at the start time with a probability of surely existing.
+			
+			The decay constant is $\alpha = \Gamma/\hbar$.
+			
+			\item \begin{align*}
+				g(\omega) & = \int_0^\infty e^{iE_0t / \hbar - \frac{1}{2} \Gamma t / \hbar + i \omega t} \dd{t} \\
+					& = \int_0^\infty e^{i (E_0 + E) t / \hbar - \frac{1}{2} \Gamma t / \hbar } \dd{t} \\
+					& = \frac{2 \hbar}{\Gamma - 2i(E + E_0)}. && \text{(WolframAlpha)}
+			\end{align*}
+		
+			\item The probability is given by $g(\omega)^* g(\omega)$, so \begin{align*}
+				 \frac{2 \hbar}{\Gamma + 2i(E + E_0)}  \frac{2 \hbar}{\Gamma - 2i(E + E_0)} & = \frac{4 \hbar^2}{\Gamma^2 - 4(E+E_0)^2} \\
+				 & = \frac{\hbar^2}{(\Gamma/2)^2 - (E + E_0)^2}?
+			\end{align*}
+		\end{enumerate}
+		
+		\item % 2.3 8e-13
+			For an ideal gas at STP, one liter contains \begin{align*}
+					n & = \frac{PV}{RT} = \frac{ \SI{1}{\bar} \times \SI{1}{\L} }{ \SI{0.083145}{\L \bar \per \mol \per \K} \times \SI{273}{\K}} \\
+						& = \SI{0.044}{\mol}.
+			\intertext{Then for the atoms of carbon,}
+			N_\mathrm{carbon} & = n N_A = \SI{0.044}{\mol} \times \SI{6.022e23}{\per \mol} \\
+				& = \SI{2.65e22}{atoms}.
+			\intertext{The transition rate per second is }
+			\omega & = \tau^{-1} \\
+				& = 1/\left(
+					\SI{8267}{\year}
+					\times \SI{365}{\day \per \year}
+					\times \SI{86400}{\s\per\day}
+				\right) \\
+				& = \SI{3.835e-12}{\per\s}.
+			\end{align*}
+			Then at 5 disintegrations per minute, the atomic fraction of nitrogen to carbon can be found with \begin{align*}
+				\dot{N} & = -\omega N \\
+				\frac{N_{N-14}}{N_\mathrm{C}} & = \dot{N}_\mathrm{N} / \omega  N_\mathrm{C} \\
+					& = \num{8.2e-13}.
+			\end{align*}
+		
+		\item % 2.5, 2.6e15 2.5e15 3.4e15
+			During the first reaction, $10^{10}$ neutrons are absorbed per second. The decay constant from Au-198 to Hg-198 is given by \begin{align*}
+				\omega & = 1/\tau = \frac{1}{\SI{3.89}{\day} \times \SI{86400}{\s \per \day}} = \SI{2.97e-6}{\per\s}.
+				\end{align*}
+			
+			Then, after six days, the Au-198 atoms present is \begin{align*}
+				N(t) & = \frac{\SI{e10}{reactions \per \second}}{\SI{2.97e-6}{\per\s}} \left[
+					1 - e^{-\SI{6}{\day} / \SI{3.89}{\day}}
+				\right] \\
+					& = \SI{2.63e15}{atoms}.
+			\end{align*}
+			
+			After six days, the amount of Hg atoms is given by \begin{align*}
+				N_\mathrm{Hg} & = pt - N_\mathrm{Au} \\
+					& = \left(\SI{e10}{\per \sec}\right) \left(\SI{6}{\day} \times \SI{86400}{\s \per \day}\right) \\
+					& = \SI{2.5e15}{atoms}.
+			\end{align*}
+			
+			The equilibrium number is reached when $t\to\infty$, \begin{align*}
+				\lim_{t \to \infty} N(t) & = \frac{\SI{e10}{reactions \per \second}}{\SI{2.97e-6}{\per\s}} \\
+					& = \SI{3.36e15}{atoms}.
+			\end{align*}
+		
+		\item % 2.8
+			The transition rates are \begin{align*}
+				\omega_{235} & = 1/\left(\SI{1.03e9}{\year} \times \SI{3.154e7}{\s\per\year}\right) = \SI{3.07e-17}{\per\s} \\
+				\omega_{238} & = 1/\left(\SI{6.49e9}{\year} \times \SI{3.154e7}{\s\per\year}\right) = \SI{4.88e-18}{\per\s}. 
+			\end{align*}
+			Then for a multimodal decay, \begin{align*}
+				N(t) & = N(0) e^{-(\omega_{235} + \omega_{238})t} \\
+				\num{7.3e-3} & = e^{-(\omega_{235} + \omega_{238})t} \\
+				t & \approx \SI{4.38e9}{\year}.
+			\end{align*}
+		
+		\item % 2.11
+			From Problem 2.3, we know the atomic fraction is \begin{align*}
+				\frac{N_{14}(t)}{N_{12}} & = \num{8.1e-13}.
+				\intertext{And this is equal to }
+					& = \frac{ N_{14}(0) }{N_{12}} e^{-t/\tau} \\
+					& = 10^{-12} e^{-t/\tau} \\
+				\implies t & = \SI{1742}{\year}.
+			\end{align*}
+			
+			
+		\item %2.12
+			\begin{enumerate}
+				\item The total cross section is given as \begin{align*}
+					\sigma & = \sigma_e + \sigma_c + \sigma_f \\
+						& = \SI{2.7002e-26}{\m\squared}.
+				\end{align*}
+				The attenuation can be found using \begin{align*}
+					1-n \sigma x & = \frac{\SI{1e-1}{\kg\per\m\squared}}
+						{\SI{0.235}{\kg \per \mol}} \times \SI{6.02e23}{atoms\per\mol} \times \SI{2.7002e-26}{\m\squared} = 0.993.
+				\end{align*}
+			
+				\item %510
+					The total rate is given by the incident particle beam hitting the cross-section, \begin{align*}
+						R_\mathrm{total} & = \SI{e5}{\per\s} \times \SI{0.00691}{} \\
+							& = \SI{691.7}{\per\s}.
+					\end{align*}
+					The number of fission reactions is then \begin{align*}
+						R_\mathrm{f} & = \frac{\sigma_f}{\sigma} R_\mathrm{total} \\
+							& = \SI{512.3}{\per\s}.
+					\end{align*}
+				\item %4e-5
+					Similarly, for elastically scattered particles, \begin{align*}
+						R_\mathrm{e} & = \frac{\sigma_f}{\sigma} R_\mathrm{total} \\
+							& = 0.051.
+					\end{align*}
+			\end{enumerate}
+	\end{enumerate}
+\end{document}

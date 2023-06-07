@@ -1,0 +1,121 @@
+\documentclass{homework}
+
+\title{Homework 2}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{February 3, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item From the last homework, the magnetic field within the solenoid is $$ B = \mu_0 n I_0 \cos \omega t $$
+			Assuming the loop is normal to $B$, the flux through a loop of radius $a/2$ is given by \begin{align*}
+				\Phi & = \int \bvec{B} \cdot \dd{\bvec{a}} \\
+					& = \mu_0 n \pi (a / 2)^2 I_0 \cos \omega t 
+				\intertext{Creating an emf of}
+				\emf & = -\dot{\Phi} = \frac{ \mu_0 n \pi a^2 I_0 \omega}{4} \sin \omega t
+				\intertext{The current induced is}
+				I & = \frac{ \mu_0 n \pi a^2 I_0 \omega}{4 R} \sin \omega t
+			\end{align*}
+			
+			\item Since we have the emf from (a), \begin{align*}
+				E & = \emf / \int \dd{\ell} \\
+					& = \frac{\mu_0 n \pi a^2 I_0 \omega}{4} \sin \omega t \left(2 \pi a / 2\right)^{-1} \\
+					& = \frac{\mu_0 n a I_0 \omega}{4} \sin \omega t
+			\end{align*}
+		\end{enumerate}
+	
+		\item From equation (7.25) and the mutual inductance of this geometry, \begin{align*}
+			\emf_2 & = -M \dv{I_1}{t} \\
+				& = -\left(\mu_0 \pi a^2 n_1 n_2\right) \left(-I_0 \omega \sin \omega t\right) \\
+				& = \mu_0 \pi a^2 n_1 n_2 I_0 \omega \sin \omega t
+		\end{align*}
+	
+		\item \begin{enumerate}
+			\item The flux through the lil loop is \begin{align*}
+				\Phi & = \int \bvec{B}\cdot \dd{a} \\
+					& = BA \leftarrow \text{as it's uniform} \\
+					& = \frac{\mu_0 I \pi a^2}{2 b}
+			\end{align*}
+		
+			\item If we treat the little loop as a magnetic dipole, its magnetic field is given by (5.88), \begin{align*}
+				\bvec{B}_\mathrm{dipole} & = \frac{\mu_0 m}{4 \pi r^3}\left(2 \cos \theta \uvec{r} + \sin \theta \uvec{\theta}\right) \\
+					& = \frac{\mu_0 I \pi a^2}{4 \pi r^3} \left(2 \cos \theta \uvec{r} + \sin \theta \uvec{\theta}\right) 
+				\intertext{If we consider the $+z$ axis to be normal to the loops, then $\theta = \pi / 2$, and only the $\sin \theta \uvec{\theta}$ term remains. Then using the hint provided in the problem, we can integrate the flux over the outside of the loop and take its opposite,}
+				\Phi & = -\int \bvec{B} \cdot \dd{\bvec{a}} \\
+					& = -\frac{\mu_0 I a^2}{4} \int_b^\infty r^{-2} \dd{r} \int_0^{2 \pi} \dd{\phi} \\
+					& = -\frac{\mu_0 I a^2}{4b} \left(2 \pi\right) \\
+					& = -\frac{\mu_0 I \pi a^2}{2 b}
+			\end{align*}
+		
+			\item Since the flux (fluxes?) are equal and opposite, \begin{align*}
+				M_{12} = M_{21} & = \frac{\Phi}{I} \\
+					& = \frac{\mu_0 \pi a^2}{2b}
+				\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item From Example 7.11, the self-inductance is provided as \begin{align*}
+					L & = \frac{\mu_0 N^2 h}{2 \pi}	\ln(b/a)
+					\intertext{The energy stored in the coil is}
+					W & = \frac{LI^2}{2} =\frac{\mu_0 N^2 h I^2}{4 \pi}	\ln(b/a)
+				\end{align*}
+			
+			\item Starting from the magnetic field in Example 7.11, \begin{align*}
+				W & = \frac{1}{2 \mu_0} \int_{\mathbb{R}^3} B^2 \dd{\tau} \\
+					& = \frac{2 \pi h}{2 \mu_0} \left(\frac{\mu_0 N I}{2 \pi}\right)^2\int_a^b s^{-2} s \dd{s} \\
+					& = \frac{h \mu_0 N^2 I^2}{4 \pi} \ln(b / a)
+			\end{align*}
+		
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item The magnetic flux within the solenoid from 1(a) is given by \begin{align*}
+				\Phi & = \mu_0 n \pi s^2 I_0 \cos \omega t
+				\intertext{Relating this to the electric field,}
+				E & = -\frac{1}{2 \pi s}\dv{\Phi}{t} \\
+				& = \frac{\mu_0 n s I_0 \omega }{2} \sin \omega t
+				\intertext{The displacement current is given by the time rate-of-change of $E$,}
+				\bvec{J}_d & = \epsilon_0 \dv{\bvec{E}}{t} \\
+				& = \frac{ \epsilon_0 \mu_0 n s I_0 \omega^2 }{2} \cos \omega t \uvec{\phi}
+			\end{align*}
+		
+			\item The total current per cylinder length is found as \begin{align*}
+				\bvec{K}_d & = \int \bvec{J}_d \dd{\ell} \\
+					& = \int_0^L \left( \frac{ \epsilon_0 \mu_0 n s I_0 \omega^2 }{2} \cos \omega t \right)_{s=a} \dd{z} \uvec{\phi} \\
+					& = \frac{ \epsilon_0 \mu_0 n a I_0 \omega^2 }{2} \cos \omega t \uvec{\phi}
+			\end{align*}
+		\end{enumerate}
+		
+	\end{enumerate}
+\end{document}

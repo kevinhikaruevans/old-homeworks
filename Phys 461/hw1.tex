@@ -1,0 +1,111 @@
+\documentclass{homework}
+
+\title{Homework 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{January 24, 2021}
+\setclass{Physics}{461}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{amsthm}
+\newtheorem*{ident}{Identity}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item If they're both real, there's no phase shift and it's linearly polarized.
+			\item As long as they're equal, it's still linearly polarized.
+			\item There needs to be a phase shift of some multiple of $\pi/2$ to be circularly polarized.
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item From the basis $$\uvec{e}_\pm = \frac{1}{\sqrt{2}} \left(\uvec{e}_x \pm i \uvec{e}_y\right)$$
+			\begin{ident}
+				$\uvec{e}^*_\pm \cdot \uvec{e}_\pm = 1$
+			\end{ident}
+			\begin{proof}
+				For $\uvec{e}_+$ and ignoring the normalization constant, $\uvec{e}_+^* = \evec{x} - i \evec{y}$. Multiplying this out, \begin{align*}
+					\left(\evec{x} - i \evec{y}\right) \left( \evec{x} + i\evec{y}\right) & = \evec{x}^2 - i^2 \evec{y}^2 = 2
+				\end{align*}
+				For $\evec{-}$, it's the same thing but the order of the products are flipped. Since multiplication is communicative, it must be equal.
+			\end{proof}
+			%%%%%%%%%%%%%%%%%%%	
+			\vspace{1em}
+			\begin{ident}
+				$\uvec{e}^*_\pm \cdot \uvec{e}_\mp = 0$
+			\end{ident}
+			\begin{proof}
+				Conjurgating $\evec{-}$, it results in $\evec{+}$, so we're left with \begin{align*}
+					\left(\evec{x} + i\evec{y}\right)\left(\evec{x} + i\evec{y}\right) & = \evec{x}^2 + i^2 \evec{y}^2 = 0
+				\end{align*}
+				And it's the same thing if we had conjurgated $\evec{+}$ instead, as the product of the two negatives would be a positive.
+			\end{proof}
+			%%%%%%%%%%%%%%%%%%%	
+			\vspace{1em}
+			\begin{ident}
+				$\evec{\pm}^* \cross \evec{\pm} = \pm i \uvec{z}$
+			\end{ident}
+			\begin{proof}
+				For $\evec{+}$ and ignoring the normalization constant again, \begin{align*}
+					\left(\evec{x} - i\evec{y}\right) \cross \left(\evec{x} + i \evec{y}\right) & = \left(\evec{x} \cross i\evec{y}\right) + \left(-\evec{y} \cross \evec{x}\right) \\
+						& = 2 \left(\evec{x} \cross i \evec{y}\right) \\
+						& = i \uvec{z} && \text{Renormalizing}
+				\end{align*}
+			\end{proof}
+			%%%%%%%%%%%%
+			\vspace{1em}
+			\begin{ident}
+				$i \uvec{z} \cross \evec{\pm} = \pm \evec{\pm}$
+			\end{ident}
+			\begin{proof}
+				For either $\evec{\pm}$ vector, \begin{align*}
+					i \uvec{z} \cross \left(\evec{x} \pm i \evec{y}\right) & = \left(i \uvec{z} \cross \evec{x}\right) \pm \left(i \uvec{z} \cross i \evec{y}\right) \\
+						& = \left(i \evec{y}\right) \mp \left(-\evec{x}\right) \\
+						& = \pm \left( \evec{x} \pm  i \evec{y}\right) = \pm \evec{\pm}
+				\end{align*}
+			\end{proof}
+		
+			\item Since $E_\pm = \bvec{E}^* \cdot \evec{\pm}$ (maybe?), \begin{align*}
+				E_+ & = \overbrace{ \left(E_x \evec{x} - E_y \evec{y}\right) }^{\bvec{E}^*} \cdot \evec{+} \\
+					& = E_x \left(\evec{x} \cdot \evec{+}\right) - E_y \left(\evec{y} \cdot \evec{+}\right) \\
+					& = \frac{1}{\sqrt{2}} \left( E_x + i E_y \right)\\
+				E_- & = E_x \left(\evec{x} \cdot \evec{-}\right) - E_y \left(\evec{y} \cdot \evec{-}\right) \\
+					& = \frac{1}{\sqrt{2}} \left( E_x - i E_y\right)
+			\end{align*}
+		\end{enumerate}
+	
+		\item The product of the two real functions gives \begin{align*}
+			A(t)B(t) & = \Re{Ae^{-i \omega t}} \Re{B e^{-i \omega t}} \\
+				& = \frac{1}{4} \left(Ae^{-i \omega t} + A^*e^{i \omega t}\right)
+					 \left(Be^{-i \omega t} + B^*e^{i \omega t}\right) \\
+				& = \frac{1}{4} \left[AB e^{-2 i \omega t} + A^* B^* e^{2 i \omega t} + AB^* + A^*B\right]
+			\intertext{Taking the time average, the oscillatory component goes to zero, leaving a real-valued thing}
+			\expval{A(t)B(t)}	& = \frac{1}{4} \left( AB^* + A^*B\right) \\
+				& = \frac{1}{2} \Re{A^*B}
+		\end{align*}\qed
+	\end{enumerate}
+
+\end{document}

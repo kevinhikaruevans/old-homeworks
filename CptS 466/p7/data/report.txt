@@ -1,0 +1,57 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     raw_data
+Instances:    335
+Attributes:   3
+              temp
+              light
+              screen_on
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+temp <= 879: off (145.0)
+temp > 879
+|   light <= 53
+|   |   temp <= 886: off (14.0)
+|   |   temp > 886
+|   |   |   light <= 45: off (2.0)
+|   |   |   light > 45: on (2.0)
+|   light > 53: on (172.0/2.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         326               97.3134 %
+Incorrectly Classified Instances         9                2.6866 %
+Kappa statistic                          0.9462
+Mean absolute error                      0.033 
+Root mean squared error                  0.1547
+Relative absolute error                  6.6047 %
+Root relative squared error             30.945  %
+Total Number of Instances              335     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.975    0.029    0.970      0.975    0.972      0.946    0.981     0.988     off
+                 0.971    0.025    0.977      0.971    0.974      0.946    0.981     0.965     on
+Weighted Avg.    0.973    0.027    0.973      0.973    0.973      0.946    0.981     0.976     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 159   4 |   a = off
+   5 167 |   b = on
+

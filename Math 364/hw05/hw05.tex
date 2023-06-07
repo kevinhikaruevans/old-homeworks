@@ -1,0 +1,93 @@
+\documentclass{homework}
+
+\title{Homework 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 28, 2021}
+\setclass{Math}{364}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+\newcommand{\st}{\mathrm{s.t.}}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+\newcommand{\bolditem}[1][YYY]{\item[\textbf{#1}]}
+\newenvironment{amatrix}[1]{%
+	\left(\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+	\end{array}\right)
+}
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\bolditem[3.3.3] Use the simplex method to do the following problem. The problem is stated in cannonical form with basic variables $x_2$ and $x_3$. Notice that in the first step in the simplex method, either $x_1$ or $x_4$ can enter the basis. \begin{align*}
+			\text{Minimize\quad} & -x_1 - 2x_4 + x_5 \\
+			\st\quad & x_1 + x_3 + 6x_4 + 3x_5 = 2 \\
+				& -3x_1 + x_2 + 3x_4 + x_5 = 3 \\
+				& x \ge 0.
+		\end{align*}
+		
+		\solution Rewriting this to the format used in-class, \begin{align*}
+			x_1 + x_3 + 6 x_4 + 3x_5 & = 2 \\
+			-3x_1 + x_2 + 3 x_4 + x_5 & = 3 \\
+			-x_1 - 2x_4 + x_5 & = z
+			\intertext{We can try letting $x_1$ enter the basis. This leads to either $x_1=2$ (swap $x_3$) or $x_1 = \text{anything}$ (swap $x_2$). Swapping for $x_3$ is the more limiting constraint, so we can pivot on the first line. The system becomes}
+			x_1 + x_3 + 6x_4 + 3x_5 & = 2 \\
+			x_2 + 3x_3 + 21 x_4 + 10x_5 & = 9 \\
+			x_3 + 4 x_4 + 4 x_5 & = 2 + z
+			\intertext{All the coefficients in the objective constraint are positive, so we have arrived at the optimal solution,}
+			x^* & = (2, 9, 0, 0, 0) \\
+			z^* & = -2.
+		\end{align*}
+		
+		\bolditem[3.4.2] Solve using the simplex method. \begin{enumerate}
+			\item[(d)] Minimize $x_3 - x_4$ subject to \begin{align*}
+				x_1 - x_4 & = 5 \\x_2 + 2 x_3 & = 10 \\
+				x \ge 0
+			\end{align*}
+			\solution Using the format from class, \begin{align*}
+				x_1 - x_4 & = 5 \\
+				x_2 + 2x_3 &= 10 \\
+				x_3 - x_4 & = z.
+			\end{align*} By Theorem 3.4.2, the objective function is unbounded below, as there is an index $s=4$, where $c_s \le 0$ and $a_{is} \le 0 \: \forall \: i$.
+			
+			\item[(e)] Minimize $-x_3 + x_4$ subject to the constraints of (d). 
+			
+			\solution  Using the format from class, \begin{align*}
+				x_1 - x_4 & = 5 \\
+				x_2 + 2x_3 &= 10 \\
+				-x_3 + x_4 & = z
+				\intertext{We can swap $x_3$ for $x_2$, only needing to change the objective function,}
+				x_1 - x_4 & = 5 \\
+				x_2 + 2x_3 &= 10 \\
+				x_2 + 2x_4 & = 20 + 2z.
+				\intertext{The coefficients are positive, so we're at an optimal solution,}
+				x^* & = (5, 0, 5, 0) \\
+				z^* & = -10.
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

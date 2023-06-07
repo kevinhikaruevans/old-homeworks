@@ -1,0 +1,125 @@
+\documentclass{homework}
+
+\title{Problem Set 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 2, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+
+\begin{document}
+	\maketitle
+
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item From $\lambda = \SI{3.0}{\m}$, \begin{align*}
+				\lambda \nu & = c \\
+					\nu & = \SI{3e8}{\m\per\s} / \SI{3.0}{\m} \\
+						& = \SI{1.0e8}{\Hz}
+			\end{align*}
+			
+			\item From Faraday's law $\curl{\bvec{E}} = - \pdv{\bvec{B}}{t}$, as the wave propagates in $\uvec{x}$ and $\bvec{E}$ only depends on that variable, the curl reduces to \begin{align*}
+				\pdv{E_y}{x} & = -\pdv{B_z}{t} \\
+				\pdv{B_z}{t} & = \pdv{x} E_0 \sin(\omega t - k x)\\
+					B_z & = E_0 k \int  \cos(\omega t - k x) \dd{t} \\
+					& = \frac{E_0 k}{\omega} \sin(\omega t - k x) = \frac{E_0}{c} \sin(\omega t - k x)
+				\intertext{The magnitude $B_0$ is given as}
+				B_0 & = \frac{E_0}{c} = \frac{\SI{300}{\V\per\meter}}{\SI{3e8}{\m\per\s}} \\
+				& = \SI{1}{\micro\tesla} \text{ (in the $\uvec{z}$ direction)}
+			\end{align*}
+		
+			\item Given the wavelength is $\SI{3.0}{\m}$, the wavenumber \begin{align*}
+				k & = \frac{2 \pi}{\lambda} = \frac{2 \pi}{\SI{3.0}{\m}} \approx \SI{2.1}{\radian\per\m}
+				\intertext{Similarly, as the frequency was found in (a), the angular frequency}
+				\omega & = 2 \pi \nu \approx \SI{6.3}{\radian\per\s}
+			\end{align*}
+		\end{enumerate}
+	
+		\pagebreak
+		
+		\item \begin{enumerate}
+			\item From inspection, \begin{align*}
+				\bvec{k} & = -3 \uvec{x} - 4 \uvec{z} + 5 \uvec{z}
+				\intertext{And as $\uvec{k} \perp \bvec{E} \implies \bvec{k} \cdot \bvec{E} = 0$,}
+				\bvec{k} \cdot \bvec{E} & = 100 \left(2 \uvec{x} + 3 \uvec{y} + E_z \uvec{z}\right) \cdot \left(-3 \uvec{x} - 4 \uvec{z} + 5 \uvec{z}\right) = 0\\
+					5 E_z & = 18 \\
+					E_z & = 3.6
+			\end{align*}
+		
+			\item From Faraday's law, we begin by evaluating the curl, \begin{align*}
+				-\pdv{\bvec{B}}{t} & = \curl{\bvec{E}} \\
+					& = 100 \cdot \curl[\left(2\uvec{x} + 3\uvec{y} + 3.6 \uvec{z}\right) \sin(\omega t  -3x - 4y + 5z)] \\
+					& = 100 \left[
+						\uvec{x} \left[ 3.6(-4) - 3(5) \right]
+					 + \uvec{y} \left[ 2(5) - 3.6(-3)\right]
+						+ \uvec{z} \left[ 3(-3) - 2(-4)\right]
+					\right] \cos(\dots) \\
+					& = 100 \left( -29.4 \uvec{x} + 20.8 \uvec{y} - \uvec{z}\right) \cos(\omega t - 3x - 4y + 5z)
+				\intertext{Integrating with respect to $t$ and simplifying,}
+				\bvec{B} & = \frac{100}{\omega} \left(29.4 \uvec{x} - 20.8 \uvec{y} + \uvec{z} \right) \sin(\omega t - 3x - 4y + 5z) \qquad [\si{\tesla}]
+			\end{align*}
+		
+			\item The energy flux vector can be defined as \begin{align*}
+				\bvec{S} & = c^2 \epsilon_0 \bvec{E}_0 \cross \bvec{B}_0 \cos[2](\bvec{k} \cdot \bvec{r} - \omega t) \\
+					& = c^2 \epsilon_0 \frac{100^2}{\omega} \left[						
+						\left(2 \uvec{x} + 3 \uvec{y} + 3.6 \uvec{z}\right)
+						\cross
+						\left(29.4 \uvec{x} - 20.8 \uvec{y} + \uvec{z}\right)
+					\right] \cos[2](\dots) \\
+					& = c^2 \epsilon_0 \frac{100^2}{\omega}
+						\abs{ \begin{matrix}
+								\uvec{x} & \uvec{y} & \uvec{z} \\
+								2 & 3 & 3.6 \\
+								29.4 & - 20.8 & 1
+							\end{matrix}
+						} \cos[2](\dots) \\
+					& \approx \frac{\num{7.965e9}}{\omega} \left(
+						77.9 \uvec{x}
+						+ 103.8\uvec{y}
+						- 129.8 \uvec{z}
+					\right) \cos[2](\omega t - 3x - 4y + 5z)
+					\quad \left[\si{\W\per\m\squared}\right]
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item As we're taking the magnitude/modulus first, \begin{align*}
+				\abs{f} & = A \\
+				\Re{\abs{f}^2} & = A^2
+			\end{align*}
+		
+			\item The real part of $f$ is given as the cosine component and \begin{align*}
+				\left[ \Re{f} \right]^2 & = \left[ A \cos(kx - \omega t) \right]^2 \\
+					& = A^2 \cos[2](kx - \omega t)
+			\end{align*}
+		\end{enumerate}
+	
+		\item From (3.44), as $I \equiv \expval{S}_T = \frac{c \epsilon_0}{2} E_0^2$, \begin{align*}
+			E_0 & = \sqrt{ \frac{2I}{c \epsilon_0}} = \sqrt{\frac{2 \left(\SI{1.34e3}{\W\per\m\squared}\right)}{c \epsilon_0}} \\
+				& \approx \SI{1.00}{\kV\per\meter}
+			\intertext{From the relation $E = cB$, the magnitude of the magnetic field is given as}
+			B_0 & = \frac{E_0}{c} = \SI{3.34}{\micro\tesla}
+		\end{align*}
+	\end{enumerate}
+\end{document}

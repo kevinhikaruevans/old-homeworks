@@ -1,0 +1,55 @@
+\documentclass{homework}
+
+\title{Software Solvers}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{December 9, 2021}
+\setclass{Math}{364}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+\newcommand{\st}{\mathrm{s.t.}}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+\newcommand{\bolditem}[1][YYY]{\item[\textbf{#1}]}
+\newenvironment{amatrix}[1]{%
+	\left(\begin{array}{@{}*{#1}{c}|c@{}}
+	}{%
+	\end{array}\right)
+}
+
+%\renewcommand\arraystretch{1.25}
+
+\usepackage{listings}
+\begin{document}
+	\maketitle
+	For Part 1, 3: for this assignment, I'll only be using MATLAB to attempt the problem in Homework 7. I've included in the .zip a copy of the MATLAB code, but I've been having trouble getting it working (it returns that it's infeasible) and I thought I'd include my efforts. I think the problem lies in the \texttt{Ae1} or \texttt{Ae2} constraint, although I'm unsure...
+	
+	For Part 4: the capabilities seem apt for any problem we've dealt with in the class, as long as the LP can be put into standard form. The only trouble I've had is dealing with properly putting the problem in a matrix. I've tried a few simpler programs and they solve them as-expected, so I think I've just misplaced or misunderstood an index in one of the matrices.
+\end{document}

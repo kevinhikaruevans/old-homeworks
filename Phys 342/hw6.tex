@@ -1,0 +1,206 @@
+\documentclass{homework}
+
+\title{Homework 6}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 15, 2021}
+\setclass{Physics}{342}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+\newcommand{\emf}{\mathcal{E}}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item The reflection and transmission coefficients are given by (9.86) and (9.87) respectively as \begin{align*}
+				R & = \left(\frac{n_1 - n_2}{n_1 + n_2}\right)^2 \\
+				& \approx 0.05 \\
+				T & = \left(\frac{4n_1 n_2}{(n_1 + n_2)^2}\right) \\
+				& \approx 0.95
+			\end{align*}
+			
+			\item At Brewster's angle, $r = 0$, and from Fresnel's equations, \begin{align*}
+				\alpha & = \beta \\
+				\implies n_1 \cos(\theta_T) & = n_2 \cos(\theta_I)
+				\intertext{By Snell's law,}
+				\cos(\theta_I) & = \frac{n_1}{n_2} \cos(\arcsin(\frac{n_1}{n_2} \sin \theta_I))
+				\intertext{Plugging this into WolframAlpha and solving for $\theta_I$,}
+				\theta_B & = \arccos( \frac{n_1}{\sqrt{n_1^2 + n_2^2}} ) \\
+				& \approx \SI{0.998}{\radian} \approx \SI{57.2}{\deg}
+			\end{align*}
+			
+			\item At the crossover angle, \begin{align*}
+				\alpha - \beta & = 2 \\
+				\frac{ \cos(\theta_T) }{\cos(\theta_I)} & = 2 + \frac{n_2}{n_1} \\
+				\frac{\cos(\arcsin(\frac{n_1}{n_2} \sin(\theta_I)))}{\cos(\theta_I)} & = \frac{2n_1 + n_2}{n_1}
+				\intertext{Using $n_1 = 1$ and using WolframAlpha, this simplifies to}
+				\theta_C & = \arcsec(\sqrt{\frac{{(n_2 + 1)^2 (n_2 + 2n_2 + 1)^2}}{n_2^2 - 1}}) \\
+				& \approx \SI{1.35}{\radian} \approx \SI{77.4}{\deg}
+			\end{align*}
+		\end{enumerate}
+	
+		\item \begin{enumerate}
+			\item The characteristic time is \begin{align*}
+				\tau & = \epsilon / \sigma \\
+					& = \frac{ \epsilon_0 n^2 }{1 / \rho} \\
+					& = 2.42^2 \times (\SI{8.854e-12}{\F\per\meter}) \times (\SI{1e11}{\ohm \meter}) \\
+					& = \SI{5.2}{\s}
+			\end{align*}
+		
+			\item The imaginary wavenumber $\kappa$ is given by \begin{align*}
+				\kappa & = \frac{ \omega }{c \sqrt{2}} \left[
+					\sqrt{1 + \left(\frac{\sigma}{\epsilon_0 \omega}\right)^2} - 1
+				\right]^{1/2} \\
+					& = \SI{1.187e6}{\per\meter}
+				\intertext{The skin depth is then}
+				d & = \frac{1}{\kappa} = \SI{0.843}{\um}
+			\end{align*}
+		
+			\item The real wavenumber $k$ is given by \begin{align*}
+				k & = \frac{ \omega }{c \sqrt{2}} \left[
+				\sqrt{1 + \left(\frac{\sigma}{\epsilon_0 \omega}\right)^2} + 1
+				\right]^{1/2} \\
+					& = \SI{11866}{\per \meter}
+				\intertext{The wavelength and propagation speed is given by (9.129),}
+				\lambda & = \frac{2 \pi}{k} = \SI{529.5}{\um} \\
+				v & = \frac{\omega}{k} = \SI{529.5}{\m\per\s}
+				\intertext{In vacuum, the wavelength is }
+				\lambda_0 & = c / f = \SI{300}{\m} \\
+				v_0 & = c
+			\end{align*}
+		\end{enumerate}
+		
+		\item Letting $\gamma_j = 0$, the wavenumber becomes real \begin{align*}
+			k & = \frac{\omega}{c} \left[1 + \frac{Nq^2}{2 m \epsilon_0} \sum_j \frac{f_j}{\omega_j^2 - \omega^2}\right]
+			\intertext{Taking the derivative with respect to $\omega$,}
+			\dv{k}{\omega} & = \frac{1}{c} \left[ 1 + \frac{Nq^2}{2 m \epsilon_0} \sum_j f_j \left(\frac{\omega_j^2 + \omega^2}{(\omega_j^2 - \omega^2)^2}\right) \right]
+			\intertext{The velocity is then just the multiplicative inverse of that}
+			v_g = \dv{\omega}{k} & = c \left[1 + \frac{Nq^2}{2 m \epsilon_0} \sum_j f_j \left(\frac{\omega_j^2 + \omega^2}{(\omega_j^2 - \omega^2)^2}\right) \right]^{-1}
+		\end{align*}
+		Since the sum above is always positive, then $1+\sum_j(\dots)$ will always be greater than 1. As it's in the denominator, $v_g < c$.
+		\pagebreak
+		
+		\item Using (9.188), the associated frequencies for TE mode $mn$ are \begin{align*}
+			\omega_{mn} \equiv c\pi \sqrt{(m/a)^2 + (n/b)^2}
+		\end{align*}
+	
+		By iterating over potential modes, we can find frequencies that are $<\SI{1.5e10}{\Hz}$,
+		 \begin{table}[H]
+			\centering
+			\begin{tabular}{ccc}
+				\toprule 
+				$m$ & $n$ & $f_{mn}$ \\
+				\midrule
+				$1$ & $0$ & \SI{3.3e9}{\Hz} \\
+				$2$ & $0$ & \SI{6.7e9}{\Hz} \\
+				$3$ & $0$ & \SI{1e10}{\Hz} \\
+				$4$ & $0$ & \SI{1.3e10}{\Hz} \\
+				\midrule
+				$1$ & $1$ & \SI{1.1e10}{\Hz} \\
+				\midrule
+				$2$ & $1$ & \SI{1.2e10}{\Hz} \\
+				$3$ & $1$ & \SI{1.4e10}{\Hz} \\
+				\midrule
+				$0$ & $1$ & \SI{1e10}{\Hz}  \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+		
+		To excite a single mode, these combinations are possible: $mn = \{10, 20, 30, 40, 01\}$.
+	
+		\item The time averaged Poynting vector is given by \begin{align*}
+			\expval{\bvec{S}} & = \frac{1}{2\mu_0} \bvec{E} \cross \bvec{B}^*
+			\intertext{where $B_z$ is given by (9.186) and $E_z=0$. Since the Poynting vector is directed in $z$, this resolves to}
+			\expval{S_z} & = \frac{1}{2 \mu_0} \left(
+				E_x B_y - E_y B_x
+			\right)
+			\intertext{Applying the forms written in (9.180), this becomes}
+				& = - \frac{1}{2 \mu_0} \left(\frac{i^2 \omega k}{[(\omega / c)^2 - k^2]^2}\right) \left[\pdv{B_z}{y}
+					 \pdv{B_z}{y}
+					+ \pdv{B_z}{x} \pdv{B_z}{x}
+				\right] \\
+				& = \frac{\omega k B_0^2}{2 \mu_0 [(\omega / c)^2 - k^2]^2} \bigg[
+					\frac{n^2 \pi^2}{b^2}
+					\cos[2](m \pi x / a)
+					\sin[2](n \pi y / b) \\
+				& \qquad +
+					\frac{m^2 \pi^2}{a^2}
+					\sin[2](m \pi x / a)
+					\cos[2](n \pi y / a)
+				\bigg]
+		\end{align*}
+		Integrating this mess over the cross-sectional area gives \begin{align*}
+			\iint \expval{S_z} \dd{x} \dd{y} & =  \frac{\omega k B_0^2 ab \pi^2}{8 \mu_0 [(\omega / c)^2 - k^2]^2} \left(
+				\frac{n^2}{b^2}
+				+
+				\frac{m^2 }{a^2}
+			\right)
+		\end{align*}
+		For the average energy density, \begin{align*}
+			\expval{u} & = \frac{1}{4} \left[
+				\epsilon_0 E^2 + \frac{1}{\mu_0} B^2
+			\right] \\
+				& = \frac{1}{4} \left[ \epsilon_0 \left(E_x^2 + E_y^2\right)
+					+ \frac{1}{\mu_0} \left(B_x^2 + B_y^2 + B_z^2\right)
+				\right] \\
+				& = \frac{1}{4 [(\omega / c)^2 - k^2]^2} \left\{
+					{ \epsilon_0 \omega^2 } \left[
+						\left(\pdv{B_z}{y}\right)^2
+						+ \left(\pdv{B_z}{x}\right)^2
+					\right]
+					+
+					\frac{k^2}{\mu_0} \left[
+						\left(\pdv{B_z}{x}\right)^2
+						+
+						\left(\pdv{B_z}{y}\right)^2
+						+ B_z^2
+					\right]
+				\right\} \\
+				& = \frac{B_0^2}{4 [(\omega / c)^2 - k^2]^2} \bigg[
+					(\epsilon_0 \omega^2 + k^2/\mu_0) \bigg(
+					\frac{m^2 \pi^2}{b^2} \sin[2](m \pi x / a) \cos[2](n \pi y / b) \\
+				& \qquad +
+					\frac{n^2 \pi^2}{a^2} \cos[2](m \pi x / a) \sin[2](n \pi y / b)
+					\bigg)
+					+
+					(k^2 / \mu_0)\cos(m \pi x / a) \cos(n \pi y / b)
+				\bigg]
+		\end{align*}
+		Integrating this over the area results in \begin{align*}
+			\iint \expval{u} \dd{x} \dd{y} & = \frac{B_0^2 }{4 [(\omega / c)^2 - k^2]^2} \left[
+				\frac{ \pi^2 ab(\epsilon_0 \omega^2 + k^2/\mu_0) }{4} \left(\frac{n^2}{b} + \frac{m^2}{a} \right)
+			\right]
+		\end{align*}
+		Putting it all together, \begin{align*}
+			\frac{\int \expval{S_z} \dd{a}}{\int \expval{u} \dd{a}} & = \frac{16 \omega k}{8 \mu_0 (\epsilon_0 \omega^2 + k^2/\mu_0)} \\
+				& = \frac{2\omega k}{\mu_0 \epsilon_0 \omega^2 + k^2} = \frac{2 \omega k}{(\omega / c)^2 + k^2}
+		\end{align*}
+		I think I might have an error somewhere because this doesn't seem to reduce?
+	\end{enumerate}
+\end{document}

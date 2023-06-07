@@ -1,0 +1,126 @@
+\documentclass{homework}
+
+\title{Homework 6}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 6, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{venndiagram}
+\usepackage{icomma}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+
+\DeclareSIUnit{\year}{yr}
+\begin{document}
+	\maketitle
+	\subsubsection*{Chapter 15}
+	\begin{enumerate}
+		\item[6.] Since the lepton numbers $L_\mu$ and $L_e$ must be conserved,
+			\begin{align*}
+				\mu^+ &\text{: } L_\mu = -1 \\
+				\mathrm{e}^- &\text{: } L_\mathrm{e} = 1
+			\end{align*}
+			The neutrinos must be one muon antineutrino ($\bar{\nu}_\mu$, $L_\mu=-1$) and an electron neutrino ($\nu_e$, $L_e=1$).
+		\item[8.] \begin{enumerate}
+			\item $\bar{\nu}_\mu$ ($L_\mu = -1$)
+			\item $\nu_\mu$ ($L_\mu = 1$)
+			\item $\bar{\nu}_e$ ($L_e = -1$)
+			\item $\nu_e$ ($L_e = 1$)
+			\item $\nu_\mu$ ($L_\mu = 1$)
+			\item $\nu_\mu$ ($L_\mu = 1$), $\bar{\nu}_e$ ($L_e = -1$)
+		\end{enumerate}
+		\item[9.] \begin{enumerate}
+			\item Cannot occur; baryon number is not conserved. $B: +1 \to 0$.
+			\item Can occur? Wouldn't this violate conservation of energy though?
+			\item Cannot occur; baryon number is not conserved.
+			\item Can occur.
+			\item Can occur.
+			\item Cannot occur; muon and baryon number are not conserved.
+		\end{enumerate}
+		\item[11.] \begin{enumerate}
+			\item Muon and electron number are not conserved.
+			\item Electron number is not conserved.
+			\item Strangeness is not conserved.
+			\item Electron and baryon number are not conserved.
+			\item Strangeness and the baryon number are not conserved.
+		\end{enumerate}
+		\item[12.] \begin{enumerate}
+			\item Muon and electron lepton numbers are not conserved.
+			\item Charge is not conserved.
+			\item Baryon number is not conserved.
+			\item Baryon number is not conserved.
+			\item Charge is not conserved.
+		\end{enumerate}
+		\item[17.] Using the hadron compositions, \begin{align*}
+			\Sigma^0 + p & \to \Sigma^+ + \gamma + ? \\
+			\mathrm{uds} + \mathrm{uud} & \to \mathrm{uus} + \gamma + \boxed{\mathrm{udd}}
+		\end{align*}
+		The particle is a neutron (udd).
+		
+		\item[18.] If we sum the quark constituents of each, they equal the values of the $\mathrm{K}^0$ and $\mathrm{\Lambda}^0$ particles.
+			\begin{center}
+				\def\arraystretch{1.5}
+				\begin{tabular}{|c||cc|c||ccc|c|}
+					\hline
+					& $\mathrm{d}$ & $\mathrm{\bar{s}}$ & $\mathrm{K}^0$ & $\mathrm{u}$ & $\mathrm{d}$ & $\mathrm{s}$ & $\mathrm{\Lambda}^0$ \\
+					\hline
+					$Q$ & $-\frac{1}{3}$ & $\frac{1}{3}$ & $0$ & $\frac{2}{3}$ & $-\frac{1}{3}$ & $-\frac{1}{3}$ & $0$ \\
+					\hline
+					$B$ & $\frac{1}{3}$ & $-\frac{1}{3}$ & $0$ & $\frac{1}{3}$ & $\frac{1}{3}$ & $\frac{1}{3}$ & $1$ \\
+					\hline
+					$S$ & $0$ & $1$ & $1$ & $0$ & $0$ & $-1$ & $-1$ \\
+					\hline
+				\end{tabular}
+			\end{center}
+		\item[28.] As the momentum of the pion is zero, the total momentum must be conserved. Then $\abs{p_\mu} = \abs{p_{\bar{\nu}}}$. Using the energy-momentum relationship, \begin{align*}
+			\left( E_\mu \right)^2 & = (pc)^2 + \left( m_\mu c^2 \right)^2 \\
+			\left( E_\nu\right)^2 & = (pc)^2 & \text{Zero rest mass} \\
+			\left( E_\mu \right)^2 - \left( E_\nu\right)^2 & = \left( m_\mu c^2 \right)^2 & \text{($*$)}
+		\end{align*}
+		From conservation of energy, \begin{align*}
+			E_\pi & = E_\mu + E_{\bar{\nu}} \\
+			E_\pi - E_{\bar{\nu}} & = E_\mu \\
+			\left(E_\pi - E_{\bar{\nu}}\right)^2 & = \left(E_\mu\right)^2
+			\intertext{Subtracting the square neutrino energy to achieve the form of ($*$), we can then expand the LHS polynomial and substitute in ($*$),}
+			\left(E_\pi - E_{\bar{\nu}}\right)^2 - \left(E_{\bar{\nu}}\right)^2 & = \left(E_\mu\right)^2 - \left(E_{\bar{\nu}}\right)^2 \\
+			\left( E_{\pi} \right)^2 - 2E_\pi E_{\bar{\nu}} + \cancel{\left(E_{\bar{\nu}}\right)^2} - \cancel{\left(E_{\bar{\nu}}\right)^2} & =  \left( m_\mu c^2 \right)^2 \\
+			2 E_\pi E_{\bar{\nu}} & =  \left( E_\pi \right)^2 - \left( m_\mu c^2 \right)^2 \\
+			E_{\bar{\nu}} & = \frac{\left( E_\pi \right)^2 - \left( m_\mu c^2 \right)^2}{2 E_\pi}
+			\intertext{Using the energies given in the book (and since the pion energy is its rest mass here),}
+			E_{\bar{\nu}} & = \frac{\left(\SI{139.5}{\MeV}\right)^2 - \left(\SI{105.7}{\MeV}\right)^2}
+			{2 \left(\SI{139.5}{\MeV}\right)} \\
+			& \approx \SI{29.71}{\MeV}
+		\end{align*}
+		\item[30.] \begin{enumerate}
+			\item Electron-positron annihilation releasing $2\gamma$. The exchanged particle is $\mathrm{e}^\pm$ (ambiguous).
+			\item Neutron decay, $\mathrm{n}\;(\mathrm{udd}) \to \mathrm{p}\;(\mathrm{udu})$. The charge is carried from $\nu_\mu\;(0) \to \mathrm{p}\;(+1)$. As it's a weak force with $+1$ charge, the particle is $\mathrm{W}^+$, and also since the $\nu_\mu \to \mu^-$ primitive uses a $\mathrm{W}^+$.
+		\end{enumerate}
+		\item[31.] \begin{enumerate}
+			\item Since the particles are unchanged, the exchange particle is $\mathrm{Z}^0$.
+			\item Gluon as the exchange is between quarks (strong process).
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
+	

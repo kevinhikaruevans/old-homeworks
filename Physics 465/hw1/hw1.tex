@@ -1,0 +1,117 @@
+\documentclass{homework}
+
+\title{Homework 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{January 19, 2021}
+\setclass{Physics}{465}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\DeclareSIUnit\eVperc{\eV\per\clight}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}}
+
+\newcommand{\fm}{\femto\meter}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item We can just use the area of a circle, i.e. $\pi b^2$, \begin{align*}
+				\sigma(\theta) & = \pi b(\theta)^2 \\
+					& = \pi \left(\frac{k_e Zze^2}{2 T}\right)^2 \cot^2(\theta / 2).
+			\end{align*}
+			It's the cross-sectional area of an impact event occurring, sort of the probability that the incident particle will be deflected. For $\theta=\pi$, $\sigma = 0$ as the incident particle is fully reflected, so the impact parameter is tiny.
+		
+			\item For $\theta=0$, $\sigma\to\infty$ since the cross section must be huge for the incident particle to ``pass through.''
+			
+			\item The differential cross section $\dv*{\sigma}{\Omega}$ is the ``cross-section per unit solid angle located at angle $\theta$.'' I think it's like: given a certain angle $\theta$, how much cross-sectional area does that correspond to?
+			
+			Given the relation between the solid angle and the azimuthal and radial angle $\dd{\Omega} = 2 \pi \sin \theta \dd{\theta}$, and rearranging, \begin{align*}
+					\dv{\sigma}{\Omega} & = \frac{1}{2 \pi \sin \theta} \dv{\sigma}{\theta} \\
+						& = \frac{1}{2 \pi \sin \theta} \left[
+							-\pi \left(\frac{k_e Zze^2}{2 T}\right)^2
+							\frac{\sin\theta}{2}
+							\csc[4](\theta / 2)
+						\right] && \text{(WolframAlpha)} \\
+						& = \frac{1}{4} \left(\frac{k_e Zze^2}{2 T}\right)^2 \csc^4(\theta / 2). && \text{($\csc^4$ is even)}
+				\end{align*}
+		\end{enumerate}
+	
+		\item % 2.1
+			\begin{enumerate}
+				\item For two protons separated by 1 fermi, \begin{align*}
+					U & = \frac{1}{4 \pi \epsilon_0} \frac{e^2}{\SI{1}{\fm}} \\
+						& = \frac{1}{4 \pi (\SI{55.263}{\per\GeV\per\fm})} \frac{1}{\SI{1}{\fm}} \\
+						& = \SI{1.44}{\MeV}.
+				\end{align*}
+				\item Similarly, for a gold nucleus and an $\alpha$-particle separated by \SI{10}{\fm}, \begin{align*}
+					U & = \frac{1}{4 \pi \times \SI{55.263}{\per\GeV \per \fm}} \frac{79 \times 2}{\SI{10}{\fm}} \\
+						& = \SI{22.75}{\MeV}.
+				\end{align*}
+			
+				\item And for two $Z=46,\:A=115$ nuclei with radius $R=1.2 \times A^{1/3} \: \si{\fm}$, then the distance between the two atoms is twice the radii. The energy is then \begin{align*}
+					U & = \frac{1}{4 \pi \times \SI{55.263}{\per\GeV\per\fm}} \frac{46^2}{2 \times 1.2 \times 115^{1/3} \: \si{\fm}} \\
+						& = \SI{33.56}{\GeV}?
+				\end{align*}
+			\end{enumerate}
+		
+		\item Using an average pion mass of \SI{137.275}{\MeV\per \clight \squared}, the energies of each particle are \begin{align*}
+			E_1 & = \sqrt{528^2 + {137.275}^2} \\
+			E_2 & = \sqrt{2607^2 + 137.275^2}.
+			\intertext{The total energy is then}
+			E & = E_1 + E_2 = \SI{3156.2}{\MeV}
+		\end{align*}
+		
+		Taking the total momentum in the $x$-direction as \begin{align*}
+			p_x & = 528 \cos(30^\circ) + 2166 \cos (7^\circ) \quad \si{\MeV\per\clight} \\
+				& = \SI{2607}{\MeV\per\clight},
+			\intertext{Then, we can find the resonance particle mass using}
+			(E_1 + E_2)^2 & = (m_R c^2)^2 + (pc)^2 \\
+			m_R & \approx \SI{1778}{\MeV}...
+		\end{align*}
+		This seems pretty high, so I'm thinking there's a mistake somewhere else too...
+		
+		Taking a similar approach for (b), I'm finding \SI{-61}{\MeV}. There is something again that I'm missing...
+		
+		%%%% the energy of E_1 = sqrt(p^2 + mc^2)
+		\item  \begin{enumerate}
+			\item I'm assuming we should find the energy from Problem 3 should coincide with the peak found in Problem 4. However, because my answer from Problem 3 is seemingly wrong, I am not finding that.
+			
+			\item The approximate width of the resonance is \SI{300}{\MeV} to \SI{400}{\MeV}. From the uncertainty principle, the approximate lifetime of the particle will be \begin{align*}
+				\Delta E \Delta t & = \hbar / 2 \\
+				(\SI{300}{\MeV}) \Delta t & = \hbar / 2 \\
+				\Delta t & \approx \SI{1e-24}{\s}.
+			\end{align*}
+			
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

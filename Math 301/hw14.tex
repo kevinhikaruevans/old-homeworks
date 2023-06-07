@@ -1,0 +1,60 @@
+\documentclass{homework}
+
+\title{Homework 14}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{December 10, 2020}
+\setclass{Math}{301}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{multirow}
+
+\usepackage{amsthm}
+\newtheorem*{prop}{Proposition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item  \begin{minipage}[t]{\linewidth}
+				\begin{prop}
+					If both $f$ and $g$ are injective, then $g\circ f$ is injective.
+				\end{prop}
+				\begin{proof} 
+					Suppose $f: A \to B$ and $g : B \to C$ are injective. Then for all $a, a' \in A$ where $a \ne a'$, $f(a) \ne f(a')$, i.e. a different input to $f$ results in a different output. Then since $g$ is injective too, $g(f(a)) \ne g(f(a'))$. Therefore $g \circ f$ is injective.
+				\end{proof}
+			\end{minipage}
+		
+			\item  \begin{minipage}[t]{\linewidth}
+				\begin{prop}
+					If both $f$ and $g$ are surjective, then $g\circ f$ is surjective.
+				\end{prop}
+				\begin{proof} 
+					Suppose $f: A \to B$ and $g : B \to C$ are surjective.
+				\end{proof}
+			\end{minipage}
+			
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

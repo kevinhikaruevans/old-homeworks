@@ -1,0 +1,149 @@
+\documentclass{homework}
+
+\title{Homework 5}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{February 16, 2021}
+\setclass{Physics}{465}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{enumitem}
+\usepackage[normalem]{ulem}
+\usepackage{systeme}
+\usepackage{tikz}
+\usepackage{mathtools}
+\usepackage{tabularx}
+
+%\usepackage{calligra}
+%\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+%\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+%\newcommand{\scriptr}{\mathcalligra{r}\,}
+%\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+%\newcommand{\emf}{\mathcal{E}}
+
+\DeclareSIUnit\eVperc{\eV\per\clight}
+\DeclareSIUnit\clight{\text{\ensuremath{c}}}
+\DeclareSIUnit\year{yr}
+\newcommand{\M}{\ensuremath{\mathcal{M}}}
+\newcommand{\fm}{\femto\meter}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item \begin{enumerate}
+			\item The LHS of the equation is the $Q$ of the reaction, it's the available energy that the reaction can yield. 
+			
+			For this reaction, we know the momentum must be conserved, where $$\bvec{p}_\gamma = \bvec{p}_\mathrm{recoil}.$$
+			If we assume non-relativistic motion and use nuclear masses, \begin{align*}
+				\bvec{p}_\gamma = pc \implies p_\gamma = E_\gamma / c \\
+				E_{D} = p^2 / 2m = \frac{ E_\gamma^2 }{2 \mathcal{M}_D c^2}.
+			\end{align*}
+			We can equate the RHS of the equation as \begin{align*}
+				E_\gamma + E_\mathrm{recoil} = E_\gamma + \frac{ E_\gamma^2 }{2 \mathcal{M}_D c^2}.
+			\end{align*}
+			
+			\item Atomic masses should be OK to use on the left side for $m_p$ and $m_d$, as we're dealing with atoms complete with bound electrons.
+			
+			Using mass values from the internet, \begin{align*}
+					\SI{939.565}{\MeV}
+					+ \SI{938.272}{\MeV}
+					- \SI{1876}{\MeV} & = E_\gamma + \frac{ E_\gamma^2 }{2 \times \SI{1.875}{\GeV}} \\
+					E_\gamma & = \SI{1.84}{\MeV}.
+			\end{align*}
+
+			The quadratic term doesn't matter much, as that term is roughly only \SI{900}{\eV}---far less than the \si{\MeV} range.
+			
+			\item In Williams, $Q_\alpha = \SI{7.834}{\MeV}$. 
+				We could expect \begin{align*}
+					Q_\alpha & = \left[\SI{213.995186}{\atomicmassunit} - \SI{209.984163}{\atomicmassunit} - \SI{4.001506}{\atomicmassunit}\right]c^2 \\
+						& = \SI{8.87}{\MeV},
+				\end{align*}
+				which is pretty close to the \SI{7.8}{\MeV}, I guess...
+				
+				I'm not sure how/what to check if it's consistent with the caption of the cloud chamber figure. We see a long-range (high-energy) decay occurring in the cloud chamber. Since the energy of the decay is higher than the other decay mode, shouldn't it be less common? 
+		\end{enumerate}
+	
+		\item Using Table 5.1 and \href{https://physics.nist.gov/cgi-bin/Compositions/stand_alone.pl}{NIST's Atomic Mass Table}, the $Q$ values for each scenario are \begin{enumerate}
+			\item $\beta^-$ emission. \begin{align*}
+				Q_{\beta^-}& = \left(\M(19, 40) - \M(20, 40)\right)c^2 \\
+					& = \left(\SI{39.963998}{\atomicmassunit} - \SI{39.962590}{\atomicmassunit} \right)c^2\\
+					& = \SI{1.31}{\MeV}.
+			\end{align*}
+		
+			\item $\beta^+$ emission. \begin{align*}
+				Q_{\beta^+} & = \left(
+					\M(19, 40) - \M(18, 40) - 2 m_e
+				\right)c^2 \\
+					& = \left(
+						\SI{39.963998}{\atomicmassunit}
+						- \SI{39.962383}{\atomicmassunit}
+						- 2 \times \SI{5.485799e-4}{\atomicmassunit}
+					\right)c^2 \\
+					& = \SI{482}{\keV}.
+			\end{align*}	
+		
+			\item $e^-$ capture.
+				\begin{align*}
+					Q_\mathrm{EC} & =  \left(
+					\SI{39.963998}{\atomicmassunit}
+					- \SI{39.962383}{\atomicmassunit}
+					\right)c^2 \\
+					& = \SI{1.52}{\MeV}.
+				\end{align*}
+		\end{enumerate}
+	
+		\item In this sequence from \ce{^238 U} to \ce{^206 Pb}, there are 8 $\alpha$-decays and 6 $\beta$-decays (can we use atomic masses even if there are an uneven number of beta and alpha decays?). 
+		
+			The $Q$ value can be calculated as \begin{align*}
+				Q & = \left(
+						\M(\text{U}, 938)		
+						- \M(\text{Pb}, 206)
+						- 8\M(\text{He}, 4)
+					\right)c^2 \\
+					& = \left(
+						\SI{238.050788}{\atomicmassunit}
+						- \SI{205.97446}{\atomicmassunit}
+						- 8 \times \SI{4.002603}{\atomicmassunit}
+					\right) c^2 \\
+					& = \SI{51.7}{\MeV} = \SI{8.3e-12}{\J}.
+			\end{align*}			
+			From room temperature, the total change in temperature required is roughly \SI{1135}{\K}. For one gram, this requires an energy of \begin{align*}
+				E & = \SI{0.12}{\J \per \g \per \K} \times \SI{1135}{\K} = \SI{136.2}{\J}.
+			\end{align*}
+			In terms of decays, this needs $\num{1.644e13}$ decays, and in a gram of \ce{^238 U}, there are \num{2.53e21} atoms. I'm guessing the time required would be solved with \begin{align*}
+				\num{1.644e13} & = \num{2.53e21} \exp(-t / \SI{4.5}{\giga\year}) \\
+				t & = \SI{85}{\giga\year}?
+			\end{align*}
+		\item If we consider a particle of energy $E$ tunneling through a potential barrier of energy $U$, its wavefunction is given by \begin{align*}
+			\Psi(x) & \propto e^{-kx} \\
+			\text{where } k & = \frac{1}{\hbar} \sqrt{2m(U-E)}.
+		\end{align*}
+		Then, we can assume the rate of tunneling across the spatial interval $[a, b]$ is given by its probability, i.e. \begin{align*}
+			\text{tunneling rate } \omega & \propto \abs{\Psi}^2 \\
+				& \propto \exp{-\frac{2}{\hbar} \sqrt{2m} \int_a^b \sqrt{U(x) - E} \dd{x}}.
+			\intertext{Then, changing the bounds of the integral and taking the log (not sure if I really understand the reasoning of this part...),}
+			\ln \omega & = -2 \sqrt{\frac{2m}{\hbar}} \int_0^{r=c/E} \sqrt{ \frac{c}{r} - E } \dd{r} \\
+			\intertext{Changing variables to $x=Er/c$,}
+				& = \dots \frac{c}{\sqrt{E}} \int_0^1 \sqrt{1/x - 1} \dd{x}.
+			\intertext{Using an integration table, we can see that}
+			\ln \omega & \propto - 1/\sqrt{E},
+			\intertext{as depicted in Figure 6.3.}
+		\end{align*}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,99 @@
+\documentclass{homework}
+
+\title{Problem Set 4}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{September 28, 2020}
+\setclass{Physics}{443}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{tcolorbox}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item From the frequency dependent index of refraction, \begin{align*}
+			n^2 & = 1 + \frac{Ne^2}{m\epsilon_0} \sum_j \left(\frac{f_j}{\omega_j^2 - \omega^2}\right)
+			\intertext{We can apply the relation $\omega = 2 \pi c / \lambda$ and rewrite $n$ as}
+			n^2 & = 1 + \frac{Ne^2}{m \epsilon_0} \sum_j \frac{f_j}{4 \pi^2 c^2 / \lambda_j^2 - 4 \pi^2 c^2 / \lambda^2} \\
+				& = 1 + \frac{Ne^2}{m \epsilon_0} \sum_j \frac{f_j \lambda_j^2 \lambda^2 / 4 \pi^2 c^2}{\lambda^2 - \lambda_j^2}
+			\intertext{Condensing the coefficient of each term in the summation as $A_j = Ne^2 f_j \lambda_j^2 / 4 \pi^2 c^2 m \epsilon_0$,}
+			n^2 & = 1 + \sum_j \frac{A_j \lambda^2}{\lambda^2 - \lambda_j^2} \qed
+		\end{align*}
+	
+		\item From Problem 4.4 of Hecht,\begin{enumerate}
+			\item The terms can roughly be described as \begin{align*}
+				m_e \ddot{x} & : \text{The force experienced by an electron} \\
+				m_e \gamma \dot{x} & : \text{The resistive/friction term} \\
+				m_e \omega_0^2 x & : \text{The Hooke's law/spring restoring force term} \\
+				q_e E(t) & : \text{A driving force due to the electron charge within the electric field}
+			\end{align*}
+		
+			\item With a solution of form $x = x_0 e^{i(\omega t - \alpha)}$, \begin{align*}
+				\dot{x} & = i x_0 \omega e^{i(\omega t - \alpha)} = i \omega x \\
+				\ddot{x} & = -x_0  \omega^2 e^{i(\omega t - \alpha)} = -\omega^2 x
+				\intertext{Applying this to the driven and damped oscillator DE,}
+				m_e \ddot{x} + m_e \gamma \dot{x} + m_e \omega_0^2 x & = q_e E(t) \\
+				- m_e \omega^2 x + m_e \gamma i \omega x + m_e \omega_0^2 & = q_e E(t) \\
+				m_e x \left(\omega_0^2 - \omega^2 + i \omega \gamma\right) & = q_e E(t) \\
+				x_0 & = \frac{q_e E(t)}{m_e} \left[ \frac{1}{\omega_0^2 - \omega^2 + i \omega \gamma}\right]  \frac{1}{e^{i \omega t} e^{-i \omega t}} \\
+				& = \frac{q_e E_0}{m_e} \frac{e^{i \alpha}}{\omega_0^2 - \omega^2 + i \omega \gamma}
+				\intertext{Since $x_0 \in \mathbb{R}$, the modulus will be taken (and as $\abs{e^{i \alpha}} = 1$)}
+				\abs{x_0} & = \frac{q_e E_0}{m_e} \frac{1}{\left[ \left(\omega_0^2 - \omega^2\right)^2 + \omega^2 \gamma^2\right]^{1/2}}
+			\end{align*}
+		
+			\item From (b), we can use $x_0$ and find the phase angle by using the real and imaginary components, \begin{align*}
+				x_0 & = \frac{q_e E_0}{m_e} \frac{e^{i\alpha}}{\omega_0^2 - \omega^2 + i \omega \gamma} \\
+				\Re{x_0} & = \frac{ q_e E_0 }{m_e} \frac{\cos \alpha }{\omega_0^2 - \omega^2} \\
+				\Im{x_0} & = \frac{q_e E_0}{m_e} \frac{\sin\alpha}{\omega \gamma} \\
+				\tan \alpha & = \frac{\sin \alpha}{\cos \alpha}  = \frac{\omega \gamma }{\omega_0^2 - \omega^2} \\
+				\alpha & = \arctan(\frac{\omega \gamma}{\omega_0^2 - \omega^2})
+			\end{align*}
+		\end{enumerate}
+	
+		\item From the trial solution derived in-class, the complex wavenumber was shown as \begin{align*}
+			k^2 & = \frac{\omega^2}{c^2} - \frac{i \omega \mu_0 \sigma_0}{1 + i \omega \tau}
+			\intertext{Then from the relations $k^2 = n^2 \omega^2 / c^2$ and $\sigma_0 = \omega_p^2 \tau / \mu_0 c^2$,}
+			n^2 & = \frac{c^2}{\omega^2} \left[
+				\frac{\omega^2}{c^2} - \frac{i \omega \mu_0 \sigma_0}{1 + i \omega \tau}
+			\right] \\
+				& = 1 - \frac{i \omega_p^2 \tau}{\omega + i \omega^2 \tau}
+			\intertext{For $\omega_p = \SI{10e15}{\radian\per\s}$ and $\tau = \SI{10e-13}{s}$,}
+				n(\omega_p) & = \sqrt{1 - \frac{i \left(10^{15}\right)^2 \left(10^{-13}\right)}{10^{15} + i \left(10^{15}\right)^2 10^{-13}} } \approx 0.071 - i0.070 \\
+				n(2\omega_p) & \approx 0.866 - i0.000722 \\
+				n(\omega_p / 2)  & \approx 0.023 - i1.732
+		\end{align*}
+	
+		\item The skin depth is given as $\delta = \frac{1}{\alpha} = \sqrt{2 / \omega \mu_0 \sigma_0}$. \begin{enumerate}
+			\item For $\lambda = \SI{600}{\nano\meter}$, \begin{align*}
+				d & = \sqrt{ \frac{2}{\omega \mu_0 \sigma_0} } = \sqrt{ \frac{\lambda}{\pi c \mu_0 \sigma_0}} \\
+					& = \sqrt{ \frac{\SI{600}{\nano\meter}}{\pi c \mu_0 \left(\SI{6e7}{\siemens\per\m}\right)}  } \\
+					& \approx \SI{2.9}{\nm}
+			\end{align*}
+			\item For $\lambda = \SI{0.6}{\centi\meter}$, \begin{align*}
+				d & =  \sqrt{ \frac{\SI{0.6}{\centi\meter}}{\pi c \mu_0 \left(\SI{6e7}{\siemens\per\m}\right)}  } \\
+					& \approx \SI{290}{\nm}
+			\end{align*}
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

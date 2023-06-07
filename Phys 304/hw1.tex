@@ -1,0 +1,65 @@
+\documentclass{homework}
+
+\title{Homework 1}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{January 17, 2020}
+\setclass{Physics}{304}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{venndiagram}
+\usepackage{icomma}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+
+\begin{document}
+	\maketitle
+	\subsection*{Questions}
+	\begin{enumerate}
+		\item[1.] Because a magnetic moment is defined as
+			\[ \boldsymbol{\mu} = \frac{q}{2m} \bvec{L} \]
+			For an electron, the charge $q=-e$. The direction of $\boldsymbol{\mu}$ will always be opposite of $\bvec{L}$.
+			
+		\item[2.] The Stern-Gerlach experiment uses an inhomogeneous magnetic field to create a non-zero net force on particles. If the magnetic field were uniform, there would be zero \textit{net} force on the electron's orbit---but instead it would only exert a non-zero torque and the particle would not experience any deflection in its trajectory. This is similar to loops of current in magnetic fields.
+		
+		\item[3.] No. If the particle had a non-zero net charge, the particle would experience a Lorentz force, $q\bvec{v} \cross \bvec{B}$.
+		% -> talk about spin affecting it
+	\end{enumerate}
+
+	\subsection*{Problems}
+	\begin{enumerate}
+		\item[1.] The total magnetic moment is given as \begin{align*}
+			\boldsymbol{\mu} & = \boldsymbol{\mu}_0 + \boldsymbol{\mu}_s = \frac{-e}{2m_e} \left\{
+				\bvec{L} + g \bvec{S}
+			\right\}
+			\intertext{Since we're only concerned with the change in energy from spin, we can omit the orbital momentum as it remains constant in both states. Then, we can take the component ($\mu_z$) in the direction of $\bvec{B}$. }
+			\boldsymbol{\mu} & = \frac{-e}{2m_e} g \bvec{S} \\
+			\mu_z & = \frac{e}{2m_e} g S_z = \frac{\hbar ge}{2m_e} m_s
+			\intertext{The change in magnetic quantum numbers is $\Delta m_s = 1$, with the change in energy between the aligned and unaligned states as}
+			\Delta E & = \frac{\hbar g e B}{2 m_e} \approx \frac{ \hbar e B }{m_e} \\
+			\intertext{Equating this to the energy of a photon,}
+			\Delta E & \approx \frac{ \hbar e B }{m_e} = \hbar \omega = 2 \pi \hbar f \\
+			f & = \frac{e B}{2 \pi m_e} = \frac{ \left( \SI{1.60e-19}{\coulomb} \right) \left( \SI{0.35}{\tesla} \right) }{2 \pi \cdot \SI{9.11e-31}{\kg}} \\
+			& \approx \SI{9.8}{\giga\hertz} \qed
+		\end{align*}
+	\end{enumerate}
+\end{document}

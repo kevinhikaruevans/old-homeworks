@@ -1,0 +1,79 @@
+\documentclass{homework}
+
+\title{Lab 9}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{April 11, 2020}
+\setclass{EE}{352}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+\usepackage{pgfplots}
+
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{graphicx} 
+\DeclareSIUnit{\year}{yr}
+
+\begin{document}
+	\maketitle
+	\vspace{-1em}
+	\subsection*{Experiment 1}
+	\vspace{-0.2em}
+	In this experiment, the 2N3904 BJT was simulated in LTSPICE and the $i_c$-$v_{CE}$ characteristic curves were obtained. From these curves, the current gain $\beta$ was obtained at various collector-emitter voltages and base currents. The data is shown in Table \ref{table:exp1}. At $V_{CE}=1$ V, the expected gain $h_{FE}$ has a minimum of 70 (1 mA) and 100 (10 mA) and a maximum of 300. In the simulation, a current gain of just under 300 was calculated. At $V_{CE}=10$ V, the gain exceeded 300, however an $h_{FE}$ value was not listed for this voltage.
+	\vspace{-1em}
+	\begin{table}[H]
+		\centering
+		\caption{Data collected from the $i_c$-$v_{CE}$ curves and the current gains calculated.}
+		\label{table:exp1}
+		\begin{tabular}{@{}ccccc@{}}
+			\toprule
+			$V_{CE}$ & Approx. $I_C$ (mA) & $I_C$ (mA) & $I_B$ (uA) & $\beta$ (A/A) \\ \midrule
+			1   & 3                       & 2.9872372       & 10          & 298.72372  \\
+			1   & 12                      & 11.692551       & 40          & 292.313775 \\
+			10  & 3                       & 3.2552434       & 10          & 325.52434  \\
+			10  & 12                      & 12.741939       & 40          & 318.548475 \\ \bottomrule
+		\end{tabular}
+	\end{table}
+
+	\noindent For small AC signals, the gain was found to be $\beta=320.7$. This was determined by fixing $V_{CE} = 10$ V and measuring the collector current $I_C$ at the base currents of $10$ and $20$ mA, \begin{align*}
+		\beta_{ac} & = \eval{ \frac{\Delta I_C}{\Delta I_B} }_{V_{CE} = 10} \\
+			& = \frac{6.4623146 - 3.2552434 \text{ mA}}{10 \text{ uA}} = 320.71
+	\end{align*}
+	At the point $(V_{ce}, I_c) \approx (10 \text{ V}, 12 \text{ mA})$, the output resistance was determined using the slope, \begin{align*}
+		\text{Slope} & = \frac{12.747768 - 12.736109\; \si{\mA}}{10.05 - 9.95 \; \si{\V}} \\
+		r_o & = \SI{8576.92}{\ohm}
+	\end{align*}
+	The early voltage $V_A$ was determined using this $r_o$, \begin{align*}
+		V_A & = r_o I_c - V_{CE} \\
+			& = \SI{8.577}{\kohm} \times \SI{12.74}{\mA} - \SI{10}{\V} \\
+			& = \SI{99.28}{\V}
+	\end{align*}
+	Next, the collector-emitter terminals of the transistor were reversed and the reverse current gain $\beta_r$ was calculated at $V_{CE} = 4$ V and at a base current $I_B = \SI{10}{\uA}$, \begin{align*}
+		\beta_r & = \frac{39.77}{10} = 3.98
+	\end{align*}
+	\vspace{-2em}
+	\subsection*{Experiment 2}
+	\vspace{-0.2em}
+	The transistor was attached in a diode configuration, with the base and collector shorted together. Around a base current $I_B = \SI{20}{\uA}$, the slope was measured using two data points and the resistance $r_\pi$ was calculated, \begin{align*}
+		\text{Slope} & = \frac{20.032921 - 19.958448 \; \si{\uA}}{702.5 - 702.4 \; \si{\mV}} = \SI{0.000744731}{\A/\V} \\
+		r_\pi & = \SI{1342.77}{\ohm}
+	\end{align*}
+\end{document}

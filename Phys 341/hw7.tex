@@ -1,0 +1,139 @@
+\documentclass{homework}
+
+\title{Homework 7}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{October 21, 2020}
+\setclass{Physics}{341}
+\usepackage{amssymb}
+\usepackage{mathtools}
+
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{relsize}
+\usepackage{threeparttable}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{boldline}
+\usepackage{changepage}
+\usepackage{physics}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+\usepackage{setspace}
+
+\usepackage[makeroom]{cancel}
+%\usepackage{pgfplots}
+
+\usepackage{enumitem}
+\usepackage{times}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}
+\newcommand{\scriptr}{\mathcalligra{r}\,}
+\newcommand{\boldscriptr}{\pmb{\mathcalligra{r}}\,}
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item On the inside of the sphere, we can assume the potential to have form (as $B=0$ to prevent $V \to \infty$). Outside the sphere $A = 0$, allowing the voltage to tend toward zero at infinity. \begin{align*}
+			V(r, \theta) & = \begin{cases*}
+				\displaystyle\sum_l A_l r^l P_l (\cos \theta) & inside \\
+				\displaystyle\sum_l \frac{B_l}{r^{l+1}} P_l (\cos \theta) & outside
+			\end{cases*}
+			\intertext{The given voltage can be written in terms of Legendre polynomials for $l=0$ and $l=2$,}			
+			V_0(\theta) & = k \cos 2 \theta \\
+				& = \frac{4k}{3} \left(\frac{3 \cos[2](\theta) - 1}{2} - \frac{1}{4}\right) \\
+				& = \frac{4k}{3} \left(P_2(\cos \theta) - \frac{1}{4} P_0(\cos \theta)\right)
+			\intertext{Inside the sphere, the coefficients can be found as}
+			A_l & = \frac{2l + 1}{2 R^l} \int_0^\pi V_0(\theta) \sin \theta \dd{\theta} \\
+			A_0 & = \frac{-k}{6} \int_0^\pi \sin(\theta) \dd{\theta} = -\frac{2k}{6} \\
+			A_2 & = \frac{5}{2R^2} \int_0^\pi \frac{4k}{3} \left[P_2(\cos(\theta))\right]^2 \sin(\theta) \dd{\theta} = \frac{4k}{3R^2} \\
+			\intertext{Plugging in these $A_l$ values and expanding the sum, inside the sphere, the potential is}
+			\Aboxed{ V_\mathrm{in}(r, \theta) & = -\frac{2k}{6} + \frac{4kr^2}{3R^2} \left(\frac{3 \cos[2](\theta) - 1}{2}\right) }
+			\intertext{Outside the sphere, we can apply the relation (3.75) from Griffith's, $B_l = -A_l R^{2l + 1}$}
+			B_0 & = \frac{2Rk}{6} \\
+			B_2 & = \frac{-4R^3 k}{3} \\
+			\Aboxed{ V_\mathrm{out}(r, \theta) & = \frac{2Rk}{6r} - \frac{4R^3k}{3r^3} \left(\frac{3 \cos[2](\theta) - 1}{2}\right) }
+		\end{align*}
+		Since the normal derivatives are discontinuous at $r=R$ by the surface charge, i.e. 
+		\begin{align*}
+			\eval{\pdv{V_\mathrm{out}}{r} - \pdv{V_\mathrm{in}}{r}}_{r=R} & = -\frac{\sigma(\theta)}{\epsilon_0} \\
+			\left[\frac{4R^3 k}{r^4} \left(\frac{3 \cos[2](\theta) - 1}{2}\right) - \frac{8kr}{3R^2} \left(\frac{3 \cos[2](\theta) - 1}{2}\right)\right]_{r=R} & = -\frac{\sigma(\theta)}{\epsilon_0} \\
+			\sigma(\theta) & = \epsilon_0 \left( \frac{8k}{3R} - \frac{4k}{R} \right)\left(\frac{3 \cos[2](\theta) - 1}{2}\right) \\
+			\Aboxed{ \sigma(\theta)	& = -\frac{4k\epsilon_0}{3R} \left(\frac{3 \cos[2](\theta) - 1}{2}\right) }
+		\end{align*}	
+	
+		\item Following the steps on page 148 of Griffith's, \begin{align*}
+			A_l & = \frac{1}{2 \epsilon_0 R^{l - 1}} \left[
+				\int_0^{\pi / 2} \sigma_0 P_l(\cos \theta) \sin(\theta) \dd{\theta}
+				+ \int_{\pi / 2}^{\pi} \left(- \sigma_0 \right)P_l(\cos \theta) \sin(\theta) \dd{\theta}
+			\right]
+			\intertext{The first 6 coefficients can be found as }
+			A_0 & = \frac{\sigma_0}{2 \epsilon_0 R^{-1}} \left[
+				\int_0^{\pi / 2} \sin(\theta) \dd{\theta}
+				-\int_{\pi / 2}^{\pi} \sin(\theta) \dd{\theta}
+			\right] = 0 \\
+			A_1 & =  \frac{\sigma_0}{2 \epsilon_0} \left[
+			\int_0^{\pi / 2} \cos(\theta) \sin(\theta) \dd{\theta}
+			-\int_{\pi / 2}^{\pi} \cos(\theta)\sin(\theta) \dd{\theta}
+			\right] = \frac{\sigma_0}{2 \epsilon_0} \\
+			A_2 & = 0 \\
+			A_3 & \approx -10.84 \sigma_0 / \epsilon_0 && \text{...used a calculator for these}  \\
+			A_4 & = 0\\
+			A_5 & \approx -188.89 \sigma_0 / \epsilon_0
+		\end{align*}
+	
+		\item For the charge density \begin{align*}
+			\rho(r, \theta) & = k \left(\frac{R^2}{r^2} - 3\right) \cos \theta
+			\intertext{The monopole potential is }
+			V_\mathrm{mono} (\bvec{r}) & = \frac{1}{4 \pi \epsilon_0} \frac{k}{z} \int_{V} \left(\frac{R^2}{r^2} - 3\right) \cos \theta \dd{\tau} \\
+				& = \frac{1}{4 \pi \epsilon_0} \frac{k}{z} \left(\dots\right) \int_0^\pi \cos(\theta) \sin(\theta) \dd{\theta} \\
+				& = 0 \quad \text{as the $\cos\theta \sin\theta$ integral evaluates to zero}
+		\end{align*}
+		For the dipole potential, \begin{align*}
+			V_\mathrm{dipole} (\bvec{r}) & = \frac{1}{4 \pi \epsilon_0 r^2} \left[ \int_V r' \cos \theta \rho{(\bvec{r}')} \dd{\tau} \right] \\
+				& = \frac{k}{4\pi \epsilon_0 r^2} \left[
+					\int_0^{2\pi} \dd{\phi}
+					\int_0^{\pi} \cos^2\!\theta \sin{\theta} \dd{\theta}
+					\int_0^R \left( \frac{R^2}{r^2} - 3\right) r^2 \dd{r}
+				\right] \\
+				& = \frac{k}{2 \epsilon_0 r^2}  \left(\frac{2}{3}\right) \left(0\right) \\
+				& = 0
+		\end{align*}
+		For the quadrupole term, \begin{align*}
+			V_\mathrm{quad}(\bvec{r}) & = \frac{1}{4 \pi \epsilon_0 r^3} \int_V (r')^2 \left(\frac{3}{2} \cos[2](\alpha) - \frac{1}{2}\right) \rho(\bvec{r}') \dd{\tau}'
+			\intertext{As the observation points are along the $z$-axis, the angle $\alpha = \theta$,}
+			V_\mathrm{quad}(\bvec{r}) & = \frac{k}{4 \pi \epsilon_0 r^3} \int_V (r')^2 	\left(\frac{3}{2} \cos[2](\theta) - \frac{1}{2}\right)
+				\left(\frac{R^2}{r'^2} - 3\right) \cos \theta
+			\dd{\tau}' \\
+				& = \frac{k}{4 \pi \epsilon_0 r^3} \left[
+					\int_0^{2 \pi} \dd{\phi}
+					\int_0^\pi 
+					\int_0^R
+						\left(\frac{3}{2} \cos[2] (\theta) - \frac{1}{2}\right)
+						\left(\frac{R^2}{r'^2} - 3 \right) \cos(\theta) \sin(\theta) (r')^4 \dd{r} \dd{\theta}
+				\right] \\
+				& = 0 \quad \text{Due to the $\theta$ integral evaluating to zero}
+		\end{align*}
+	
+		\item The monopole term is found by summing all the charges near the origin, \begin{align*}
+			V_\mathrm{mono} & = \frac{q}{4 \pi \epsilon_0 r}
+		\end{align*}
+		
+		The dipole term can be found by first summing the dipole moments, \begin{align*}
+			\bvec{p} & = \sum_i q_i r_i' \\
+				& = q \left( (2 - 1)a\uvec{z} + 0 \uvec{x} \right) = qa \uvec{z} \\
+				& = qa \uvec{r} \\
+			V_\mathrm{dipole} & = \frac{qa}{4 \pi \epsilon_0 r^2}
+		\end{align*}
+		
+		\item The monopole term is zero as the total net charge is zero.
+		
+		For the dipole term, \begin{align*}
+			\bvec{p} & = qa \left( -2\uvec{z} + (1 - 1) \uvec{x} \right) \\
+				& = -2qa \uvec{z} \\
+			V_\mathrm{dipole} & = -\frac{2qa}{4 \pi \epsilon_0 r^2}
+		\end{align*}
+	\end{enumerate}
+\end{document}

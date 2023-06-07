@@ -1,0 +1,124 @@
+\documentclass{homework}
+
+\title{Problem Set 6}
+\author{Kevin Evans}
+\studentid{11571810}
+\date{March 23, 2021}
+\setclass{Physics}{463}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{slashed}
+\usepackage{boldline}
+\usepackage{physics}
+\usepackage{tcolorbox}
+\usepackage[inter-unit-product =\cdot]{siunitx}
+
+\usepackage[makeroom]{cancel}
+\usepackage{booktabs}
+\usepackage{multirow}
+
+\usepackage{times}
+\usepackage{mhchem}
+\usepackage{mathtools}
+\usepackage{tabularx}
+\usepackage{listings}
+
+
+\newcommand{\fm}{\femto\meter}
+\newcommand{\solution}{	\vspace{1em} \textit{Solution.} \quad }
+
+\begin{document}
+	\maketitle
+	\begin{enumerate}
+		\item % 6.1
+			\textbf{\textit{Kinetic energy of electron gas.}} Show that the kinetic energy of a three-dimensional gas of $N$ free electrons at \SI{0}{\K} is $$U_0 = \frac{3}{5} N \epsilon_F.$$
+			\solution
+			From (12), the energy of the $k$th state is given by (12), \begin{align*}
+				\epsilon_K & = \frac{\hbar^2}{2 m } k^2.
+				\intertext{The average kinetic energy is then}
+				u_0 & = \expval{\epsilon_K} \\
+					& = \frac{ \int \epsilon_K f(k) \dd[3]{\bvec{k}} }{\int f(k) \dd[3]{\bvec{k}}}.
+				\intertext{As it's fully populated from $0$ to $k_F$ (so $f(k)$ is a step function) and as the non-radial components divide out, the energy per free electron is}
+				u_0	& = \frac{\hbar^2}{2m} \frac{\int_0^{k_F} k^4 \dd{k} }{\int_0^{k_F} k^2 \dd{k}} \\
+					& = \frac{\hbar^2}{2m} \frac{k_F^5 / 5}{k^3 / 3} \\
+					& = \frac{3 \hbar^2 k_F^2}{10 m} = \frac{3}{5} \epsilon_F.
+				\intertext{For $N$ free electrons, we can just multiply by $N$,}
+				U_0 & = N u_0 = \frac{3}{5} N \epsilon_F. \qed
+			\end{align*}
+			
+		\pagebreak
+		
+		\item % 6.2, (a) hint
+			\textbf{\textit{Pressure and bulk modulus of an electron gas.}} \begin{enumerate}
+				\item Derive a relation connecting the pressure and volume of an electron gas at \SI{0}{\K}. Hint: Use the result of Problem 1 and the relation between $\epsilon_F$ and the electron concentration. The result may be written as $p = \frac{2}{3} (U_0 / V)$. Hint: You can use the general relation $p = - \pdv*{U}{V}$ at constant entropy and at absolute zero, all processes are at constant entropy.
+				
+				\solution From Problem 1 and from the definition of the Fermi energy (17), \begin{align*}
+					U_0 & = \frac{3}{5} N \epsilon_F = \frac{3}{5} N \frac{\hbar^2}{2m} \left(3 \pi^2 N\right)^{2/3} V^{-2/3}. \\
+					p & = \eval{-\pdv{U_0}{V}}_S \\
+						& = -(\dots) \left(-\frac{2}{3}\right) V^{-5/3}. \\
+						& = \frac{2}{3} (\dots) V^{-2/3} V^{-3/3} \\
+						& = \frac{2}{3} \frac{U_0}{V}. \qed
+				\end{align*}
+				
+				\item Show that the bulk modulus $B=-V(\pdv*{p}{V})$ of an electron gas at \SI{0}{\K} is $$B = 5 p / 3 = 10 U_0 / 9V.$$
+				
+				\solution From part (a), the bulk modulus is \begin{align*}
+					B & = -V \pdv{p}{V} = -V \frac{2}{3}\left( \frac{1}{V} \pdv{U_0}{V} + U_0 \pdv{V} V^{-1} \right) \\
+					& = -\frac{2V}{3}  \left(
+						-\frac{p}{V}
+						- \frac{U_0}{V^2}
+					\right) \\
+					& = \frac{2p}{3} + \underbrace{ \frac{2}{3} \frac{U_0}{V}}_{p} \\
+					& = \frac{5p}{3}. \qed
+				\end{align*}
+				
+				\item Estimate for potassium using Table 1, the value of the electron gas contribution to $B$.
+				
+				\solution For potassium, we can estimate the bulk modulus as \begin{align*}
+					B & = \frac{10 U_0}{9V} = \frac{10}{9} \frac{N}{V} \frac{3}{5} \epsilon_F \\
+						& =\frac{2}{3} \left( \SI{1.40e22}{\per\centi\meter\cubed}\right) \left(\SI{2.12}{\eV}\right) \\
+						& \approx \SI{2e22}{\eV\per\centi\meter\cubed}. \qquad (\approx \SI{3.1}{\GPa})
+				\end{align*}
+			\end{enumerate}
+		
+		\pagebreak
+		
+		\item % 6.3
+			\textbf{\textit{Chemical potential in two dimensions.}} Show that the chemical potential of a Fermi gas in two dimensions is given by $$\mu(T) = k_B T \ln[\exp(\pi n \hbar^2 / m k_B T) - 1],$$
+			for $n$ electrons per unit area. Note: The density of orbitals of a free electron gas in two dimensions is independent of energy, $$D(\epsilon) = m / \pi \hbar^2,$$
+			per unit area of specimen.
+			
+			\solution From the Fermi-Dirac distribution, \begin{equation}
+				f(\epsilon) = \frac{1}{\exp[(\epsilon - \mu) / k_B T] + 1}, \tag{6.5}
+			\end{equation}
+			and using the provided density of energy $\epsilon$, the electron area density is \begin{align*}
+				n & = \int D(\epsilon) f(\epsilon) \dd{\epsilon} \\
+					& = \frac{m}{\pi \hbar^2} \int_0^\infty \frac{1}{\exp[(\epsilon - \mu) / k_B T] + 1} \dd{\epsilon} \\
+					& = \frac{m}{\pi \hbar^2} k_B T \ln[\exp(\mu / k_B T) + 1]. && \text{(WolframAlpha)}
+				\intertext{Solving for $\mu(T)$,}
+				\ln[\dots] & = \frac{n n \hbar^2}{m k_B T} \\
+				\exp(\dots) & = \exp(\frac{n n \hbar^2}{m k_B T}) - 1 \\
+				\mu(T) & =  k_B T \ln[\exp(\pi n \hbar^2 / m k_B T) - 1]. \qed
+			\end{align*}
+		
+		\item % 6.5
+		\textbf{\textit{Liquid \ce{He^3}.}} The atom \ce{He^3} has spin $\frac{1}{2}$ and is a fermion. The density of liquid \ce{He^3} is \SI{0.081}{\g \per \centi\meter\cubed} near absolute zero. Calculate the Fermi energy $\epsilon_F$ and the Fermi temperature $T_F$.
+		
+		\solution Using the definition of the Fermi energy, \begin{align*}
+			\epsilon_F & = \frac{\hbar^2}{2m} \left( 3 \pi^2  \frac{N}{V}\right)^{2/3},
+			\intertext{and using the mass of Helium-3 (\SI{3.016}{\atomicmassunit}), }
+			\epsilon_F & = \frac{(\SI{1.054e-34}{\J\s})^2}
+								{2 (\SI{3.016}{\atomicmassunit} \times \SI{1.66e-24}{\g} )}
+								\left(
+									3 \pi^2 \times \frac{ \SI{0.081}{\g\per\centi\meter\cubed} }{\SI{3}{\g\per\mol}}
+								\right)^{2/3} \\
+						& = \SI{9.57e-39}{\J}.
+			\intertext{The associated Fermi temperature is}
+			T_F & = \epsilon_F / k_B \\
+				& = \SI{7e-16}{\K}.
+		\end{align*}
+	\end{enumerate}
+\end{document}

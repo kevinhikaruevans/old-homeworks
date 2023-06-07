@@ -1,0 +1,86 @@
+\documentclass{report}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{times}
+\title{
+	\textsc{ \small
+		Washington State University \\
+		School of Electrical Engineering and Computer Science \\
+		EE 352, Electrical Engineering Laboratory
+	} \\
+	{\textsc{\small Lab \#2}} \\
+	State Variable Modeling and Mutual Inductance
+}
+
+\author{
+	Name: Kevin Evans \\
+	Partner: Jacob Hnatiak
+}
+\date{Due Date: February 2, 2020}
+
+
+% start sections at 1 with subsections to 1.1, 1.2...
+\renewcommand{\thesection}{\arabic{section}}
+
+%alias for vpp/rms
+\newcommand{\pp}{_{pp}}
+\newcommand{\rms}{_{rms}}
+\newcommand{\Vpp}{\V\pp}
+\newcommand{\Vrms}{\V\rms}
+
+\usepackage{siunitx}
+\usepackage{threeparttable}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{float}
+
+\begin{document}
+\maketitle
+
+\section*{Lab Overview}
+% what was the lab about and the outcome?
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experiment}
+
+\subsection{Purpose}
+% purpose of the experiment and its specs and/or design requirements
+
+\subsection{Theoretical background}
+% background and its theory of operation, circuit diagrams, the main equations, results from the prelab
+\subsection{Procedure}
+The follow steps were carried out, as instructed by the lab assignment.
+\begin{enumerate}
+	\item
+\end{enumerate}
+
+\subsection{Results and analysis}
+% state all measured values, graphs, tables, and figs.
+% state any deviation from theoretical expected values
+% use tables and graphs
+% * must justify error in results otherwise the experiment failed
+
+\subsubsection{Measured component values}
+\begin{table}[h]
+	\centering
+	\caption{Experimental and nominal component values.}
+	\label{table:lab2components}
+	\begin{threeparttable}
+		\begin{tabular}{cccc}
+			\toprule
+			Component & Nominal & Experimental & \% Error (Tolerance) \\
+			\midrule
+			$L$  & \SI{1}{\milli\henry} & \SI{1.146}{\milli\henry} & 4.1\%  \\
+			$R_L$ & -- & \SI{2.23}{\ohm} & -- \\
+			$R_1$ & \SI{68}{\ohm} & \SI{67.42}{\ohm} & 0.08\% (10\%) \\
+			$R_2$ & \SI{1.1}{\ohm} & \SI{1.20}{\ohm} & 9.1\% (10\%) \\
+			$C$ & \SI{10}{\micro\farad} & \SI{9.59}{\micro\farad} & 4.1\% ([M] 20\%) \\
+			\bottomrule
+		\end{tabular}
+	\end{threeparttable}
+\end{table}
+
+\subsection{Conclusion}
+%  conclusion of the exp
+\end{document}
