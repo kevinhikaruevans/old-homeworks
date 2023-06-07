@@ -8,6 +8,8 @@ The stuff in here is mostly:
 - C code
 - Verilog/VHDL
 
+Some of these solutions are wrong or incomplete, so don't just copy these, but perhaps they might give you some guidance if you're stuck! 
+
 ## Notable ones
 
 I probably put the most effort into typesetting these ones:
