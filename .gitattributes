@@ -1,1 +1,1 @@
-*.tex linguist-language=TeX
+*.tex linguist-detectable=true linguist-language=TeX
