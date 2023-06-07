@@ -1,0 +1,36 @@
+
+               CS360 Project Level-1 DEMO RECORD 
+
+
+Team Member Names IDs 11571810
+
+                     
+
+                            Check List
+
+     Commands              Expected Results           Observed Results
+--------------------   -------------------------   ------------------------
+1. startup (with an EMPTY diskiamge)
+   ls:                  Show contents of / DIR      empty dir (with lost+found)
+
+2. mkdir dir1; ls:      Show /dir1 exists           dir1 exists
+
+   mkdir dir2; ls:      Show /dir1, /dir2 exist     dir1, dir2 exists
+
+3. mkdir dir1/dir3 
+   ls dir1:             Show dir3 in dir1/          dir3 exists in dir1
+
+4. creat file1          Show /file1 exists          file1 now exists
+
+5. rmdir dir1           REJECT (dir1 not empty)     error message
+
+6. rmdir dir2; ls:      Show dir2 is removed        dir2 is removed
+
+7. link file1 A;ls:     file1,A same ino,  LINK=2   A exists, and file1 has links=2
+
+8. unlink A; ls:        A deleted, file1's LINK=1   A is removed, file1 link = 1
+
+9. symlink file1 B;ls:  ls must show   B->file1     ls shows B -> file1
+
+10.unlink file1; ls:    file1 deleted, B->file1     file1 deleted, but B->file1 exists still
+

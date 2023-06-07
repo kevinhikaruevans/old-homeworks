@@ -1,0 +1,52 @@
+Kevin Evans
+11571810
+Prelab 3
+
+1. A process is the execution of an image.
+
+    pid = process ID, ppid = parent process ID
+    status = the status of the process, e.g. free, ready, etc.
+    priority = the scheduling priority
+    event = the int value associated with a sleep call
+    exitCode = the int value associated with an exit call
+
+    PROC pointers child, sibling, parent: these pointers form a linked list with associated processes
+
+2. Downloaded
+
+3. fork - creates a child task and adds it into the readyQueue
+   switch - switches the process contexts
+   exit - normally terminates a process with an exit value via a sys call
+
+   sleep - allows the process to "sleep" while it waits for a resource to become available, and has an associated event value
+   wakeup - this is called when a sleeping process(es) needs to be awakened, as the associated event value can be handled
+
+   wait - waits for a zombie process and returns the process zombie child's pid, then releases the process back to the free list
+
+4. - P2 is forked with parent P1
+   - it can be forked 7 other times (since there are 7 free processes)
+
+5. - the running process is switched to P2, and P1 is put on the ready readyQueue to be executed once P2 is "done"
+   - P2 is put to sleep with value 123 and is placed onto sleepList and now P1 is switched to
+   - with wakeup 234, nothing has changed
+   - with wakeup 123, P2 is now awoken and is put back onto the ready queue
+
+6. - nothing happens since P1 has no children yet
+
+Case 1:
+   - P1 is now running since its child P2 was running and exited 
+   - P2's status = ZOMBIE
+   - P2 is placed back onto the free list
+   - P2 is now "FREE"
+
+Case 2:
+    - P1 is put to sleep and its child P3 is now switched to
+    - P3 is exited and P1 is immediately switched to
+    - P3 is now "FREE" immediately, since P1 was already waiting from before
+
+7. P1 is now running because it was the parent of P2, which exited
+   P2 is a zombie
+   P3, P4, P5 are now children of P1
+   P2 is now listed as free
+   P1 is put to sleep, and it is switched to its child P3
+   If P3, P4, P5 exit, then P1 will run again

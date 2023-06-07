@@ -4,3 +4,6 @@
 *.aux
 *.log
 *.zip
+*.out
+*.bin
+*.tgz

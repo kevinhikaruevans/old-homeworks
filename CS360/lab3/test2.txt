@@ -1,0 +1,24 @@
+[DEBUG] [parent] pid = 33873, waiting...
+[DEBUG]    line: 'ls'
+[DEBUG]    search: /usr/local/sbin/ls
+[DEBUG]    search: /usr/local/bin/ls
+[DEBUG]    search: /usr/sbin/ls
+[DEBUG]    search: /usr/bin/ls
+total 80K
+drwxrwxr-x 4 kevin kevin 4.0K Sep 24 16:14 .
+drwxrwxr-x 6 kevin kevin 4.0K Sep 17 14:06 ..
+-rwxrwxr-x 1 kevin kevin  18K Sep 24 16:14 a.out
+-rwxrwxr-x 1 kevin kevin  23K Sep 24 15:42 main
+-rw-rw-r-- 1 kevin kevin 5.1K Sep 24 16:14 main.c
+-rw-rw-r-- 1 kevin kevin  832 Sep 24 15:42 main.h
+drwxrwxr-x 2 kevin kevin 4.0K Sep 24 13:25 pre
+-rw-r--r-- 1 kevin kevin  201 Sep 24 16:14 test2.txt
+-rw-r--r-- 1 kevin kevin  297 Sep 24 16:12 test.txt
+drwxrwxr-x 2 kevin kevin 4.0K Sep 24 13:36 .vscode
+[DEBUG] [parent] child pid = 33877, died with status 0000
+Hello
+This
+Is
+A
+Multiline
+File

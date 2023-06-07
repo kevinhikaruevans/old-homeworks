@@ -1,0 +1,22 @@
+[DEBUG] pipe detected
+[DEBUG] *** parse line
+[DEBUG]    head = 'cat test.txt '
+[DEBUG]    tail = ' grep'
+[DEBUG] *** end parse line
+[DEBUG] [parent] pid = 38282, waiting...
+[DEBUG] --- tail ---
+[DEBUG] ** executing: 'grep'
+[DEBUG]    search: /usr/local/sbin/grep
+[DEBUG]    search: /usr/local/bin/grep
+[DEBUG] --- head --- 0
+[DEBUG]    search: /usr/sbin/grep
+[DEBUG]    search: /usr/bin/grep
+[DEBUG] ** executing: 'cat'
+[DEBUG]    search: /usr/local/sbin/cat
+[DEBUG]    search: /usr/local/bin/cat
+[DEBUG]    search: /usr/sbin/cat
+[DEBUG]    search: /usr/bin/cat
+This
+Multiline
+File
+[DEBUG] [parent] child pid = 38293, died with status 0000

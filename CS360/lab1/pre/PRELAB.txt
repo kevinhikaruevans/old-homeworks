@@ -1,0 +1,187 @@
+Kevin Evans
+11571810
+Lab 1 - CptS 360
+
+--------------------------
+Part 1:
+
+(A)
+    Case  | a.out |  TEXT  |  DATA  |  BSS   |
+--------------------------------------------
+    (1)   | 15596 | 1679   | 304    | 8      |
+--------------------------------------------  
+    (2)   | 15600 | 1679   | 308    | 4      |
+--------------------------------------------
+    (3)   | 15596 | 1679   | 304    | 40032  |
+--------------------------------------------
+    (4)   | 55620 | 1679   | 40328  | 4      |
+--------------------------------------------
+    (5)   | 15680 | 1927   | 308    | 8      |
+--------------------------------------------        
+    (6)   | 15688 | 1695   | 304    | 40068  |
+--------------------------------------------
+
+1. Which variables are in DATA? g
+   Which variables are in BSS? a, b, c, d
+
+2. Which sections are in a.out, which section is NOT in a.out?
+   
+   * a.out contains the TEXT (CODE) and DATA sections. 
+   * it does NOT contain the BSS section, only the size of the bss.
+   * this is clear from (4)
+
+3. The size of the output file (a.out) increases significantly for all the files. 
+   This is because it is statically linking the needed libraries (like stdio.h)
+   instead of loading them dynamically at run-time.
+
+------------------------
+PART 2
+
+enter main
+&argc=fff5fb30 argv=fff5fbc4 env=fff5fbcc
+&a=fff5faec &b=fff5faf0 &c=fff5faf4
+argc = 1
+argv[0] = './a.out'
+enter A
+&d=fff5faa0, &e=fff5faa4, &f=fff5faa8
+enter B
+&g=fff5fa70, &h=fff5fa74, &i=fff5fa78
+enter C
+&u=fff5fa30, &v=fff5fa34, &w=fff5fa38, &i=fff5fa3c, &p=f7f19d20
+FP (edp) = fff5fa58
+
+Stack frame link list: 
+fff5fa58 -> fff5fa88 -> fff5fab8 -> fff5fb18 -> (NULL)
+
+Stack contents until main(): 
+fff5fa30               a    int u = 10
+fff5fa34               b    v = 11
+fff5fa38               c    w = 12
+fff5fa3c               d    i = 13
+fff5fa40               0    
+fff5fa44               5
+fff5fa48        fff5fa48
+fff5fa4c        b9fc9600
+fff5fa50        fff5fb30
+fff5fa54        565aefcc    
+fff5fa58        fff5fa88    stack frame ptr
+fff5fa5c        565ac41a    return PC
+fff5fa60               7    
+fff5fa64               8    
+fff5fa68        fff5fa74
+fff5fa6c        fff5fa78
+fff5fa70               7    g = 7
+fff5fa74               8    h = 8
+fff5fa78               9    i = 9
+fff5fa7c        b9fc9600
+fff5fa80        fff5fb30
+fff5fa84        565aefcc
+fff5fa88        fff5fab8    stack frame
+fff5fa8c        565ac37b    return PC
+fff5fa90               4
+fff5fa94               5
+fff5fa98        fff5faa4
+fff5fa9c        fff5faa8
+fff5faa0               4
+fff5faa4               5
+fff5faa8               6
+fff5faac        b9fc9600
+fff5fab0        fff5fb30
+fff5fab4        565aefcc
+fff5fab8        fff5fb18    stack frame
+fff5fabc        565ac2d2    return PC
+fff5fac0               1    
+fff5fac4               2
+fff5fac8        fff612e7
+fff5facc        fff5faf4
+fff5fad0               0
+fff5fad4        f7f19000
+fff5fad8        fff5fbcc
+fff5fadc        fff5fbc4
+fff5fae0        f7f19000
+fff5fae4        f7f4a2d0
+fff5fae8               0    i?
+fff5faec               1    a
+fff5faf0               2    b
+fff5faf4               3    c
+fff5faf8               1
+fff5fafc        b9fc9600
+fff5fb00               1
+fff5fb04        fff5fbc4
+fff5fb08        fff5fbcc
+fff5fb0c        fff5fb30
+fff5fb10               0
+fff5fb14        f7f19000
+fff5fb18               0    FP
+fff5fb1c        f7d50ee5
+fff5fb20        f7f19000
+fff5fb24        f7f19000
+fff5fb28               0
+fff5fb2c        f7d50ee5
+fff5fb30               1    argc
+fff5fb34        fff5fbc4    *argv
+fff5fb38        fff5fbcc    env
+fff5fb3c        fff5fb54
+fff5fb40        f7f19000
+fff5fb44        f7f65000
+fff5fb48        fff5fba8
+fff5fb4c               0
+fff5fb50        f7f65990
+fff5fb54               0
+fff5fb58        f7f19000
+fff5fb5c        f7f19000
+fff5fb60               0
+fff5fb64        4b25c0f6
+fff5fb68         acee6e6
+fff5fb6c               0
+fff5fb70               0
+fff5fb74               0
+fff5fb78               0
+fff5fb7c               0
+fff5fb80               0
+fff5fb84               0
+fff5fb88        f7f4a17d
+fff5fb8c        565aefcc
+fff5fb90               1
+fff5fb94        565ac0a0
+fff5fb98               0
+fff5fb9c        565ac0d5
+fff5fba0        565ac1dd
+fff5fba4               1
+fff5fba8        fff5fbc4
+fff5fbac        565ac5c0
+fff5fbb0        565ac630
+fff5fbb4        f7f4a2d0
+fff5fbb8        fff5fbbc
+fff5fbbc              1c
+fff5fbc0               1
+fff5fbc4        fff612e7
+fff5fbc8               0
+fff5fbcc        fff612ef
+fff5fbd0        fff612ff
+fff5fbd4        fff6135d
+fff5fbd8        fff61370
+fff5fbdc        fff61384
+fff5fbe0        fff613b1
+fff5fbe4        fff613c8
+fff5fbe8        fff613e4
+fff5fbec        fff61410
+fff5fbf0        fff61423
+fff5fbf4        fff61436
+fff5fbf8        fff6146c
+fff5fbfc        fff6148c
+fff5fc00        fff614b5
+fff5fc04        fff614c9
+fff5fc08        fff614e0
+fff5fc0c        fff614f3
+fff5fc10        fff6150f
+fff5fc14        fff6152f
+fff5fc18        fff6154a
+fff5fc1c        fff61558
+fff5fc20        fff6156d
+fff5fc24        fff615a1
+fff5fc28        fff615ca
+fff5fc2c        fff615eb
+exit B
+exit A
+exit main
