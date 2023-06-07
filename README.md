@@ -14,4 +14,4 @@ I probably put the most effort into typesetting these ones:
 
 - [Math 364](<Math 364>) - Linear programming
 - [Math 301](<Math 301>) - Intro to mathematical reasoning
-- [Physics 341](<Phys 341>) / [Physics 342](<Phys 342>) - E&M
+- [Physics 341](<Physics 341>) / [Physics 342](<Physics 342>) - E&M
