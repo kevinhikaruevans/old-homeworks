@@ -1,0 +1,12 @@
+IC = 11154
+hit = 2049
+miss = 167
+right = 1922
+wrong = 127
+taken = 2117
+collision = 6
+wrong_addr = 85
+hit rate = 92.46%
+prediction accuracy = 93.80%
+incorrect address = 66.93%
+
