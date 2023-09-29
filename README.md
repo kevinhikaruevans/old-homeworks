@@ -14,6 +14,7 @@ Some of these solutions are wrong or incomplete, so don't just copy these, but p
 
 I probably put the most effort into typesetting these ones:
 
+- [EE 362](EE362) - Electronics lab
 - [Math 364](<Math 364>) - Linear programming
 - [Math 301](<Math 301>) - Intro to mathematical reasoning
 - [Physics 341](<Physics 341>) / [Physics 342](<Physics 342>) - E&M
