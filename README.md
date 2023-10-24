@@ -5,8 +5,9 @@ This repository contains some old homework solutions that I wrote during my juno
 The stuff in here is mostly:
 
 - TeX
-- C code
 - Verilog/VHDL
+- C (probably the worst I've written)
+- Random generated files
 
 Some of these solutions are wrong or incomplete, so don't just copy these, but perhaps they might give you some guidance if you're stuck! 
 
