@@ -22,3 +22,11 @@ I probably put the most effort into typesetting these ones:
 - [Physics 450](<Physics 450>) - Quantum mechanics
 - [Physics 465](<Physics 465>) - Nuclear physics
 - [Physics 463](<Physics 463>) - Solid state physics
+
+### Lost ones
+I'm certain I wrote these but I don't know where I stuck the files...
+
+- Physics 330
+- Physics 303
+- EE 331
+- Stats 360
